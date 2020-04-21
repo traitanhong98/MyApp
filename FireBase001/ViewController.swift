@@ -17,16 +17,37 @@ class ViewController: UIViewController {
 //        firRef.child("FirstData")
 //        firRef.child("FirstData").setValue(["MyFirstValue":"HelloWorld!"])
         
+        //Đã tạo user xong
+//        Auth.auth().createUser(withEmail: "myfirstemail@gmail.com", password: "abc123") { (result, err) in
+//            if let errCode = err {
+//                print("HelloSenpai: Error here\(errCode)")
+//            } else {
+//                print("HelloSenpai: Success here\(result?.description)")
+//            }
+//        }
         
-        Auth.auth().createUser(withEmail: "myfirstemail@gmail.com", password: "abc123") { (result, err) in
-            if let errCode = err {
-                print("HelloSenpai: Error here\(errCode)")
-            } else {
-                print("HelloSenpai: Success here\(result?.description)")
-            }
-        }
+        //Update user value
+//        let value = ["name": "Hoang nm", "email":"myfirstemail@gmail.com"]
+//        firRef.updateChildValues(value) { (err, ref) in
+//            if let errMess = err {
+//                print("HelloSenpai: Error here\(errMess)")
+//                return
+//            }
+//
+//            print("HelloSenpai:Update Success fully")
+//        }
         
-        
+        //Update user value into a child
+        let userFirRef = firRef.child("users")
+        let value = ["name": "Hoang nm", "email":"myfirstemail@gmail.com"]
+              userFirRef.updateChildValues(value) { (err, ref) in
+                  if let errMess = err {
+                      print("HelloSenpai: Error here\(errMess)")
+                      return
+                  }
+                  
+                  print("HelloSenpai:Update Success fully")
+              }
         // Do any additional setup after loading the view.
     }
 
