@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="Heya" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="bPf-1b-ZHk"/>
+                <outlet property="loadingView" destination="hWW-J9-tvy" id="GWm-uK-ww1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UjI-TG-LwK">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lN5-kv-IMg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hWW-J9-tvy">
+                    <rect key="frame" x="132" y="378" width="150" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="GqS-Bt-8tr"/>
+                        <constraint firstAttribute="height" constant="150" id="oRn-qZ-GeA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="UjI-TG-LwK" secondAttribute="bottom" id="DG5-yl-ETk"/>
+                <constraint firstAttribute="trailing" secondItem="UjI-TG-LwK" secondAttribute="trailing" id="Hwf-IR-l3v"/>
+                <constraint firstAttribute="trailing" secondItem="UjI-TG-LwK" secondAttribute="trailing" id="S9E-Vb-EgO"/>
+                <constraint firstItem="UjI-TG-LwK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="U4P-h3-emd"/>
+                <constraint firstItem="hWW-J9-tvy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="oed-Qb-8LN"/>
+                <constraint firstItem="hWW-J9-tvy" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="rYX-TT-rWZ"/>
+                <constraint firstItem="UjI-TG-LwK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y5m-4t-AuN"/>
+                <constraint firstItem="UjI-TG-LwK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="yxr-ho-Lad"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="84" y="117"/>
+        </view>
+    </objects>
+</document>

@@ -9,6 +9,9 @@ target 'FireBase001' do
     pod 'Firebase/Database'
     pod 'Firebase/Auth'
     pod 'Firebase/Storage'
+    pod "CenteredCollectionView"
+    pod 'lottie-ios'
+    pod 'PureLayout'
   target 'FireBase001UITests' do
     # Pods for testing
   end
