@@ -34,6 +34,13 @@ class TardisButton: UIButton {
                backgroundColor = disableBackgroundColor
            }
        }
+    @IBInspectable var borderWidth: CGFloat = 0 {
+        didSet{
+            if borderWidth > 0 {
+                self.layer.borderWidth = borderWidth
+            }
+        }
+    }
     // MARK: - Style
     func setTitleColor(_ color: UIColor) {
         setTitleColor(color, for: .normal)

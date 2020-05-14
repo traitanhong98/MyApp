@@ -65,11 +65,32 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aFl-Eg-Kaq" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
-                            <rect key="frame" x="60" y="414" width="294" height="30"/>
+                            <rect key="frame" x="60" y="414" width="294" height="40"/>
+                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="d60-vw-EN7"/>
+                            </constraints>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZJ-Fp-mO1" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="60" y="468" width="294" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="PSE-0Q-461"/>
+                            </constraints>
                             <state key="normal" title="Button"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="radius">
                                     <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </button>
@@ -77,10 +98,13 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="yEd-tg-RSs" firstAttribute="top" secondItem="CyL-cX-RMr" secondAttribute="bottom" constant="24" id="2c7-4k-6o0"/>
+                        <constraint firstItem="EZJ-Fp-mO1" firstAttribute="leading" secondItem="TxF-8P-fwg" secondAttribute="leading" constant="60" id="2xs-jK-W6a"/>
+                        <constraint firstItem="EZJ-Fp-mO1" firstAttribute="centerX" secondItem="aFl-Eg-Kaq" secondAttribute="centerX" id="4wR-oX-oGX"/>
                         <constraint firstItem="aFl-Eg-Kaq" firstAttribute="centerX" secondItem="TxF-8P-fwg" secondAttribute="centerX" id="Kra-h1-CqJ"/>
                         <constraint firstItem="CyL-cX-RMr" firstAttribute="leading" secondItem="yEd-tg-RSs" secondAttribute="leading" id="Q55-g8-r22"/>
                         <constraint firstItem="yEd-tg-RSs" firstAttribute="centerX" secondItem="zeM-71-Y5Z" secondAttribute="centerX" id="S2m-YI-8Ed"/>
                         <constraint firstItem="zeM-71-Y5Z" firstAttribute="centerX" secondItem="TxF-8P-fwg" secondAttribute="centerX" id="S7C-dk-neb"/>
+                        <constraint firstItem="EZJ-Fp-mO1" firstAttribute="top" secondItem="aFl-Eg-Kaq" secondAttribute="bottom" constant="14" id="UWT-eG-a0d"/>
                         <constraint firstAttribute="trailing" secondItem="aFl-Eg-Kaq" secondAttribute="trailing" constant="60" id="Vwh-U7-zPo"/>
                         <constraint firstItem="wn1-wx-KcE" firstAttribute="top" secondItem="e59-Xd-8o0" secondAttribute="bottom" constant="26" id="WKK-7V-L6u"/>
                         <constraint firstItem="zeM-71-Y5Z" firstAttribute="top" secondItem="TxF-8P-fwg" secondAttribute="top" constant="70" id="c5Y-Cq-guC"/>
@@ -102,12 +126,22 @@
                             <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VLb-gA-lZU">
+                            <rect key="frame" x="18" y="5" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="VLb-gA-lZU" secondAttribute="height" multiplier="1:1" id="Kom-eH-HWp"/>
+                            </constraints>
+                            <state key="normal" title="Button"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
+                        <constraint firstItem="VLb-gA-lZU" firstAttribute="centerY" secondItem="dsR-qP-YzA" secondAttribute="centerY" id="1Kj-7O-hd9"/>
                         <constraint firstAttribute="height" constant="40" id="4ys-ey-K78"/>
                         <constraint firstItem="5bq-jK-I4S" firstAttribute="centerY" secondItem="dsR-qP-YzA" secondAttribute="centerY" id="7OS-Xz-IT3"/>
+                        <constraint firstItem="VLb-gA-lZU" firstAttribute="leading" secondItem="dsR-qP-YzA" secondAttribute="leading" constant="18" id="9jX-UE-cDK"/>
                         <constraint firstItem="5bq-jK-I4S" firstAttribute="centerX" secondItem="dsR-qP-YzA" secondAttribute="centerX" id="SMF-Ka-phM"/>
+                        <constraint firstItem="VLb-gA-lZU" firstAttribute="top" secondItem="dsR-qP-YzA" secondAttribute="top" constant="5" id="dRo-2k-07e"/>
                     </constraints>
                 </view>
             </subviews>

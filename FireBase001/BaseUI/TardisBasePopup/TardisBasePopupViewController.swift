@@ -12,12 +12,12 @@ import PureLayout
 //@objc
 
 @IBDesignable
-@objc class TardisNewBasePopupViewController: MVModalBasePopupViewController {
+@objc class TardisNewBasePopupViewController: TardisModalBasePopupViewController {
     private var containerView: UIView?
     private var contentView: UIView?
     private var initialTouchPoint: CGPoint! = CGPoint.zero
     private var centerPoint: CGPoint!
-    private var dismissAnimator: MVDismissAnimator?
+    private var dismissAnimator: TardisDismissAnimator?
     @objc public var closed: (() -> Void)?
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -58,7 +58,7 @@ import PureLayout
             swipeDownGesture.cancelsTouchesInView = true
             interactView.addGestureRecognizer(swipeDownGesture)
         }
-        self.dismissAnimator = MVDismissAnimator()
+        self.dismissAnimator = TardisDismissAnimator()
         self.dismissAnimator?.dismissed = {
             self.closed?()
             UIView.animate(withDuration: 0.2, animations: {
@@ -73,7 +73,7 @@ import PureLayout
     @objc public func show(onViewController presentVC: UIViewController?) {
         DispatchQueue.main.async {
             self.modalPresentationStyle = .overFullScreen
-            self.interactor = MVInteractor()
+            self.interactor = TardisInteractor()
             self.addDimBackground(presentVC?.view)
             presentVC?.present(self, animated: true, completion: {
                 self.transitioningDelegate = self
@@ -108,7 +108,7 @@ import PureLayout
     
 }
 
-extension MVNewBasePopupViewController: UIViewControllerTransitioningDelegate {
+extension TardisNewBasePopupViewController: UIViewControllerTransitioningDelegate {
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return self.dismissAnimator
     }

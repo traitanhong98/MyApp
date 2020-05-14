@@ -19,7 +19,7 @@ class TardisTextField: UITextField {
     @IBInspectable
     var borderColor: UIColor = UIColor.blue {
         didSet{
-            self.layer.borderColor = borderColor
+            self.layer.borderColor = borderColor.cgColor
         }
     }
 }

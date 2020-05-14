@@ -12,8 +12,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Connect to FirebaseDatabase
-        let firRef = Database.database().reference(fromURL: "https://fir-001app.firebaseio.com/")
+//        //Connect to FirebaseDatabase
+//        let firRef = Database.database().reference(fromURL: "https://fir-001app.firebaseio.com/")
 //        firRef.child("FirstData")
 //        firRef.child("FirstData").setValue(["MyFirstValue":"HelloWorld!"])
         
@@ -38,17 +38,17 @@ class ViewController: UIViewController {
 //        }
         
         //Update user value into a child
-        let userFirRef = firRef.child("users")
-        let value = ["name": "Hoang nm", "email":"myfirstemail@gmail.com"]
-              userFirRef.updateChildValues(value) { (err, ref) in
-                  if let errMess = err {
-                      print("HelloSenpai: Error here\(errMess)")
-                      return
-                  }
-                  
-                  print("HelloSenpai:Update Success fully")
-              }
-        // Do any additional setup after loading the view.
+//        let userFirRef = firRef.child("users")
+//        let value = ["name": "Hoang nm", "email":"myfirstemail@gmail.com"]
+//              userFirRef.updateChildValues(value) { (err, ref) in
+//                  if let errMess = err {
+//                      print("HelloSenpai: Error here\(errMess)")
+//                      return
+//                  }
+//
+//                  print("HelloSenpai:Update Success fully")
+//              }
+//        // Do any additional setup after loading the view.
     }
 
 
