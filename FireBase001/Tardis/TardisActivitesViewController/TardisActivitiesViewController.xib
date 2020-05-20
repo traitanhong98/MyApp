@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisActivitiesViewController" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="8gw-jH-8xt" id="SgF-Pr-qfA"/>
+                <outlet property="leftOfWeekdayFooter" destination="7R7-Yi-RHz" id="8Ge-W9-8ec"/>
+                <outlet property="tardisWeekdayButtonFooterView" destination="7Sv-dp-wYf" id="G9j-mT-X3N"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="weekdayButtonCollectionView" destination="JSJ-e4-7aI" id="UKr-E2-nuP"/>
+                <outlet property="weekdayCollectionView" destination="kjo-gG-c4Z" id="Jup-Ae-E6y"/>
+                <outlet property="widthOfWeekdayFooter" destination="1rL-Oh-45a" id="5pP-4l-4Ae"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Earth" translatesAutoresizingMaskIntoConstraints="NO" id="6Hx-da-bDq" customClass="TardisImageView" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="414" height="380"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="380" id="XJe-MH-WRo"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gw-jH-8xt" userLabel="ContentView" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="84" width="414" height="778"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqJ-DS-nUd" userLabel="WeeklyCellView" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kjo-gG-c4Z" customClass="CenteredCollectionViewFlowLayout" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <collectionViewLayout key="collectionViewLayout" id="fyX-dc-hrZ" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
+                                </collectionView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="kjo-gG-c4Z" firstAttribute="top" secondItem="RqJ-DS-nUd" secondAttribute="top" id="Yvg-oQ-ep4"/>
+                                <constraint firstAttribute="bottom" secondItem="kjo-gG-c4Z" secondAttribute="bottom" id="aSb-pf-gBp"/>
+                                <constraint firstAttribute="trailing" secondItem="kjo-gG-c4Z" secondAttribute="trailing" id="cEe-d9-ZIs"/>
+                                <constraint firstItem="kjo-gG-c4Z" firstAttribute="leading" secondItem="RqJ-DS-nUd" secondAttribute="leading" id="tYu-Y5-28z"/>
+                            </constraints>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bci-kl-ccp" userLabel="WeeklyButtonView" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="718" width="414" height="60"/>
+                            <subviews>
+                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JSJ-e4-7aI" customClass="CenteredCollectionViewFlowLayout" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="16" y="0.0" width="382" height="60"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vYg-Ow-NZk">
+                                        <size key="itemSize" width="50" height="50"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                </collectionView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sv-dp-wYf" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="8" y="54" width="240" height="6"/>
+                                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="240" id="1rL-Oh-45a"/>
+                                        <constraint firstAttribute="height" constant="6" id="EXK-vf-smb"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="JSJ-e4-7aI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bci-kl-ccp" secondAttribute="leading" id="7R7-Yi-RHz"/>
+                                <constraint firstItem="7Sv-dp-wYf" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="8" id="9Zc-rA-vkX"/>
+                                <constraint firstAttribute="bottom" secondItem="JSJ-e4-7aI" secondAttribute="bottom" id="EQO-EC-Ls5"/>
+                                <constraint firstItem="JSJ-e4-7aI" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" id="J8O-Gx-frV"/>
+                                <constraint firstAttribute="trailing" secondItem="JSJ-e4-7aI" secondAttribute="trailing" constant="16" id="Nq3-va-uue"/>
+                                <constraint firstAttribute="bottom" secondItem="7Sv-dp-wYf" secondAttribute="bottom" id="i7L-xe-xTH"/>
+                                <constraint firstAttribute="height" constant="60" id="lWF-Gt-hJb"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="RqJ-DS-nUd" secondAttribute="trailing" id="Cgg-8L-c9i"/>
+                        <constraint firstAttribute="bottom" secondItem="bci-kl-ccp" secondAttribute="bottom" id="ChH-oI-yCq"/>
+                        <constraint firstItem="bci-kl-ccp" firstAttribute="top" secondItem="RqJ-DS-nUd" secondAttribute="bottom" id="DXL-ic-rgi"/>
+                        <constraint firstItem="bci-kl-ccp" firstAttribute="leading" secondItem="8gw-jH-8xt" secondAttribute="leading" id="UN9-zG-FtI"/>
+                        <constraint firstItem="RqJ-DS-nUd" firstAttribute="leading" secondItem="8gw-jH-8xt" secondAttribute="leading" id="VJQ-xw-XuN"/>
+                        <constraint firstItem="RqJ-DS-nUd" firstAttribute="top" secondItem="8gw-jH-8xt" secondAttribute="top" id="X4O-TR-mPu"/>
+                        <constraint firstAttribute="trailing" secondItem="bci-kl-ccp" secondAttribute="trailing" id="ozv-pE-rjJ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activities" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uba-CV-TWp">
+                    <rect key="frame" x="157.5" y="55" width="99" height="29.5"/>
+                    <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="24"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6Hx-da-bDq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4PR-da-NOv"/>
+                <constraint firstItem="uba-CV-TWp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Bem-FF-S6L"/>
+                <constraint firstItem="8gw-jH-8xt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="LOE-5G-W7b"/>
+                <constraint firstItem="8gw-jH-8xt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NMW-L6-sfB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8gw-jH-8xt" secondAttribute="bottom" id="OdQ-al-sTy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8gw-jH-8xt" secondAttribute="trailing" id="ZpM-mX-r18"/>
+                <constraint firstItem="uba-CV-TWp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="11" id="a0C-uo-7wA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Hx-da-bDq" secondAttribute="trailing" id="bjm-DQ-gzk"/>
+                <constraint firstItem="6Hx-da-bDq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fMx-BY-Cjb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Earth" width="640" height="597"/>
+    </resources>
+</document>
