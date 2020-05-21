@@ -13,11 +13,13 @@ protocol TardisWeekdayButtonCollectionViewCellDelegate {
 class TardisWeekdayButtonCollectionViewCell: UICollectionViewCell {
     //MARK:- Outlet
     @IBOutlet weak var weekdayLabel: UILabel!
+    @IBOutlet weak var borderView: TardisView!
     //MARK:- Propeties
     var delegate: TardisWeekdayButtonCollectionViewCellDelegate? = nil
     //MARK:- Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        setupUI()
     }
     
     //MARK:- Func
@@ -25,7 +27,8 @@ class TardisWeekdayButtonCollectionViewCell: UICollectionViewCell {
         weekdayLabel.text = weekDay.rawValue
         weekdayLabel.textColor = Weekday.getWeekColor(weekday: weekDay)
     }
-    //MARK:- Outlet
+    func setupUI(){
+    }
     //MARK:- Delegate method
 
 }

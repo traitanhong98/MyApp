@@ -12,6 +12,7 @@ target 'FireBase001' do
     pod "CenteredCollectionView"
     pod 'lottie-ios'
     pod 'PureLayout'
+    pod 'ObjectMapper', '3.3' 
   target 'FireBase001UITests' do
     # Pods for testing
   end

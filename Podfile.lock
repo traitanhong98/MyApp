@@ -64,6 +64,7 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - ObjectMapper (3.3.0)
   - PureLayout (3.1.6)
 
 DEPENDENCIES:
@@ -72,6 +73,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - lottie-ios
+  - ObjectMapper (= 3.3)
   - PureLayout
 
 SPEC REPOS:
@@ -92,6 +94,7 @@ SPEC REPOS:
     - leveldb-library
     - lottie-ios
     - nanopb
+    - ObjectMapper
     - PureLayout
 
 SPEC CHECKSUMS:
@@ -111,8 +114,9 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
 
-PODFILE CHECKSUM: 17f327c342d1b939e643c5392d0aab11e4482177
+PODFILE CHECKSUM: 34497d72333e88df430322beb5bbb31c71be3039
 
 COCOAPODS: 1.9.1

@@ -59,6 +59,7 @@
 		20B04FFC246EE0DE00A7BFBA /* TardisSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20B04FFA246EE0DE00A7BFBA /* TardisSettingViewController.xib */; };
 		20B04FFF246EE2C400A7BFBA /* TardisThreadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B04FFD246EE2C400A7BFBA /* TardisThreadViewController.swift */; };
 		20B05000246EE2C400A7BFBA /* TardisThreadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20B04FFE246EE2C400A7BFBA /* TardisThreadViewController.xib */; };
+		20BA203324765A1B001D3BB2 /* TardisActivitiesObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BA203224765A1B001D3BB2 /* TardisActivitiesObject.swift */; };
 		20BEFC1E246D875E008908B6 /* TardisRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEFC1C246D875E008908B6 /* TardisRootViewController.swift */; };
 		20BEFC1F246D875E008908B6 /* TardisRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20BEFC1D246D875E008908B6 /* TardisRootViewController.xib */; };
 		20BEFC21246D8FEF008908B6 /* CommonFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEFC20246D8FEF008908B6 /* CommonFunction.swift */; };
@@ -133,6 +134,7 @@
 		20B04FFA246EE0DE00A7BFBA /* TardisSettingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisSettingViewController.xib; sourceTree = "<group>"; };
 		20B04FFD246EE2C400A7BFBA /* TardisThreadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisThreadViewController.swift; sourceTree = "<group>"; };
 		20B04FFE246EE2C400A7BFBA /* TardisThreadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisThreadViewController.xib; sourceTree = "<group>"; };
+		20BA203224765A1B001D3BB2 /* TardisActivitiesObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisActivitiesObject.swift; sourceTree = "<group>"; };
 		20BEFC1C246D875E008908B6 /* TardisRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisRootViewController.swift; sourceTree = "<group>"; };
 		20BEFC1D246D875E008908B6 /* TardisRootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisRootViewController.xib; sourceTree = "<group>"; };
 		20BEFC20246D8FEF008908B6 /* CommonFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunction.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 		2012520424699C9400706C9D /* TardisActivitiesObjectModel */ = {
 			isa = PBXGroup;
 			children = (
+				20BA203224765A1B001D3BB2 /* TardisActivitiesObject.swift */,
 			);
 			path = TardisActivitiesObjectModel;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				2012522024699FFB00706C9D /* UIViewExtension.swift in Sources */,
 				20B04FFB246EE0DE00A7BFBA /* TardisSettingViewController.swift in Sources */,
 				201252272469A10700706C9D /* AppUtils.swift in Sources */,
+				20BA203324765A1B001D3BB2 /* TardisActivitiesObject.swift in Sources */,
 				2012521924699EFE00706C9D /* ButtonExtension.swift in Sources */,
 				201252352469A14600706C9D /* BaseViewController.swift in Sources */,
 				20B04FF7246EE0CF00A7BFBA /* TardisAddonViewController.swift in Sources */,

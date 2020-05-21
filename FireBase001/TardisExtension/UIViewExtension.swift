@@ -37,7 +37,12 @@ extension UIView{
     @IBInspectable var borderWidth: CGFloat = 0.0 {
         didSet {
             self.layer.borderWidth = borderWidth
-            self.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
+    @IBInspectable var borderColor: CGColor = UIColor.clear.cgColor {
+        didSet {
+            self.layer.borderColor = borderColor
         }
     }
     
