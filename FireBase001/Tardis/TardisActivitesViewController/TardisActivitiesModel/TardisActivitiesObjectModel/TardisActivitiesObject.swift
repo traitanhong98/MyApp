@@ -29,5 +29,14 @@ class TardisActivity: Mappable {
         location        <- map["location"]
         loopDay         <- map["loop_day"]
     }
+    
+    convenience init(activityName: String,startTime:Float,endTime:Float,note:String,location:String) {
+        self.init()
+        self.activityName = activityName
+        self.startTime = startTime
+        self.endTime = endTime
+        self.note = note
+        self.location = location
+    }
 }
 

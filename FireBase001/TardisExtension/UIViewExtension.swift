@@ -40,9 +40,9 @@ extension UIView{
         }
     }
     
-    @IBInspectable var borderColor: CGColor = UIColor.clear.cgColor {
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
-            self.layer.borderColor = borderColor
+            self.layer.borderColor = borderColor.cgColor
         }
     }
     
