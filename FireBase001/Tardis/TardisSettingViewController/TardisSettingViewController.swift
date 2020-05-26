@@ -9,22 +9,62 @@
 import UIKit
 
 class TardisSettingViewController: BaseTabViewController {
-
+    // MARK: - IBOutlet
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var settingTableView: UITableView!
+    // MARK: - Propeties
+    
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        registerTable()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Func
+    func registerTable(){
+        settingTableView.register(UINib(nibName: "TardisUserInfoTableViewCell", bundle: nil), forCellReuseIdentifier: "TardisUserInfoTableViewCell")
+        settingTableView.register(UINib(nibName: "TardisSettingTableViewCell", bundle: nil), forCellReuseIdentifier: "TardisSettingTableViewCell")
+        initLayoutForTableView(settingTableView)
+        settingTableView.separatorStyle = .none
     }
-    */
+    
+    func initLayoutForTableView(_ tableView: UITableView){
+        tableView.decelerationRate = .fast
+        tableView.delegate = self
+        tableView.dataSource = self
+     }
+    
 
+}
+// MARK: - TableViewDelegate
+extension TardisSettingViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Setting.allSetting.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            if let cell =  tableView.dequeueReusableCell(withIdentifier: "TardisUserInfoTableViewCell", for: indexPath) as? TardisSettingTableViewCell {
+                return cell
+            }
+        } else {
+            if let cell =  tableView.dequeueReusableCell(withIdentifier: "TardisSettingTableViewCell", for: indexPath) as? TardisSettingTableViewCell {
+                cell.bindData(setting: Setting.getSetting(index: indexPath.row))
+                return cell
+            }
+        }
+        return UITableViewCell()
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 100
+        }
+        return 40
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0
+    }
 }

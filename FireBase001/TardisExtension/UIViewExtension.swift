@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+// MARK: - UIView
 extension UIView{
     func setRadius(_ radius: CGFloat = NORMAL_RADIUS) {
         self.layer.cornerRadius = radius
@@ -148,7 +149,7 @@ extension UIView {
     }
 }
 
-
+// MARK: - UIImageView
 @IBDesignable
 @objc public class TardisImageView: UIImageView {
     @IBInspectable var cornerRadius: CGFloat = 0.0 {

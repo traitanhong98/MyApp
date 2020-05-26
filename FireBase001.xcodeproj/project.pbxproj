@@ -20,7 +20,7 @@
 		2012522D2469A11B00706C9D /* ColorsConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201252292469A11B00706C9D /* ColorsConst.swift */; };
 		2012522E2469A11B00706C9D /* NumbersConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012522A2469A11B00706C9D /* NumbersConst.swift */; };
 		2012522F2469A11B00706C9D /* VCNameConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012522B2469A11B00706C9D /* VCNameConst.swift */; };
-		201252302469A11B00706C9D /* StringsConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012522C2469A11B00706C9D /* StringsConst.swift */; };
+		201252302469A11B00706C9D /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012522C2469A11B00706C9D /* Enum.swift */; };
 		201252352469A14600706C9D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201252332469A14600706C9D /* BaseViewController.swift */; };
 		201252362469A14600706C9D /* BaseTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201252342469A14600706C9D /* BaseTabViewController.swift */; };
 		2012523B2469A15100706C9D /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201252372469A15100706C9D /* LoadingView.xib */; };
@@ -51,6 +51,10 @@
 		2059606D246EEE5A00D4D549 /* TardisWeekdayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059606B246EEE5A00D4D549 /* TardisWeekdayCollectionViewCell.swift */; };
 		20596071246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2059606F246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.swift */; };
 		20596072246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20596070246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.xib */; };
+		208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AFF88247D5D5400363260 /* TardisSettingTableViewCell.swift */; };
+		208AFF8B247D5D5400363260 /* TardisSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208AFF89247D5D5400363260 /* TardisSettingTableViewCell.xib */; };
+		208AFF8E247D60CA00363260 /* TardisUserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AFF8C247D60CA00363260 /* TardisUserInfoTableViewCell.swift */; };
+		208AFF8F247D60CA00363260 /* TardisUserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208AFF8D247D60CA00363260 /* TardisUserInfoTableViewCell.xib */; };
 		20B04FEF246EE0B000A7BFBA /* TardisActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B04FED246EE0B000A7BFBA /* TardisActivitiesViewController.swift */; };
 		20B04FF0246EE0B000A7BFBA /* TardisActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20B04FEE246EE0B000A7BFBA /* TardisActivitiesViewController.xib */; };
 		20B04FF3246EE0BE00A7BFBA /* TardisChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B04FF1246EE0BE00A7BFBA /* TardisChatViewController.swift */; };
@@ -93,7 +97,7 @@
 		201252292469A11B00706C9D /* ColorsConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsConst.swift; sourceTree = "<group>"; };
 		2012522A2469A11B00706C9D /* NumbersConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumbersConst.swift; sourceTree = "<group>"; };
 		2012522B2469A11B00706C9D /* VCNameConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCNameConst.swift; sourceTree = "<group>"; };
-		2012522C2469A11B00706C9D /* StringsConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringsConst.swift; sourceTree = "<group>"; };
+		2012522C2469A11B00706C9D /* Enum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
 		201252332469A14600706C9D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		201252342469A14600706C9D /* BaseTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabViewController.swift; sourceTree = "<group>"; };
 		201252372469A15100706C9D /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
@@ -128,6 +132,10 @@
 		2059606B246EEE5A00D4D549 /* TardisWeekdayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisWeekdayCollectionViewCell.swift; sourceTree = "<group>"; };
 		2059606F246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisWeekdayButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		20596070246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisWeekdayButtonCollectionViewCell.xib; sourceTree = "<group>"; };
+		208AFF88247D5D5400363260 /* TardisSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisSettingTableViewCell.swift; sourceTree = "<group>"; };
+		208AFF89247D5D5400363260 /* TardisSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisSettingTableViewCell.xib; sourceTree = "<group>"; };
+		208AFF8C247D60CA00363260 /* TardisUserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisUserInfoTableViewCell.swift; sourceTree = "<group>"; };
+		208AFF8D247D60CA00363260 /* TardisUserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisUserInfoTableViewCell.xib; sourceTree = "<group>"; };
 		20B04FED246EE0B000A7BFBA /* TardisActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisActivitiesViewController.swift; sourceTree = "<group>"; };
 		20B04FEE246EE0B000A7BFBA /* TardisActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisActivitiesViewController.xib; sourceTree = "<group>"; };
 		20B04FF1246EE0BE00A7BFBA /* TardisChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisChatViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 		201251FC24699C2D00706C9D /* TardisSettingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				208AFF87247D5D1E00363260 /* TardisSettingTableViewCell */,
 				201251FD24699C3B00706C9D /* TardisSettingModel */,
 				20B04FF9246EE0DE00A7BFBA /* TardisSettingViewController.swift */,
 				20B04FFA246EE0DE00A7BFBA /* TardisSettingViewController.xib */,
@@ -394,7 +403,7 @@
 				201252312469A12C00706C9D /* ViewControllers */,
 				201252292469A11B00706C9D /* ColorsConst.swift */,
 				2012522A2469A11B00706C9D /* NumbersConst.swift */,
-				2012522C2469A11B00706C9D /* StringsConst.swift */,
+				2012522C2469A11B00706C9D /* Enum.swift */,
 				2012522B2469A11B00706C9D /* VCNameConst.swift */,
 			);
 			path = Constants;
@@ -520,6 +529,17 @@
 			path = TardisActivitiesCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		208AFF87247D5D1E00363260 /* TardisSettingTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				208AFF88247D5D5400363260 /* TardisSettingTableViewCell.swift */,
+				208AFF89247D5D5400363260 /* TardisSettingTableViewCell.xib */,
+				208AFF8C247D60CA00363260 /* TardisUserInfoTableViewCell.swift */,
+				208AFF8D247D60CA00363260 /* TardisUserInfoTableViewCell.xib */,
+			);
+			path = TardisSettingTableViewCell;
+			sourceTree = "<group>";
+		};
 		3F318DE9D617747E2FDFCD3B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -635,10 +655,12 @@
 				2012524A2469A26200706C9D /* Images.xcassets in Resources */,
 				2012523B2469A15100706C9D /* LoadingView.xib in Resources */,
 				201252472469A24C00706C9D /* 1301-round-cap-material-loading.json in Resources */,
+				208AFF8B247D5D5400363260 /* TardisSettingTableViewCell.xib in Resources */,
 				20596072246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.xib in Resources */,
 				20B05000246EE2C400A7BFBA /* TardisThreadViewController.xib in Resources */,
 				2046F279247ABC0A006D7C84 /* TardisWeekdayCollectionViewCell.xib in Resources */,
 				20B04FF8246EE0CF00A7BFBA /* TardisAddonViewController.xib in Resources */,
+				208AFF8F247D60CA00363260 /* TardisUserInfoTableViewCell.xib in Resources */,
 				201274B6244EDD90004BCE4E /* Main.storyboard in Resources */,
 				20B04FF4246EE0BE00A7BFBA /* TardisChatViewController.xib in Resources */,
 				2046F275247AB8DE006D7C84 /* TardisActivityCollectionViewCell.xib in Resources */,
@@ -751,10 +773,12 @@
 				20BA203324765A1B001D3BB2 /* TardisActivitiesObject.swift in Sources */,
 				2012521924699EFE00706C9D /* ButtonExtension.swift in Sources */,
 				201252352469A14600706C9D /* BaseViewController.swift in Sources */,
+				208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */,
 				20B04FF7246EE0CF00A7BFBA /* TardisAddonViewController.swift in Sources */,
 				2012521324699E2B00706C9D /* TardisLoginObjectModel.swift in Sources */,
 				2012522E2469A11B00706C9D /* NumbersConst.swift in Sources */,
 				20596071246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.swift in Sources */,
+				208AFF8E247D60CA00363260 /* TardisUserInfoTableViewCell.swift in Sources */,
 				2012520F24699E0D00706C9D /* TardisLoginViewController.swift in Sources */,
 				20B04FEF246EE0B000A7BFBA /* TardisActivitiesViewController.swift in Sources */,
 				2046F27D247AC36C006D7C84 /* UICollectionViewExtentiosn.swift in Sources */,
@@ -767,7 +791,7 @@
 				201252542469AF5300706C9D /* TardisBasePopupViewController.swift in Sources */,
 				2012523C2469A15100706C9D /* LoadingView.swift in Sources */,
 				200FD8802465472700189AD9 /* TardisLoadingView.swift in Sources */,
-				201252302469A11B00706C9D /* StringsConst.swift in Sources */,
+				201252302469A11B00706C9D /* Enum.swift in Sources */,
 				201252552469AF5300706C9D /* TardisDismissAnimator.swift in Sources */,
 				201252522469AF5300706C9D /* TardisModalBasePopupViewController.swift in Sources */,
 				201252362469A14600706C9D /* BaseTabViewController.swift in Sources */,

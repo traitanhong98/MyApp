@@ -33,7 +33,7 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     
     func bindData(weekDay: Weekday) {
         weekdayLabel.text = weekDay.rawValue
-        weekdayLabel.textColor = Weekday.getWeekColor(weekday: weekDay)
+        weekdayLabel.textColor = weekDay.weekColor
     }
     //Collectionview
     func registerCell() {

@@ -25,7 +25,7 @@ class TardisWeekdayButtonCollectionViewCell: UICollectionViewCell {
     //MARK:- Func
     func bindData(weekDay: Weekday) {
         weekdayLabel.text = weekDay.rawValue
-        weekdayLabel.textColor = Weekday.getWeekColor(weekday: weekDay)
+        weekdayLabel.textColor = weekDay.weekColor
     }
     func setupUI(){
     }

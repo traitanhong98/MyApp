@@ -41,8 +41,8 @@ enum Weekday:String {
         }
     }
     
-    static func getWeekColor(weekday: Weekday)-> UIColor{
-        switch weekday {
+    var weekColor: UIColor{
+        switch self {
         case .Sun:
             return UIColor.yellow
         case .Mon:
@@ -66,4 +66,48 @@ enum Weekday:String {
 enum Month:Int {
     case Jan = 0 ,Feb, Mar, Apr, May, Jun,
     Jul, Aug, Sep, Oct, Nov, Dec
+}
+enum Setting:String {
+    case userBlock      = "Người dùng"
+    case userInfo       = "Thông tin cá nhân"
+    case commonSetting  = "Cài đặt chung"
+    case appInfo        = "Thông tin ứng dụng"
+    case devInfo        = "Giới thiệu nhà phát triển"
+    case err            = "err"
+    
+    static let allSetting = [userBlock, userInfo, commonSetting, appInfo, devInfo]
+    
+    static func getSetting(index: Int)-> Setting {
+        switch index {
+        case 0:
+            return userBlock
+        case 1:
+            return userInfo
+        case 2:
+            return commonSetting
+        case 3:
+            return appInfo
+        case 4:
+            return devInfo
+        default:
+            return err
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .userBlock:
+            return UIImage()
+        case .userInfo:
+            return UIImage(named: "person.crop.circle.fill") ?? UIImage()
+        case .commonSetting:
+            return UIImage(named: "ic_setting_25") ?? UIImage()
+        case .appInfo:
+            return UIImage(named: "info") ?? UIImage()
+        case .devInfo:
+            return UIImage(named: "star.circle") ?? UIImage()
+        default:
+            return UIImage()
+        }
+    }
 }
