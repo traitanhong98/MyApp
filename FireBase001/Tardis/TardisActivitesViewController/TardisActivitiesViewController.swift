@@ -122,6 +122,11 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
             print("NotFound")
         }
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if cell is TardisWeekdayCollectionViewCell {
+//            weekdayCell.scrollToFirst()
+        }
+    }
 }
 //MARK:- UIScrollView
 extension TardisActivitiesViewController {

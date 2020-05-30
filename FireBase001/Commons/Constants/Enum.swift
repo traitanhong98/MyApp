@@ -22,7 +22,7 @@ enum Weekday:String {
     
     static func getWeekday(index: Int)-> Weekday {
         switch index {
-        case 0:
+        case 0,7:
             return Sun
         case 1:
             return Mon
@@ -34,7 +34,7 @@ enum Weekday:String {
             return Thu
         case 5:
             return Fri
-        case 6:
+        case 6,-1:
             return Sat
         default:
             return Err

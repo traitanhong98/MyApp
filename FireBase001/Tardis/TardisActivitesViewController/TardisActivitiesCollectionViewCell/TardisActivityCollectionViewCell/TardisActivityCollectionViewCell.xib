@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.22238869863013699" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="2sA-Q0-jYa" secondAttribute="trailing" id="AuX-7l-6sD"/>
                             <constraint firstItem="7Pq-ql-nRk" firstAttribute="top" secondItem="Hbh-wG-ZNF" secondAttribute="top" constant="38" id="FJ9-bR-spc"/>
@@ -74,6 +74,12 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="324" height="268"/>
+            <connections>
+                <outlet property="containerView" destination="Hbh-wG-ZNF" id="Ibv-cm-JUV"/>
+                <outlet property="descriptionLabel" destination="7Pq-ql-nRk" id="s30-Ye-kPm"/>
+                <outlet property="headerView" destination="2sA-Q0-jYa" id="R4C-fD-9D9"/>
+                <outlet property="titleLabel" destination="0ke-bN-lTB" id="HWl-kr-m4Q"/>
+            </connections>
             <point key="canvasLocation" x="28.985507246376812" y="35.491071428571423"/>
         </collectionViewCell>
     </objects>

@@ -68,4 +68,43 @@ class CommonFunction {
 
         return image
     }
+    
+    static func makeTimeStringFromFloat(time: Float) -> String {
+        let hour = Int(time / 100)
+        let minute = Int(time - Float(hour * 100))
+        if minute == 0 {
+            return "\(hour):00"
+        }
+        return "\(hour):\(minute)"
+    }
+    //Date-Time
+    static func getCurrentDay() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyy"
+        let result = formatter.string(from: date)
+        return result
+    }
+    static func getCurrenTime() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        let result = formatter.string(from: date)
+        return result
+    }
+    static func getCurrenFloatTime() -> Float {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HHmm"
+        let result = formatter.string(from: date)
+        let floatResult = Float(result) ?? 0
+        return floatResult
+    }
+    static func getCurrentDayOfWeek() -> String {
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEE"
+        let result = formatter.string(from: date)
+        return result
+    }
 }
