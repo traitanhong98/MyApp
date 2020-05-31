@@ -21,13 +21,23 @@ class TardisActivitiesViewController: BaseTabViewController {
     var centeredWeekdayCollectionView: CenteredCollectionViewFlowLayout! = nil
     var sizeOfWeekdayButton: Float = 0
     var originPosXofFooter: CGFloat = 0
+    var weekActivities = [[TardisActivity]]()
+    var sizeRatio:Float = 1 {
+        didSet {
+            weekdayCollectionView.reloadData()
+        }
+    }
     //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        exampleData()
+        
+        
     }
     override func viewDidAppear(_ animated: Bool) {
-        registerCell()
         setupView()
+        registerCell()
     }
     //MARK: -Func
     func registerCell() {
@@ -45,10 +55,11 @@ class TardisActivitiesViewController: BaseTabViewController {
         weekdayCollectionView.register(UINib(nibName: "TardisWeekdayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TardisWeekdayCollectionViewCell")
         self.centeredWeekdayCollectionView = weekdayCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
         centeredWeekdayCollectionView.minimumLineSpacing = 10
-        centeredWeekdayCollectionView.itemSize = CGSize(
-            width: weekdayCollectionView.frame.width - 80,
-            height: weekdayCollectionView.frame.height - 2
-        )
+        let width = Float(weekdayCollectionView.frame.width - 80)
+        let height = Float(weekdayCollectionView.frame.height - 2)
+        centeredWeekdayCollectionView.itemSize = CommonFunction.getSizeWithRatio(width: width,
+                                                                                 height: height,
+                                                                                 ratio: sizeRatio)
         initLayoutForCollectionView(weekdayCollectionView)
     }
     
@@ -96,7 +107,7 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
         switch collectionView {
         case weekdayCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisWeekdayCollectionViewCell", for: indexPath) as? TardisWeekdayCollectionViewCell {
-                cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.row))
+                cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.row), sizeRatio: sizeRatio, activities: weekActivities[indexPath.row])
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -120,11 +131,6 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
             weekdayCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         default:
             print("NotFound")
-        }
-    }
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if cell is TardisWeekdayCollectionViewCell {
-//            weekdayCell.scrollToFirst()
         }
     }
 }
@@ -166,3 +172,107 @@ extension TardisActivitiesViewController {
     }
 }
 
+//Sample Data
+extension TardisActivitiesViewController {
+    func exampleData()  {
+        //Sun
+        let activity01 = TardisActivity(activityName: "Ăn sáng", startTime: 630, endTime: 700, note: "Ăn sáng", location: "Sun")
+        let activity02 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity03 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity04 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity05 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity0 = [TardisActivity]()
+        activity0.append(activity01)
+        activity0.append(activity02)
+        activity0.append(activity03)
+        activity0.append(activity04)
+        activity0.append(activity05)
+        weekActivities.append(activity0)
+        //Mon
+        let activity11 = TardisActivity(activityName: "Ăn sáng", startTime: 600, endTime: 700, note: "Ăn sáng", location: "Mon")
+        let activity12 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity13 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity14 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity15 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity1 = [TardisActivity]()
+        activity1.append(activity11)
+        activity1.append(activity12)
+        activity1.append(activity13)
+        activity1.append(activity14)
+        activity1.append(activity15)
+        weekActivities.append(activity1)
+        //Tue
+        let activity21 = TardisActivity(activityName: "Ăn sáng", startTime: 660, endTime: 700, note: "Ăn sáng", location: "Tue")
+        let activity22 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity23 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity24 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity25 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity2 = [TardisActivity]()
+        activity2.append(activity21)
+        activity2.append(activity22)
+        activity2.append(activity23)
+        activity2.append(activity24)
+        activity2.append(activity25)
+        weekActivities.append(activity2)
+        //Web
+        let activity31 = TardisActivity(activityName: "Ăn sáng", startTime: 650, endTime: 700, note: "Ăn sáng", location: "Web")
+        let activity32 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity33 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity34 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity35 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity3 = [TardisActivity]()
+        activity3.append(activity31)
+        activity3.append(activity32)
+        activity3.append(activity33)
+        activity3.append(activity34)
+        activity3.append(activity35)
+        weekActivities.append(activity3)
+        //Thus
+        let activity41 = TardisActivity(activityName: "Ăn sáng", startTime: 530, endTime: 700, note: "Ăn sáng", location: "Thus")
+        let activity42 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity43 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity44 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity45 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity4 = [TardisActivity]()
+        activity4.append(activity41)
+        activity4.append(activity42)
+        activity4.append(activity43)
+        activity4.append(activity44)
+        activity4.append(activity45)
+        weekActivities.append(activity4)
+        //Fri
+        let activity51 = TardisActivity(activityName: "Ăn sáng", startTime: 600, endTime: 700, note: "Ăn sáng", location: "Fri")
+        let activity52 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity53 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity54 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity55 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity5 = [TardisActivity]()
+        activity5.append(activity51)
+        activity5.append(activity52)
+        activity5.append(activity53)
+        activity5.append(activity54)
+        activity5.append(activity55)
+        weekActivities.append(activity5)
+        //Sat
+        let activity61 = TardisActivity(activityName: "Ăn sáng", startTime: 500, endTime: 700, note: "Ăn sáng", location: "Sat")
+        let activity62 = TardisActivity(activityName: "Đi học", startTime: 715, endTime: 1100, note: "Ăn sáng", location: "")
+        let activity63 = TardisActivity(activityName: "Nấu cơm", startTime: 1130, endTime: 1200, note: "Ăn sáng", location: "")
+        let activity64 = TardisActivity(activityName: "Làm bếp", startTime: 1200, endTime: 1250, note: "Ăn sáng", location: "")
+        let activity65 = TardisActivity(activityName: "Chơi game", startTime: 1300, endTime: 1330, note: "Ăn sáng", location: "")
+        
+        var activity6 = [TardisActivity]()
+        activity6.append(activity61)
+        activity6.append(activity62)
+        activity6.append(activity63)
+        activity6.append(activity64)
+        activity6.append(activity65)
+        weekActivities.append(activity6)
+        
+    }
+}

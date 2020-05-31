@@ -98,7 +98,7 @@ class CommonFunction {
         formatter.dateFormat = "HHmm"
         let result = formatter.string(from: date)
         let floatResult = Float(result) ?? 0
-        return floatResult
+        return self.getFloatTime(time: floatResult)
     }
     static func getCurrentDayOfWeek() -> String {
         let date = Date()
@@ -107,4 +107,14 @@ class CommonFunction {
         let result = formatter.string(from: date)
         return result
     }
+    static func getFloatTime(time: Float) -> Float {
+        let timeHour = Float(Int(time / 100))
+        let timeMinute = time - timeHour
+        return timeHour + timeMinute / 60 * 100
+    }
+    //GetSize
+    static func getSizeWithRatio(width: Float, height: Float, ratio: Float) -> CGSize {
+        return CGSize(width: CGFloat(width * ratio), height: CGFloat(height * ratio))
+    }
+    
 }

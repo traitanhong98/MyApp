@@ -54,7 +54,7 @@
                             <rect key="frame" x="0.0" y="718" width="414" height="60"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JSJ-e4-7aI" customClass="CenteredCollectionViewFlowLayout" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="50" y="0.0" width="314" height="60"/>
+                                    <rect key="frame" x="70" y="0.0" width="274" height="60"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vYg-Ow-NZk">
                                         <size key="itemSize" width="50" height="50"/>
@@ -64,7 +64,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sv-dp-wYf" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="50" y="54" width="120" height="3"/>
+                                    <rect key="frame" x="70" y="54" width="120" height="3"/>
                                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="3" id="0tO-02-sXZ"/>
@@ -80,10 +80,10 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="7Sv-dp-wYf" firstAttribute="leading" secondItem="JSJ-e4-7aI" secondAttribute="leading" id="1Er-aW-Vah"/>
-                                <constraint firstItem="JSJ-e4-7aI" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="50" id="7R7-Yi-RHz"/>
+                                <constraint firstItem="JSJ-e4-7aI" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="70" id="7R7-Yi-RHz"/>
                                 <constraint firstAttribute="bottom" secondItem="JSJ-e4-7aI" secondAttribute="bottom" id="EQO-EC-Ls5"/>
                                 <constraint firstItem="JSJ-e4-7aI" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" id="J8O-Gx-frV"/>
-                                <constraint firstAttribute="trailing" secondItem="JSJ-e4-7aI" secondAttribute="trailing" constant="50" id="Nq3-va-uue"/>
+                                <constraint firstAttribute="trailing" secondItem="JSJ-e4-7aI" secondAttribute="trailing" constant="70" id="Nq3-va-uue"/>
                                 <constraint firstAttribute="height" constant="60" id="lWF-Gt-hJb"/>
                                 <constraint firstItem="7Sv-dp-wYf" firstAttribute="top" secondItem="JSJ-e4-7aI" secondAttribute="bottom" constant="-6" id="nsx-H0-Jd6"/>
                             </constraints>

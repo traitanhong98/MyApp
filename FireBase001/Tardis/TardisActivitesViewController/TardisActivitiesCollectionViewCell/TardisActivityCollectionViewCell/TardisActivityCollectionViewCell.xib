@@ -22,9 +22,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sA-Q0-jYa" userLabel="HeaderView" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="324" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ke-bN-lTB">
-                                        <rect key="frame" x="16" y="4" width="292" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ke-bN-lTB">
+                                        <rect key="frame" x="16" y="4.5" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -32,7 +31,9 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="0ke-bN-lTB" firstAttribute="centerY" secondItem="2sA-Q0-jYa" secondAttribute="centerY" id="4Aq-4d-SOU"/>
                                     <constraint firstAttribute="height" constant="30" id="Zrg-b5-Gt4"/>
+                                    <constraint firstItem="0ke-bN-lTB" firstAttribute="leading" secondItem="2sA-Q0-jYa" secondAttribute="leading" constant="16" id="wMu-2Q-dCa"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

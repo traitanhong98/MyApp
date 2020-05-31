@@ -21,12 +21,11 @@ class TardisActivityCollectionViewCell: UICollectionViewCell {
     }
     
     //Func
-    func bindData(data: TardisActivity) {
+    func bindData(data: TardisActivity, num: Int) {
         let startTime = CommonFunction.makeTimeStringFromFloat(time: data.startTime)
         let endTime = CommonFunction.makeTimeStringFromFloat(time: data.endTime)
-        self.titleLabel.text = "\(data.activityName) \(startTime)-\(endTime)"
+        self.titleLabel.text = "\(data.activityName) \(startTime)-\(endTime) Section:\(num)"
         self.descriptionLabel.text = "\(data.note)"
-        
     }
 
 }
