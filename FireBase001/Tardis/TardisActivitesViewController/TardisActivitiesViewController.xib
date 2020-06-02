@@ -12,8 +12,10 @@
                 <outlet property="containerView" destination="8gw-jH-8xt" id="SgF-Pr-qfA"/>
                 <outlet property="leftOfWeekdayButtonView" destination="7R7-Yi-RHz" id="8Ge-W9-8ec"/>
                 <outlet property="leftOfWeekdayFooterView" destination="1Er-aW-Vah" id="RFj-M1-b4g"/>
+                <outlet property="sizeRatioButton" destination="1J6-pV-EG3" id="HjN-QN-LJS"/>
                 <outlet property="tardisWeekdayButtonFooterView" destination="7Sv-dp-wYf" id="G9j-mT-X3N"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewModeButton" destination="15H-2j-vCR" id="Qnd-e4-daf"/>
                 <outlet property="weekdayButtonCollectionView" destination="JSJ-e4-7aI" id="UKr-E2-nuP"/>
                 <outlet property="weekdayCollectionView" destination="kjo-gG-c4Z" id="Jup-Ae-E6y"/>
                 <outlet property="widthOfWeekdayFooter" destination="99Z-jl-JhH" id="Fco-bD-Foh"/>
@@ -76,16 +78,47 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1J6-pV-EG3">
+                                    <rect key="frame" x="8" y="8" width="44" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="1J6-pV-EG3" secondAttribute="height" multiplier="1:1" id="gaz-3o-hf1"/>
+                                    </constraints>
+                                    <state key="normal" image="circle.bottomthird.split" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="29" scale="large"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sizeRatioButtonTapped:" destination="-1" eventType="touchUpInside" id="EYT-IL-UVC"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15H-2j-vCR">
+                                    <rect key="frame" x="362" y="8" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="15H-2j-vCR" secondAttribute="height" multiplier="1:1" id="hQf-nz-Jgi"/>
+                                    </constraints>
+                                    <state key="normal" image="24.circle" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="viewModeButtonTapped:" destination="-1" eventType="touchUpInside" id="iTm-wd-n1G"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="7Sv-dp-wYf" firstAttribute="leading" secondItem="JSJ-e4-7aI" secondAttribute="leading" id="1Er-aW-Vah"/>
+                                <constraint firstItem="15H-2j-vCR" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" constant="8" id="502-zf-xVZ"/>
+                                <constraint firstItem="1J6-pV-EG3" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="8" id="5Ac-ki-ZgR"/>
+                                <constraint firstItem="1J6-pV-EG3" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" constant="8" id="673-ND-sW8"/>
                                 <constraint firstItem="JSJ-e4-7aI" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="70" id="7R7-Yi-RHz"/>
                                 <constraint firstAttribute="bottom" secondItem="JSJ-e4-7aI" secondAttribute="bottom" id="EQO-EC-Ls5"/>
                                 <constraint firstItem="JSJ-e4-7aI" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" id="J8O-Gx-frV"/>
                                 <constraint firstAttribute="trailing" secondItem="JSJ-e4-7aI" secondAttribute="trailing" constant="70" id="Nq3-va-uue"/>
+                                <constraint firstItem="1J6-pV-EG3" firstAttribute="centerY" secondItem="bci-kl-ccp" secondAttribute="centerY" id="eKE-YH-Cxv"/>
+                                <constraint firstItem="15H-2j-vCR" firstAttribute="centerY" secondItem="bci-kl-ccp" secondAttribute="centerY" id="kVn-UQ-zDg"/>
                                 <constraint firstAttribute="height" constant="60" id="lWF-Gt-hJb"/>
                                 <constraint firstItem="7Sv-dp-wYf" firstAttribute="top" secondItem="JSJ-e4-7aI" secondAttribute="bottom" constant="-6" id="nsx-H0-Jd6"/>
+                                <constraint firstAttribute="trailing" secondItem="15H-2j-vCR" secondAttribute="trailing" constant="8" id="pxM-Hc-1zj"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -129,6 +162,8 @@
         </view>
     </objects>
     <resources>
+        <image name="24.circle" catalog="system" width="64" height="60"/>
         <image name="Earth" width="640" height="597"/>
+        <image name="circle.bottomthird.split" catalog="system" width="64" height="60"/>
     </resources>
 </document>

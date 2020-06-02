@@ -12,8 +12,8 @@ import ObjectMapper
 
 class TardisActivity: Mappable {
     var activityName: String    = ""
-    var startTime:Float         = 0
-    var endTime:Float           = 0
+    var startTime:String        = ""
+    var endTime:String          = ""
     var note:String             = ""
     var location:String         = ""
     var loopDay:[String]        = []
@@ -30,7 +30,7 @@ class TardisActivity: Mappable {
         loopDay         <- map["loop_day"]
     }
     
-    convenience init(activityName: String,startTime:Float,endTime:Float,note:String,location:String) {
+    convenience init(activityName: String,startTime:String,endTime:String,note:String,location:String) {
         self.init()
         self.activityName = activityName
         self.startTime = startTime

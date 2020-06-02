@@ -111,3 +111,7 @@ enum Setting:String {
         }
     }
 }
+//MARK: - UI
+enum ViewMode {
+    case normal,dayHour
+}

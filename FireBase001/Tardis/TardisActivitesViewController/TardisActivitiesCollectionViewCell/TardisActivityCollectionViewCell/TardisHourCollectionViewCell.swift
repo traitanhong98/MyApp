@@ -13,13 +13,21 @@ class TardisHourCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet weak var halfHourLabel: UILabel!
+    // MARK: - Propeties
+    var sizeRatio:Float = 1 {
+        didSet{
+            hourLabel.font = hourLabel.font.withSize(CGFloat(14 * sizeRatio))
+            halfHourLabel.font = halfHourLabel.font.withSize(CGFloat(14 * sizeRatio))
+        }
+    }
     // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     // MARK: - Func
-    func bindData(hour: Int) {
+    func bindData(hour: Int,sizeRatio: Float) {
+        self.sizeRatio = sizeRatio
         if hour == 24 {
             hourLabel.text = "00:00"
             halfHourLabel.text = "\(hour-1):30"

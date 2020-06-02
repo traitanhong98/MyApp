@@ -11,10 +11,10 @@ import UIKit
 class CommonFunction {
     static func resizeImage (image: UIImage,targetSize: CGSize) -> UIImage {
         let size = image.size
-
+        
         let widthRatio  = targetSize.width  / size.width
         let heightRatio = targetSize.height / size.height
-
+        
         // Figure out what our orientation is, and use that to form the rectangle
         var newSize: CGSize
         if(widthRatio > heightRatio) {
@@ -22,29 +22,29 @@ class CommonFunction {
         } else {
             newSize = CGSize(width: size.width * widthRatio,  height: size.height * widthRatio)
         }
-
+        
         // This is the rect that we've calculated out and this is what is actually used below
         let rect = CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height)
-
+        
         // Actually do the resizing to the rect using the ImageContext stuff
         UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
         image.draw(in: rect)
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-
+        
         return newImage!
     }
     func cropToBounds(image: UIImage, width: Double, height: Double) -> UIImage {
-
+        
         let contextImage: UIImage = UIImage(cgImage: image.cgImage!)
-
+        
         let contextSize: CGSize = contextImage.size
-
+        
         var posX: CGFloat = 0.0
         var posY: CGFloat = 0.0
         var cgwidth: CGFloat = CGFloat(width)
         var cgheight: CGFloat = CGFloat(height)
-
+        
         // See what size is longer and create the center off of that
         if contextSize.width > contextSize.height {
             posX = ((contextSize.width - contextSize.height) / 2)
@@ -57,25 +57,16 @@ class CommonFunction {
             cgwidth = contextSize.width
             cgheight = contextSize.width
         }
-
+        
         let rect: CGRect = CGRect(x: posX, y: posY, width: cgwidth, height: cgheight)
-
+        
         // Create bitmap image from context using the rect
         let imageRef: CGImage = contextImage.cgImage!.cropping(to: rect)!
-
+        
         // Create a new image based on the imageRef and rotate back to the original orientation
         let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
-
+        
         return image
-    }
-    
-    static func makeTimeStringFromFloat(time: Float) -> String {
-        let hour = Int(time / 100)
-        let minute = Int(time - Float(hour * 100))
-        if minute == 0 {
-            return "\(hour):00"
-        }
-        return "\(hour):\(minute)"
     }
     //Date-Time
     static func getCurrentDay() -> String {
@@ -92,13 +83,12 @@ class CommonFunction {
         let result = formatter.string(from: date)
         return result
     }
-    static func getCurrenFloatTime() -> Float {
+    static func getCurrenFloatTime() -> String {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "HHmm"
         let result = formatter.string(from: date)
-        let floatResult = Float(result) ?? 0
-        return self.getFloatTime(time: floatResult)
+        return result
     }
     static func getCurrentDayOfWeek() -> String {
         let date = Date()
@@ -107,14 +97,36 @@ class CommonFunction {
         let result = formatter.string(from: date)
         return result
     }
-    static func getFloatTime(time: Float) -> Float {
-        let timeHour = Float(Int(time / 100))
-        let timeMinute = time - timeHour
-        return timeHour + timeMinute / 60 * 100
+    static func calculateTimeDifference(from dateTime1: String, to dateTime2: String) -> [Float] {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        
+        let dateAsString = dateTime1
+        let date1 = dateFormatter.date(from: dateAsString)!
+        
+        let dateAsString2 = dateTime2
+        let date2 = dateFormatter.date(from: dateAsString2)!
+        
+        let components : NSCalendar.Unit = [.minute, .hour]
+        let difference = (Calendar.current as NSCalendar).components(components, from: date1, to: date2, options: [])
+        
+        let dateTimeDifferenceString = [Float(difference.hour ?? 0),Float(difference.minute ?? 0)]
+        
+        return dateTimeDifferenceString
+        
     }
     //GetSize
     static func getSizeWithRatio(width: Float, height: Float, ratio: Float) -> CGSize {
         return CGSize(width: CGFloat(width * ratio), height: CGFloat(height * ratio))
+    }
+    static func timeToFloat(time: String) -> Float {
+        var result:Float = 0
+        let timeArr = time.split(separator: ":")
+        if timeArr.count == 2 {
+            result += Float(timeArr[0]) ?? 0
+            result += (Float(timeArr[1]) ?? 0) / 60
+        }
+        return result
     }
     
 }

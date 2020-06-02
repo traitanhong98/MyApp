@@ -14,18 +14,39 @@ class TardisActivityCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var headerView: TardisView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var markIconStackView: UIStackView!
+    //MARK: - Propeties
+    var sizeRatio:Float = 1 {
+        didSet{
+            self.titleLabel.font = titleLabel.font.withSize(CGFloat(14 * sizeRatio))
+            self.descriptionLabel.font = descriptionLabel.font.withSize(CGFloat(14 * sizeRatio))
+        }
+    }
     //MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        setupUI()
     }
     
-    //Func
-    func bindData(data: TardisActivity, num: Int) {
-        let startTime = CommonFunction.makeTimeStringFromFloat(time: data.startTime)
-        let endTime = CommonFunction.makeTimeStringFromFloat(time: data.endTime)
-        self.titleLabel.text = "\(data.activityName) \(startTime)-\(endTime) Section:\(num)"
+    //MARK: - Func
+    func bindData(data: TardisActivity,sizeRatio: Float) {
+        self.titleLabel.text = "\(data.activityName) \(data.startTime)-\(data.endTime)"
         self.descriptionLabel.text = "\(data.note)"
     }
-
+    
+    func setupUI() {
+        markIconStackView.spacing = 2
+        markIconStackView.alignment = .center
+        markIconStackView.addArrangedSubview(createMarkIcon(imgName: "alarm"))
+    }
+    
+    func createMarkIcon(imgName: String) -> UIImageView{
+        let markIcon = UIImageView()
+        markIcon.frame.size = CGSize(width: markIconStackView.frame.height,
+                                     height: markIconStackView.frame.height)
+        markIcon.image = UIImage(named: imgName)
+        markIcon.contentMode = .scaleAspectFit
+        return markIcon
+    }
+    
 }

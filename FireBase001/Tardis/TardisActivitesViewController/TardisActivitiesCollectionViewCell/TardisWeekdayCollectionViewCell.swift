@@ -18,7 +18,13 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     //MARK:- Propeties
     var activities = [TardisActivity]()
     var weekDay: Weekday?
-    var sizeRatio: Float = 1
+    var sizeRatio: Float = 1 {
+        didSet{
+            activityCollectionView.reloadData()
+            timeCollectionView.reloadData()
+        }
+    }
+    var viewMode = ViewMode.dayHour
     //MARK:- Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,10 +49,11 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
         self.mainCellView.sendSubviewToBack(timeCollectionView)
     }
     
-    func bindData(weekDay: Weekday, sizeRatio: Float, activities: [TardisActivity]) {
+    func bindData(weekDay: Weekday, sizeRatio: Float, activities: [TardisActivity],viewMode: ViewMode) {
         self.sizeRatio = sizeRatio
         self.weekDay = weekDay
         self.activities = activities
+        self.viewMode = viewMode
         weekdayLabel.text = weekDay.rawValue
         weekdayLabel.textColor = weekDay.weekColor
         activityCollectionView.reloadData()
@@ -68,17 +75,15 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
                 }
             }
         } else {
-            var startFloatTime = CommonFunction.getFloatTime(time: activities[0].startTime)
+            var startFloatTime = CommonFunction.timeToFloat(time: activities[0].startTime)
             startFloatTime -= Float(activityCollectionView.frame.size.width * 1.5)
             activityCollectionView.scrollToItem(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
         }
     }
-    func calculatingHeightOfItem(startTime: Float,endTime: Float) -> Float{
-        let startTimeHour = Float(Int(startTime / 100))
-        let startTimeMinute = startTime - startTimeHour * 100
-        let endTimeHour = Float(Int(endTime / 100))
-        let endTimeMinute = endTime - endTimeHour * 100
-        let heightResult = (endTimeHour - startTimeHour) * 100 + ((60 - startTimeMinute) / 60 ) * 100 + ((endTimeMinute - 60) / 60 ) * 100
+    func calculatingHeightOfItem(startTime: String,endTime: String) -> Float{
+        let start = CommonFunction.timeToFloat(time: startTime)
+        let end = CommonFunction.timeToFloat(time: endTime)
+        let heightResult = (end - start) * 60
         return heightResult
     }
     //Collectionview
@@ -106,7 +111,7 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
         collectionView.showsHorizontalScrollIndicator = false
     }
 }
-
+// MARK: - UICollectionViewDelegate
 extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         switch collectionView {
@@ -138,14 +143,14 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
         switch collectionView {
         case activityCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisActivityCollectionViewCell", for: indexPath) as? TardisActivityCollectionViewCell {
-                cell.bindData(data: activities[indexPath.section - 1], num: indexPath.section)
+                cell.bindData(data: activities[indexPath.section - 1],sizeRatio: sizeRatio)
                 return cell
             } else {
                 return UICollectionViewCell()
             }
         case timeCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisHourCollectionViewCell", for: indexPath) as? TardisHourCollectionViewCell {
-                cell.bindData(hour: indexPath.section + 1)
+                cell.bindData(hour: indexPath.section + 1,sizeRatio: sizeRatio)
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -161,9 +166,9 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
             let width = Float(activityCollectionView.frame.width)
             var height: Float = 0
             if section == activities.count {
-                height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: 2400)
+                height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: "24:00")
             } else if section == 0 {
-                height = calculatingHeightOfItem(startTime: 0, endTime: activities[0].startTime)
+                height = calculatingHeightOfItem(startTime: "00:00", endTime: activities[0].startTime)
             } else {
                 height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: activities[section].startTime)
             }
@@ -177,6 +182,7 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
         }
     }
 }
+// MARK: - UICollectionViewDelegateFlowLayout
 extension TardisWeekdayCollectionViewCell:UICollectionViewDelegateFlowLayout {
     //SizeForItem
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -194,7 +200,7 @@ extension TardisWeekdayCollectionViewCell:UICollectionViewDelegateFlowLayout {
         case timeCollectionView:
             let width = Float(timeCollectionView.frame.size.width)
             return CommonFunction.getSizeWithRatio(width: width,
-                                                   height: 100,
+                                                   height: 60,
                                                    ratio: sizeRatio)
         default:
             return CGSize(width: 0, height: 0)
