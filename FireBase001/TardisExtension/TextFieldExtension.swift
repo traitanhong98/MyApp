@@ -22,4 +22,10 @@ class TardisTextField: UITextField {
             self.layer.borderColor = borderColor.cgColor
         }
     }
+    @IBInspectable
+    var cornerRadius:  CGFloat = 6 {
+        didSet{
+            self.layer.cornerRadius = cornerRadius
+        }
+    }
 }

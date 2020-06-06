@@ -39,7 +39,6 @@
 		201274AF244EDD90004BCE4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201274AE244EDD90004BCE4E /* AppDelegate.swift */; };
 		201274B1244EDD90004BCE4E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201274B0244EDD90004BCE4E /* SceneDelegate.swift */; };
 		201274B3244EDD90004BCE4E /* TardisMainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201274B2244EDD90004BCE4E /* TardisMainTabbarViewController.swift */; };
-		201274B6244EDD90004BCE4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201274B4244EDD90004BCE4E /* Main.storyboard */; };
 		201274B8244EDD92004BCE4E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 201274B7244EDD92004BCE4E /* Assets.xcassets */; };
 		201274BB244EDD92004BCE4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201274B9244EDD92004BCE4E /* LaunchScreen.storyboard */; };
 		201274C6244EDD92004BCE4E /* FireBase001UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201274C5244EDD92004BCE4E /* FireBase001UITests.swift */; };
@@ -54,10 +53,18 @@
 		2071885C247D7B5100F4B5EE /* 18775-stopwatch.json in Resources */ = {isa = PBXBuildFile; fileRef = 20718859247D7B5000F4B5EE /* 18775-stopwatch.json */; };
 		2071885D247D7B5100F4B5EE /* 19228-health-care.json in Resources */ = {isa = PBXBuildFile; fileRef = 2071885A247D7B5100F4B5EE /* 19228-health-care.json */; };
 		2071885E247D7B5100F4B5EE /* 22426-earth-orbiting-the-sun.json in Resources */ = {isa = PBXBuildFile; fileRef = 2071885B247D7B5100F4B5EE /* 22426-earth-orbiting-the-sun.json */; };
+		2083CE8A2487DA5C00F5BB23 /* TardisModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083CE892487DA5C00F5BB23 /* TardisModel.swift */; };
+		2083CE8E2487DF6200F5BB23 /* TardisSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083CE8C2487DF6200F5BB23 /* TardisSignupViewController.swift */; };
+		2083CE8F2487DF6200F5BB23 /* TardisSignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2083CE8D2487DF6200F5BB23 /* TardisSignupViewController.xib */; };
+		2083CE922487DF8D00F5BB23 /* TardisSignupRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083CE912487DF8D00F5BB23 /* TardisSignupRequestModel.swift */; };
+		2083CE942487EE6200F5BB23 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083CE932487EE6200F5BB23 /* UserInfo.swift */; };
 		208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AFF88247D5D5400363260 /* TardisSettingTableViewCell.swift */; };
 		208AFF8B247D5D5400363260 /* TardisSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208AFF89247D5D5400363260 /* TardisSettingTableViewCell.xib */; };
 		208AFF8E247D60CA00363260 /* TardisUserInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208AFF8C247D60CA00363260 /* TardisUserInfoTableViewCell.swift */; };
 		208AFF8F247D60CA00363260 /* TardisUserInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 208AFF8D247D60CA00363260 /* TardisUserInfoTableViewCell.xib */; };
+		20AD1BD0248AB34400E42AF4 /* TardisLoginViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 2012520D24699E0D00706C9D /* TardisLoginViewController.swift */; };
+		20AD1BD1248AB35400E42AF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 201274B4244EDD90004BCE4E /* Main.storyboard */; };
+		20AD1BD5248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD1BD4248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift */; };
 		20B04FEF246EE0B000A7BFBA /* TardisActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B04FED246EE0B000A7BFBA /* TardisActivitiesViewController.swift */; };
 		20B04FF0246EE0B000A7BFBA /* TardisActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20B04FEE246EE0B000A7BFBA /* TardisActivitiesViewController.xib */; };
 		20B04FF3246EE0BE00A7BFBA /* TardisChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B04FF1246EE0BE00A7BFBA /* TardisChatViewController.swift */; };
@@ -142,10 +149,17 @@
 		20718859247D7B5000F4B5EE /* 18775-stopwatch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "18775-stopwatch.json"; sourceTree = "<group>"; };
 		2071885A247D7B5100F4B5EE /* 19228-health-care.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "19228-health-care.json"; sourceTree = "<group>"; };
 		2071885B247D7B5100F4B5EE /* 22426-earth-orbiting-the-sun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "22426-earth-orbiting-the-sun.json"; sourceTree = "<group>"; };
+		2083CE892487DA5C00F5BB23 /* TardisModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisModel.swift; sourceTree = "<group>"; };
+		2083CE8C2487DF6200F5BB23 /* TardisSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisSignupViewController.swift; sourceTree = "<group>"; };
+		2083CE8D2487DF6200F5BB23 /* TardisSignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisSignupViewController.xib; sourceTree = "<group>"; };
+		2083CE912487DF8D00F5BB23 /* TardisSignupRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisSignupRequestModel.swift; sourceTree = "<group>"; };
+		2083CE932487EE6200F5BB23 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		2083CE972487F7FB00F5BB23 /* FireBase001-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireBase001-Bridging-Header.h"; sourceTree = "<group>"; };
 		208AFF88247D5D5400363260 /* TardisSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisSettingTableViewCell.swift; sourceTree = "<group>"; };
 		208AFF89247D5D5400363260 /* TardisSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisSettingTableViewCell.xib; sourceTree = "<group>"; };
 		208AFF8C247D60CA00363260 /* TardisUserInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisUserInfoTableViewCell.swift; sourceTree = "<group>"; };
 		208AFF8D247D60CA00363260 /* TardisUserInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisUserInfoTableViewCell.xib; sourceTree = "<group>"; };
+		20AD1BD4248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisWeekDayCollectionViewCellDataModel.swift; sourceTree = "<group>"; };
 		20B04FED246EE0B000A7BFBA /* TardisActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisActivitiesViewController.swift; sourceTree = "<group>"; };
 		20B04FEE246EE0B000A7BFBA /* TardisActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisActivitiesViewController.xib; sourceTree = "<group>"; };
 		20B04FF1246EE0BE00A7BFBA /* TardisChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisChatViewController.swift; sourceTree = "<group>"; };
@@ -195,7 +209,9 @@
 		200FD87E246546C400189AD9 /* Tardis */ = {
 			isa = PBXGroup;
 			children = (
+				2083CE882487DA4100F5BB23 /* TardisModel */,
 				2012520B24699D4000706C9D /* TardisLoginViewController */,
+				2083CE8B2487DF3C00F5BB23 /* TardisSignupViewController */,
 				201251F824699BC400706C9D /* TardisActivitesViewController */,
 				201251F924699BD800706C9D /* TardisThreadViewController */,
 				201251FA24699C0600706C9D /* TardisChatViewController */,
@@ -288,8 +304,7 @@
 		2012520024699C5D00706C9D /* TardisActivitiesModel */ = {
 			isa = PBXGroup;
 			children = (
-				2012520524699C9E00706C9D /* TardisActivitiesRequestModel */,
-				2012520424699C9400706C9D /* TardisActivitiesObjectModel */,
+				20BA203224765A1B001D3BB2 /* TardisActivitiesObject.swift */,
 			);
 			path = TardisActivitiesModel;
 			sourceTree = "<group>";
@@ -315,21 +330,6 @@
 			children = (
 			);
 			path = TardisThreadRequestModel;
-			sourceTree = "<group>";
-		};
-		2012520424699C9400706C9D /* TardisActivitiesObjectModel */ = {
-			isa = PBXGroup;
-			children = (
-				20BA203224765A1B001D3BB2 /* TardisActivitiesObject.swift */,
-			);
-			path = TardisActivitiesObjectModel;
-			sourceTree = "<group>";
-		};
-		2012520524699C9E00706C9D /* TardisActivitiesRequestModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TardisActivitiesRequestModel;
 			sourceTree = "<group>";
 		};
 		2012520624699CD200706C9D /* TardisChatRequestModel */ = {
@@ -407,6 +407,7 @@
 			children = (
 				201252282469A10B00706C9D /* Constants */,
 				201252262469A10700706C9D /* AppUtils.swift */,
+				2083CE932487EE6200F5BB23 /* UserInfo.swift */,
 				20BEFC20246D8FEF008908B6 /* CommonFunction.swift */,
 			);
 			path = Commons;
@@ -514,6 +515,7 @@
 				201252492469A26200706C9D /* Images.xcassets */,
 				201274BC244EDD92004BCE4E /* Info.plist */,
 				201274D0244EDE47004BCE4E /* GoogleService-Info.plist */,
+				2083CE972487F7FB00F5BB23 /* FireBase001-Bridging-Header.h */,
 			);
 			path = FireBase001;
 			sourceTree = "<group>";
@@ -542,12 +544,39 @@
 			isa = PBXGroup;
 			children = (
 				2046F271247AB89B006D7C84 /* TardisActivityCollectionViewCell */,
+				20AD1BD4248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift */,
 				2059606B246EEE5A00D4D549 /* TardisWeekdayCollectionViewCell.swift */,
 				2046F278247ABC09006D7C84 /* TardisWeekdayCollectionViewCell.xib */,
 				2059606F246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.swift */,
 				20596070246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.xib */,
 			);
 			path = TardisActivitiesCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		2083CE882487DA4100F5BB23 /* TardisModel */ = {
+			isa = PBXGroup;
+			children = (
+				2083CE892487DA5C00F5BB23 /* TardisModel.swift */,
+			);
+			path = TardisModel;
+			sourceTree = "<group>";
+		};
+		2083CE8B2487DF3C00F5BB23 /* TardisSignupViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2083CE902487DF7100F5BB23 /* TardisSignupModel */,
+				2083CE8C2487DF6200F5BB23 /* TardisSignupViewController.swift */,
+				2083CE8D2487DF6200F5BB23 /* TardisSignupViewController.xib */,
+			);
+			path = TardisSignupViewController;
+			sourceTree = "<group>";
+		};
+		2083CE902487DF7100F5BB23 /* TardisSignupModel */ = {
+			isa = PBXGroup;
+			children = (
+				2083CE912487DF8D00F5BB23 /* TardisSignupRequestModel.swift */,
+			);
+			path = TardisSignupModel;
 			sourceTree = "<group>";
 		};
 		208AFF87247D5D1E00363260 /* TardisSettingTableViewCell */ = {
@@ -635,6 +664,7 @@
 				TargetAttributes = {
 					201274AA244EDD90004BCE4E = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 					201274C0244EDD92004BCE4E = {
 						CreatedOnToolsVersion = 11.3.1;
@@ -666,9 +696,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20AD1BD1248AB35400E42AF4 /* Main.storyboard in Resources */,
+				20AD1BD0248AB34400E42AF4 /* TardisLoginViewController.swift in Resources */,
 				201274BB244EDD92004BCE4E /* LaunchScreen.storyboard in Resources */,
 				201274D1244EDE47004BCE4E /* GoogleService-Info.plist in Resources */,
 				201252462469A24C00706C9D /* 142-loading-animation.json in Resources */,
+				2083CE8F2487DF6200F5BB23 /* TardisSignupViewController.xib in Resources */,
 				20BEFC1F246D875E008908B6 /* TardisRootViewController.xib in Resources */,
 				201274B8244EDD92004BCE4E /* Assets.xcassets in Resources */,
 				20B04FF0246EE0B000A7BFBA /* TardisActivitiesViewController.xib in Resources */,
@@ -686,7 +719,6 @@
 				20D2BA9124829BEC00A7224A /* TardisLaunchScreenViewController.xib in Resources */,
 				208AFF8F247D60CA00363260 /* TardisUserInfoTableViewCell.xib in Resources */,
 				20F4555D2482918500B9B989 /* TardisHourCollectionViewCell.xib in Resources */,
-				201274B6244EDD90004BCE4E /* Main.storyboard in Resources */,
 				20B04FF4246EE0BE00A7BFBA /* TardisChatViewController.xib in Resources */,
 				2046F275247AB8DE006D7C84 /* TardisActivityCollectionViewCell.xib in Resources */,
 				2012523E2469A15100706C9D /* TAlertView.xib in Resources */,
@@ -798,6 +830,7 @@
 				201252272469A10700706C9D /* AppUtils.swift in Sources */,
 				20BA203324765A1B001D3BB2 /* TardisActivitiesObject.swift in Sources */,
 				2012521924699EFE00706C9D /* ButtonExtension.swift in Sources */,
+				2083CE8E2487DF6200F5BB23 /* TardisSignupViewController.swift in Sources */,
 				201252352469A14600706C9D /* BaseViewController.swift in Sources */,
 				208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */,
 				20B04FF7246EE0CF00A7BFBA /* TardisAddonViewController.swift in Sources */,
@@ -807,11 +840,14 @@
 				208AFF8E247D60CA00363260 /* TardisUserInfoTableViewCell.swift in Sources */,
 				2012520F24699E0D00706C9D /* TardisLoginViewController.swift in Sources */,
 				20B04FEF246EE0B000A7BFBA /* TardisActivitiesViewController.swift in Sources */,
+				2083CE8A2487DA5C00F5BB23 /* TardisModel.swift in Sources */,
 				2046F27D247AC36C006D7C84 /* UICollectionViewExtentiosn.swift in Sources */,
 				201274AF244EDD90004BCE4E /* AppDelegate.swift in Sources */,
+				2083CE922487DF8D00F5BB23 /* TardisSignupRequestModel.swift in Sources */,
 				2012521F24699FFB00706C9D /* TabbarViewcontrollerExtension.swift in Sources */,
 				20BEFC1E246D875E008908B6 /* TardisRootViewController.swift in Sources */,
 				201252532469AF5300706C9D /* TardisInteractor.swift in Sources */,
+				20AD1BD5248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift in Sources */,
 				20F4555C2482918500B9B989 /* TardisHourCollectionViewCell.swift in Sources */,
 				20D2BA9024829BEC00A7224A /* TardisLaunchScreenViewController.swift in Sources */,
 				2012522D2469A11B00706C9D /* ColorsConst.swift in Sources */,
@@ -831,6 +867,7 @@
 				20B04FF3246EE0BE00A7BFBA /* TardisChatViewController.swift in Sources */,
 				20B04FFF246EE2C400A7BFBA /* TardisThreadViewController.swift in Sources */,
 				2012521524699E4100706C9D /* TardisLoginRequestModel.swift in Sources */,
+				2083CE942487EE6200F5BB23 /* UserInfo.swift in Sources */,
 				201274B1244EDD90004BCE4E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -860,7 +897,8 @@
 				201274B5244EDD90004BCE4E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
+			path = FireBase001/DefaultFile;
+			sourceTree = SOURCE_ROOT;
 		};
 		201274B9244EDD92004BCE4E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -992,6 +1030,7 @@
 			baseConfigurationReference = 8E987AFC059FEF60EDA1DB7F /* Pods-FireBase001.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FireBase001/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1000,6 +1039,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hoangnm.FireBase001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FireBase001/FireBase001-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1010,6 +1051,7 @@
 			baseConfigurationReference = A095432408E4A1C92A3D43B2 /* Pods-FireBase001.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = FireBase001/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1018,6 +1060,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = hoangnm.FireBase001;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FireBase001/FireBase001-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

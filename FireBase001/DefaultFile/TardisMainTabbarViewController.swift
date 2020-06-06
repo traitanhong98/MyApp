@@ -65,20 +65,27 @@ class TardisMainTabbarViewController: UITabBarController {
         let settingIcon = CommonFunction.resizeImage(image: UIImage(named: "sound-control")!, targetSize: CGSize(width: 30, height: 30))
         //Activities
         let homeVC = initVCForTabbar(type: TardisActivitiesViewController.self, vcStr: "TardisActivitiesViewController", title: "Weakly", icon: activitiesIcon)
-        
         //Thread
-        let historyVC = initVCForTabbar(type: TardisThreadViewController.self, vcStr: "TardisThreadViewController", title: "Thread", icon: threadIcon)
-        
+        let threadVC = initVCForTabbar(type: TardisThreadViewController.self, vcStr: "TardisThreadViewController", title: "Thread", icon: threadIcon)
         //Chat
         let messageVC = initVCForTabbar(type: TardisChatViewController.self, vcStr: "TardisChatViewController", title: "Mesage", icon: messageIcon)
-        
         //Addon
-        
         let addonVC = initVCForTabbar(type: TardisAddonViewController.self, vcStr: "TardisAddonViewController", title: "Addon", icon: addonIcon)
         //Setting
         let settingVC = initVCForTabbar(type: TardisSettingViewController.self, vcStr: "TardisSettingViewController", title: "Setting", icon: settingIcon)
-        self.setViewControllers([homeVC!, historyVC!, messageVC!,addonVC!, settingVC!], animated: true)
+        if !CommonFunction.isLogin() {
+            self.setViewControllers([homeVC!,addonVC!, settingVC!], animated: true)
+        } else {
+            self.setViewControllers([homeVC!, threadVC!, messageVC!,addonVC!, settingVC!], animated: true)
+        }
     }
-
+    
+    
+    func openLogin() {
+        let loginView = TardisLoginViewController()
+        loginView.modalPresentationStyle = .fullScreen
+        self.present(loginView, animated: true, completion: nil)
+        
+    }
 }
 

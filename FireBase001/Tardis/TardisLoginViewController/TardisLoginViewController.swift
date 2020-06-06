@@ -7,24 +7,61 @@
 //
 
 import UIKit
-
+import Firebase
 class TardisLoginViewController: UIViewController {
-
+    // MARK: - IBOutlet
+    @IBOutlet weak var accountTextField: TardisTextField!
+    @IBOutlet weak var passwordTextField: TardisTextField!
+    @IBOutlet weak var loginButton: TardisButton!
+    @IBOutlet weak var signupButton: TardisButton!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var containerView: UIView!
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
-    */
+    // MARK: - Functions
+    func setupUI() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
+        self.containerView.addGestureRecognizer(gesture)
+        accountTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    @objc func hideKeyBoard() {
+        self.accountTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
+        self.view.endEditing(true)
+    }
+    // MARK: - IBActions
+    @IBAction func loginAction(_ sender: Any) {
+//        if accountTextField.text!.count > 0 && passwordTextField.text!.count > 0 {
+//            Auth.auth().signIn(withEmail: accountTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
+//              guard let strongSelf = self else { return }
+//                UserInfo.setLogin()
+//                self?.dismiss(animated: true, completion: nil)
+//            }
+//        }
+    }
+    @IBAction func signupAction(_ sender: Any) {
+        let signupViewController = TardisSignupViewController()
+//        signupViewController.modalPresentationStyle = .fullScreen
+        self.present(signupViewController, animated: true, completion: nil)
+    }
+    @IBAction func closeAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+}
 
+// MARK: - UITextFieldDelegate
+extension TardisLoginViewController:UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

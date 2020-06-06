@@ -99,17 +99,57 @@ enum Setting:String {
         case .userBlock:
             return UIImage()
         case .userInfo:
-            return UIImage(named: "person.crop.circle.fill") ?? UIImage()
+            return UIImage(systemName: "person.crop.circle.fill") ?? UIImage()
         case .commonSetting:
             return UIImage(named: "ic_setting_25") ?? UIImage()
         case .appInfo:
-            return UIImage(named: "info") ?? UIImage()
+            return UIImage(systemName: "info") ?? UIImage()
         case .devInfo:
-            return UIImage(named: "star.circle") ?? UIImage()
+            return UIImage(systemName: "star.circle") ?? UIImage()
         default:
             return UIImage()
         }
     }
+    
+    var name: String {
+        switch self {
+        case .userBlock:
+            
+            return "Người dùng"
+        case .userInfo:
+            if CommonFunction.isLogin() {
+                return "Thông tin cá nhân"
+            } else {
+                return "Đăng nhập"
+            }
+        case .commonSetting:
+            return "Cài đặt chung"
+        case .appInfo:
+            return "Thông tin ứng dụng"
+        case .devInfo:
+            return "Giới thiệu nhà phát triển"
+        default:
+            return "Err"
+        }
+    }
+    
+    var settingIndex: Int {
+        switch self {
+        case .userBlock:
+            return 0
+        case .userInfo:
+            return 1
+        case .commonSetting:
+            return 2
+        case .appInfo:
+            return 3
+        case .devInfo:
+            return 4
+        default:
+            return -1
+        }
+    }
+    
 }
 //MARK: - UI
 enum ViewMode {

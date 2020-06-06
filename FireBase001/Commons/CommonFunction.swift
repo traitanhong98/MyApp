@@ -117,7 +117,7 @@ class CommonFunction {
     }
     //GetSize
     static func getSizeWithRatio(width: Float, height: Float, ratio: Float) -> CGSize {
-        return CGSize(width: CGFloat(width * ratio), height: CGFloat(height * ratio))
+        return CGSize(width: CGFloat(width), height: CGFloat(height * ratio))
     }
     static func timeToFloat(time: String) -> Float {
         var result:Float = 0
@@ -128,5 +128,12 @@ class CommonFunction {
         }
         return result
     }
-    
+    //IS_lOGIN
+    static func isLogin() -> Bool{
+        if UserInfo.getLogin() == false {
+            return false
+        } else {
+            return true
+        }
+    }
 }

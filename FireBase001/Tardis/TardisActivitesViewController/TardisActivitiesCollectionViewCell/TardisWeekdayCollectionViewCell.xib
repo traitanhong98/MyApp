@@ -115,6 +115,7 @@
                 <outlet property="addButton" destination="ncl-eH-uGU" id="MWA-j1-CwW"/>
                 <outlet property="mainCellView" destination="jFg-Qk-rqd" id="7Jv-Is-Ti9"/>
                 <outlet property="timeCollectionView" destination="Uyh-yC-Idh" id="eeB-jb-mct"/>
+                <outlet property="weekDayImageView" destination="Gkc-o2-eMw" id="qvW-9S-ODh"/>
                 <outlet property="weekdayLabel" destination="Xmd-pw-38j" id="AfU-kF-DfI"/>
             </connections>
             <point key="canvasLocation" x="-1023.1884057971015" y="-143.30357142857142"/>

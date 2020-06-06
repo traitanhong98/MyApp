@@ -13,11 +13,10 @@ class TardisSettingViewController: BaseTabViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var settingTableView: UITableView!
     // MARK: - Propeties
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         registerTable()
     }
     // MARK: - Func
@@ -66,5 +65,22 @@ extension TardisSettingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case Setting.userInfo.settingIndex:
+            if let rootVC = self.view.window?.rootViewController as? TardisMainTabbarViewController {
+                rootVC.openLogin()
+            }
+            break
+        case Setting.commonSetting.settingIndex:
+            break
+        case Setting.appInfo.settingIndex:
+            break
+        case Setting.devInfo.settingIndex:
+            break
+        default:
+            print("Errr")
+        }
     }
 }

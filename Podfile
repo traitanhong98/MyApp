@@ -13,6 +13,7 @@ target 'FireBase001' do
     pod 'lottie-ios'
     pod 'PureLayout'
     pod 'ObjectMapper', '3.3'
+    pod 'LGSideMenuController'
   target 'FireBase001UITests' do
     # Pods for testing
   end

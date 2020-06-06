@@ -40,8 +40,6 @@ class TardisActivitiesViewController: BaseTabViewController {
         super.viewDidLoad()
         
         exampleData()
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         setupView()
@@ -102,6 +100,8 @@ class TardisActivitiesViewController: BaseTabViewController {
     @IBAction func sizeRatioButtonTapped(_ sender: Any) {
         if self.sizeRatio == 1 {
             self.sizeRatio = 0.75
+        } else if self.sizeRatio == 0.75 {
+            self.sizeRatio = 0.5
         } else {
             self.sizeRatio = 1
         }
@@ -114,6 +114,7 @@ class TardisActivitiesViewController: BaseTabViewController {
         } else {
             self.viewMode = .normal
              self.viewModeButton.setImage(UIImage(systemName: "rectangle.3.offgrid"), for: .normal)
+            self.weekdayCollectionView.reloadData()
         }
     }
     

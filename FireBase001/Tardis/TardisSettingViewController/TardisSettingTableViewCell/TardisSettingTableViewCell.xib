@@ -71,6 +71,7 @@
             <connections>
                 <outlet property="mainSettingViewCell" destination="dtX-an-ahn" id="O5V-KO-Jsi"/>
                 <outlet property="settingIcon" destination="49R-mT-lp0" id="4WU-Mc-7Kh"/>
+                <outlet property="settingName" destination="e4D-jU-kbn" id="six-z4-gvN"/>
             </connections>
             <point key="canvasLocation" x="-77.536231884057983" y="-12.053571428571429"/>
         </tableViewCell>

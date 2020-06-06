@@ -22,8 +22,10 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
         didSet{
             activityCollectionView.reloadData()
             timeCollectionView.reloadData()
+                
         }
     }
+    @IBOutlet weak var weekDayImageView: UIImageView!
     var viewMode = ViewMode.dayHour
     //MARK:- Lifecycle
     override func awakeFromNib() {
@@ -163,18 +165,24 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         switch collectionView {
         case activityCollectionView:
-            let width = Float(activityCollectionView.frame.width)
-            var height: Float = 0
-            if section == activities.count {
-                height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: "24:00")
-            } else if section == 0 {
-                height = calculatingHeightOfItem(startTime: "00:00", endTime: activities[0].startTime)
+            if viewMode == .dayHour {
+                let width = Float(activityCollectionView.frame.width)
+                var height: Float = 0
+                if section == activities.count {
+                    height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: "24:00")
+                } else if section == 0 {
+                    height = calculatingHeightOfItem(startTime: "00:00", endTime: activities[0].startTime)
+                } else {
+                    height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: activities[section].startTime)
+                }
+                return CommonFunction.getSizeWithRatio(width: width,
+                                                       height: height,
+                                                       ratio: sizeRatio)
             } else {
-                height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: activities[section].startTime)
+                return CGSize(width: activityCollectionView.frame.width,
+                              height: 20)
             }
-            return CommonFunction.getSizeWithRatio(width: width,
-                                                   height: height,
-                                                   ratio: sizeRatio)
+            
         case timeCollectionView:
             return CGSize(width: 0, height: 0)
         default:
@@ -192,16 +200,27 @@ extension TardisWeekdayCollectionViewCell:UICollectionViewDelegateFlowLayout {
             if indexPath.section == 0 {
                 return CGSize(width: CGFloat(width), height: 0)
             }
-            let height = calculatingHeightOfItem(startTime: activities[indexPath.section - 1].startTime, endTime: activities[indexPath.section - 1].endTime)
-            if indexPath.section == 1 {print("Item Height:\(activities[0].location) \(indexPath.section)\(height)")}
+            var height:Float = 0
+            if viewMode == .dayHour {
+                height = calculatingHeightOfItem(startTime: activities[indexPath.section - 1].startTime, endTime: activities[indexPath.section - 1].endTime)
+            } else {
+                height = 100
+            }
             return CommonFunction.getSizeWithRatio(width: width,
                                                    height: height,
                                                    ratio: sizeRatio)
         case timeCollectionView:
             let width = Float(timeCollectionView.frame.size.width)
-            return CommonFunction.getSizeWithRatio(width: width,
-                                                   height: 60,
-                                                   ratio: sizeRatio)
+            if viewMode == .dayHour {
+                return CommonFunction.getSizeWithRatio(width: width,
+                                                       height: 60,
+                                                       ratio: sizeRatio)
+            } else {
+                return CommonFunction.getSizeWithRatio(width: width,
+                height: 0,
+                ratio: sizeRatio)
+            }
+            
         default:
             return CGSize(width: 0, height: 0)
         }

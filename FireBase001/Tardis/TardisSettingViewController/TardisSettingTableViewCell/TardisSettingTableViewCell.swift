@@ -12,6 +12,7 @@ class TardisSettingTableViewCell: UITableViewCell {
     // MARK: - IBOutlet
     @IBOutlet weak var mainSettingViewCell: TardisView!
     
+    @IBOutlet weak var settingName: UILabel!
     @IBOutlet weak var settingIcon: UIImageView!
     // MARK: - Propeties
     // MARK: - LifeCycle
@@ -32,5 +33,6 @@ class TardisSettingTableViewCell: UITableViewCell {
     }
     func bindData(setting: Setting) {
         settingIcon.image = setting.image
+        settingName.text = setting.name
     }
 }

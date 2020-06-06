@@ -11,15 +11,15 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    let mainVC = TardisMainTabbarViewController()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
         //Going to tardisRootview
         if let windowScene = scene as? UIWindowScene {
             self.window = UIWindow(windowScene: windowScene)
-            let vc = TardisMainTabbarViewController()
-            self.window!.rootViewController = vc
+            
+            self.window!.rootViewController = mainVC
             self.window!.makeKeyAndVisible()
         }
     }
