@@ -13,7 +13,7 @@ class TardisLoginRequestModel:NSObject {
     
     var firRef: DatabaseReference
     override init() {
-        self.firRef = TardisModel.shared.firRef
+        self.firRef = TardisModel.shared.firRef.child("users")
     }
     
     func login(username: String, password: String, completionBlock: ((Bool) -> Void)?) {

@@ -136,4 +136,32 @@ class CommonFunction {
             return true
         }
     }
+    //ShowNotice
+    static func annoucement(view:UIView,title: String, message: String){
+        OperationQueue.main.addOperation {
+            MBProgressHUD.hide(for: view, animated: true)
+            let hub = MBProgressHUD.showAdded(to: view, animated: true)
+            hub.label.font = UIFont(name: "Helvetica", size: 16)
+            hub.label.text = title
+            hub.detailsLabel.font = UIFont(name: "Helvetica", size: 16)
+            hub.detailsLabel.text = message
+            hub.contentColor = .blue
+            hub.mode = .text
+            hub.removeFromSuperViewOnHide = true
+            hub.isUserInteractionEnabled = false
+            hub.hide(animated: true, afterDelay: 2)
+        }
+    }
+    //Get RootVC
+    static var rootVC:TardisMainTabbarViewController {
+        get {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let sceneDelegate = windowScene.delegate as? SceneDelegate
+            else {
+              fatalError()
+            }
+            let rootVC = sceneDelegate.window?.rootViewController as! TardisMainTabbarViewController
+            return rootVC
+        }
+    }
 }

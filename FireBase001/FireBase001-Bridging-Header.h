@@ -4,3 +4,4 @@
 
 #import <LGSideMenuController/LGSideMenuController.h>
 #import <LGSideMenuController/UIViewController+LGSideMenuController.h>
+#import "MBProgressHUD.h"

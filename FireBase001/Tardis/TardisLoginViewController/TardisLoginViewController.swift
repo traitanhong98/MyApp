@@ -16,6 +16,8 @@ class TardisLoginViewController: UIViewController {
     @IBOutlet weak var signupButton: TardisButton!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var containerView: UIView!
+    // MARK: - Propeties
+    let rootVC = CommonFunction.rootVC
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,20 +50,17 @@ class TardisLoginViewController: UIViewController {
 //        }
     }
     @IBAction func signupAction(_ sender: Any) {
-        let signupViewController = TardisSignupViewController()
-//        signupViewController.modalPresentationStyle = .fullScreen
-        self.present(signupViewController, animated: true, completion: nil)
+        CommonFunction.annoucement(view: TardisMainTabbarViewController.viewOfMainTabbar!, title: "", message: "Aloha")
     }
     @IBAction func closeAction(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
 
 // MARK: - UITextFieldDelegate
 extension TardisLoginViewController:UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {        textField.resignFirstResponder()
         return true
     }
 }

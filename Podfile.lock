@@ -60,6 +60,7 @@ PODS:
   - leveldb-library (1.22)
   - LGSideMenuController (2.1.1)
   - lottie-ios (3.1.8)
+  - MBProgressHUD (1.2.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -75,6 +76,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - LGSideMenuController
   - lottie-ios
+  - MBProgressHUD
   - ObjectMapper (= 3.3)
   - PureLayout
 
@@ -96,6 +98,7 @@ SPEC REPOS:
     - leveldb-library
     - LGSideMenuController
     - lottie-ios
+    - MBProgressHUD
     - nanopb
     - ObjectMapper
     - PureLayout
@@ -117,10 +120,11 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   LGSideMenuController: ae40c80983ab8b8801c7cef0a6804d43aaa72d45
   lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   PureLayout: bd3c4ec3a3819ad387c99ebb72c6b129c3ed4d2d
 
-PODFILE CHECKSUM: 59fcca902781ef225920f589d2c6cd0440fdf4e0
+PODFILE CHECKSUM: 5e3eed4248025898093218709caed25d21fa4e36
 
 COCOAPODS: 1.9.1

@@ -45,7 +45,7 @@ class TardisActivitiesViewController: BaseTabViewController {
         setupView()
         registerCell()
     }
-    //MARK: -Func
+    //MARK: - Func
     func registerCell() {
         //weekdayButtonCollectionView
         weekdayButtonCollectionView.register(UINib(nibName: "TardisWeekdayButtonCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TardisWeekdayButtonCollectionViewCell")
@@ -98,6 +98,7 @@ class TardisActivitiesViewController: BaseTabViewController {
     }
     //MARK: - IBActions
     @IBAction func sizeRatioButtonTapped(_ sender: Any) {
+        CommonFunction.annoucement(view: TardisMainTabbarViewController.viewOfMainTabbar!, title: "", message: "Aloha")
         if self.sizeRatio == 1 {
             self.sizeRatio = 0.75
         } else if self.sizeRatio == 0.75 {
@@ -105,6 +106,9 @@ class TardisActivitiesViewController: BaseTabViewController {
         } else {
             self.sizeRatio = 1
         }
+    }
+    @IBAction func leftMenuButton(_ sender: Any) {
+        CommonFunction.rootVC.openLogin()
     }
     
     @IBAction func viewModeButtonTapped(_ sender: Any) {

@@ -144,14 +144,35 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OW7-MB-c9o" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="8" y="52" width="30" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="ZQ6-Vt-mBO"/>
+                        <constraint firstAttribute="width" secondItem="OW7-MB-c9o" secondAttribute="height" multiplier="1:1" id="jgS-VR-ejJ"/>
+                    </constraints>
+                    <state key="normal" image="rectangle.grid.2x2" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="leftMenuButton:" destination="-1" eventType="touchUpInside" id="Dpc-TW-YAR"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6Hx-da-bDq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4PR-da-NOv"/>
                 <constraint firstItem="uba-CV-TWp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Bem-FF-S6L"/>
+                <constraint firstItem="OW7-MB-c9o" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="F89-lx-y7R"/>
                 <constraint firstItem="8gw-jH-8xt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="LOE-5G-W7b"/>
                 <constraint firstItem="8gw-jH-8xt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NMW-L6-sfB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8gw-jH-8xt" secondAttribute="bottom" id="OdQ-al-sTy"/>
+                <constraint firstItem="OW7-MB-c9o" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="WS2-M9-a4H"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8gw-jH-8xt" secondAttribute="trailing" id="ZpM-mX-r18"/>
                 <constraint firstItem="uba-CV-TWp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="11" id="a0C-uo-7wA"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Hx-da-bDq" secondAttribute="trailing" id="bjm-DQ-gzk"/>
@@ -165,5 +186,6 @@
         <image name="24.circle" catalog="system" width="64" height="60"/>
         <image name="Earth" width="640" height="597"/>
         <image name="circle.bottomthird.split" catalog="system" width="64" height="60"/>
+        <image name="rectangle.grid.2x2" catalog="system" width="64" height="48"/>
     </resources>
 </document>
