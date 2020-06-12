@@ -7,9 +7,12 @@
 //
 
 import UIKit
-
+import Firebase
 class UserInfo: NSObject {
-    
+    //UID
+    static func getUID() -> String {
+        return Auth.auth().currentUser?.uid ?? ""
+    }
     //Login
     static func setLogin() {
         UserDefaults.standard.set(true, forKey: "IS_LOGIN")

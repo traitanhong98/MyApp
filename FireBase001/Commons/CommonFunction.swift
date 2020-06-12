@@ -137,8 +137,9 @@ class CommonFunction {
         }
     }
     //ShowNotice
-    static func annoucement(view:UIView,title: String, message: String){
+    static func annoucement(title: String, message: String){
         OperationQueue.main.addOperation {
+            guard let view = self.rootVC.naviMain.view else {return}
             MBProgressHUD.hide(for: view, animated: true)
             let hub = MBProgressHUD.showAdded(to: view, animated: true)
             hub.label.font = UIFont(name: "Helvetica", size: 16)
@@ -162,6 +163,12 @@ class CommonFunction {
             }
             let rootVC = sceneDelegate.window?.rootViewController as! TardisMainTabbarViewController
             return rootVC
+        }
+    }
+    static var appDelegate:AppDelegate {
+        get {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            return appDelegate
         }
     }
 }

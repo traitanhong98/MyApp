@@ -20,46 +20,23 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     var arrayVC = [UINavigationController]()
     var mainTabBarController: UITabBarController?
     var naviMain = UINavigationController()
+    var firstOpenApp = true
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-//        //Connect to FirebaseDatabase
-//        let firRef = Database.database().reference(fromURL: "https://fir-001app.firebaseio.com/")
-//        firRef.child("FirstData")
-//        firRef.child("FirstData").setValue(["MyFirstValue":"HelloWorld!"])
-        
-        //Đã tạo user xong
-//        Auth.auth().createUser(withEmail: "myfirstemail@gmail.com", password: "abc123") { (result, err) in
-//            if let errCode = err {
-//                print("HelloSenpai: Error here\(errCode)")
-//            } else {
-//                print("HelloSenpai: Success here\(result?.description)")
-//            }
-//        }
-        
-        //Update user value
-//        let value = ["name": "Hoang nm", "email":"myfirstemail@gmail.com"]
-//        firRef.updateChildValues(value) { (err, ref) in
-//            if let errMess = err {
-//                print("HelloSenpai: Error here\(errMess)")
-//                return
-//            }
-//
-//            print("HelloSenpai:Update Success fully")
-//        }
-        
 
         initTabbar()
         TardisMainTabbarViewController.viewOfMainTabbar = self.view
-        
     }
     //Mark: -Function
+ 
     func initTabbar() {
         setupNaviWeakly()
         setupNaviSchedule()
         setupNaviThread()
         setupNaviMessage()
         setupNaviAddon()
+        setupLeftView()
 //        if !CommonFunction.isLogin() {
 //            self.setViewControllers([naviWeakly!,naviSchedule!,naviAddon!], animated: true)
 //        } else {
@@ -88,6 +65,13 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         naviWeakly = UINavigationController(rootViewController: weaklyVC!)
         naviWeakly.interactivePopGestureRecognizer?.delegate = self
         naviWeakly.isNavigationBarHidden = true
+    }
+    
+    func setupLeftView() {
+        self.leftViewController = TardisLeftMenuViewController()
+        self.leftViewStatusBarStyle = .default
+        self.leftViewPresentationStyle = .scaleFromLittle
+        self.leftViewWidth = self.view.frame.width / 3 * 2
     }
     
     func setupNaviSchedule() {
@@ -160,5 +144,8 @@ extension TardisMainTabbarViewController:UITabBarControllerDelegate{
 
 // MARK: - LGSideMenuDelegate
 extension TardisMainTabbarViewController: LGSideMenuDelegate{
-    
+    func didShowLeftView(_ leftView: UIView, sideMenuController: LGSideMenuController) {
+        let leftMenu = self.leftViewController
+    }
+
 }

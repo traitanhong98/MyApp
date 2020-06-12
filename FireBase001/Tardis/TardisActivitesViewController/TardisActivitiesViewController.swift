@@ -20,7 +20,8 @@ class TardisActivitiesViewController: BaseTabViewController {
     @IBOutlet weak var viewModeButton: UIButton!
     @IBOutlet weak var sizeRatioButton: UIButton!
     //MARK: -Propeties
-    var centeredWeekdayCollectionView: CenteredCollectionViewFlowLayout! = nil
+    var centeredWeekdayCollectionView: CenteredCollectionViewFlowLayout?
+    var weekdayButtonCollectionViewFlowLayout: UICollectionViewFlowLayout?
     var sizeOfWeekdayButton: Float = 0
     var originPosXofFooter: CGFloat = 0
     var weekActivities = [[TardisActivity]]()
@@ -56,20 +57,20 @@ class TardisActivitiesViewController: BaseTabViewController {
         )
         weekdayButtonCollectionViewFlowLayout.scrollDirection = .horizontal
         initLayoutForCollectionView(weekdayButtonCollectionView)
-        weekdayButtonCollectionViewFlowLayout.minimumLineSpacing = 1
         //weekdayCollectionView
         weekdayCollectionView.register(UINib(nibName: "TardisWeekdayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TardisWeekdayCollectionViewCell")
         self.centeredWeekdayCollectionView = weekdayCollectionView.collectionViewLayout as? CenteredCollectionViewFlowLayout
         setupCell()
-        centeredWeekdayCollectionView.minimumLineSpacing = 10
+        centeredWeekdayCollectionView!.minimumLineSpacing = 10
         initLayoutForCollectionView(weekdayCollectionView)
     }
     func setupCell() {
         let width = Float(weekdayCollectionView.frame.width - 80) * sizeRatio
-        let height = Float(weekdayCollectionView.frame.height - 2) * sizeRatio
-        centeredWeekdayCollectionView.itemSize = CommonFunction.getSizeWithRatio(width: width,
-                                                                                 height: height,
-                                                                                 ratio: sizeRatio)
+        let height = Float(weekdayCollectionView.frame.height - 2)
+        let itemSize = CommonFunction.getSizeWithRatio(width: width,
+                                                       height: Float(height),
+                                                       ratio: sizeRatio)
+        centeredWeekdayCollectionView!.itemSize = itemSize
     }
     func initLayoutForCollectionView(_ collectionView: UICollectionView){
         collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
@@ -98,17 +99,15 @@ class TardisActivitiesViewController: BaseTabViewController {
     }
     //MARK: - IBActions
     @IBAction func sizeRatioButtonTapped(_ sender: Any) {
-        CommonFunction.annoucement(view: TardisMainTabbarViewController.viewOfMainTabbar!, title: "", message: "Aloha")
+        CommonFunction.annoucement(title: "", message: "Aloha")
         if self.sizeRatio == 1 {
             self.sizeRatio = 0.75
         } else if self.sizeRatio == 0.75 {
-            self.sizeRatio = 0.5
-        } else {
             self.sizeRatio = 1
         }
     }
     @IBAction func leftMenuButton(_ sender: Any) {
-        CommonFunction.rootVC.openLogin()
+        CommonFunction.rootVC.showLeftViewAnimated()
     }
     
     @IBAction func viewModeButtonTapped(_ sender: Any) {
@@ -125,13 +124,23 @@ class TardisActivitiesViewController: BaseTabViewController {
 }
 //MARK: -CollectionViewDelegate
 extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        switch collectionView {
+        case weekdayCollectionView:
+            return 1
+        case weekdayButtonCollectionView:
+            return 7
+        default:
+            return 0
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case weekdayCollectionView:
             return 7
         case weekdayButtonCollectionView:
-            return 7
+            return 1
         default:
             return 0
         }
@@ -148,7 +157,7 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
             }
         case weekdayButtonCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisWeekdayButtonCollectionViewCell", for: indexPath) as? TardisWeekdayButtonCollectionViewCell {
-                cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.row))
+                cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.section))
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -162,7 +171,10 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
         case weekdayCollectionView:
             print("WeekdayTapped")
         case weekdayButtonCollectionView:
-            weekdayCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            weekdayCollectionView.scrollToItem(at: IndexPath(row: indexPath.section,
+                                                             section: indexPath.row),
+                                               at: .centeredHorizontally,
+                                               animated: true)
         default:
             print("NotFound")
         }

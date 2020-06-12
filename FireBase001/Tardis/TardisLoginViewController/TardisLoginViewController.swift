@@ -18,6 +18,7 @@ class TardisLoginViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     // MARK: - Propeties
     let rootVC = CommonFunction.rootVC
+    let requestModel = TardisLoginRequestModel.shared
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +42,21 @@ class TardisLoginViewController: UIViewController {
     }
     // MARK: - IBActions
     @IBAction func loginAction(_ sender: Any) {
-//        if accountTextField.text!.count > 0 && passwordTextField.text!.count > 0 {
-//            Auth.auth().signIn(withEmail: accountTextField.text!, password: passwordTextField.text!) { [weak self] authResult, error in
-//              guard let strongSelf = self else { return }
-//                UserInfo.setLogin()
-//                self?.dismiss(animated: true, completion: nil)
-//            }
-//        }
+        guard let account = accountTextField.text else {
+            CommonFunction.annoucement(title: "", message: "Bạn cần nhập tài khoản")
+            return
+        }
+        guard let password = passwordTextField.text else {
+            CommonFunction.annoucement(title: "", message: "Bạn cần nhập mật khẩu")
+            return
+        }
+        requestModel.login(username: account, password: password) { (status) in
+            self.navigationController?.popToRootViewController(animated: true)
+        }
     }
     @IBAction func signupAction(_ sender: Any) {
-        CommonFunction.annoucement(view: TardisMainTabbarViewController.viewOfMainTabbar!, title: "", message: "Aloha")
+        let signupVC = TardisSignupViewController()
+        self.navigationController?.pushViewController(signupVC, animated: true)
     }
     @IBAction func closeAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

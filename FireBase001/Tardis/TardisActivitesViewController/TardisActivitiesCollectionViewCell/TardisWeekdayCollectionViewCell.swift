@@ -13,16 +13,16 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainCellView: UIView!
     @IBOutlet weak var weekdayLabel: UILabel!
     @IBOutlet weak var activityCollectionView: UICollectionView!
-    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var timeCollectionView: UICollectionView!
+    @IBOutlet weak var heightOfHeaderView: NSLayoutConstraint!
     //MARK:- Propeties
-    var activities = [TardisActivity]()
+    var dataModel = TardisWeekDayCollectionViewCellDataModel()
     var weekDay: Weekday?
     var sizeRatio: Float = 1 {
         didSet{
             activityCollectionView.reloadData()
             timeCollectionView.reloadData()
-                
+            dataModel.sizeRatio = sizeRatio
         }
     }
     @IBOutlet weak var weekDayImageView: UIImageView!
@@ -47,37 +47,39 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     //MARK:- Func
     func initView(){
         mainCellView.createShadow()
-        self.contentView.bringSubviewToFront(addButton)
         self.mainCellView.sendSubviewToBack(timeCollectionView)
     }
     
     func bindData(weekDay: Weekday, sizeRatio: Float, activities: [TardisActivity],viewMode: ViewMode) {
         self.sizeRatio = sizeRatio
         self.weekDay = weekDay
-        self.activities = activities
+        dataModel.activities = activities
+        dataModel.viewMode = viewMode
         self.viewMode = viewMode
         weekdayLabel.text = weekDay.rawValue
-        weekdayLabel.textColor = weekDay.weekColor
         activityCollectionView.reloadData()
         activityCollectionView.layoutIfNeeded()
     }
     
     func scrollToFirst() {
+        if viewMode == .normal {
+            return
+        }
         if CommonFunction.getCurrentDayOfWeek() == self.weekDay?.rawValue {
-            for section in 0...(activities.count - 1) {
-                if activities[section].startTime > CommonFunction.getCurrenFloatTime() {
+            for section in 0...(dataModel.activities.count - 1) {
+                if dataModel.activities[section].startTime > CommonFunction.getCurrenFloatTime() {
                     activityCollectionView.scrollToItem(at: IndexPath(row: 0, section: section),
                                                         at: .top,
                                                         animated: true)
                     break
                 } else {
-                    activityCollectionView.scrollToItem(at: IndexPath(row: 0, section: activities.count),
+                    activityCollectionView.scrollToItem(at: IndexPath(row: 0, section: dataModel.activities.count),
                     at: .top,
                     animated: true)
                 }
             }
         } else {
-            var startFloatTime = CommonFunction.timeToFloat(time: activities[0].startTime)
+            var startFloatTime = CommonFunction.timeToFloat(time: dataModel.activities[0].startTime)
             startFloatTime -= Float(activityCollectionView.frame.size.width * 1.5)
             activityCollectionView.scrollToItem(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
         }
@@ -118,7 +120,7 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         switch collectionView {
         case activityCollectionView:
-            return activities.count + 1
+            return dataModel.activities.count + 1
         case timeCollectionView:
             return 24
         default:
@@ -145,7 +147,7 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
         switch collectionView {
         case activityCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisActivityCollectionViewCell", for: indexPath) as? TardisActivityCollectionViewCell {
-                cell.bindData(data: activities[indexPath.section - 1],sizeRatio: sizeRatio)
+                cell.bindData(data: dataModel.activities[indexPath.section - 1],sizeRatio: sizeRatio)
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -165,24 +167,7 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         switch collectionView {
         case activityCollectionView:
-            if viewMode == .dayHour {
-                let width = Float(activityCollectionView.frame.width)
-                var height: Float = 0
-                if section == activities.count {
-                    height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: "24:00")
-                } else if section == 0 {
-                    height = calculatingHeightOfItem(startTime: "00:00", endTime: activities[0].startTime)
-                } else {
-                    height = calculatingHeightOfItem(startTime: activities[section - 1].endTime, endTime: activities[section].startTime)
-                }
-                return CommonFunction.getSizeWithRatio(width: width,
-                                                       height: height,
-                                                       ratio: sizeRatio)
-            } else {
-                return CGSize(width: activityCollectionView.frame.width,
-                              height: 20)
-            }
-            
+            return dataModel.activityCollectionView(collectionView, referenceSizeForFooterInSection: section)
         case timeCollectionView:
             return CGSize(width: 0, height: 0)
         default:
@@ -202,7 +187,7 @@ extension TardisWeekdayCollectionViewCell:UICollectionViewDelegateFlowLayout {
             }
             var height:Float = 0
             if viewMode == .dayHour {
-                height = calculatingHeightOfItem(startTime: activities[indexPath.section - 1].startTime, endTime: activities[indexPath.section - 1].endTime)
+                height = calculatingHeightOfItem(startTime: dataModel.activities[indexPath.section - 1].startTime, endTime: dataModel.activities[indexPath.section - 1].endTime)
             } else {
                 height = 100
             }

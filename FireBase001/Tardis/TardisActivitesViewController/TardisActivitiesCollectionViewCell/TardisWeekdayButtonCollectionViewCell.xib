@@ -16,18 +16,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="256" height="156"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2V-TF-ebR">
-                        <rect key="frame" x="117" y="93" width="22" height="14"/>
-                        <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circular-button" translatesAutoresizingMaskIntoConstraints="NO" id="Bx5-Ru-GM7">
-                        <rect key="frame" x="0.0" y="44" width="256" height="112"/>
-                    </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7G-kd-I8l" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="44" width="256" height="107"/>
+                        <rect key="frame" x="2" y="44" width="252" height="107"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y2V-TF-ebR">
+                                <rect key="frame" x="117" y="45.5" width="18" height="16"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="11"/>
+                                <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Y2V-TF-ebR" firstAttribute="centerY" secondItem="e7G-kd-I8l" secondAttribute="centerY" id="H39-xE-VGI"/>
+                            <constraint firstItem="Y2V-TF-ebR" firstAttribute="centerX" secondItem="e7G-kd-I8l" secondAttribute="centerX" id="I23-3m-AZU"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
                                 <real key="value" value="3"/>
@@ -38,31 +41,29 @@
                             <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
                                 <real key="value" value="1"/>
                             </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="Y2V-TF-ebR" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="0oc-mf-1iD"/>
-                <constraint firstItem="e7G-kd-I8l" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="CJ0-62-xgv"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="Bx5-Ru-GM7" secondAttribute="leading" id="LXG-An-akt"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="e7G-kd-I8l" secondAttribute="trailing" id="Olw-ef-LSW"/>
+                <constraint firstItem="e7G-kd-I8l" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="2" id="CJ0-62-xgv"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="e7G-kd-I8l" secondAttribute="trailing" constant="2" id="Olw-ef-LSW"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="e7G-kd-I8l" secondAttribute="top" id="WFW-Pj-8pU"/>
-                <constraint firstItem="Y2V-TF-ebR" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="WYV-Zr-Q4i"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="Bx5-Ru-GM7" secondAttribute="trailing" id="oZ4-HG-wBW"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="e7G-kd-I8l" secondAttribute="bottom" constant="5" id="pEH-ig-8rz"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Bx5-Ru-GM7" secondAttribute="top" id="pkp-Eo-KcI"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="Bx5-Ru-GM7" secondAttribute="bottom" id="sRY-dx-Ccc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="256" height="156"/>
             <connections>
+                <outlet property="borderView" destination="e7G-kd-I8l" id="Zui-7D-tbZ"/>
                 <outlet property="weekdayLabel" destination="Y2V-TF-ebR" id="ziz-Wp-5gI"/>
             </connections>
             <point key="canvasLocation" x="-51" y="51"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="circular-button" width="256" height="256"/>
-    </resources>
 </document>

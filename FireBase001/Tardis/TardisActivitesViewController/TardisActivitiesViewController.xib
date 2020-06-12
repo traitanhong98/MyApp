@@ -27,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Earth" translatesAutoresizingMaskIntoConstraints="NO" id="6Hx-da-bDq" customClass="TardisImageView" customModule="FireBase001" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="44" width="414" height="380"/>
+                    <rect key="frame" x="0.0" y="-1" width="414" height="380"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="380" id="XJe-MH-WRo"/>
                     </constraints>
@@ -39,14 +39,14 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kjo-gG-c4Z" customClass="CenteredCollectionViewFlowLayout" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="718"/>
+                                    <rect key="frame" x="0.0" y="40" width="414" height="678"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <collectionViewLayout key="collectionViewLayout" id="fyX-dc-hrZ" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 </collectionView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="kjo-gG-c4Z" firstAttribute="top" secondItem="RqJ-DS-nUd" secondAttribute="top" id="Yvg-oQ-ep4"/>
+                                <constraint firstItem="kjo-gG-c4Z" firstAttribute="top" secondItem="RqJ-DS-nUd" secondAttribute="top" constant="40" id="Yvg-oQ-ep4"/>
                                 <constraint firstAttribute="bottom" secondItem="kjo-gG-c4Z" secondAttribute="bottom" id="aSb-pf-gBp"/>
                                 <constraint firstAttribute="trailing" secondItem="kjo-gG-c4Z" secondAttribute="trailing" id="cEe-d9-ZIs"/>
                                 <constraint firstItem="kjo-gG-c4Z" firstAttribute="leading" secondItem="RqJ-DS-nUd" secondAttribute="leading" id="tYu-Y5-28z"/>
@@ -56,7 +56,7 @@
                             <rect key="frame" x="0.0" y="718" width="414" height="60"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="JSJ-e4-7aI" customClass="CenteredCollectionViewFlowLayout" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="70" y="0.0" width="274" height="60"/>
+                                    <rect key="frame" x="60" y="0.0" width="294" height="60"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vYg-Ow-NZk">
                                         <size key="itemSize" width="50" height="50"/>
@@ -66,7 +66,7 @@
                                     </collectionViewFlowLayout>
                                 </collectionView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Sv-dp-wYf" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="70" y="54" width="120" height="3"/>
+                                    <rect key="frame" x="60" y="54" width="120" height="3"/>
                                     <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="3" id="0tO-02-sXZ"/>
@@ -110,10 +110,10 @@
                                 <constraint firstItem="15H-2j-vCR" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" constant="8" id="502-zf-xVZ"/>
                                 <constraint firstItem="1J6-pV-EG3" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="8" id="5Ac-ki-ZgR"/>
                                 <constraint firstItem="1J6-pV-EG3" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" constant="8" id="673-ND-sW8"/>
-                                <constraint firstItem="JSJ-e4-7aI" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="70" id="7R7-Yi-RHz"/>
+                                <constraint firstItem="JSJ-e4-7aI" firstAttribute="leading" secondItem="bci-kl-ccp" secondAttribute="leading" constant="60" id="7R7-Yi-RHz"/>
                                 <constraint firstAttribute="bottom" secondItem="JSJ-e4-7aI" secondAttribute="bottom" id="EQO-EC-Ls5"/>
                                 <constraint firstItem="JSJ-e4-7aI" firstAttribute="top" secondItem="bci-kl-ccp" secondAttribute="top" id="J8O-Gx-frV"/>
-                                <constraint firstAttribute="trailing" secondItem="JSJ-e4-7aI" secondAttribute="trailing" constant="70" id="Nq3-va-uue"/>
+                                <constraint firstAttribute="trailing" secondItem="JSJ-e4-7aI" secondAttribute="trailing" constant="60" id="Nq3-va-uue"/>
                                 <constraint firstItem="1J6-pV-EG3" firstAttribute="centerY" secondItem="bci-kl-ccp" secondAttribute="centerY" id="eKE-YH-Cxv"/>
                                 <constraint firstItem="15H-2j-vCR" firstAttribute="centerY" secondItem="bci-kl-ccp" secondAttribute="centerY" id="kVn-UQ-zDg"/>
                                 <constraint firstAttribute="height" constant="60" id="lWF-Gt-hJb"/>
@@ -145,13 +145,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OW7-MB-c9o" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
-                    <rect key="frame" x="8" y="52" width="30" height="30"/>
+                    <rect key="frame" x="8" y="52" width="40" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="ZQ6-Vt-mBO"/>
+                        <constraint firstAttribute="height" constant="40" id="ZQ6-Vt-mBO"/>
                         <constraint firstAttribute="width" secondItem="OW7-MB-c9o" secondAttribute="height" multiplier="1:1" id="jgS-VR-ejJ"/>
                     </constraints>
-                    <state key="normal" image="rectangle.grid.2x2" catalog="system">
+                    <state key="normal" image="line.horizontal.3.decrease.circle.fill" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -166,7 +166,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="6Hx-da-bDq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="4PR-da-NOv"/>
+                <constraint firstItem="6Hx-da-bDq" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-45" id="4PR-da-NOv"/>
                 <constraint firstItem="uba-CV-TWp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Bem-FF-S6L"/>
                 <constraint firstItem="OW7-MB-c9o" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="8" id="F89-lx-y7R"/>
                 <constraint firstItem="8gw-jH-8xt" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="LOE-5G-W7b"/>
@@ -179,13 +179,13 @@
                 <constraint firstItem="6Hx-da-bDq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="fMx-BY-Cjb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
+            <point key="canvasLocation" x="-326" y="92"/>
         </view>
     </objects>
     <resources>
         <image name="24.circle" catalog="system" width="64" height="60"/>
         <image name="Earth" width="640" height="597"/>
         <image name="circle.bottomthird.split" catalog="system" width="64" height="60"/>
-        <image name="rectangle.grid.2x2" catalog="system" width="64" height="48"/>
+        <image name="line.horizontal.3.decrease.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>
