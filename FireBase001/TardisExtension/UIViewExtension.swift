@@ -194,7 +194,11 @@ extension UIView {
             }
         }
     }
-    
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
+        didSet {
+            self.layer.borderColor = borderColor.cgColor
+        }
+    }
     
     required override init(frame: CGRect) {
         super.init(frame: frame)

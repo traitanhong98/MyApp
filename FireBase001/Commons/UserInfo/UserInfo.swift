@@ -9,11 +9,11 @@
 import UIKit
 import Firebase
 class UserInfo: NSObject {
-    //UID
+    // MARK: - UID
     static func getUID() -> String {
         return Auth.auth().currentUser?.uid ?? ""
     }
-    //Login
+    // MARK: - Login
     static func setLogin() {
         UserDefaults.standard.set(true, forKey: "IS_LOGIN")
         UserDefaults.standard.synchronize()
@@ -22,7 +22,7 @@ class UserInfo: NSObject {
     static func getLogin() -> Bool{
         return UserDefaults.standard.bool(forKey: "IS_LOGIN")
     }
-    //Username
+    // MARK: - Username
     static func setUsername() {
         UserDefaults.standard.set(true, forKey: "USERNAME")
         UserDefaults.standard.synchronize()
@@ -31,7 +31,7 @@ class UserInfo: NSObject {
     static func getUsername() -> String{
         return UserDefaults.standard.string(forKey: "USERNAME") ?? ""
     }
-    //Password
+    // MARK: - Password
     static func setPassword() {
         UserDefaults.standard.set(true, forKey: "PASSWORD")
         UserDefaults.standard.synchronize()
@@ -40,4 +40,24 @@ class UserInfo: NSObject {
     static func getPassword() -> String{
         return UserDefaults.standard.string(forKey: "PASSWORD") ?? ""
     }
+    // MARK: - DidLogin
+    static func userDidLogin() -> Bool{
+        if UserInfoRequestModel.shared.userDidLogin() {
+            return true
+        } else {
+            return false
+        }
+    }
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
+    // MARK: -
 }

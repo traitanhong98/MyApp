@@ -68,11 +68,6 @@ extension TardisSettingViewController: UITableViewDelegate, UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case Setting.userInfo.settingIndex:
-            if let rootVC = self.view.window?.rootViewController as? TardisMainTabbarViewController {
-                rootVC.openLogin()
-            }
-            break
         case Setting.commonSetting.settingIndex:
             break
         case Setting.appInfo.settingIndex:
