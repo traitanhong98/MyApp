@@ -7,12 +7,22 @@
 //
 
 import UIKit
+protocol TardisNotLoginMenuCollectionViewCellDelegate: class {
+    func loginAction()
+}
 
 class TardisNotLoginMenuCollectionViewCell: UICollectionViewCell {
-
+    // MARK: - Propeties
+    weak var delegate: TardisNotLoginMenuCollectionViewCellDelegate?
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    // MARK: - IBActions
+    @IBAction func loginButtonTouchUpInside(_ sender: Any) {
+        if let delegate = self.delegate {
+            delegate.loginAction()
+        }
+    }
 }

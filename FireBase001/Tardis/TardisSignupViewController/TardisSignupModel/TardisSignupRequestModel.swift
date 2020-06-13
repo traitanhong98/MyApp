@@ -17,21 +17,28 @@ class TardisSignupRequestModel: NSObject {
         self.firRef = TardisModel.shared.firRef.child("Users")
     }
     
-    func registerNewUserWithMail( username: String,
+    func registerNewUserWithMail( userName: String,
                                   password: String,
                                   completionBlock: @escaping (Bool)->Void) {
-        Auth.auth().createUser(withEmail: username, password: password) { (user, err) in
+        Auth.auth().createUser(withEmail: userName, password: password) { (user, err) in
             if let error = err {
                 print(error)
                 CommonFunction.annoucement(title: "", message: "Có lỗi trong quá trình đăng ký")
                 completionBlock(false)
             }
             // Register Success
-            let userInfo = ["username":username ,
-                            "password":password]
-            self.updateUser(userInfo: userInfo) { (status) in
-                completionBlock(status)
+            if let userData = user {
+                let userInfo = ["userName":userName]
+                let userRef = self.firRef.child(userData.user.uid)
+                userRef.setValue(userInfo) { (err, firRef) in
+                    if let error = err {
+                        print(error.localizedDescription)
+                        completionBlock(false)
+                    }
+                    completionBlock(true)
+                }
             }
+            
         }
     }
     

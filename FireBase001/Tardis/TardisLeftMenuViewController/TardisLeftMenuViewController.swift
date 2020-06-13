@@ -17,34 +17,20 @@ class TardisLeftMenuViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        dataModel.selfView = self
+        dataModel.setupLeftMenuCollectionView(collectionView: leftMenuCollectionView)
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        leftMenuCollectionView.reloadData()
+    }
     // MARK: - Func
-    func setupData() {
-        
-    }
-    
-    func setupCollectionView() {
-        leftMenuCollectionView.register(UINib(nibName: "TardisCommonMenuCollectionViewCell",
-                                              bundle: nil),
-                                        forCellWithReuseIdentifier: "TardisCommonMenuCollectionViewCell")
-        leftMenuCollectionView.register(UINib(nibName: "TardisLogedInMenuCollectionViewCell",
-                                              bundle: nil),
-                                        forCellWithReuseIdentifier: "TardisLogedInMenuCollectionViewCell")
-        leftMenuCollectionView.register(UINib(nibName: "TardisNotLoginMenuCollectionViewCell",
-                                              bundle: nil),
-                                        forCellWithReuseIdentifier: "TardisNotLoginMenuCollectionViewCell")
-        leftMenuCollectionView.delegate = self
-        leftMenuCollectionView.dataSource = self
-    }
     // MARK: - IBActions
     
 
 }
 
 // MARK: - CollectionViewDataSource
-extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionViewDelegate {
+extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -53,13 +39,19 @@ extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        switch indexPath.row {
-        case Setting.userBlock.settingIndex:
-            <#code#>
-        default:
-            return UICollectionViewCell()
-        }
+        return dataModel.cellForMenu(collectionView: collectionView, cellForItemAt: indexPath)
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return dataModel.sizeForMenuCollectionView(sizeForItemAt: indexPath)
+    }
+}
+
+// MARK: - TardisNotLoginMenuCollectionViewCellDelegate
+extension TardisLeftMenuViewController: TardisNotLoginMenuCollectionViewCellDelegate {
+    func loginAction() {
+        CommonFunction.rootVC.hideLeftView(animated: true) {
+            CommonFunction.rootVC.openLogin()
+        }
+    }
 }

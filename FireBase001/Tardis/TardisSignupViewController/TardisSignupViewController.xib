@@ -9,6 +9,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisSignupViewController" customModule="FireBase001" customModuleProvider="target">
             <connections>
+                <outlet property="containerView" destination="UTF-jl-1KX" id="tCY-4d-5OA"/>
+                <outlet property="passwordTextField" destination="P7H-kg-78w" id="Mea-aZ-HHs"/>
+                <outlet property="repasswordTextField" destination="qG7-vU-lCk" id="Hlc-y6-sr9"/>
+                <outlet property="usernameTextField" destination="1gH-H9-3pK" id="WTL-Sg-PDp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tardisTheme002" translatesAutoresizingMaskIntoConstraints="NO" id="xTa-m5-lbK">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="themes" translatesAutoresizingMaskIntoConstraints="NO" id="xTa-m5-lbK">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AFg-kZ-CQD" userLabel="HeaderView">
@@ -32,9 +36,9 @@
                                 <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="naa-5o-OAS"/>
                             </connections>
                         </button>
-                        <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huP-uu-yR2" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huP-uu-yR2" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
                             <rect key="frame" x="147" y="5" width="120" height="30"/>
-                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="9Zl-RL-g2g"/>
                                 <constraint firstAttribute="width" constant="120" id="hvj-k4-y9h"/>
@@ -106,7 +110,7 @@
                                 <constraint firstAttribute="height" constant="40" id="5bs-hB-KJM"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập lại mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXX-Oc-eKP">
                             <rect key="frame" x="40" y="384" width="143" height="21"/>
@@ -121,7 +125,7 @@
                                 <constraint firstAttribute="height" constant="40" id="JyZ-lh-V2K"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMs-1j-D58" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                             <rect key="frame" x="80" y="493" width="254" height="40"/>
@@ -191,6 +195,6 @@
     <resources>
         <image name="chevron.left" catalog="system" width="48" height="64"/>
         <image name="tardis" width="1020.5" height="1109.5"/>
-        <image name="tardisTheme002" width="3840" height="2160"/>
+        <image name="themes" width="320" height="180"/>
     </resources>
 </document>

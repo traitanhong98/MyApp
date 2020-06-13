@@ -27,9 +27,9 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
 
         initTabbar()
         TardisMainTabbarViewController.viewOfMainTabbar = self.view
+        
     }
     //Mark: -Function
- 
     func initTabbar() {
         setupNaviWeakly()
         setupNaviSchedule()
@@ -37,11 +37,11 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         setupNaviMessage()
         setupNaviAddon()
         setupLeftView()
-//        if !CommonFunction.isLogin() {
-//            self.setViewControllers([naviWeakly!,naviSchedule!,naviAddon!], animated: true)
-//        } else {
+        if !CommonFunction.isLogin() {
+            arrayVC = [naviWeakly, naviSchedule,naviAddon]
+        } else {
             arrayVC = [naviWeakly, naviSchedule, naviThread, naviMessage,naviAddon]
-//        }
+        }
         if mainTabBarController == nil {
             mainTabBarController = UITabBarController()
             
@@ -119,6 +119,10 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         naviMain.pushViewController(loginView, animated: true)
     }
     
+    func hileLeftView(completion: @escaping () -> Void) {
+        self.hideLeftView(animated: true, completionHandler: completion)
+    }
+    
 }
 
 extension TardisMainTabbarViewController {
@@ -145,7 +149,7 @@ extension TardisMainTabbarViewController:UITabBarControllerDelegate{
 // MARK: - LGSideMenuDelegate
 extension TardisMainTabbarViewController: LGSideMenuDelegate{
     func didShowLeftView(_ leftView: UIView, sideMenuController: LGSideMenuController) {
-        let leftMenu = self.leftViewController
+        
     }
 
 }

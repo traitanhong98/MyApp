@@ -23,18 +23,48 @@ class TardisLoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        addBackGround()
     }
     override func viewDidAppear(_ animated: Bool) {
         
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+    }
     // MARK: - Functions
+    func addBackGround() {
+        let backGroundImage = UIImageView(image: UIImage(named: "tardisTheme002"))
+        backGroundImage.frame = self.view.frame
+        backGroundImage.center = self.view.center
+        backGroundImage.contentMode = .scaleAspectFill
+        backGroundImage.alpha = 0.8
+        backGroundImage.clipsToBounds = true
+        self.view.addSubview(backGroundImage)
+        self.view.sendSubviewToBack(backGroundImage)
+    }
     func setupUI() {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyBoard))
         self.containerView.addGestureRecognizer(gesture)
         accountTextField.delegate = self
         passwordTextField.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
     }
-    
+    @objc func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y -= 150
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
+    }
+    @objc func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y += 150
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
+    }
     @objc func hideKeyBoard() {
         self.accountTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
@@ -50,8 +80,11 @@ class TardisLoginViewController: UIViewController {
             CommonFunction.annoucement(title: "", message: "Bạn cần nhập mật khẩu")
             return
         }
+        if account.count == 0 || password.count == 0 {
+            CommonFunction.annoucement(title: "", message: "Bạn cần nhập tài khoản/ mật khẩu trước")
+            return
+        }
         requestModel.login(username: account, password: password) { (status) in
-            self.navigationController?.popToRootViewController(animated: true)
         }
     }
     @IBAction func signupAction(_ sender: Any) {
