@@ -110,7 +110,7 @@
                                 <constraint firstAttribute="height" constant="40" id="5bs-hB-KJM"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nhập lại mật khẩu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXX-Oc-eKP">
                             <rect key="frame" x="40" y="384" width="143" height="21"/>
@@ -125,7 +125,7 @@
                                 <constraint firstAttribute="height" constant="40" id="JyZ-lh-V2K"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMs-1j-D58" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                             <rect key="frame" x="80" y="493" width="254" height="40"/>

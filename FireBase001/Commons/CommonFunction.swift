@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Lottie
 class CommonFunction {
     static func resizeImage (image: UIImage,targetSize: CGSize) -> UIImage {
         let size = image.size
@@ -130,7 +131,7 @@ class CommonFunction {
     }
     //IS_lOGIN
     static func isLogin() -> Bool{
-        if UserInfo.getLogin() == false {
+        if UserInfo.userDidLogin() == false {
             return false
         } else {
             return true
@@ -171,4 +172,35 @@ class CommonFunction {
             return appDelegate
         }
     }
+    
+    //LoadingView
+    static func showLoadingView() {
+        let animationView = AnimationView(name: "infinityLoading")
+        animationView.frame.size = CGSize(width: 300, height: 300)
+        animationView.center = CGPoint(x: rootVC.view.frame.width / 2,
+                                       y: rootVC.view.frame.height / 2)
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFill
+        animationView.animationSpeed = 0.5
+        rootVC.view.addSubview(animationView)
+        
+        animationView.play()
+    }
+    static func hideLoadingView() {
+        for subview in rootVC.view.subviews {
+            if subview.isKind(of: AnimationView.self) {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
+    // MARK: - RecognizeDevice
+    static func isIpad() -> Bool{
+        return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
+    }
+    
+    // MARK: - ShowImagePicker
+//    static func createImagePicker() -> UIImagePickerController {
+//        
+//    }
 }

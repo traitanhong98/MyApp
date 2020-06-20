@@ -13,19 +13,19 @@ class TardisLoginRequestModel:NSObject {
     
     var firRef: DatabaseReference
     override init() {
-        self.firRef = TardisModel.shared.firRef.child("users")
+        self.firRef = TardisBaseRequestModel.shared.firRef.child("users")
     }
     
     func login(username: String, password: String, completionBlock: ((Bool) -> Void)?) {
+        CommonFunction.showLoadingView()
         Auth.auth().signIn(withEmail: username, password: password) { (user, error) in
+            CommonFunction.hideLoadingView()
             if let err = error {
                 print(err)
                 print(err.localizedDescription)
-                CommonFunction.annoucement(title: "", message: "Đăng nhập thất bại")
                 if let completionBlock = completionBlock {completionBlock(false)}
                 return
             }
-            CommonFunction.annoucement(title: "", message: "Đăng nhập thành công")
             if let completionBlock = completionBlock {completionBlock(true)}
         }
     }

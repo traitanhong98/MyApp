@@ -21,10 +21,12 @@ class TardisLaunchingViewController: UIViewController {
             self.setupRootVC()
         }
     }
-    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     // MARK: - Func
     func setupUI() {
-        let animationView = AnimationView(name: "14721-loading")
+        let animationView = AnimationView(name: "infinityLoading")
         animationView.frame.size = CGSize(width: 400, height: 400)
         animationView.center = CGPoint(x: self.view.frame.width / 2,
                                        y: self.view.frame.height / 4 * 3)

@@ -11,6 +11,7 @@ import UIKit
 class TardisSignUpDataModel: NSObject {
     var requestModel: TardisSignupRequestModel?
     var selfView: TardisSignupViewController?
+    
     override init() {
         requestModel = TardisSignupRequestModel.shared
     }
@@ -19,6 +20,7 @@ class TardisSignUpDataModel: NSObject {
         self.selfView = selfView
         self.requestModel = TardisSignupRequestModel.shared
     }
+    
     func registerNewUser(username: String,
                          password: String,
                          completionBlock: @escaping (Bool)->Void) {

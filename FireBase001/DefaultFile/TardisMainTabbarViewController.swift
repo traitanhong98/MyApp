@@ -29,6 +29,9 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         TardisMainTabbarViewController.viewOfMainTabbar = self.view
         
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
     //Mark: -Function
     func initTabbar() {
         setupNaviWeakly()
@@ -56,28 +59,29 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         mainTabBarController?.delegate = self
         self.delegate = self
     }
+    // MARK: - LeftMenuView
+    func setupLeftView() {
+        self.leftViewController = TardisLeftMenuViewController()
+        self.leftViewStatusBarStyle = .default
+        self.leftViewWidth = self.view.frame.width / 3 * 2
+    }
+    
     // MARK: - CreateNavigationController
     func setupNaviWeakly() {
         let activitiesIcon = CommonFunction.resizeImage(image: UIImage(named: "070-stopwatch")!, targetSize: CGSize(width: 30, height: 30))
         //Activities
-        let weaklyVC = initVCForTabbar(type: TardisActivitiesViewController.self, vcStr: "TardisActivitiesViewController", title: "Weakly", icon: activitiesIcon)
+        let weaklyVC = initVCForTabbar(type: TardisWorkingViewController.self, vcStr: "TardisWorkingViewController", title: "Weakly", icon: activitiesIcon)
         //Navigation
         naviWeakly = UINavigationController(rootViewController: weaklyVC!)
         naviWeakly.interactivePopGestureRecognizer?.delegate = self
         naviWeakly.isNavigationBarHidden = true
     }
     
-    func setupLeftView() {
-        self.leftViewController = TardisLeftMenuViewController()
-        self.leftViewStatusBarStyle = .default
-        self.leftViewPresentationStyle = .scaleFromLittle
-        self.leftViewWidth = self.view.frame.width / 3 * 2
-    }
-    
     func setupNaviSchedule() {
         let scheduleIcon = CommonFunction.resizeImage(image: UIImage(named: "034-schedule-1")!, targetSize: CGSize(width: 30, height: 30))
         //Schedule
-        let scheduleVC = initVCForTabbar(type: TardisThreadViewController.self, vcStr: "TardisThreadViewController", title: "Schedule", icon: scheduleIcon)
+        let scheduleVC = initVCForTabbar(type: TardisScheduleViewController.self, vcStr: "TardisScheduleViewController", title: "Schedule", icon: scheduleIcon)
+        
         //Navigation
         naviSchedule = UINavigationController(rootViewController: scheduleVC!)
         naviSchedule.interactivePopGestureRecognizer?.delegate = self
@@ -87,7 +91,8 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     func setupNaviThread() {
         let threadIcon = CommonFunction.resizeImage(image: UIImage(named: "013-team")!, targetSize: CGSize(width: 30, height: 30))
         //Thread
-        let threadVC = initVCForTabbar(type: TardisThreadViewController.self, vcStr: "TardisThreadViewController", title: "Thread", icon: threadIcon)
+//        let threadVC = initVCForTabbar(type: TardisThreadViewController.self, vcStr: "TardisThreadViewController", title: "Thread", icon: threadIcon)
+        let threadVC = initVCForTabbar(type: TardisWorkingViewController.self, vcStr: "TardisWorkingViewController", title: "Thread", icon: threadIcon)
         //Navigation
         naviThread = UINavigationController(rootViewController: threadVC!)
         naviThread.interactivePopGestureRecognizer?.delegate = self
@@ -97,7 +102,8 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     func setupNaviMessage() {
         let messageIcon = CommonFunction.resizeImage(image: UIImage(named: "speech-bubbles-and-pointer")!, targetSize: CGSize(width: 30, height: 30))
         //Chat
-        let messageVC = initVCForTabbar(type: TardisChatViewController.self, vcStr: "TardisChatViewController", title: "Mesage", icon: messageIcon)
+//        let messageVC = initVCForTabbar(type: TardisChatViewController.self, vcStr: "TardisChatViewController", title: "Mesage", icon: messageIcon)
+        let messageVC = initVCForTabbar(type: TardisWorkingViewController.self, vcStr: "TardisWorkingViewController", title: "Message", icon: messageIcon)
         //Navigation
         naviMessage = UINavigationController(rootViewController: messageVC!)
         naviMessage.interactivePopGestureRecognizer?.delegate = self
@@ -149,7 +155,9 @@ extension TardisMainTabbarViewController:UITabBarControllerDelegate{
 // MARK: - LGSideMenuDelegate
 extension TardisMainTabbarViewController: LGSideMenuDelegate{
     func didShowLeftView(_ leftView: UIView, sideMenuController: LGSideMenuController) {
-        
+        if let menuVC = self.leftViewController as? TardisLeftMenuViewController {
+            menuVC.leftMenuCollectionView.reloadData()
+        }
     }
 
 }

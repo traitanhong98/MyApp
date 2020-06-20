@@ -14,7 +14,7 @@ class TardisSignupRequestModel: NSObject {
     
     var firRef: DatabaseReference
     override init() {
-        self.firRef = TardisModel.shared.firRef.child("Users")
+        self.firRef = TardisBaseRequestModel.shared.firRef.child("Users")
     }
     
     func registerNewUserWithMail( userName: String,
@@ -23,7 +23,6 @@ class TardisSignupRequestModel: NSObject {
         Auth.auth().createUser(withEmail: userName, password: password) { (user, err) in
             if let error = err {
                 print(error)
-                CommonFunction.annoucement(title: "", message: "Có lỗi trong quá trình đăng ký")
                 completionBlock(false)
             }
             // Register Success

@@ -103,25 +103,39 @@ extension UIView{
     }
 }
 
+// MARK: - Label
 @IBDesignable
 class TardisLabel: UILabel {
-    @IBInspectable var cornerRadius: CGFloat = 0
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        rounderCorner(radius: cornerRadius)
-    }
-}
-extension UIView {
     
-    func rounderCorner(radius: CGFloat) {
-        if radius == -1 {
-            layer.cornerRadius = frame.width < frame.height ? frame.width * 0.5 : frame.height * 0.5
-        } else {
-            layer.cornerRadius = radius
-        }
-        contentMode = .scaleToFill
-        layer.masksToBounds = true
-}
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+           didSet {
+               self.layer.cornerRadius = cornerRadius
+           }
+       }
+       
+       @IBInspectable var borderWidth: CGFloat = 0.0 {
+           didSet {
+               self.layer.borderWidth = borderWidth
+           }
+       }
+       
+       @IBInspectable var borderColor: UIColor = UIColor.clear {
+           didSet {
+               self.layer.borderColor = borderColor.cgColor
+           }
+       }
+       
+       @IBInspectable var shadowOpacity: Float = 0.5 {
+           didSet {
+               self.layer.shadowOpacity = shadowOpacity
+           }
+       }
+       
+       @IBInspectable var shadowRadius: CGFloat = 5 {
+           didSet {
+               self.layer.shadowRadius = shadowRadius
+           }
+       }
 }
 
 extension UIView {

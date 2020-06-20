@@ -45,6 +45,18 @@ extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionVi
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return dataModel.sizeForMenuCollectionView(sizeForItemAt: indexPath)
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case Setting.userBlock.settingIndex:
+            if UserInfo.userDidLogin() {
+                let userInfoBlock = TardisUserInfoViewController()
+                present(userInfoBlock, animated: true, completion: nil)
+                break
+            }
+        default:
+            print("err")
+        }
+    }
 }
 
 // MARK: - TardisNotLoginMenuCollectionViewCellDelegate

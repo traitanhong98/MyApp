@@ -10,15 +10,40 @@ import UIKit
 
 @IBDesignable
 class TardisButton: UIButton {
-    @IBInspectable var radius: CGFloat = 6 {
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
         didSet {
-            self.layer.cornerRadius = radius
-            self.layer.masksToBounds = radius > 0
+            self.layer.cornerRadius = cornerRadius
         }
     }
-    @IBInspectable var borderColor: UIColor = .green {
+    
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
+        didSet {
+            self.layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
         didSet {
             self.layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float = 0.5 {
+        didSet {
+            self.layer.shadowOpacity = shadowOpacity
+        }
+    }
+    
+
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 1, height: 1) {
+        didSet {
+            self.layer.shadowOffset = shadowOffset
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat = 5 {
+        didSet {
+            self.layer.shadowRadius = shadowRadius
         }
     }
     @IBInspectable var enableBackgroundColor: UIColor = .blue {
@@ -34,13 +59,6 @@ class TardisButton: UIButton {
                backgroundColor = disableBackgroundColor
            }
        }
-    @IBInspectable var borderWidth: CGFloat = 0 {
-        didSet{
-            if borderWidth > 0 {
-                self.layer.borderWidth = borderWidth
-            }
-        }
-    }
     // MARK: - Style
     func setTitleColor(_ color: UIColor) {
         setTitleColor(color, for: .normal)

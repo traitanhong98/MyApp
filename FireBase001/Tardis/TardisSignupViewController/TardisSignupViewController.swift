@@ -24,7 +24,6 @@ class TardisSignupViewController: UIViewController {
         dataModel.selfView = self
     }
 
-
     // MARK: - Func
     func registerAction() {
         guard   let userName = usernameTextField.text,

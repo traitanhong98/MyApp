@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         sleep(3)
+        if UserInfo.userDidLogin() {
+            TardisBaseRequestModel.shared.getCurrentUserInfo()
+        }
         return true
     }
 
@@ -33,5 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        
+    }
 }
 

@@ -151,7 +151,7 @@
                         <constraint firstAttribute="height" constant="40" id="ZQ6-Vt-mBO"/>
                         <constraint firstAttribute="width" secondItem="OW7-MB-c9o" secondAttribute="height" multiplier="1:1" id="jgS-VR-ejJ"/>
                     </constraints>
-                    <state key="normal" image="line.horizontal.3.decrease.circle.fill" catalog="system">
+                    <state key="normal" image="leftMenu02">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -186,6 +186,6 @@
         <image name="24.circle" catalog="system" width="64" height="60"/>
         <image name="Earth" width="640" height="597"/>
         <image name="circle.bottomthird.split" catalog="system" width="64" height="60"/>
-        <image name="line.horizontal.3.decrease.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="leftMenu02" width="512" height="512"/>
     </resources>
 </document>

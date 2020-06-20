@@ -32,6 +32,7 @@ class TardisLeftMenuDataModel: NSObject {
                                     withReuseIdentifier: "TardisLogedInMenuCollectionViewCell",
                                     for: indexPath)
                                         as? TardisLogedInMenuCollectionViewCell {
+                    cell.bindData(user: UserInfo.getUserInfo()!)
                     return cell
                 } else {
                     return UICollectionViewCell()

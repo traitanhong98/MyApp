@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 class UserInfo: NSObject {
+    
+    static var currentUser = UserInfoObject()
     // MARK: - UID
     static func getUID() -> String {
         return Auth.auth().currentUser?.uid ?? ""
@@ -42,13 +44,20 @@ class UserInfo: NSObject {
     }
     // MARK: - DidLogin
     static func userDidLogin() -> Bool{
-        if UserInfoRequestModel.shared.userDidLogin() {
+        if Auth.auth().currentUser != nil {
             return true
         } else {
             return false
         }
     }
-    // MARK: -
+    // MARK: - UserInfo
+    static func getUserInfo() -> User? {
+        if let user = Auth.auth().currentUser {
+            return user
+        } else {
+            return nil
+        }
+    }
     // MARK: -
     // MARK: -
     // MARK: -

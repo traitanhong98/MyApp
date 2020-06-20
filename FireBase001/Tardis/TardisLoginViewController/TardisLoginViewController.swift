@@ -18,7 +18,7 @@ class TardisLoginViewController: UIViewController {
     @IBOutlet weak var containerView: UIView!
     // MARK: - Propeties
     let rootVC = CommonFunction.rootVC
-    let requestModel = TardisLoginRequestModel.shared
+    var dataModel = TardisLoginDataModel()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,14 +56,16 @@ class TardisLoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
     }
     @objc func keyboardWillShow(sender: NSNotification) {
-        self.view.frame.origin.y -= 150
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil);
+        self.view.frame = .init(x: 0,
+                                y: -110,
+                                width: self.view.frame.width,
+                                height: self.view.frame.height)
     }
     @objc func keyboardWillHide(sender: NSNotification) {
-        self.view.frame.origin.y += 150
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil);
+        self.view.frame = .init(x: 0,
+                                y: 0,
+                                width: self.view.frame.width,
+                                height: self.view.frame.height)
     }
     @objc func hideKeyBoard() {
         self.accountTextField.resignFirstResponder()
@@ -84,7 +86,12 @@ class TardisLoginViewController: UIViewController {
             CommonFunction.annoucement(title: "", message: "Bạn cần nhập tài khoản/ mật khẩu trước")
             return
         }
-        requestModel.login(username: account, password: password) { (status) in
+        dataModel.doLogin(username: account, password: password) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Đăng nhập thành công")
+                self.navigationController?.popViewController(animated: true)
+                CommonFunction.rootVC.initTabbar()
+            }
         }
     }
     @IBAction func signupAction(_ sender: Any) {

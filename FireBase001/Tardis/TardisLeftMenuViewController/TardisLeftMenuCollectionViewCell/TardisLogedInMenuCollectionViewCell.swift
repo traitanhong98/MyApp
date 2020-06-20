@@ -7,12 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
 class TardisLogedInMenuCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var avatarImgView: TardisImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+    }
+    func bindData(user: User) {
+        if let userName = user.displayName{
+            nameLabel.text = userName
+        } else {
+            nameLabel.text = user.email ?? ""
+        }
     }
 
 }
