@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisDatePickerViewController" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQ9-ZU-qiu">
+                    <rect key="frame" x="0.0" y="662" width="414" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L18-4H-EDq" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="356" y="3" width="80" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZT-dx-W7d" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="2" y="2" width="40" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="PXk-dO-blq"/>
+                                        <constraint firstAttribute="height" constant="40" id="rVy-pS-iKb"/>
+                                    </constraints>
+                                    <state key="normal" image="Edit"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.0" green="0.75294117650000003" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="finishAction:" destination="-1" eventType="touchUpInside" id="o1S-DP-Tye"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="3Gx-9c-S8M"/>
+                                <constraint firstItem="xZT-dx-W7d" firstAttribute="leading" secondItem="L18-4H-EDq" secondAttribute="leading" constant="2" id="Bsq-cz-FJF"/>
+                                <constraint firstItem="xZT-dx-W7d" firstAttribute="centerY" secondItem="L18-4H-EDq" secondAttribute="centerY" id="Fgk-Sp-06n"/>
+                                <constraint firstAttribute="width" constant="80" id="gY8-EY-IW0"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YA2-CA-CA9" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="-22" y="3" width="80" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxd-Am-Ool" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="38" y="2" width="40" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Mzy-fA-wNc"/>
+                                        <constraint firstAttribute="width" constant="40" id="nXB-fs-GMP"/>
+                                    </constraints>
+                                    <state key="normal" image="leftArrow">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="19"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.0" green="0.75294117650000003" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="WBl-8k-uDd"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Hxd-Am-Ool" firstAttribute="centerY" secondItem="YA2-CA-CA9" secondAttribute="centerY" id="Y2h-by-OuT"/>
+                                <constraint firstAttribute="width" constant="80" id="i66-uN-w76"/>
+                                <constraint firstAttribute="height" constant="44" id="m8J-hQ-WVa"/>
+                                <constraint firstAttribute="trailing" secondItem="Hxd-Am-Ool" secondAttribute="trailing" constant="2" id="zNi-SN-x1m"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZD-9J-Elh" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="87" y="5" width="240" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn ngày" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvj-B0-57i">
+                                    <rect key="frame" x="84" y="11.5" width="72" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                    <color key="textColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="0vz-2j-RYc"/>
+                                <constraint firstItem="Wvj-B0-57i" firstAttribute="centerY" secondItem="OZD-9J-Elh" secondAttribute="centerY" id="2Fm-9B-3nJ"/>
+                                <constraint firstItem="Wvj-B0-57i" firstAttribute="centerX" secondItem="OZD-9J-Elh" secondAttribute="centerX" id="AV8-1H-Eqi"/>
+                                <constraint firstAttribute="width" constant="240" id="ftE-tD-hKJ"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="L18-4H-EDq" firstAttribute="centerY" secondItem="jQ9-ZU-qiu" secondAttribute="centerY" id="8Gd-Ta-jXi"/>
+                        <constraint firstItem="YA2-CA-CA9" firstAttribute="centerY" secondItem="jQ9-ZU-qiu" secondAttribute="centerY" id="XRb-q3-XTq"/>
+                        <constraint firstAttribute="trailing" secondItem="L18-4H-EDq" secondAttribute="trailing" constant="-22" id="bGm-nh-WLG"/>
+                        <constraint firstItem="OZD-9J-Elh" firstAttribute="centerX" secondItem="jQ9-ZU-qiu" secondAttribute="centerX" id="rE7-4E-adZ"/>
+                        <constraint firstItem="OZD-9J-Elh" firstAttribute="centerY" secondItem="jQ9-ZU-qiu" secondAttribute="centerY" id="tIE-UR-PqN"/>
+                        <constraint firstAttribute="height" constant="50" id="wmF-3Q-UA9"/>
+                        <constraint firstItem="YA2-CA-CA9" firstAttribute="leading" secondItem="jQ9-ZU-qiu" secondAttribute="leading" constant="-22" id="yMj-De-S04"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iwl-ds-9Kc">
+                    <rect key="frame" x="0.0" y="44" width="414" height="618"/>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="yZW-wk-LGz"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="jQ9-ZU-qiu" firstAttribute="top" secondItem="iwl-ds-9Kc" secondAttribute="bottom" id="180-Bb-lL5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="jQ9-ZU-qiu" secondAttribute="bottom" constant="150" id="LlK-eG-5Mn"/>
+                <constraint firstItem="iwl-ds-9Kc" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Tlw-IO-7GZ"/>
+                <constraint firstItem="iwl-ds-9Kc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gZX-q8-Js5"/>
+                <constraint firstItem="jQ9-ZU-qiu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="i8E-F5-Xfj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iwl-ds-9Kc" secondAttribute="trailing" id="v1j-Gy-HVe"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jQ9-ZU-qiu" secondAttribute="trailing" id="yyg-nC-M96"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="106"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Edit" width="512" height="512"/>
+        <image name="leftArrow" width="512" height="512"/>
+    </resources>
+</document>

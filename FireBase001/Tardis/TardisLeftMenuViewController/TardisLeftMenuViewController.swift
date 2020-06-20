@@ -21,6 +21,9 @@ class TardisLeftMenuViewController: UIViewController {
         dataModel.setupLeftMenuCollectionView(collectionView: leftMenuCollectionView)
     }
     override func viewWillAppear(_ animated: Bool) {
+        if dataModel.avatarImage == nil {
+            dataModel.getAvatar()
+        }
         leftMenuCollectionView.reloadData()
     }
     // MARK: - Func
@@ -49,8 +52,7 @@ extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionVi
         switch indexPath.row {
         case Setting.userBlock.settingIndex:
             if UserInfo.userDidLogin() {
-                let userInfoBlock = TardisUserInfoViewController()
-                present(userInfoBlock, animated: true, completion: nil)
+                CommonFunction.rootVC.showUserInfo()
                 break
             }
         default:

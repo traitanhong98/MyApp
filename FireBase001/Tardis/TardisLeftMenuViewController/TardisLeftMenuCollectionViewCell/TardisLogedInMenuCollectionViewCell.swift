@@ -16,11 +16,11 @@ class TardisLogedInMenuCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-    func bindData(user: User) {
-        if let userName = user.displayName{
-            nameLabel.text = userName
+    func bindData(user: UserInfoObject) {
+        if user.displayName.count > 0 {
+            nameLabel.text = user.displayName
         } else {
-            nameLabel.text = user.email ?? ""
+            nameLabel.text = user.email
         }
     }
 

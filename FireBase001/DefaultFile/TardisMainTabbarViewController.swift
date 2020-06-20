@@ -129,6 +129,12 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         self.hideLeftView(animated: true, completionHandler: completion)
     }
     
+    func showUserInfo() {
+        hideLeftViewAnimated()
+        let userInfoBlock = TardisUserInfoViewController()
+        naviMain.pushViewController(userInfoBlock, animated: true)
+    }
+    
 }
 
 extension TardisMainTabbarViewController {

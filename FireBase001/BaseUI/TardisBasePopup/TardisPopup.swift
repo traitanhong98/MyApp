@@ -21,19 +21,29 @@ class TardisPopup: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
-    
+    // MARK: - Propety
     weak var delegate: TardisPopupDelegate?
+    var titleString = ""
+    var descriptionString = ""
+    var isAccept = true
+    var isBack = true
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
 
-
+    override func viewWillAppear(_ animated: Bool) {
+        titleLabel.text = titleString
+        descriptionLabel.text = descriptionString
+        acceptButton.isHidden = !isAccept
+        backButton.isHidden = !isBack
+    }
+    
     func settingPoup(title: String,description: String,isAcceptButton: Bool, isBackButton: Bool) {
-        titleLabel.text = title
-        descriptionLabel.text = description
-        acceptButton.isHidden = !isAcceptButton
-        backButton.isHidden = !isBackButton
+        titleString = title
+        descriptionString = description
+        isAccept = isAcceptButton
+        isBack = isBackButton
     }
     func show() {
         self.view.frame = CommonFunction.rootVC.view.frame

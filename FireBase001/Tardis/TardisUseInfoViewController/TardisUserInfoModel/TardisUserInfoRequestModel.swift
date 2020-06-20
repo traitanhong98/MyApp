@@ -16,10 +16,11 @@ class TardisUserInfoRequestModel: NSObject {
         firRef = TardisBaseRequestModel.shared.firRef.child("Users")
         firStorageRef = TardisBaseRequestModel.shared.firStorageRef.child("user_avatar")
     }
-    
     func updateCurrentUserInfo(userInfo: UserInfoObject, completionBlock: @escaping((Bool)->Void)) {
+        CommonFunction.showLoadingView()
         let userInfoDict = userInfo.toJSON()
         self.firRef?.child(UserInfo.getUID()).updateChildValues(userInfoDict, withCompletionBlock: { (err, ref) in
+            CommonFunction.hideLoadingView()
             if err != nil {
                 completionBlock(false)
                 return
@@ -28,15 +29,16 @@ class TardisUserInfoRequestModel: NSObject {
         })
     }
     func uploadUserAvatar(avatar: UIImage,completionBlock: @escaping (Bool,String)->Void) {
+        CommonFunction.showLoadingView()
         if let imgData = avatar.jpegData(compressionQuality: 0.75) {
             let userAvatar = firStorageRef?.child(UserInfo.getUID())
             userAvatar?.putData(imgData, metadata: nil, completion: { (response, err) in
+                CommonFunction.hideLoadingView()
                 if let error = err {
                     print("Error: Upload imageFail\(error.localizedDescription)")
                     completionBlock(false,"")
                     return
                 }
-                
                 userAvatar?.downloadURL(completion: { (url, err) in
                     if let error = err {
                         print(print("Error: Download URL Fail \(error.localizedDescription)"))

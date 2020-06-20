@@ -18,21 +18,21 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hRU-xu-4IP">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <rect key="frame" x="0.0" y="-6" width="414" height="868"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-HC-4F9">
-                            <rect key="frame" x="107" y="133" width="46" height="30"/>
-                            <state key="normal" title="Button">
-                                <color key="titleColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3B-kL-Ytl">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="868"/>
+                            <connections>
+                                <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="NLE-PQ-7Ga"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="ZGR-HC-4F9" firstAttribute="top" secondItem="hRU-xu-4IP" secondAttribute="top" constant="133" id="NmU-8I-OHW"/>
-                        <constraint firstAttribute="trailing" secondItem="ZGR-HC-4F9" secondAttribute="trailing" constant="261" id="Sj5-jf-DMj"/>
-                        <constraint firstItem="ZGR-HC-4F9" firstAttribute="leading" secondItem="hRU-xu-4IP" secondAttribute="leading" constant="107" id="nlU-5A-jbG"/>
-                        <constraint firstAttribute="bottom" secondItem="ZGR-HC-4F9" secondAttribute="bottom" constant="655" id="v7N-60-Qdt"/>
+                        <constraint firstAttribute="bottom" secondItem="v3B-kL-Ytl" secondAttribute="bottom" id="1Hi-cs-ECN"/>
+                        <constraint firstAttribute="trailing" secondItem="v3B-kL-Ytl" secondAttribute="trailing" id="CuI-ro-fBu"/>
+                        <constraint firstItem="v3B-kL-Ytl" firstAttribute="top" secondItem="hRU-xu-4IP" secondAttribute="top" id="PoE-AI-tmH"/>
+                        <constraint firstItem="v3B-kL-Ytl" firstAttribute="leading" secondItem="hRU-xu-4IP" secondAttribute="leading" id="bQo-9r-tDG"/>
                     </constraints>
                 </view>
             </subviews>
@@ -41,7 +41,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="hRU-xu-4IP" secondAttribute="bottom" id="73g-EO-QRE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hRU-xu-4IP" secondAttribute="trailing" id="8ht-Uu-u7i"/>
                 <constraint firstItem="hRU-xu-4IP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="exa-96-Hrj"/>
-                <constraint firstItem="hRU-xu-4IP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="raw-Bh-AJR"/>
+                <constraint firstItem="hRU-xu-4IP" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="-50" id="raw-Bh-AJR"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="141" y="84"/>

@@ -46,19 +46,6 @@ class TardisButton: UIButton {
             self.layer.shadowRadius = shadowRadius
         }
     }
-    @IBInspectable var enableBackgroundColor: UIColor = .blue {
-           didSet {
-               guard isEnabled else { return }
-               backgroundColor = enableBackgroundColor
-           }
-       }
-       
-    @IBInspectable var disableBackgroundColor: UIColor = .gray {
-           didSet {
-               guard !isEnabled else { return }
-               backgroundColor = disableBackgroundColor
-           }
-       }
     // MARK: - Style
     func setTitleColor(_ color: UIColor) {
         setTitleColor(color, for: .normal)

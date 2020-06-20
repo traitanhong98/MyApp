@@ -10,8 +10,6 @@ import UIKit
 import ObjectMapper
 
 class UserInfoObject: Mappable {
-    
-    var username = ""
     var displayName = ""
     var email = ""
     var imageUrl = ""
@@ -23,16 +21,14 @@ class UserInfoObject: Mappable {
     }
     
     func mapping(map: Map) {
-        username    <- map["username"]
         displayName <- map["display_name"]
-        email       <- map["password"]
+        email       <- map["email"]
         imageUrl    <- map["image_url"]
         birthDay    <- map["birthday"]
         phoneNumber <- map["phonenumber"]
     }
     
-    init(username: String,displayName: String,email: String, imageUrl: String, birthday: String, phonenumber:String) {
-        self.username = username
+    init(displayName: String,email: String, imageUrl: String, birthday: String, phonenumber:String) {
         self.displayName = displayName
         self.email = email
         self.imageUrl = imageUrl

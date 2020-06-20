@@ -10,7 +10,27 @@ import UIKit
 
 class TardisLeftMenuDataModel: NSObject {
     var selfView: TardisLeftMenuViewController?
-    // MARK: - CollectionView
+    var avatarImage: UIImage?
+    override init() {
+        super.init()
+    }
+    
+    // MARK: - SetupData
+    func getAvatar() {
+        if UserInfo.getUID().count > 0 {
+            let url = URL(string: UserInfo.currentUser.imageUrl)
+             CommonFunction.getData(from: url!, completion: { (data, res, err) in
+                if err != nil {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.avatarImage = UIImage(data: data!)
+                    self.selfView?.leftMenuCollectionView.reloadData()
+                }
+            })
+        }
+    }
+    // MARK: - CollectionViewDelegate
     func setupLeftMenuCollectionView(collectionView: UICollectionView) {
         collectionView.register(UINib(nibName: "TardisCommonMenuCollectionViewCell",
                                               bundle: nil),
@@ -32,7 +52,10 @@ class TardisLeftMenuDataModel: NSObject {
                                     withReuseIdentifier: "TardisLogedInMenuCollectionViewCell",
                                     for: indexPath)
                                         as? TardisLogedInMenuCollectionViewCell {
-                    cell.bindData(user: UserInfo.getUserInfo()!)
+                    if avatarImage != nil {
+                        cell.avatarImgView.image = avatarImage
+                    }
+                    cell.bindData(user: UserInfo.currentUser)
                     return cell
                 } else {
                     return UICollectionViewCell()

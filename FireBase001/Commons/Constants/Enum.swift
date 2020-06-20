@@ -84,9 +84,79 @@ enum Weekday:String {
     }
 }
 
-enum Month:Int {
-    case Jan = 0 ,Feb, Mar, Apr, May, Jun,
+enum Month {
+    case Jan ,Feb, Mar, Apr, May, Jun,
     Jul, Aug, Sep, Oct, Nov, Dec
+    
+    static let allMonth = [Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec]
+    
+    var nameVN: String {
+        switch self {
+        case .Jan:
+            return "Tháng Một"
+        case .Feb:
+            return "Tháng Hai"
+        case .Mar:
+            return "Tháng Ba"
+        case .Apr:
+            return "Tháng Tư"
+        case .May:
+            return "Tháng Năm"
+        case .Jun:
+            return "Tháng Sáu"
+        case .Jul:
+            return "Tháng Bảy"
+        case .Aug:
+            return "Tháng Tám"
+        case .Sep:
+            return "Tháng Chín"
+        case .Oct:
+            return "Tháng Mười"
+        case .Nov:
+            return "Tháng Mười Một"
+        case .Dec:
+            return "Tháng Mười Hai"
+        }
+    }
+    
+    var index: Int {
+        switch self {
+        case .Jan:
+            return 0
+        case .Feb:
+            return 1
+        case .Mar:
+            return 2
+        case .Apr:
+            return 3
+        case .May:
+            return 4
+        case .Jun:
+            return 5
+        case .Jul:
+            return 6
+        case .Aug:
+            return 7
+        case .Sep:
+            return 8
+        case .Oct:
+            return 9
+        case .Nov:
+            return 10
+        case .Dec:
+            return 11
+        }
+    }
+    var numberOfDay:Int {
+        switch self {
+        case .Jan,.Mar,.May,.Jul,.Aug,.Oct,.Dec:
+            return 31
+        case .Feb:
+            return -1 // Check Year
+        default:
+            return 30
+        }
+    }
 }
 enum Setting:String {
     case userBlock      = "Người dùng"

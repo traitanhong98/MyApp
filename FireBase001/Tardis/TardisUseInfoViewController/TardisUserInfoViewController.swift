@@ -22,9 +22,13 @@ class TardisUserInfoViewController: UIViewController {
     @IBOutlet weak var changeInfoButton: TardisButton!
     @IBOutlet weak var avatarImageView: UIImageView!
     // MARK: - Propety
-    var uid = ""
-    var avatarImg = UIImage(named: "appLogo")
+    var avatarImg = UIImage(named: "edit") {
+        didSet{
+            self.avatarImageView.image = avatarImg
+        }
+    }
     var dataModel = TardisUserInfoDataModel()
+    var isChangeAvatar = false
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,22 +37,40 @@ class TardisUserInfoViewController: UIViewController {
         setupData()
     }
     override func viewWillAppear(_ animated: Bool) {
-        if uid == UserInfo.getUID() {
-            setupViewForCurrentUser()
-        }
+        setupViewForCurrentUser()
     }
     // MARK: - Func
     func setupUI() {
+        self.view.clipsToBounds = true
+        self.view.layer.masksToBounds = true
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.masksToBounds = true
+        birthdayTextField.delegate = self
     }
     func setupData() {
         dataModel.selfView = self
     }
     func setupViewForCurrentUser() {
-        let user = UserInfo.getUserInfo()
-        usernameTextField.text  = user?.email
-        emailTextField.text = user?.email
+        let user = UserInfo.currentUser
+        if user.displayName.count > 0 {
+            usernameTextField.text = user.displayName
+        } else {
+            usernameTextField.text = user.email
+        }
+        emailTextField.text = user.email
+        phoneNumberTextField.text = user.phoneNumber
+        birthdayTextField.text = user.birthDay
+        
+        if user.imageUrl.count > 0 {
+            guard let url = URL(string: user.imageUrl) else {return}
+            CommonFunction.getData(from: url) { data, response, error in
+                guard let data = data, error == nil else { return }
+                DispatchQueue.main.async() { [weak self] in
+                    self?.avatarImg = UIImage(data: data)
+                }
+            }
+        }
+        
     }
     func changeEditingMode(isEditing: Bool ) {
         usernameTextField.isUserInteractionEnabled = isEditing
@@ -56,69 +78,39 @@ class TardisUserInfoViewController: UIViewController {
         phoneNumberTextField.isUserInteractionEnabled = isEditing
         birthdayTextField.isUserInteractionEnabled = isEditing
         changeInfoBlockView.isHidden = !isEditing
-        animatingEditButton(isHidden: isEditing)
     }
-    func animatingEditButton(isHidden: Bool) {
-            if isHidden {
-                self.editBlockView.frame = .init(x: 100,
-                                                 y: 100,
-                                                 width: self.editBlockView.frame.width,
-                                                 height: self.editBlockView.frame.width)
-            } else {
-                self.editBlockView.frame = .init(x: 0,
-                                                 y: 0,
-                                                 width: self.editBlockView.frame.width,
-                                                 height: self.editBlockView.frame.width)
+    func changeInfoAction(userInfo: UserInfoObject) {
+        if isChangeAvatar {
+            guard let newAva = avatarImg else {return}
+            dataModel.updateCurrentUserInfo(userInfo: userInfo, avatar: newAva) { (status) in
+                self.showPopupSuccess(isSuccess: status)
             }
-    }
-    func showAlertImagePicker() {
-        let alert = UIAlertController.init(title: "Chọn nguồn",
-                                           message: nil,
-                                           preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction.init(title: "Camera", style: .default) { _ in
-            self.showImagePicker(isCamera: true)
-        }
-        let galleryAction = UIAlertAction.init(title: "Gallery", style: .default) { _ in
-            self.showImagePicker(isCamera: false)
-        }
-        let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)
-        alert.addAction(cameraAction)
-        alert.addAction(galleryAction)
-        alert.addAction(cancelAction)
-        
-        if CommonFunction.isIpad() {
-            alert.modalPresentationStyle = .popover
-            let popoverPresentation = alert.popoverPresentationController
-            popoverPresentation?.sourceView = self.view
-            popoverPresentation?.sourceRect = .zero
-            self.present(alert, animated: true, completion: nil)
         } else {
-            self.present(alert, animated: true, completion: nil)
-        }
-    }
-    func showImagePicker(isCamera: Bool) {
-        let imagePicker = UIImagePickerController.init()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.navigationBar.barTintColor = UIColor(red: 0, green: 37, blue: 77, alpha: 1)
-        if isCamera {
-            guard UIImagePickerController.isSourceTypeAvailable(.camera) else {
-                CommonFunction.annoucement(title: "", message: "Image Picker Error")
-                print("Error: ImagePickerController cannot Access Camera")
-                return
+            dataModel.updateCurrentUserInfo(userInfo: userInfo) { (status) in
+                self.showPopupSuccess(isSuccess: status)
             }
-            imagePicker.sourceType = .camera
-            self.present(imagePicker, animated: true, completion: nil)
-        } else {
-            imagePicker.sourceType = .photoLibrary
-            self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    func showPopupSuccess(isSuccess: Bool) {
+        let popup = TardisPopup()
+        var message = ""
+        if isSuccess {
+            message = "Cập nhật thành công!"
+        } else {
+            message = "Có lỗi xảy ra!"
+        }
+        popup.settingPoup(title: "Thông báo",
+                          description: message,
+                          isAcceptButton: true,
+                          isBackButton: false)
+        popup.show()
     }
     // MARK: - IBAction
     
     @IBAction func chooseAvatarButtonTapped(_ sender: Any) {
-        self.showAlertImagePicker()
+        let imagePicker = TardisImagePickerViewController()
+        imagePicker.delegate = self
+        imagePicker.show()
     }
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -139,35 +131,38 @@ class TardisUserInfoViewController: UIViewController {
             CommonFunction.annoucement(title: "", message: "Bạn cần nhập tên hiển thị")
             return
         }
-        guard let avatar = avatarImg else {
-            CommonFunction.annoucement(title: "", message: "Bạn cần chọn một Avatar")
-            return
-        }
-        //        changeEditingMode(isEditing: true)
-        let userInfo = dataModel.currentUserInfo
-        userInfo.birthDay = birthDay
-        userInfo.displayName = userName
-        userInfo.phoneNumber = phoneNumber
-        dataModel.updateCurrentUserInfo(userInfo: userInfo, avatar: avatar) { (status) in
-            if status {
-                CommonFunction.annoucement(title: "", message: "Cập nhật dữ liệu thành công")
-            } else {
-                CommonFunction.annoucement(title: "", message: "Cập nhật dữ liệu thất bại")
-            }
-        }
+        let newUserInfo = dataModel.currentUserInfo
+        newUserInfo.birthDay = birthDay
+        newUserInfo.displayName = userName
+        newUserInfo.phoneNumber = phoneNumber
+        changeInfoAction(userInfo: newUserInfo)
     }
     @IBAction func backButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
+    }
+}
+extension TardisUserInfoViewController: TardisImagePickerViewControllerDelegate {
+    func didSelectEditedImage(image: UIImage) {
+        isChangeAvatar = true
+        self.avatarImg = image
     }
 }
 
-extension TardisUserInfoViewController: UIImagePickerControllerDelegate,UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let chosenImage = info[.editedImage] as? UIImage else {
-            return
+extension TardisUserInfoViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == birthdayTextField {
+            self.view.endEditing(true)
+            let datePicker = TardisDatePickerViewController()
+            datePicker.delegate = self
+            datePicker.show()
         }
-        self.avatarImg = chosenImage
-        self.avatarImageView.image = chosenImage
-        picker.dismiss(animated: true, completion: nil)
     }
 }
+extension TardisUserInfoViewController:TardisDatePickerViewControllerDelegate{
+    func selectedDate(date: String) {
+        birthdayTextField.text = date
+    }
+    
+    
+}
+

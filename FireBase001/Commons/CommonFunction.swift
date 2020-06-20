@@ -73,7 +73,7 @@ class CommonFunction {
     static func getCurrentDay() -> String {
         let date = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyy"
+        formatter.dateFormat = "dd/MM/yyyy"
         let result = formatter.string(from: date)
         return result
     }
@@ -203,4 +203,9 @@ class CommonFunction {
 //    static func createImagePicker() -> UIImagePickerController {
 //        
 //    }
+    
+    // MARK: - DownloadImage
+    static func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
 }
