@@ -50,7 +50,7 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
         self.mainCellView.sendSubviewToBack(timeCollectionView)
     }
     
-    func bindData(weekDay: Weekday, sizeRatio: Float, activities: [TardisActivity],viewMode: ViewMode) {
+    func bindData(weekDay: Weekday, sizeRatio: Float, activities: [TardisActivityObject],viewMode: ViewMode) {
         self.sizeRatio = sizeRatio
         self.weekDay = weekDay
         dataModel.activities = activities

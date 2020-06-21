@@ -29,7 +29,7 @@ class TardisActivityCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - Func
-    func bindData(data: TardisActivity,sizeRatio: Float) {
+    func bindData(data: TardisActivityObject,sizeRatio: Float) {
         self.titleLabel.text = "\(data.activityName) \(data.startTime)-\(data.endTime)"
         self.descriptionLabel.text = "\(data.note)"
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+// MARK: - Week
 enum Weekday:String {
     case Mon = "Monday"
     case Tue = "Tueday"
@@ -83,7 +83,7 @@ enum Weekday:String {
         }
     }
 }
-
+// MARK: - Month
 enum Month {
     case Jan ,Feb, Mar, Apr, May, Jun,
     Jul, Aug, Sep, Oct, Nov, Dec
@@ -158,40 +158,31 @@ enum Month {
         }
     }
 }
-enum Setting:String {
-    case userBlock      = "Người dùng"
-    case commonSetting  = "Cài đặt chung"
-    case appInfo        = "Thông tin ứng dụng"
-    case devInfo        = "Giới thiệu nhà phát triển"
-    case err            = "err"
+
+// MARK: - Setting
+enum Setting {
+    case userBlock
+    case commonSetting
+    case appInfo
+    case devInfo
+    case logOut
+    case err
     
     static let allSetting = [userBlock, commonSetting, appInfo, devInfo]
-    
-    static func getSetting(index: Int)-> Setting {
-        switch index {
-        case 0:
-            return userBlock
-        case 1:
-            return commonSetting
-        case 2:
-            return appInfo
-        case 3:
-            return devInfo
-        default:
-            return err
-        }
-    }
+    static let allLoggedInSetting = [userBlock,commonSetting,appInfo,devInfo,logOut]
     
     var image: UIImage {
         switch self {
         case .userBlock:
-            return UIImage(systemName: "person.crop.circle.fill") ?? UIImage()
+            return UIImage(named: "073-mixer") ?? UIImage()
         case .commonSetting:
-            return UIImage(named: "ic_setting_25") ?? UIImage()
+            return UIImage(named: "073-mixer") ?? UIImage()
         case .appInfo:
-            return UIImage(systemName: "info") ?? UIImage()
+            return UIImage(named: "013-star") ?? UIImage()
         case .devInfo:
-            return UIImage(systemName: "star.circle") ?? UIImage()
+            return UIImage(named: "012-stars") ?? UIImage()
+        case .logOut:
+            return UIImage(named: "056-doorknob") ?? UIImage()
         default:
             return UIImage()
         }
@@ -206,7 +197,9 @@ enum Setting:String {
         case .appInfo:
             return "Thông tin ứng dụng"
         case .devInfo:
-            return "Giới thiệu nhà phát triển"
+            return "Nhà phát triển"
+        case . logOut:
+            return "Đăng xuất"
         default:
             return "Err"
         }
@@ -222,13 +215,15 @@ enum Setting:String {
             return 2
         case .devInfo:
             return 3
+        case .logOut:
+            return 4
         default:
             return -1
         }
     }
     
 }
-//MARK: - UI
+//MARK: - ViewMode
 enum ViewMode {
     case normal,dayHour
 }

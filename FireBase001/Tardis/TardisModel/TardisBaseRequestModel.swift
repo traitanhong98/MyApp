@@ -27,4 +27,16 @@ class TardisBaseRequestModel: NSObject {
                 
         }
     }
+    
+    func doLogOut() {
+        let firebaseAuth = Auth.auth()
+        do {
+          try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+          print ("Error signing out: %@", signOutError)
+            return
+        }
+        UserInfo.currentUser = UserInfoObject()
+        CommonFunction.annoucement(title: "", message: "Đăng xuất thành công")
+    }
 }

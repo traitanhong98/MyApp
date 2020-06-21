@@ -70,7 +70,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     func setupNaviWeakly() {
         let activitiesIcon = CommonFunction.resizeImage(image: UIImage(named: "070-stopwatch")!, targetSize: CGSize(width: 30, height: 30))
         //Activities
-        let weaklyVC = initVCForTabbar(type: TardisWorkingViewController.self, vcStr: "TardisWorkingViewController", title: "Weakly", icon: activitiesIcon)
+        let weaklyVC = initVCForTabbar(type: TardisActivitiesViewController.self, vcStr: "TardisActivitiesViewController", title: "Weakly", icon: activitiesIcon)
         //Navigation
         naviWeakly = UINavigationController(rootViewController: weaklyVC!)
         naviWeakly.interactivePopGestureRecognizer?.delegate = self
@@ -124,7 +124,16 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         let loginView = TardisLoginViewController()
         naviMain.pushViewController(loginView, animated: true)
     }
-    
+    func doLogout() {
+        let popup = TardisPopup()
+        popup.settingPoup(title: "Thông báo",
+                          description: "Bạn có muốn đăng xuất",
+                          isAcceptButton: true,
+                          isBackButton: true)
+        popup.delegate = self
+        hideLeftViewAnimated()
+        popup.show()
+    }
     func hileLeftView(completion: @escaping () -> Void) {
         self.hideLeftView(animated: true, completionHandler: completion)
     }
@@ -162,8 +171,17 @@ extension TardisMainTabbarViewController:UITabBarControllerDelegate{
 extension TardisMainTabbarViewController: LGSideMenuDelegate{
     func didShowLeftView(_ leftView: UIView, sideMenuController: LGSideMenuController) {
         if let menuVC = self.leftViewController as? TardisLeftMenuViewController {
-            menuVC.leftMenuCollectionView.reloadData()
+            menuVC.reloadData()
         }
     }
 
+}
+
+extension TardisMainTabbarViewController: TardisPopupDelegate {
+    func acceptAction() {
+        TardisBaseRequestModel.shared.doLogOut()
+    }
+    
+    func backAction() {
+    }
 }

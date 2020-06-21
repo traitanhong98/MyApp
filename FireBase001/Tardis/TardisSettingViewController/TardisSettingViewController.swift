@@ -48,7 +48,7 @@ extension TardisSettingViewController: UITableViewDelegate, UITableViewDataSourc
             }
         } else {
             if let cell =  tableView.dequeueReusableCell(withIdentifier: "TardisSettingTableViewCell", for: indexPath) as? TardisSettingTableViewCell {
-                cell.bindData(setting: Setting.getSetting(index: indexPath.row))
+                cell.bindData(setting: Setting.allSetting[indexPath.row])
                 return cell
             }
         }

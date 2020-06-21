@@ -12,7 +12,6 @@
 		2010C7EE2494C39500DAD83D /* TardisLeftMenuDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2010C7ED2494C39500DAD83D /* TardisLeftMenuDataModel.swift */; };
 		2012520F24699E0D00706C9D /* TardisLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012520D24699E0D00706C9D /* TardisLoginViewController.swift */; };
 		2012521024699E0D00706C9D /* TardisLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2012520E24699E0D00706C9D /* TardisLoginViewController.xib */; };
-		2012521324699E2B00706C9D /* TardisLoginObjectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012521224699E2B00706C9D /* TardisLoginObjectModel.swift */; };
 		2012521524699E4100706C9D /* TardisLoginRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012521424699E4100706C9D /* TardisLoginRequestModel.swift */; };
 		2012521924699EFE00706C9D /* ButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012521824699EFE00706C9D /* ButtonExtension.swift */; };
 		2012521F24699FFB00706C9D /* TabbarViewcontrollerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2012521C24699FFB00706C9D /* TabbarViewcontrollerExtension.swift */; };
@@ -54,7 +53,6 @@
 		205EF55524927159004F7435 /* TardisLaunchingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205EF55324927159004F7435 /* TardisLaunchingViewController.swift */; };
 		205EF55624927159004F7435 /* TardisLaunchingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 205EF55424927159004F7435 /* TardisLaunchingViewController.xib */; };
 		205EF55824927387004F7435 /* infinityLoading.json in Resources */ = {isa = PBXBuildFile; fileRef = 205EF55724927387004F7435 /* infinityLoading.json */; };
-		20635B0F249E351100E4BC18 /* TardisDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20635B0E249E351100E4BC18 /* TardisDatePickerView.swift */; };
 		20635B12249E493B00E4BC18 /* TardisDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20635B10249E493B00E4BC18 /* TardisDatePickerViewController.swift */; };
 		20635B13249E493B00E4BC18 /* TardisDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20635B11249E493B00E4BC18 /* TardisDatePickerViewController.xib */; };
 		2083CE8E2487DF6200F5BB23 /* TardisSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2083CE8C2487DF6200F5BB23 /* TardisSignupViewController.swift */; };
@@ -93,6 +91,8 @@
 		20D80BBB2495F25900146E49 /* TardisScheduleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20D80BB92495F25900146E49 /* TardisScheduleViewController.xib */; };
 		20DD586F249D988600B0CBE5 /* TardisImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DD586D249D988600B0CBE5 /* TardisImagePickerViewController.swift */; };
 		20DD5870249D988600B0CBE5 /* TardisImagePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20DD586E249D988600B0CBE5 /* TardisImagePickerViewController.xib */; };
+		20E04A3A249F5CC30044D1D8 /* TardisTimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E04A38249F5CC30044D1D8 /* TardisTimePickerViewController.swift */; };
+		20E04A3B249F5CC30044D1D8 /* TardisTimePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E04A39249F5CC30044D1D8 /* TardisTimePickerViewController.xib */; };
 		20E35E362493CAE100B2EB3C /* TardisLeftMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E35E342493CAE100B2EB3C /* TardisLeftMenuViewController.swift */; };
 		20E35E372493CAE100B2EB3C /* TardisLeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E35E352493CAE100B2EB3C /* TardisLeftMenuViewController.xib */; };
 		20E35E392493D00C00B2EB3C /* TardisActivitiesDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E35E382493D00C00B2EB3C /* TardisActivitiesDataModel.swift */; };
@@ -125,7 +125,6 @@
 		2010C7ED2494C39500DAD83D /* TardisLeftMenuDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisLeftMenuDataModel.swift; sourceTree = "<group>"; };
 		2012520D24699E0D00706C9D /* TardisLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisLoginViewController.swift; sourceTree = "<group>"; };
 		2012520E24699E0D00706C9D /* TardisLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisLoginViewController.xib; sourceTree = "<group>"; };
-		2012521224699E2B00706C9D /* TardisLoginObjectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisLoginObjectModel.swift; sourceTree = "<group>"; };
 		2012521424699E4100706C9D /* TardisLoginRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisLoginRequestModel.swift; sourceTree = "<group>"; };
 		2012521824699EFE00706C9D /* ButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonExtension.swift; sourceTree = "<group>"; };
 		2012521C24699FFB00706C9D /* TabbarViewcontrollerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarViewcontrollerExtension.swift; sourceTree = "<group>"; };
@@ -171,7 +170,6 @@
 		205EF55324927159004F7435 /* TardisLaunchingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisLaunchingViewController.swift; sourceTree = "<group>"; };
 		205EF55424927159004F7435 /* TardisLaunchingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisLaunchingViewController.xib; sourceTree = "<group>"; };
 		205EF55724927387004F7435 /* infinityLoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = infinityLoading.json; sourceTree = "<group>"; };
-		20635B0E249E351100E4BC18 /* TardisDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisDatePickerView.swift; sourceTree = "<group>"; };
 		20635B10249E493B00E4BC18 /* TardisDatePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisDatePickerViewController.swift; sourceTree = "<group>"; };
 		20635B11249E493B00E4BC18 /* TardisDatePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisDatePickerViewController.xib; sourceTree = "<group>"; };
 		2083CE8C2487DF6200F5BB23 /* TardisSignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisSignupViewController.swift; sourceTree = "<group>"; };
@@ -210,6 +208,8 @@
 		20D80BB92495F25900146E49 /* TardisScheduleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisScheduleViewController.xib; sourceTree = "<group>"; };
 		20DD586D249D988600B0CBE5 /* TardisImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisImagePickerViewController.swift; sourceTree = "<group>"; };
 		20DD586E249D988600B0CBE5 /* TardisImagePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisImagePickerViewController.xib; sourceTree = "<group>"; };
+		20E04A38249F5CC30044D1D8 /* TardisTimePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisTimePickerViewController.swift; sourceTree = "<group>"; };
+		20E04A39249F5CC30044D1D8 /* TardisTimePickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisTimePickerViewController.xib; sourceTree = "<group>"; };
 		20E35E342493CAE100B2EB3C /* TardisLeftMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisLeftMenuViewController.swift; sourceTree = "<group>"; };
 		20E35E352493CAE100B2EB3C /* TardisLeftMenuViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisLeftMenuViewController.xib; sourceTree = "<group>"; };
 		20E35E382493D00C00B2EB3C /* TardisActivitiesDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisActivitiesDataModel.swift; sourceTree = "<group>"; };
@@ -450,7 +450,6 @@
 		2012521124699E1200706C9D /* TardisLoginModel */ = {
 			isa = PBXGroup;
 			children = (
-				2012521224699E2B00706C9D /* TardisLoginObjectModel.swift */,
 				2012521424699E4100706C9D /* TardisLoginRequestModel.swift */,
 				205329CC2496285A001C8D07 /* TardisLoginDataModel.swift */,
 			);
@@ -622,7 +621,6 @@
 		20635B0B249E34C400E4BC18 /* TardisDatePicker */ = {
 			isa = PBXGroup;
 			children = (
-				20635B0E249E351100E4BC18 /* TardisDatePickerView.swift */,
 			);
 			path = TardisDatePicker;
 			sourceTree = "<group>";
@@ -700,6 +698,8 @@
 				20DD586E249D988600B0CBE5 /* TardisImagePickerViewController.xib */,
 				20635B10249E493B00E4BC18 /* TardisDatePickerViewController.swift */,
 				20635B11249E493B00E4BC18 /* TardisDatePickerViewController.xib */,
+				20E04A38249F5CC30044D1D8 /* TardisTimePickerViewController.swift */,
+				20E04A39249F5CC30044D1D8 /* TardisTimePickerViewController.xib */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -856,6 +856,7 @@
 				20E35E372493CAE100B2EB3C /* TardisLeftMenuViewController.xib in Resources */,
 				208AFF8F247D60CA00363260 /* TardisUserInfoTableViewCell.xib in Resources */,
 				20DD5870249D988600B0CBE5 /* TardisImagePickerViewController.xib in Resources */,
+				20E04A3B249F5CC30044D1D8 /* TardisTimePickerViewController.xib in Resources */,
 				20F4555D2482918500B9B989 /* TardisHourCollectionViewCell.xib in Resources */,
 				20D80BB62495E12F00146E49 /* TardisWorkingViewController.xib in Resources */,
 				20D80BBB2495F25900146E49 /* TardisScheduleViewController.xib in Resources */,
@@ -972,6 +973,7 @@
 				20B62C5D24961027007524B9 /* TardisPopup.swift in Sources */,
 				20E35E3B2493D02300B2EB3C /* TardisActivitiesRequestModel.swift in Sources */,
 				20E35E3F2493EF8C00B2EB3C /* TardisNotLoginMenuCollectionViewCell.swift in Sources */,
+				20E04A3A249F5CC30044D1D8 /* TardisTimePickerViewController.swift in Sources */,
 				201274B3244EDD90004BCE4E /* TardisMainTabbarViewController.swift in Sources */,
 				2012522024699FFB00706C9D /* UIViewExtension.swift in Sources */,
 				20E35E472493EFC100B2EB3C /* TardisCommonMenuCollectionViewCell.swift in Sources */,
@@ -986,8 +988,6 @@
 				201252352469A14600706C9D /* BaseViewController.swift in Sources */,
 				208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */,
 				20B04FF7246EE0CF00A7BFBA /* TardisAddonViewController.swift in Sources */,
-				2012521324699E2B00706C9D /* TardisLoginObjectModel.swift in Sources */,
-				20635B0F249E351100E4BC18 /* TardisDatePickerView.swift in Sources */,
 				2012522E2469A11B00706C9D /* NumbersConst.swift in Sources */,
 				20596071246EEE8F00D4D549 /* TardisWeekdayButtonCollectionViewCell.swift in Sources */,
 				208AFF8E247D60CA00363260 /* TardisUserInfoTableViewCell.swift in Sources */,

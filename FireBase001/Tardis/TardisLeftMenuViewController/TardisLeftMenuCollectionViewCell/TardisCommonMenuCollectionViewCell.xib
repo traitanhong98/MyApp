@@ -16,17 +16,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="389" height="84"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owl-Dr-vuG">
-                        <rect key="frame" x="0.0" y="44" width="389" height="40"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="owl-Dr-vuG" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                        <rect key="frame" x="16" y="44" width="357" height="30"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jx-lc-rhF">
-                                <rect key="frame" x="24" y="9.5" width="55" height="21"/>
+                                <rect key="frame" x="10" y="4.5" width="55" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.75294117647058822" blue="0.82352941176470584" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="073-mixer" translatesAutoresizingMaskIntoConstraints="NO" id="QqT-18-awq">
-                                <rect key="frame" x="343" y="5" width="30" height="30"/>
+                                <rect key="frame" x="311" y="0.0" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="CeX-6X-SiT"/>
                                     <constraint firstAttribute="height" constant="30" id="lTs-oq-kWg"/>
@@ -36,21 +36,43 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="QqT-18-awq" secondAttribute="trailing" constant="16" id="VFf-KA-EJi"/>
-                            <constraint firstItem="7jx-lc-rhF" firstAttribute="leading" secondItem="owl-Dr-vuG" secondAttribute="leading" constant="24" id="Wp8-TN-EJN"/>
+                            <constraint firstItem="7jx-lc-rhF" firstAttribute="leading" secondItem="owl-Dr-vuG" secondAttribute="leading" constant="10" id="Wp8-TN-EJN"/>
                             <constraint firstItem="QqT-18-awq" firstAttribute="centerY" secondItem="owl-Dr-vuG" secondAttribute="centerY" id="X9p-sG-aJJ"/>
                             <constraint firstItem="7jx-lc-rhF" firstAttribute="centerY" secondItem="owl-Dr-vuG" secondAttribute="centerY" id="viU-52-Wcm"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="0.0" green="0.75294117650000003" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="6"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="owl-Dr-vuG" secondAttribute="trailing" id="0th-ld-M0k"/>
-                <constraint firstItem="owl-Dr-vuG" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" id="aeP-ZO-wnU"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="owl-Dr-vuG" secondAttribute="bottom" id="kXS-3c-Jc8"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="owl-Dr-vuG" secondAttribute="trailing" constant="16" id="0th-ld-M0k"/>
+                <constraint firstItem="owl-Dr-vuG" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="16" id="aeP-ZO-wnU"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="owl-Dr-vuG" secondAttribute="bottom" constant="10" id="kXS-3c-Jc8"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="owl-Dr-vuG" secondAttribute="top" id="lyz-FJ-zQE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="389" height="84"/>
+            <connections>
+                <outlet property="settingImageView" destination="QqT-18-awq" id="OjI-EK-bIn"/>
+                <outlet property="settingLabel" destination="7jx-lc-rhF" id="O3d-P9-UN8"/>
+            </connections>
             <point key="canvasLocation" x="118.11594202898551" y="42.1875"/>
         </collectionViewCell>
     </objects>

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Lottie
 class CommonFunction {
+    // MARK: - Image
     static func resizeImage (image: UIImage,targetSize: CGSize) -> UIImage {
         let size = image.size
         
@@ -69,7 +70,7 @@ class CommonFunction {
         
         return image
     }
-    //Date-Time
+    // MARK: - Date-Time
     static func getCurrentDay() -> String {
         let date = Date()
         let formatter = DateFormatter()
@@ -116,7 +117,7 @@ class CommonFunction {
         return dateTimeDifferenceString
         
     }
-    //GetSize
+    // MARK: - getSizeWithRatio
     static func getSizeWithRatio(width: Float, height: Float, ratio: Float) -> CGSize {
         return CGSize(width: CGFloat(width), height: CGFloat(height * ratio))
     }
@@ -129,7 +130,7 @@ class CommonFunction {
         }
         return result
     }
-    //IS_lOGIN
+    // MARK: - IS_lOGIN
     static func isLogin() -> Bool{
         if UserInfo.userDidLogin() == false {
             return false
@@ -137,6 +138,7 @@ class CommonFunction {
             return true
         }
     }
+    // MARK: - Annoucement
     //ShowNotice
     static func annoucement(title: String, message: String){
         OperationQueue.main.addOperation {
@@ -154,6 +156,7 @@ class CommonFunction {
             hub.hide(animated: true, afterDelay: 2)
         }
     }
+    // MARK: - RootVC
     //Get RootVC
     static var rootVC:TardisMainTabbarViewController {
         get {
@@ -173,17 +176,33 @@ class CommonFunction {
         }
     }
     
-    //LoadingView
+    // MARK: - LoadingView
     static func showLoadingView() {
-        let animationView = AnimationView(name: "infinityLoading")
-        animationView.frame.size = CGSize(width: 300, height: 300)
-        animationView.center = CGPoint(x: rootVC.view.frame.width / 2,
+        let containerView = TardisView()
+        containerView.cornerRadius = 6
+        containerView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+        containerView.frame.size = .init(width: 100, height: 100)
+        containerView.center = CGPoint(x: rootVC.view.frame.width / 2,
                                        y: rootVC.view.frame.height / 2)
+        containerView.clipsToBounds = true
+        containerView.layer.masksToBounds = true
+        let animationView = AnimationView(name: "infinityLoading")
+        animationView.frame.size = CGSize(width: 200, height: 200)
+        animationView.center = CGPoint(x: containerView.frame.width / 2,
+                                       y: containerView.frame.height / 2 - 10)
         animationView.loopMode = .loop
         animationView.contentMode = .scaleAspectFill
         animationView.animationSpeed = 0.5
-        rootVC.view.addSubview(animationView)
-        
+        containerView.addSubview(animationView)
+        let label = UILabel()
+        label.frame = .init(x: 0, y: 70, width: 100, height: 20)
+        label.contentMode = .center
+        label.text = "Loading..."
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica", size: 16)
+        label.textColor = UIColor.black
+        containerView.addSubview(label)
+        rootVC.view.addSubview(containerView)
         animationView.play()
     }
     static func hideLoadingView() {
@@ -198,11 +217,6 @@ class CommonFunction {
     static func isIpad() -> Bool{
         return UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad
     }
-    
-    // MARK: - ShowImagePicker
-//    static func createImagePicker() -> UIImagePickerController {
-//        
-//    }
     
     // MARK: - DownloadImage
     static func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {

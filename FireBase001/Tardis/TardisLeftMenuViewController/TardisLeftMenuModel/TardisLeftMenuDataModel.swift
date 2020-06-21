@@ -17,7 +17,7 @@ class TardisLeftMenuDataModel: NSObject {
     
     // MARK: - SetupData
     func getAvatar() {
-        if UserInfo.getUID().count > 0 {
+        if UserInfo.getUID().count > 0 && UserInfo.currentUser.imageUrl.count > 0 {
             let url = URL(string: UserInfo.currentUser.imageUrl)
              CommonFunction.getData(from: url!, completion: { (data, res, err) in
                 if err != nil {
@@ -74,6 +74,7 @@ class TardisLeftMenuDataModel: NSObject {
                                 withReuseIdentifier: "TardisCommonMenuCollectionViewCell",
                                 for: indexPath)
                 as? TardisCommonMenuCollectionViewCell {
+                cell.bindData(setting: Setting.allLoggedInSetting[indexPath.row])
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -86,6 +87,62 @@ class TardisLeftMenuDataModel: NSObject {
         if indexPath.row == Setting.userBlock.settingIndex {
             return CGSize(width: (selfView?.view.frame.width)!, height: 100)
         }
-        return  CGSize(width: (selfView?.view.frame.width)!, height: 40)
+        return  CGSize(width: (selfView?.view.frame.width)!, height: 50)
+    }
+    
+    func numberOfItemsInSection( collectionView: UICollectionView, section: Int) -> Int {
+        if CommonFunction.isLogin() {
+            return Setting.allLoggedInSetting.count
+        } else {
+            return Setting.allSetting.count
+        }
+    }
+    
+    func didSelectItemAt(_ collectionView: UICollectionView,  indexPath: IndexPath) {
+        if CommonFunction.isLogin() {
+            didSelectLoggedInCell(collectionView, indexPath: indexPath)
+        } else {
+            didSelectNotLogInCell(collectionView, indexPath: indexPath)
+        }
+    }
+    
+    func didSelectLoggedInCell(_ collectionView: UICollectionView,  indexPath: IndexPath) {
+        switch indexPath.row {
+        case Setting.userBlock.settingIndex:
+            CommonFunction.rootVC.showUserInfo()
+            break
+        case Setting.commonSetting.settingIndex:
+            break
+        case Setting.appInfo.settingIndex:
+            //Do something
+            break
+        case Setting.devInfo.settingIndex:
+            //Do something
+            break
+        case Setting.logOut.settingIndex:
+            CommonFunction.rootVC.doLogout()
+            avatarImage = nil
+            break
+        default:
+            break
+        }
+    }
+    
+    func didSelectNotLogInCell(_ collectionView: UICollectionView,  indexPath: IndexPath) {
+        switch indexPath.row {
+        case Setting.userBlock.settingIndex:
+            CommonFunction.rootVC.showUserInfo()
+            break
+        case Setting.commonSetting.settingIndex:
+            break
+        case Setting.appInfo.settingIndex:
+            //Do something
+            break
+        case Setting.devInfo.settingIndex:
+            //Do something
+            break
+        default:
+            break
+        }
     }
 }

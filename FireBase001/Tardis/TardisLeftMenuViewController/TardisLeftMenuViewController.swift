@@ -21,12 +21,14 @@ class TardisLeftMenuViewController: UIViewController {
         dataModel.setupLeftMenuCollectionView(collectionView: leftMenuCollectionView)
     }
     override func viewWillAppear(_ animated: Bool) {
+    }
+    // MARK: - Func
+    func reloadData() {
         if dataModel.avatarImage == nil {
             dataModel.getAvatar()
         }
         leftMenuCollectionView.reloadData()
     }
-    // MARK: - Func
     // MARK: - IBActions
     
 
@@ -38,7 +40,7 @@ extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionVi
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return Setting.allSetting.count
+        return dataModel.numberOfItemsInSection(collectionView: collectionView, section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -49,15 +51,7 @@ extension TardisLeftMenuViewController:UICollectionViewDataSource,UICollectionVi
         return dataModel.sizeForMenuCollectionView(sizeForItemAt: indexPath)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        switch indexPath.row {
-        case Setting.userBlock.settingIndex:
-            if UserInfo.userDidLogin() {
-                CommonFunction.rootVC.showUserInfo()
-                break
-            }
-        default:
-            print("err")
-        }
+        dataModel.didSelectItemAt(collectionView, indexPath: indexPath)
     }
 }
 

@@ -9,5 +9,10 @@
 import UIKit
 
 class TardisActivitiesDataModel: NSObject {
-
+    var selfView: TardisActivitiesViewController?
+    var requestModel = TardisActivitiesRequestModel()
+    override init() {
+        super.init()
+        
+    }
 }

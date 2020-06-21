@@ -9,10 +9,16 @@
 import UIKit
 
 class TardisCommonMenuCollectionViewCell: UICollectionViewCell {
-
+    @IBOutlet weak var settingLabel: UILabel!
+    
+    @IBOutlet weak var settingImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    func bindData(setting: Setting) {
+        settingImageView.image = setting.image
+        settingLabel.text = setting.name
+    }
 }

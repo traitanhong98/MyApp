@@ -10,7 +10,7 @@ import UIKit
 import ObjectMapper
 
 
-class TardisActivity: Mappable {
+class TardisActivityObject: Mappable {
     var activityName: String    = ""
     var startTime:String        = ""
     var endTime:String          = ""
@@ -40,3 +40,12 @@ class TardisActivity: Mappable {
     }
 }
 
+//class TardisJsonActivityObject: Mappable {
+//    
+//    required init?(map: Map) {}
+//    
+//    mutating func mapping(map: Map) {
+//        <#code#>
+//    }
+//    
+//}

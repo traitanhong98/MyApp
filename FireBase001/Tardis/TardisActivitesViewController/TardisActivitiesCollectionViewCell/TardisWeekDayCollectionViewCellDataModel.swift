@@ -11,7 +11,7 @@ import UIKit
 
 
 class TardisWeekDayCollectionViewCellDataModel: NSObject {
-    var activities = [TardisActivity]()
+    var activities = [TardisActivityObject]()
     var viewMode = ViewMode.dayHour
     var sizeRatio: Float = 1
     
