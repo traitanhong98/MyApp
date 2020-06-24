@@ -62,6 +62,9 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     }
     
     func scrollToFirst() {
+        if dataModel.activities.count == 0 {
+            return
+        }
         if viewMode == .normal {
             return
         }

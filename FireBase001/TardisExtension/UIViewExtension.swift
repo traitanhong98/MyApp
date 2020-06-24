@@ -238,3 +238,54 @@ extension UIView {
         }
     }
 }
+// MARK: - TextView
+@IBDesignable
+@objc public class TardisTextView: UITextView {
+    @IBInspectable var cornerRadius: CGFloat = 0.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat = 0.0 {
+        didSet {
+            self.layer.borderWidth = borderWidth
+            self.layer.borderColor = UIColor.clear.cgColor
+        }
+    }
+    
+    @IBInspectable var shadowOpacity: Float = 0.5 {
+        didSet {
+            self.layer.shadowOpacity = shadowOpacity
+        }
+    }
+    
+    
+    @IBInspectable var shadowOffset: CGSize = CGSize(width: 1, height: 1) {
+        didSet {
+            self.layer.shadowOffset = shadowOffset
+        }
+    }
+    
+    @IBInspectable var shadowRadius: CGFloat = 5 {
+        didSet {
+            self.layer.shadowRadius = shadowRadius
+        }
+    }
+    
+    @IBInspectable var isShadow: Bool = false {
+        didSet {
+            if isShadow {
+                self.layer.shadowColor = UIColor.lightGray.cgColor
+                self.layer.shadowOffset = shadowOffset
+                self.layer.shadowOpacity = shadowOpacity
+                self.layer.shadowRadius = shadowRadius
+            }
+        }
+    }
+    @IBInspectable var borderColor: UIColor = UIColor.clear {
+        didSet {
+            self.layer.borderColor = borderColor.cgColor
+        }
+    }
+}

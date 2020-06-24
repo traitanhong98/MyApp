@@ -11,12 +11,13 @@ import ObjectMapper
 
 
 class TardisActivityObject: Mappable {
+    var id:String               = ""
     var activityName: String    = ""
     var startTime:String        = ""
     var endTime:String          = ""
     var note:String             = ""
     var location:String         = ""
-    var loopDay:[String]        = []
+    var loopDay:String          = ""
     init() {}
 
     required init?(map: Map) {}
@@ -39,13 +40,3 @@ class TardisActivityObject: Mappable {
         self.location = location
     }
 }
-
-//class TardisJsonActivityObject: Mappable {
-//    
-//    required init?(map: Map) {}
-//    
-//    mutating func mapping(map: Map) {
-//        <#code#>
-//    }
-//    
-//}

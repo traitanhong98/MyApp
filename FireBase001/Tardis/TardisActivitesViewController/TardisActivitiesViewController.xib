@@ -88,7 +88,7 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="29" scale="large"/>
                                     </state>
                                     <connections>
-                                        <action selector="sizeRatioButtonTapped:" destination="-1" eventType="touchUpInside" id="EYT-IL-UVC"/>
+                                        <action selector="addButtonTapped:" destination="-1" eventType="touchUpInside" id="EYT-IL-UVC"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15H-2j-vCR">
@@ -100,7 +100,7 @@
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                     </state>
                                     <connections>
-                                        <action selector="viewModeButtonTapped:" destination="-1" eventType="touchUpInside" id="iTm-wd-n1G"/>
+                                        <action selector="viewModeButtonTapped:" destination="-1" eventType="touchUpInside" id="lkP-aA-LtE"/>
                                     </connections>
                                 </button>
                             </subviews>

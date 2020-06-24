@@ -142,9 +142,10 @@ class CommonFunction {
     //ShowNotice
     static func annoucement(title: String, message: String){
         OperationQueue.main.addOperation {
-            guard let view = self.rootVC.naviMain.view else {return}
+            guard let view = self.rootVC.view else {return}
             MBProgressHUD.hide(for: view, animated: true)
             let hub = MBProgressHUD.showAdded(to: view, animated: true)
+            view.bringSubviewToFront(hub)
             hub.label.font = UIFont(name: "Helvetica", size: 16)
             hub.label.text = title
             hub.detailsLabel.font = UIFont(name: "Helvetica", size: 16)
@@ -178,36 +179,12 @@ class CommonFunction {
     
     // MARK: - LoadingView
     static func showLoadingView() {
-        let containerView = TardisView()
-        containerView.cornerRadius = 6
-        containerView.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
-        containerView.frame.size = .init(width: 100, height: 100)
-        containerView.center = CGPoint(x: rootVC.view.frame.width / 2,
-                                       y: rootVC.view.frame.height / 2)
-        containerView.clipsToBounds = true
-        containerView.layer.masksToBounds = true
-        let animationView = AnimationView(name: "infinityLoading")
-        animationView.frame.size = CGSize(width: 200, height: 200)
-        animationView.center = CGPoint(x: containerView.frame.width / 2,
-                                       y: containerView.frame.height / 2 - 10)
-        animationView.loopMode = .loop
-        animationView.contentMode = .scaleAspectFill
-        animationView.animationSpeed = 0.5
-        containerView.addSubview(animationView)
-        let label = UILabel()
-        label.frame = .init(x: 0, y: 70, width: 100, height: 20)
-        label.contentMode = .center
-        label.text = "Loading..."
-        label.textAlignment = .center
-        label.font = UIFont(name: "Helvetica", size: 16)
-        label.textColor = UIColor.black
-        containerView.addSubview(label)
+        let containerView = TardisLoadingView()
         rootVC.view.addSubview(containerView)
-        animationView.play()
     }
     static func hideLoadingView() {
         for subview in rootVC.view.subviews {
-            if subview.isKind(of: AnimationView.self) {
+            if subview.isKind(of: TardisLoadingView.self) {
                 subview.removeFromSuperview()
             }
         }

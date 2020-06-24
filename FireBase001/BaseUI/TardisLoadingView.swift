@@ -7,34 +7,44 @@
 //
 
 import UIKit
+import Lottie
 
-class TardisLoadingView: UIView {
-
-    var contentView:UIView?
-    var loadingImage:UIImageView?
-    var loadingTextView:UIView?
-    var isAnimating = true
-    override init(frame: CGRect) {
+class TardisLoadingView: TardisView {
+    required init(frame: CGRect) {
         super.init(frame: frame)
+        setupView()
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        setupView()
     }
     
     func setupView() {
-        contentView = UIView.init(frame: CGRect(x: 0, y: 0, width: 66, height: 66))
-        contentView?.backgroundColor = UIColor.white
-        contentView?.center = self.center
-        contentView?.alpha = 0
-        self.addSubview(contentView!)
-        
-        contentView?.layer.cornerRadius = contentView!.frame.size.height/2
-        contentView?.layer.masksToBounds = true
-        contentView?.clipsToBounds = false
-        contentView?.layer.shadowOffset = CGSize.init(width: 0, height: 1)
-        contentView?.layer.shadowRadius = 2
-        contentView?.layer.shadowColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 1)
-        
+        let rootVC = CommonFunction.rootVC
+        self.cornerRadius = 6
+        self.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+        self.frame.size = .init(width: 100, height: 100)
+        self.center = CGPoint(x: rootVC.view.frame.width / 2,
+                                       y: rootVC.view.frame.height / 2)
+        self.clipsToBounds = true
+        self.layer.masksToBounds = true
+        let animationView = AnimationView(name: "infinityLoading")
+        animationView.frame.size = CGSize(width: 200, height: 200)
+        animationView.center = CGPoint(x: self.frame.width / 2,
+                                       y: self.frame.height / 2 - 10)
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFill
+        animationView.animationSpeed = 0.5
+        self.addSubview(animationView)
+        let label = UILabel()
+        label.frame = .init(x: 0, y: 70, width: 100, height: 20)
+        label.contentMode = .center
+        label.text = "Loading..."
+        label.textAlignment = .center
+        label.font = UIFont(name: "Helvetica", size: 16)
+        label.textColor = UIColor.black
+        self.addSubview(label)
+        animationView.play()
     }
     
 }

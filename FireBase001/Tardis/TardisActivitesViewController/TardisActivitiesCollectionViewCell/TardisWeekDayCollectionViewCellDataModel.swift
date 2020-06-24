@@ -28,6 +28,9 @@ class TardisWeekDayCollectionViewCellDataModel: NSObject {
     }
     
     func activityCollectionView(_ collectionView: UICollectionView,referenceSizeForFooterInSection section: Int) -> CGSize {
+        if activities.count == 0 {
+            return .zero
+        }
         if viewMode == .dayHour {
             let width = Float(collectionView.frame.width)
             var height: Float = 0

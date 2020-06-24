@@ -18,7 +18,7 @@ enum Weekday:String {
     case Sat = "Satuday"
     case Sun = "Sunday"
     case Err = "Err"
-    static let allWeekdays = [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
+    static let allWeekdays = [Mon,Tue,Wed,Thu,Fri,Sat,Sun]
     
     static func getWeekday(index: Int)-> Weekday {
         switch index {
@@ -80,6 +80,27 @@ enum Weekday:String {
             return "Sun"
         default:
             return "Err"
+        }
+    }
+    
+    var index: Int {
+        switch self {
+        case .Mon:
+            return 0
+        case .Tue:
+            return 1
+        case .Wed:
+            return 2
+        case .Thu:
+            return 3
+        case .Fri:
+            return 4
+        case .Sat:
+            return 5
+        case .Sun:
+            return 6
+        default:
+            return -666
         }
     }
 }

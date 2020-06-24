@@ -20,6 +20,7 @@ class TardisActivitiesViewController: BaseTabViewController {
     @IBOutlet weak var viewModeButton: UIButton!
     @IBOutlet weak var sizeRatioButton: UIButton!
     //MARK: -Propeties
+    var dataModel = TardisActivitiesDataModel.shared
     var centeredWeekdayCollectionView: CenteredCollectionViewFlowLayout?
     var weekdayButtonCollectionViewFlowLayout: UICollectionViewFlowLayout?
     var sizeOfWeekdayButton: Float = 0
@@ -39,8 +40,8 @@ class TardisActivitiesViewController: BaseTabViewController {
     //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        exampleData()
+        loadData()
+//        exampleData()
     }
     override func viewDidAppear(_ animated: Bool) {
         setupView()
@@ -79,11 +80,20 @@ class TardisActivitiesViewController: BaseTabViewController {
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
     }
-    
     func setupView() {
         self.sizeOfWeekdayButton = Float(weekdayButtonCollectionView.frame.width/7)
         self.originPosXofFooter = self.tardisWeekdayButtonFooterView.frame.origin.x
         self.widthOfWeekdayFooter.constant = weekdayButtonCollectionView.frame.width/7 - 3
+    }
+    func loadData() {
+        dataModel.loadActivities { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Load dữ liệu thành công")
+                self.weekdayCollectionView.reloadData()
+            } else {
+                CommonFunction.annoucement(title: "", message: "Load dữ liệu thất bại")
+            }
+        }
     }
     //Di chuyển view Footer
     func footerViewAnimate(indexPath: IndexPath) {
@@ -98,13 +108,10 @@ class TardisActivitiesViewController: BaseTabViewController {
         
     }
     //MARK: - IBActions
-    @IBAction func sizeRatioButtonTapped(_ sender: Any) {
-        CommonFunction.annoucement(title: "", message: "Aloha")
-        if self.sizeRatio == 1 {
-            self.sizeRatio = 0.75
-        } else if self.sizeRatio == 0.75 {
-            self.sizeRatio = 1
-        }
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let popup = TardisAddNewActivityPopup()
+        popup.delegate = self
+        popup.show()
     }
     @IBAction func leftMenuButton(_ sender: Any) {
         CommonFunction.rootVC.showLeftViewAnimated()
@@ -150,7 +157,7 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
         switch collectionView {
         case weekdayCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisWeekdayCollectionViewCell", for: indexPath) as? TardisWeekdayCollectionViewCell {
-                cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.row), sizeRatio: sizeRatio, activities: weekActivities[indexPath.row],viewMode: viewMode)
+                cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.row), sizeRatio: sizeRatio, activities: dataModel.dailyActivityArray[indexPath.row],viewMode: viewMode)
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -214,6 +221,18 @@ extension TardisActivitiesViewController {
             footerViewAnimate(indexPath: indexPath)
         default:
             print("Hello")
+        }
+    }
+}
+extension TardisActivitiesViewController:TardisAddNewActivityPopupDelegate {
+    func addActivity(activity: TardisActivityObject) {
+        dataModel.addActivity(activity: activity) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Thêm mới thành công")
+                self.weekdayCollectionView.reloadData()
+            } else {
+                CommonFunction.annoucement(title: "", message: "Thêm mới thất bại")
+            }
         }
     }
 }
@@ -319,6 +338,6 @@ extension TardisActivitiesViewController {
         activity6.append(activity64)
         activity6.append(activity65)
         weekActivities.append(activity6)
-        
+        dataModel.dailyActivityArray = weekActivities
     }
 }
