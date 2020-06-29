@@ -40,9 +40,11 @@ class TardisBasePopupViewController: UIViewController {
                                           y: 150,
                                           width: animateView.frame.width,
                                           height: animateView.frame.height)
+                animateView.alpha = 0
             }, completion: { _ in
-                self.removeFromParent()
+                animateView.isHidden = true
                 self.view.removeFromSuperview()
+                self.removeFromParent()
             })
         }
         

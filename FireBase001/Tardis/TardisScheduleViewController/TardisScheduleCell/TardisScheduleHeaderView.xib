@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisScheduleHeaderView" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="headerLabel" destination="FAt-qQ-lpY" id="42V-C8-uF7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="94"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ryc-Hh-EIt">
+                    <rect key="frame" x="0.0" y="44" width="414" height="1"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="swu-iS-vrr"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CcW-t4-3Pp" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="16" y="47" width="160" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hôm nay" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAt-qQ-lpY">
+                            <rect key="frame" x="45" y="9" width="70.5" height="22.5"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.1450980392" blue="0.30196078430000001" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="FAt-qQ-lpY" firstAttribute="centerY" secondItem="CcW-t4-3Pp" secondAttribute="centerY" id="MvT-wg-cnX"/>
+                        <constraint firstAttribute="width" constant="160" id="nac-ND-cGs"/>
+                        <constraint firstItem="FAt-qQ-lpY" firstAttribute="centerX" secondItem="CcW-t4-3Pp" secondAttribute="centerX" id="ohy-ib-yuG"/>
+                        <constraint firstAttribute="height" constant="40" id="ucn-Hy-gYQ"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="CcW-t4-3Pp" firstAttribute="top" secondItem="Ryc-Hh-EIt" secondAttribute="bottom" constant="2" id="143-8s-KRa"/>
+                <constraint firstItem="Ryc-Hh-EIt" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AMG-wL-bu7"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ryc-Hh-EIt" secondAttribute="trailing" id="q3T-fX-1sS"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="CcW-t4-3Pp" secondAttribute="leading" constant="-16" id="vpf-15-sSH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="Ryc-Hh-EIt" secondAttribute="top" id="zh1-Cy-opw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="-168.75"/>
+        </view>
+    </objects>
+</document>

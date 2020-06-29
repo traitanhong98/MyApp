@@ -30,10 +30,13 @@ class TardisActivitiesDataModel: NSObject {
             if activity.loopDay.count > 0 {
                 let days = activity.loopDay.split(" ")
                 for day in days {
-                    guard let index = Int(day) else {return}
+                    guard let index = Int(day) else {break}
                     dailyActivityArray[index].append(activity)
                 }
             }
+        }
+        for index in 0..<dailyActivityArray.count {
+            dailyActivityArray[index].sort(by: {$0.startTime < $1.startTime})
         }
     }
     func addActivity(activity: TardisActivityObject, completionBlock: @escaping (Bool)->Void) {
@@ -51,7 +54,9 @@ class TardisActivitiesDataModel: NSObject {
     func loadActivities( completionBlock: @escaping (Bool)-> Void ) {
         requestModel.loadActivities { (status, activitiesArray) in
             if status {
+                self.activitiesArray.removeAll()
                 self.activitiesArray = activitiesArray
+                self.setupData()
                 self.separateActivity()
                 completionBlock(true)
             } else {

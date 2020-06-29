@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisScheduleInfoPopup" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="Hqo-p4-XVm" id="lJ5-7y-STC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqo-p4-XVm" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="40" y="193" width="334" height="520"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVr-gT-vJY" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="47" y="2" width="240" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chi tiết" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1z-Rc-dpd">
+                                    <rect key="frame" x="88.5" y="7" width="63.5" height="26"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.1450980392" blue="0.30196078430000001" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="p1z-Rc-dpd" firstAttribute="centerX" secondItem="KVr-gT-vJY" secondAttribute="centerX" id="5Ph-9b-Bl7"/>
+                                <constraint firstItem="p1z-Rc-dpd" firstAttribute="centerY" secondItem="KVr-gT-vJY" secondAttribute="centerY" id="NFA-R8-JLY"/>
+                                <constraint firstAttribute="width" constant="240" id="VWx-Gn-eFs"/>
+                                <constraint firstAttribute="height" constant="40" id="sLF-fu-pez"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IHv-dO-wvQ">
+                            <rect key="frame" x="0.0" y="42" width="334" height="478"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-2W-CUc">
+                                    <rect key="frame" x="16" y="32" width="23" height="19"/>
+                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                    <color key="textColor" red="0.0" green="0.1450980392" blue="0.30196078430000001" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="06g-eb-bfJ">
+                                    <rect key="frame" x="45" y="24.5" width="273" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="x4Y-2W-CUc" firstAttribute="centerY" secondItem="06g-eb-bfJ" secondAttribute="centerY" id="B30-7c-9en"/>
+                                <constraint firstAttribute="trailing" secondItem="06g-eb-bfJ" secondAttribute="trailing" constant="16" id="DMy-7f-rsl"/>
+                                <constraint firstItem="x4Y-2W-CUc" firstAttribute="top" secondItem="IHv-dO-wvQ" secondAttribute="top" constant="32" id="Pu9-vV-3N4"/>
+                                <constraint firstItem="x4Y-2W-CUc" firstAttribute="leading" secondItem="IHv-dO-wvQ" secondAttribute="leading" constant="16" id="cnF-z2-7Hg"/>
+                                <constraint firstItem="06g-eb-bfJ" firstAttribute="leading" secondItem="x4Y-2W-CUc" secondAttribute="trailing" constant="6" id="pjj-mR-G0y"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="KVr-gT-vJY" firstAttribute="centerX" secondItem="Hqo-p4-XVm" secondAttribute="centerX" id="8Jl-Wq-XYL"/>
+                        <constraint firstItem="IHv-dO-wvQ" firstAttribute="top" secondItem="KVr-gT-vJY" secondAttribute="bottom" id="KAK-fj-03T"/>
+                        <constraint firstAttribute="bottom" secondItem="IHv-dO-wvQ" secondAttribute="bottom" id="LDy-ul-LLI"/>
+                        <constraint firstItem="KVr-gT-vJY" firstAttribute="top" secondItem="Hqo-p4-XVm" secondAttribute="top" constant="2" id="g8O-44-yjt"/>
+                        <constraint firstAttribute="trailing" secondItem="IHv-dO-wvQ" secondAttribute="trailing" id="gD8-bE-tZV"/>
+                        <constraint firstItem="IHv-dO-wvQ" firstAttribute="leading" secondItem="Hqo-p4-XVm" secondAttribute="leading" id="hh1-Wu-jpp"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.20478381849315069" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Hqo-p4-XVm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="4es-ld-aW5"/>
+                <constraint firstItem="Hqo-p4-XVm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DAV-hX-ciH"/>
+                <constraint firstItem="Hqo-p4-XVm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="149" id="KjM-AU-wXN"/>
+                <constraint firstItem="Hqo-p4-XVm" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="NWZ-5h-L1a"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="106"/>
+        </view>
+    </objects>
+</document>

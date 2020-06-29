@@ -1,45 +1,44 @@
 //
-//  TardisActivitiesRequestModel.swift
+//  TardisScheduleRequestModel.swift
 //  FireBase001
 //
-//  Created by Hoang on 6/12/20.
+//  Created by Hoang on 6/25/20.
 //  Copyright © 2020 Hoang. All rights reserved.
 //
 
 import UIKit
 import Firebase
-
-class TardisActivitiesRequestModel: NSObject {
+class TardisScheduleRequestModel: NSObject {
     var firRef: DatabaseReference?
     override init() {
         super.init()
-        firRef = TardisBaseRequestModel.shared.firRef.child("Activities")
+        firRef = TardisBaseRequestModel.shared.firRef.child("Schedules")
     }
     
-    func addActivity(activity: TardisActivityObject, completionBlock: @escaping (Bool,TardisActivityObject)->Void) {
+    func addSchedule(schedule: TardisScheduleObject, completionBlock: @escaping (Bool,TardisScheduleObject)->Void) {
         guard let firRef = self.firRef else {return}
         CommonFunction.showLoadingView()
         var newChild = firRef.child(UserInfo.getUID())
         
-        if activity.id.count > 0 {
-            newChild = newChild.child(activity.id)
+        if schedule.id.count > 0 {
+            newChild = newChild.child(schedule.id)
         } else {
             newChild = newChild.childByAutoId()
         }
         let key = newChild.key ?? ""
-        newChild.setValue(activity.toJSON()) { (err, ref) in
+        newChild.setValue(schedule.toJSON()) { (err, ref) in
             CommonFunction.hideLoadingView()
             if err != nil {
-                completionBlock(false,TardisActivityObject())
+                completionBlock(false,TardisScheduleObject())
                 return
             }
-            activity.id = key
-            completionBlock(true,activity)
+            schedule.id = key
+            completionBlock(true,schedule)
         }
     }
     
-    func loadActivities(completionBlock: @escaping (Bool,[TardisActivityObject])->Void) {
-        var arrayActivities = [TardisActivityObject]()
+    func loadSchedule(completionBlock: @escaping (Bool,[TardisScheduleObject])->Void) {
+        var arraySchedules = [TardisScheduleObject]()
         guard let firRef = self.firRef else {return}
         CommonFunction.showLoadingView()
         firRef.child(UserInfo.getUID()).observeSingleEvent(of: .value) { (snapShot) in
@@ -54,14 +53,14 @@ class TardisActivitiesRequestModel: NSObject {
                     completionBlock(false,[])
                     return
                 }
-                guard let activity = TardisActivityObject.init(JSON: value) else {
+                guard let schedule = TardisScheduleObject.init(JSON: value) else {
                     completionBlock(false,[])
                     return
                 }
-                activity.id = key
-                arrayActivities.append(activity)
+                schedule.id = key
+                arraySchedules.append(schedule)
             }
-            completionBlock(true,arrayActivities)
+            completionBlock(true,arraySchedules)
         }
     }
 }

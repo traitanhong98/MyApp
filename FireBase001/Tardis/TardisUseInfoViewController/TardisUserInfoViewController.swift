@@ -159,10 +159,8 @@ extension TardisUserInfoViewController: UITextFieldDelegate {
     }
 }
 extension TardisUserInfoViewController:TardisDatePickerViewControllerDelegate{
-    func selectedDate(date: String) {
-        birthdayTextField.text = date
+    func selectedDate(day: Int, month: Int, year: Int) {
+        birthdayTextField.text = String(format: "%02ld/%02ld/%04ld",day,month,year)
     }
-    
-    
 }
 

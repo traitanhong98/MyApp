@@ -117,6 +117,77 @@ class CommonFunction {
         return dateTimeDifferenceString
         
     }
+    // Lấy ra chuỗi ngày hiện tại
+    static func getCurrentDateString(withFormat format:String) -> String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+    // Lấy ra Ngày tháng cách ngày hiện tại
+    // - xxx ngày
+    static func getDateString(daysFromCurrentDate days: Int, withFormat format: String ) -> String {
+        let currentCalendar = Calendar.current
+        let result = currentCalendar.date(byAdding: .day, value: days, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: result ?? Date())
+    }
+    // - xxx tháng
+    static func getDateString(monthsFromCurrentDate months: Int, withFormat format: String ) -> String {
+        let currentCalendar = Calendar.current
+        let result = currentCalendar.date(byAdding: .month, value: months, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: result ?? Date())
+    }
+    static func getDateString(fromDate date:Date,afterDays days:Int, andFormat format: String) -> String {
+        let calendar = Calendar.current
+        let result = calendar.date(byAdding: .day, value: days, to: Date())
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: result ?? Date())
+    }
+    static func getDate(fromDate date:Date,afterDays days:Int) -> Date {
+        let calendar = Calendar.current
+        return calendar.date(byAdding: .day, value: days, to: date) ?? Date()
+    }
+    static func getDateString(fromDate date:Date, andFormat format: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date )
+    }
+    static func getDate(fromDateString dateString: String,withFormat format:String) -> Date {
+        let Formater = DateFormatter()
+        Formater.dateFormat = format
+        return Formater.date(from: dateString) ?? Date()
+    }
+    static func getLunarDateString(fromDate date:Date, andFormat format: String) -> String {
+        let lunarCalendar = Calendar(identifier: .chinese)
+        let formater = DateFormatter()
+        formater.calendar = lunarCalendar
+        formater.dateFormat = format
+        return formater.string(from: date)
+    }
+    static func getDateFromComponents(day: Int,month:Int,year:Int) -> Date {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        var components = DateComponents()
+        components.day = day
+        components.month = month
+        components.year = year
+        return calendar.date(from: components) ?? Date()
+        
+    }
+    // Đổi định dạng ngày tháng của một chuỗi date
+    static func changeDateFormat(dateString:String, fromFormat rawFormat: String, toFormat resultFormat: String) -> String {
+        let rawFormater = DateFormatter()
+        rawFormater.dateFormat = rawFormat
+        let date = rawFormater.date(from: dateString)
+        let resultFormater = DateFormatter()
+        resultFormater.dateFormat = resultFormat
+        return resultFormater.string(from: date ?? Date())
+    }
     // MARK: - getSizeWithRatio
     static func getSizeWithRatio(width: Float, height: Float, ratio: Float) -> CGSize {
         return CGSize(width: CGFloat(width), height: CGFloat(height * ratio))

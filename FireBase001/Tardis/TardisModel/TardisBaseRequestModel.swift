@@ -24,7 +24,6 @@ class TardisBaseRequestModel: NSObject {
             if let dataValue = data.value as? [String : AnyObject]{
                 UserInfo.currentUser = UserInfoObject.init(JSON: dataValue)!
             }
-                
         }
     }
     

@@ -19,7 +19,7 @@ enum Weekday:String {
     case Sun = "Sunday"
     case Err = "Err"
     static let allWeekdays = [Mon,Tue,Wed,Thu,Fri,Sat,Sun]
-    
+    static let allWeekdayWithSunFirst = [Sun,Mon,Tue,Wed,Thu,Fri,Sat]
     static func getWeekday(index: Int)-> Weekday {
         switch index {
         case 0,7:
@@ -247,4 +247,118 @@ enum Setting {
 //MARK: - ViewMode
 enum ViewMode {
     case normal,dayHour
+}
+// MARK: - LunarHoliday
+
+enum LunarHoliday {
+    case nguyenDan
+    case nguyenTieu
+    case hanThuc
+    case gioTo
+    case phatDan
+    case doanNgo
+    case vuLan
+    case trungThu
+    case trungCuu
+    case thuongTan
+    case haNguyen
+    case taoQuan
+    case none
+    
+    var nameVN: String {
+        switch self {
+        case .nguyenDan:
+            return "Nguyên Đán"
+            case .nguyenTieu:
+            return "Nguyên Tiêu"
+            case .hanThuc:
+            return "Hàn Thực"
+            case .gioTo:
+            return "Giỗ tổ Hùng Vương"
+            case .phatDan:
+            return "Phật đản"
+            case .doanNgo:
+            return "Đoan Ngọ"
+            case .vuLan:
+            return "Vu Lan"
+            case .trungThu:
+            return "Trung Thu"
+            case .trungCuu:
+            return "Trùng Cửu"
+            case .thuongTan:
+            return "Thường Tân"
+            case .haNguyen:
+            return "Hạ Nguyên"
+            case .taoQuan:
+            return "Táo Quân"
+        default:
+            return ""
+        }
+    }
+    
+    static func getLunarHoliday(dayString: String) -> LunarHoliday{
+        switch dayString {
+        case "01-01":
+            return .nguyenDan
+            case "15-01":
+            return .nguyenTieu
+            case "03-03":
+            return .hanThuc
+            case "10-03":
+            return .gioTo
+            case "15-04":
+            return .phatDan
+            case "05-05":
+            return .doanNgo
+            case "15-07":
+            return .vuLan
+            case "15-8":
+            return .trungThu
+            case "09-09":
+            return .trungCuu
+            case "10-10":
+            return .thuongTan
+            case "15-10":
+            return .haNguyen
+            case "23-12":
+            return .taoQuan
+        default:
+            return .none
+        }
+    }
+}
+enum Holiday {
+    case newYear
+    case valentine
+    case doctorDayVN
+    case womenDay
+    case tncsHCM
+    case foolApril
+    case giaiPhongMienNam
+    case quocTeLaoDong
+    case chienThangDienBienPhu
+    case ngayCuaMe
+    case sinhNhatBac
+    case quocTeThieuNhi
+    case ngayCuaCha
+    case ngayBaoChiVN
+    case ngayGiaDinhVN
+    case ngayDanSoTheGioi
+    case ngayThuongBinhLietSi
+    case thanhLapCongDoanVN
+    case tongKhoiNghia
+    case quocKhanh
+    case thanhLapMatTranToQuocVN
+    case quocTeNguoiCaoTuoi
+    case giaiPhongThuDo
+    case doanhNhanVN
+    case phuNuVN
+    case hallowen
+    case phapLuatVN
+    case nhaGiaoVietNam
+    case thanhLapHoiChuThapDoVN
+    case theGioiPhongChongAids
+    case toanQuocKhangChien
+    case giangSinh
+    case thanhLapQuanDoiNhanDanVN
 }

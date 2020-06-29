@@ -32,7 +32,7 @@ class TardisActivitiesViewController: BaseTabViewController {
             weekdayCollectionView.reloadData()
         }
     }
-    var viewMode = ViewMode.dayHour {
+    var viewMode = ViewMode.normal {
         didSet{
             weekdayCollectionView.reloadData()
         }
@@ -41,7 +41,6 @@ class TardisActivitiesViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-//        exampleData()
     }
     override func viewDidAppear(_ animated: Bool) {
         setupView()
@@ -234,110 +233,5 @@ extension TardisActivitiesViewController:TardisAddNewActivityPopupDelegate {
                 CommonFunction.annoucement(title: "", message: "Thêm mới thất bại")
             }
         }
-    }
-}
-
-//Sample Data
-extension TardisActivitiesViewController {
-    func exampleData()  {
-        //Sun
-        let activity01 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:59", endTime: "07:00", note: "Ăn sáng", location: "Tue")
-        let activity02 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity03 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity04 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity05 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity0 = [TardisActivityObject]()
-        activity0.append(activity01)
-        activity0.append(activity02)
-        activity0.append(activity03)
-        activity0.append(activity04)
-        activity0.append(activity05)
-        weekActivities.append(activity0)
-        //Mon
-        let activity11 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:00", endTime: "06:05", note: "Ăn sáng", location: "Tue")
-        let activity12 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity13 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity14 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity15 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity1 = [TardisActivityObject]()
-        activity1.append(activity11)
-        activity1.append(activity12)
-        activity1.append(activity13)
-        activity1.append(activity14)
-        activity1.append(activity15)
-        weekActivities.append(activity1)
-        //Tue
-        let activity21 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:59", endTime: "07:00", note: "Ăn sáng", location: "Tue")
-        let activity22 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity23 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity24 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity25 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity2 = [TardisActivityObject]()
-        activity2.append(activity21)
-        activity2.append(activity22)
-        activity2.append(activity23)
-        activity2.append(activity24)
-        activity2.append(activity25)
-        weekActivities.append(activity2)
-        //Web
-        let activity31 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:59", endTime: "07:00", note: "Ăn sáng", location: "Tue")
-        let activity32 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity33 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity34 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity35 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity3 = [TardisActivityObject]()
-        activity3.append(activity31)
-        activity3.append(activity32)
-        activity3.append(activity33)
-        activity3.append(activity34)
-        activity3.append(activity35)
-        weekActivities.append(activity3)
-        //Thus
-        let activity41 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:59", endTime: "07:00", note: "Ăn sáng", location: "Tue")
-        let activity42 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity43 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity44 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity45 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity4 = [TardisActivityObject]()
-        activity4.append(activity41)
-        activity4.append(activity42)
-        activity4.append(activity43)
-        activity4.append(activity44)
-        activity4.append(activity45)
-        weekActivities.append(activity4)
-        //Fri
-        let activity51 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:59", endTime: "07:00", note: "Ăn sáng", location: "Tue")
-        let activity52 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity53 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity54 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity55 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity5 = [TardisActivityObject]()
-        activity5.append(activity51)
-        activity5.append(activity52)
-        activity5.append(activity53)
-        activity5.append(activity54)
-        activity5.append(activity55)
-        weekActivities.append(activity5)
-        //Sat
-        let activity61 = TardisActivityObject(activityName: "Ăn sáng", startTime: "06:59", endTime: "07:00", note: "Ăn sáng", location: "Tue")
-        let activity62 = TardisActivityObject(activityName: "Đi học", startTime: "07:00", endTime: "07:30", note: "Ăn sáng", location: "")
-        let activity63 = TardisActivityObject(activityName: "Nấu cơm", startTime: "08:30", endTime: "11:00", note: "Ăn sáng", location: "")
-        let activity64 = TardisActivityObject(activityName: "Làm bếp", startTime: "11:30", endTime: "12:00", note: "Ăn sáng", location: "")
-        let activity65 = TardisActivityObject(activityName: "Chơi game", startTime: "13:00", endTime: "18:00", note: "Ăn sáng", location: "")
-        
-        var activity6 = [TardisActivityObject]()
-        activity6.append(activity61)
-        activity6.append(activity62)
-        activity6.append(activity63)
-        activity6.append(activity64)
-        activity6.append(activity65)
-        weekActivities.append(activity6)
-        dataModel.dailyActivityArray = weekActivities
     }
 }
