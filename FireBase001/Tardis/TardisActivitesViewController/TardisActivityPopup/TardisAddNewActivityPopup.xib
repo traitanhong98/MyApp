@@ -249,12 +249,15 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-n6-LLW" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                                     <rect key="frame" x="82" y="2" width="40" height="40"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="3jb-VJ-SRQ"/>
                                         <constraint firstAttribute="width" constant="40" id="94D-Mo-cti"/>
                                     </constraints>
-                                    <state key="normal" image="104-notification"/>
+                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="bell.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="20"/>
@@ -264,12 +267,15 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX9-tg-Pgd" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                                     <rect key="frame" x="162" y="2" width="40" height="40"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="bRe-gk-NCG"/>
                                         <constraint firstAttribute="width" constant="40" id="qgH-ZV-oSr"/>
                                     </constraints>
-                                    <state key="normal" image="Edit"/>
+                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="pencil.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="20"/>
@@ -281,12 +287,15 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-5N-gae" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                                     <rect key="frame" x="2" y="2" width="40" height="40"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="5Kp-Dq-w1z"/>
                                         <constraint firstAttribute="width" constant="40" id="g1b-f7-GzB"/>
                                     </constraints>
-                                    <state key="normal" image="054-down-arrow"/>
+                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="xmark.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="20"/>
@@ -297,7 +306,7 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstItem="KBN-n6-LLW" firstAttribute="leading" secondItem="DLB-5N-gae" secondAttribute="trailing" constant="40" id="Am4-bU-5Xd"/>
                                 <constraint firstItem="KBN-n6-LLW" firstAttribute="centerY" secondItem="6SL-2B-UZ7" secondAttribute="centerY" id="KZ6-fR-gv0"/>
@@ -344,8 +353,8 @@
         </view>
     </objects>
     <resources>
-        <image name="054-down-arrow" width="512" height="512"/>
-        <image name="104-notification" width="512" height="512"/>
-        <image name="Edit" width="512" height="512"/>
+        <image name="bell.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>

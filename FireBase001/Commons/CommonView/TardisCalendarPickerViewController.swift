@@ -7,6 +7,9 @@
 //
 
 import UIKit
+protocol TardisCalendarPickerViewControllerDelegate: class {
+    func didSelectPickDate(dates: [String])
+}
 
 class TardisCalendarPickerViewController: TardisBasePopupViewController {
 
@@ -29,6 +32,8 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
     var year = 1
     var weekDay: Weekday = Weekday.Mon
     var selectedIndex = [Int]()
+    var selectedDate = [String]()
+    weak var delegate: TardisCalendarPickerViewControllerDelegate?
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +64,12 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
         monthDaysCollectionView.reloadData()
         monthTextField.text = String(format: "%@ - %04ld", Month.allMonth[month - 1].nameVN,year)
     }
+    func dateWithIndex(index: Int) -> Date {
+        var date = CommonFunction.getDateFromComponents(day: 1, month: month, year: year)
+        date = CommonFunction.getDate(fromDate: date,
+                                      afterDays: index - weekDay.index)
+        return date
+    }
     override func hide() {
         self.removeFromParent()
         self.view.removeFromSuperview()
@@ -79,6 +90,8 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
     }
     @IBAction func acceptAction(_ sender: Any) {
         hide()
+        guard let delegate = delegate else { return }
+        delegate.didSelectPickDate(dates: selectedDate)
     }
     @IBAction func lastMonthAction(_ sender: Any) {
         if month == 1 {
@@ -99,7 +112,7 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
         reloadData()
     }
     @IBAction func resetViewAction(_ sender: Any) {
-        selectedIndex.removeAll()
+        selectedDate.removeAll()
         monthDaysCollectionView.reloadData()
     }
     
@@ -113,7 +126,8 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
         var row = ((reconizerLocation.y - cellWidth) / 50)
         collum.round(.down)
         row.round(.down)
-        selectedIndex.append(Int(collum + row * 7))
+        let selected = dateWithIndex(index: Int(collum + row * 7))
+        selectedDate.append(CommonFunction.getDateString(fromDate: selected, andFormat: "dd/MM/yyyy"))
         monthDaysCollectionView.reloadData()
     }
 }
@@ -148,10 +162,8 @@ extension TardisCalendarPickerViewController:UICollectionViewDataSource,UICollec
             }
         case 1:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisCalendarPickerDayCollectionViewCell", for: indexPath) as? TardisCalendarPickerDayCollectionViewCell {
-                var date = CommonFunction.getDateFromComponents(day: 1, month: month, year: year)
-                date = CommonFunction.getDate(fromDate: date,
-                                              afterDays: indexPath.row - weekDay.index)
-                cell.isChecked = selectedIndex.contains(indexPath.row)
+                let date = dateWithIndex(index: indexPath.row)
+                cell.isChecked = selectedDate.contains(CommonFunction.getDateString(fromDate: date, andFormat: "dd/MM/yyyy"))
                 cell.bindData(date: date,
                               weekDay: Weekday.allWeekdays[indexPath.row % 7],
                               isFromThisMonth: indexPath.row - weekDay.index >= 0)
@@ -186,11 +198,13 @@ extension TardisCalendarPickerViewController:UICollectionViewDataSource,UICollec
         heightOfMonthCollectionView.constant = monthDaysCollectionView.contentSize.height
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let date = dateWithIndex(index: indexPath.row)
+        let dateString = CommonFunction.getDateString(fromDate: date, andFormat: "dd/MM/yyyy")
         if indexPath.section == 1 {
-            if selectedIndex.contains(indexPath.row) {
-                selectedIndex.remove(at: selectedIndex.firstIndex(of: indexPath.row)!)
+            if selectedDate.contains(dateString) {
+                selectedDate.remove(at: selectedDate.firstIndex(of: dateString)!)
             } else {
-                selectedIndex.append(indexPath.row)
+                selectedDate.append(dateString)
             }
             monthDaysCollectionView.reloadData()
         }

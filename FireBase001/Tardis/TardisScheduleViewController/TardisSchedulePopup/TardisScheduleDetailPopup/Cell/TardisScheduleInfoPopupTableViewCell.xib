@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TardisScheduleInfoPopupTableViewCell" customModule="FireBase001" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5OK-pz-M4x">
+                        <rect key="frame" x="8" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="22z-YS-zFf"/>
+                            <constraint firstAttribute="width" constant="40" id="hlc-ts-jyL"/>
+                        </constraints>
+                        <state key="normal" image="circle" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                        </state>
+                        <connections>
+                            <action selector="checkButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="LN2-Hq-C1T"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ska-A9-ok7">
+                        <rect key="frame" x="272" y="2" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="1SB-oZ-ABF"/>
+                            <constraint firstAttribute="width" constant="40" id="KUX-TR-NW9"/>
+                        </constraints>
+                        <state key="normal" image="trash.circle.fill" catalog="system">
+                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                        </state>
+                        <connections>
+                            <action selector="deleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0SU-wI-6Hw"/>
+                        </connections>
+                    </button>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yna-ML-QVL">
+                        <rect key="frame" x="54" y="13" width="212" height="18.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ska-A9-ok7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="7KH-P1-rfd"/>
+                    <constraint firstItem="Yna-ML-QVL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ABV-97-p5n"/>
+                    <constraint firstItem="5OK-pz-M4x" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ffc-ZC-2UR"/>
+                    <constraint firstItem="Yna-ML-QVL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Ks8-Bh-ghM"/>
+                    <constraint firstItem="5OK-pz-M4x" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="U7n-IW-STy"/>
+                    <constraint firstAttribute="trailing" secondItem="Ska-A9-ok7" secondAttribute="trailing" constant="8" id="XF4-1f-3Ro"/>
+                    <constraint firstItem="Yna-ML-QVL" firstAttribute="leading" secondItem="5OK-pz-M4x" secondAttribute="trailing" constant="6" id="uIU-05-a0Z"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="checkButton" destination="5OK-pz-M4x" id="Zfu-A4-Qnh"/>
+                <outlet property="desTextField" destination="Yna-ML-QVL" id="vPL-6V-WUu"/>
+                <outlet property="trashButton" destination="Ska-A9-ok7" id="DpO-mc-f6E"/>
+            </connections>
+            <point key="canvasLocation" x="194" y="50"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="circle" catalog="system" width="64" height="60"/>
+        <image name="trash.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>

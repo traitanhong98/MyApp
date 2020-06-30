@@ -32,6 +32,9 @@ class TardisLoginViewController: UIViewController {
         
     }
     override func viewWillDisappear(_ animated: Bool) {
+        
+    }
+    deinit {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
     }

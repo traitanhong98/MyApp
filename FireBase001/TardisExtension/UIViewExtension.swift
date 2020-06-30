@@ -26,6 +26,11 @@ extension UIView{
         layer.shouldRasterize = true
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+
+    var globalFrame: CGRect? {
+        let rootView = UIApplication.shared.keyWindow?.rootViewController?.view
+        return self.superview?.convert(self.frame, to: rootView)
+    }
 }
 @IBDesignable
 @objc public class TardisView: UIView {

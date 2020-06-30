@@ -18,6 +18,7 @@ class TardisScheduleViewController: BaseTabViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
+        observeSchedule()
     }
     override func viewWillAppear(_ animated: Bool) {
         if firstLoad {
@@ -32,7 +33,20 @@ class TardisScheduleViewController: BaseTabViewController {
         }
         firstLoad = false
     }
+    deinit {
+        dataModel.reset()
+    }
     // MARK: - Func
+    func observeSchedule() {
+        dataModel.firObserveSchedule { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Load dữ liệu thành công")
+            } else {
+                CommonFunction.annoucement(title: "", message: "Load dữ liệu thất bại")
+            }
+            self.scheduleTableView.reloadData()
+        }
+    }
     func registerTableView() {
         scheduleTableView.register(UINib(nibName: "TardisScheduleTableViewCell", bundle: nil), forCellReuseIdentifier: "TardisScheduleTableViewCell")
         scheduleTableView.delegate = self
@@ -45,8 +59,9 @@ class TardisScheduleViewController: BaseTabViewController {
         CommonFunction.rootVC.showLeftViewAnimated()
     }
     @IBAction func addAction(_ sender: Any) {
-        let calendarPicker = TardisCalendarPickerViewController()
-        calendarPicker.show()
+        let infoPopup = TardisScheduleInfoPopup()
+        infoPopup.delegate = self
+        infoPopup.show()
     }
     
 }
@@ -75,5 +90,36 @@ extension TardisScheduleViewController: UITableViewDelegate,UITableViewDataSourc
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let infoPopup = TardisScheduleInfoPopup()
+        infoPopup.bindData(schedule: dataModel.listSchedules[indexPath.row])
+        infoPopup.delegate = self
+        infoPopup.show()
+    }
+}
+extension TardisScheduleViewController: TardisScheduleInfoPopupDelegate {
+    func closeAction() {
+        // Do SomeThing
+    }
+    
+    func deleteAction(withObject object: TardisScheduleObject) {
+        dataModel.deleteSchedule(schedule: object) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Xoá thành công")
+            } else {
+                CommonFunction.annoucement(title: "", message: "Xoá thất bại")
+            }
+        }
+    }
+    
+    func acceptAction(withObject object: TardisScheduleObject) {
+        dataModel.addSchedule(schedule: object) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Thêm thành công")
+            } else {
+                CommonFunction.annoucement(title: "", message: "Thêm thất bại")
+            }
+        }
     }
 }

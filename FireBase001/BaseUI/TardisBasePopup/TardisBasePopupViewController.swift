@@ -35,11 +35,11 @@ class TardisBasePopupViewController: UIViewController {
     }
     @objc func hide() {
         if let animateView = animateView {
-            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseIn, animations: {
-                animateView.frame = .init(x: 0,
-                                          y: 150,
-                                          width: animateView.frame.width,
-                                          height: animateView.frame.height)
+            UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+//                animateView.frame = .init(x: animateView.frame.origin.x,
+//                                          y: animateView.frame.origin.y - 150,
+//                                          width: animateView.frame.width,
+//                                          height: animateView.frame.height)
                 animateView.alpha = 0
             }, completion: { _ in
                 animateView.isHidden = true
@@ -49,5 +49,8 @@ class TardisBasePopupViewController: UIViewController {
         }
         
     }
-
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: self.view.window)
+    }
 }

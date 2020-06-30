@@ -9,14 +9,9 @@
 import UIKit
 import Firebase
 class TardisScheduleRequestModel: NSObject {
-    var firRef: DatabaseReference?
-    override init() {
-        super.init()
-        firRef = TardisBaseRequestModel.shared.firRef.child("Schedules")
-    }
+    var firRef = TardisBaseRequestModel.shared.firRef.child("Schedules")
     
     func addSchedule(schedule: TardisScheduleObject, completionBlock: @escaping (Bool,TardisScheduleObject)->Void) {
-        guard let firRef = self.firRef else {return}
         CommonFunction.showLoadingView()
         var newChild = firRef.child(UserInfo.getUID())
         
@@ -36,10 +31,8 @@ class TardisScheduleRequestModel: NSObject {
             completionBlock(true,schedule)
         }
     }
-    
     func loadSchedule(completionBlock: @escaping (Bool,[TardisScheduleObject])->Void) {
         var arraySchedules = [TardisScheduleObject]()
-        guard let firRef = self.firRef else {return}
         CommonFunction.showLoadingView()
         firRef.child(UserInfo.getUID()).observeSingleEvent(of: .value) { (snapShot) in
             CommonFunction.hideLoadingView()
@@ -62,5 +55,45 @@ class TardisScheduleRequestModel: NSObject {
             }
             completionBlock(true,arraySchedules)
         }
+    }
+    func firObserveValue(completionBlock: @escaping (Bool,[TardisScheduleObject])->Void) {
+        CommonFunction.showLoadingView()
+        firRef.child(UserInfo.getUID()).observe(.value) { (snapShot) in
+            CommonFunction.hideLoadingView()
+            var arraySchedules = [TardisScheduleObject]()
+            for child in snapShot.children {
+                guard let snap = child as? DataSnapshot else {
+                    completionBlock(false,[])
+                    return
+                }
+                let key = snap.key
+                guard let value = snap.value as? [String:Any] else {
+                    completionBlock(false,[])
+                    return
+                }
+                guard let schedule = TardisScheduleObject.init(JSON: value) else {
+                    completionBlock(false,[])
+                    return
+                }
+                schedule.id = key
+                arraySchedules.append(schedule)
+            }
+            completionBlock(true,arraySchedules)
+        }
+    }
+    func delete(object: TardisScheduleObject, completionBlock: @escaping (Bool) -> Void) {
+        CommonFunction.showLoadingView()
+        firRef.child(UserInfo.getUID()).child(object.id).removeValue { (err, ref) in
+            CommonFunction.hideLoadingView()
+            if err != nil {
+                completionBlock(false)
+                return
+            }
+            completionBlock(true)
+        }
+    }
+    
+    func removeAllObserver() {
+        firRef.removeAllObservers()
     }
 }

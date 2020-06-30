@@ -42,4 +42,29 @@ class TardisScheduleDataModel: NSObject {
             }
         }
     }
+    
+    func firObserveSchedule(completionBlock: @escaping (Bool)-> Void) {
+        self.listSchedules.removeAll()
+        requestModel.firObserveValue { (status, listSchedule) in
+            if status {
+                self.listSchedules = listSchedule
+                completionBlock(true)
+            } else {
+                completionBlock(false)
+            }
+        }
+    }
+    func deleteSchedule(schedule: TardisScheduleObject, completionBlock: @escaping (Bool)->Void) {
+        requestModel.delete(object: schedule) { (status) in
+            if status {
+                completionBlock(true)
+            } else {
+                completionBlock(false)
+            }
+        }
+    }
+    func reset() {
+        listSchedules.removeAll()
+        requestModel.removeAllObserver()
+    }
 }

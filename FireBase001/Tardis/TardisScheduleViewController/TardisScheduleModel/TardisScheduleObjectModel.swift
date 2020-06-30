@@ -15,6 +15,8 @@ class TardisScheduleObject: Mappable {
     var name = ""
     var date = ""
     var des = ""
+    var startDay = ""
+    var endDay = ""
     var startTime = ""
     var endTime = ""
     var tag = ""
@@ -31,14 +33,18 @@ class TardisScheduleObject: Mappable {
            des          <- map["des"]
            checkList    <- map["check_list"]
            date         <- map["date"]
+            startDay         <- map["start_day"]
+            endDay         <- map["end_Day"]
        }
-    convenience init(name: String, date: String, startTime: String, endTime: String, checkList: [TardisCheckListObject]) {
+    convenience init(name: String, date: String,startDay: String, endDay: String, startTime: String, endTime: String, checkList: [TardisCheckListObject]) {
         self.init()
         self.name = name
         self.date = date
         self.startTime = startTime
         self.endTime = endTime
         self.checkList = checkList
+        self.startDay = startDay
+        self.endDay = endDay
     }
 }
 
