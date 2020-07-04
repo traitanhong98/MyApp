@@ -40,19 +40,17 @@ class TardisActivitiesDataModel: NSObject {
         }
     }
     func addActivity(activity: TardisActivityObject, completionBlock: @escaping (Bool)->Void) {
-        requestModel.addActivity(activity: activity) { (status, activity) in
+        requestModel.addActivity(activity: activity) { (status) in
             if status {
-                self.activitiesArray.append(activity)
-                self.setupData()
-                self.separateActivity()
                 completionBlock(true)
             } else {
                 completionBlock(false)
             }
         }
     }
-    func loadActivities( completionBlock: @escaping (Bool)-> Void ) {
-        requestModel.loadActivities { (status, activitiesArray) in
+
+    func observeActivities( completionBlock: @escaping (Bool)-> Void ) {
+        requestModel.observeActivities { (status, activitiesArray) in
             if status {
                 self.activitiesArray.removeAll()
                 self.activitiesArray = activitiesArray
@@ -63,5 +61,10 @@ class TardisActivitiesDataModel: NSObject {
                 completionBlock(false)
             }
         }
+    }
+    func reset() {
+        dailyActivityArray.removeAll()
+        activitiesArray.removeAll()
+        requestModel.removeActivityObserver()
     }
 }

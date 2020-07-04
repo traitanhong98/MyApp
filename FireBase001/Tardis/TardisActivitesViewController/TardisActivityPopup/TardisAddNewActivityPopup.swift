@@ -35,10 +35,12 @@ class TardisAddNewActivityPopup: TardisBasePopupViewController {
     var weekdayButtonCollectionViewFlowLayout: UICollectionViewFlowLayout?
     var arrayWeekDay = [Weekday]()
     let dataModel = TardisActivitiesDataModel.shared
+    var activity = TardisActivityObject()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindData()
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -71,6 +73,17 @@ class TardisAddNewActivityPopup: TardisBasePopupViewController {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+    }
+    func bindData() {
+        nameTextField.text = activity.activityName
+        startTimeTextField.text = activity.startTime
+        endTimeTextField.text = activity.endTime
+        noteTextField.text = activity.note
+        let arrayWeek = activity.loopDay.split(separator: " ")
+        for weekDay in arrayWeek {
+            arrayWeekDay.append(Weekday.allWeekdays[Int(weekDay) ?? 0])
+        }
+        weekdayButtonCollectionView.reloadData()
     }
     func showTimePicker(id: String) {
         let timePicker = TardisTimePickerViewController()
@@ -134,11 +147,10 @@ class TardisAddNewActivityPopup: TardisBasePopupViewController {
         if arrayWeekDay.count == 0 {
             CommonFunction.annoucement(title: "", message: "Bạn chưa chọn ngày")
         }
-        let activity = TardisActivityObject.init(activityName: nameTextField.text ?? "",
-                                                 startTime: startTimeTextField.text ?? "",
-                                                 endTime: endTimeTextField.text ?? "",
-                                                 note: noteTextField.text ?? "",
-                                                 location: "")
+        activity.activityName = nameTextField.text ?? ""
+        activity.startTime = startTimeTextField.text ?? ""
+        activity.endTime = endTimeTextField.text ?? ""
+        activity.note = noteTextField.text ?? ""
         var loopDay = ""
         for day in arrayWeekDay {
             loopDay += "\(day.index) "
@@ -160,6 +172,7 @@ extension TardisAddNewActivityPopup:UICollectionViewDelegate,UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisActivityPopupCollectionViewCell", for: indexPath) as? TardisActivityPopupCollectionViewCell {
             cell.bindData(weekDay: Weekday.allWeekdays[indexPath.section])
+            cell.isChecked = arrayWeekDay.contains(Weekday.allWeekdays[indexPath.section])
             cell.delegate = self
             return cell
         } else {

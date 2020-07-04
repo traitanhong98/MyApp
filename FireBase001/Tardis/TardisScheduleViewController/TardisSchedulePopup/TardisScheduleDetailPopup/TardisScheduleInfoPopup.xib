@@ -20,6 +20,7 @@
                 <outlet property="endDayBlock" destination="FvR-JZ-01m" id="Yh1-bO-K9f"/>
                 <outlet property="endDayTextField" destination="h7U-M9-3JC" id="MSH-WU-5Yo"/>
                 <outlet property="endTimeTextField" destination="8Vn-kS-i5s" id="J9D-4J-HED"/>
+                <outlet property="heightOfCheckListView" destination="FJa-4w-nH5" id="RO5-bY-dcL"/>
                 <outlet property="nameBlock" destination="zye-gy-qDv" id="3sW-Wx-1Hi"/>
                 <outlet property="nameLabel" destination="x4Y-2W-CUc" id="70P-qO-JGT"/>
                 <outlet property="nameTextField" destination="06g-eb-bfJ" id="Tk3-Qn-w0J"/>
@@ -38,7 +39,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hqo-p4-XVm" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                    <rect key="frame" x="16" y="150" width="382" height="606"/>
+                    <rect key="frame" x="16" y="64" width="382" height="606"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVr-gT-vJY" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
                             <rect key="frame" x="71" y="2" width="240" height="40"/>
@@ -360,7 +361,7 @@
             <constraints>
                 <constraint firstItem="Hqo-p4-XVm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="4es-ld-aW5"/>
                 <constraint firstItem="Hqo-p4-XVm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="DAV-hX-ciH"/>
-                <constraint firstItem="Hqo-p4-XVm" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="NWZ-5h-L1a"/>
+                <constraint firstItem="Hqo-p4-XVm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="bgB-O6-XRp"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="106"/>

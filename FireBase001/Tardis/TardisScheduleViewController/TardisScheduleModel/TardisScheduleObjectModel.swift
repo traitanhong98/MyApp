@@ -27,14 +27,14 @@ class TardisScheduleObject: Mappable {
     init() {
     }
     func mapping(map: Map) {
-           name         <- map["name"]
-           startTime    <- map["start_time"]
-           endTime      <- map["end_time"]
-           des          <- map["des"]
-           checkList    <- map["check_list"]
-           date         <- map["date"]
-            startDay         <- map["start_day"]
-            endDay         <- map["end_Day"]
+        name         <- map["name"]
+        startTime    <- map["start_time"]
+        endTime      <- map["end_time"]
+        des          <- map["des"]
+        checkList    <- map["check_list"]
+        date         <- map["date"]
+        startDay     <- map["start_day"]
+        endDay       <- map["end_Day"]
        }
     convenience init(name: String, date: String,startDay: String, endDay: String, startTime: String, endTime: String, checkList: [TardisCheckListObject]) {
         self.init()

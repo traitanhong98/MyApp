@@ -10,14 +10,9 @@ import UIKit
 import Firebase
 
 class TardisActivitiesRequestModel: NSObject {
-    var firRef: DatabaseReference?
-    override init() {
-        super.init()
-        firRef = TardisBaseRequestModel.shared.firRef.child("Activities")
-    }
+    var firRef = TardisBaseRequestModel.shared.firRef.child("Activities")
     
-    func addActivity(activity: TardisActivityObject, completionBlock: @escaping (Bool,TardisActivityObject)->Void) {
-        guard let firRef = self.firRef else {return}
+    func addActivity(activity: TardisActivityObject, completionBlock: @escaping (Bool)->Void) {
         CommonFunction.showLoadingView()
         var newChild = firRef.child(UserInfo.getUID())
         
@@ -30,19 +25,17 @@ class TardisActivitiesRequestModel: NSObject {
         newChild.setValue(activity.toJSON()) { (err, ref) in
             CommonFunction.hideLoadingView()
             if err != nil {
-                completionBlock(false,TardisActivityObject())
+                completionBlock(false)
                 return
             }
             activity.id = key
-            completionBlock(true,activity)
+            completionBlock(true)
         }
     }
     
-    func loadActivities(completionBlock: @escaping (Bool,[TardisActivityObject])->Void) {
-        var arrayActivities = [TardisActivityObject]()
-        guard let firRef = self.firRef else {return}
-        CommonFunction.showLoadingView()
-        firRef.child(UserInfo.getUID()).observeSingleEvent(of: .value) { (snapShot) in
+    func observeActivities(completionBlock: @escaping (Bool,[TardisActivityObject])->Void) {
+        firRef.child(UserInfo.getUID()).observe(.value) { (snapShot) in
+            var arrayActivities = [TardisActivityObject]()
             CommonFunction.hideLoadingView()
             for child in snapShot.children {
                 guard let snap = child as? DataSnapshot else {
@@ -63,5 +56,9 @@ class TardisActivitiesRequestModel: NSObject {
             }
             completionBlock(true,arrayActivities)
         }
+    }
+    
+    func removeActivityObserver() {
+        firRef.removeAllObservers()
     }
 }

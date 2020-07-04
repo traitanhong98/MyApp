@@ -75,7 +75,7 @@
                                                     <color key="textColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Làm đồ án" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-qa-2O2">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tên hoạt động" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GRS-qa-2O2">
                                                     <rect key="frame" x="16" y="30" width="302" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="6vK-9D-40B"/>
@@ -155,7 +155,7 @@
                                                     <color key="textColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Có làm thì mới có ăn" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-Qi-syL" customClass="TardisTextView" customModule="FireBase001" customModuleProvider="target">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BdV-Qi-syL" customClass="TardisTextView" customModule="FireBase001" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="26" width="294" height="100"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>

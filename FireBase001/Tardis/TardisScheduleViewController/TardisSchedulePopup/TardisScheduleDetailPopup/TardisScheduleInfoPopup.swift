@@ -29,6 +29,7 @@ class TardisScheduleInfoPopup: TardisBasePopupViewController {
     @IBOutlet weak var startTimeTextField: UITextField!
     @IBOutlet weak var endTimeTextField: UITextField!
     
+    @IBOutlet weak var heightOfCheckListView: NSLayoutConstraint!
     @IBOutlet weak var tagBlock: UIView!
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var desBlock: UIView!
@@ -110,6 +111,13 @@ extension TardisScheduleInfoPopup: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if tableView.contentSize.height > 150 {
+            heightOfCheckListView.constant = 150
+        } else {
+            heightOfCheckListView.constant = tableView.contentSize.height
+        }
     }
 }
 // MARK: - UITextFieldDelegate

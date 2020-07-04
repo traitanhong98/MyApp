@@ -40,11 +40,14 @@ class TardisActivitiesViewController: BaseTabViewController {
     //MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        observeData()
     }
     override func viewDidAppear(_ animated: Bool) {
         setupView()
         registerCell()
+    }
+    deinit {
+        dataModel.reset()
     }
     //MARK: - Func
     func registerCell() {
@@ -84,13 +87,10 @@ class TardisActivitiesViewController: BaseTabViewController {
         self.originPosXofFooter = self.tardisWeekdayButtonFooterView.frame.origin.x
         self.widthOfWeekdayFooter.constant = weekdayButtonCollectionView.frame.width/7 - 3
     }
-    func loadData() {
-        dataModel.loadActivities { (status) in
+    func observeData() {
+        dataModel.observeActivities { (status) in
             if status {
-                CommonFunction.annoucement(title: "", message: "Load dữ liệu thành công")
                 self.weekdayCollectionView.reloadData()
-            } else {
-                CommonFunction.annoucement(title: "", message: "Load dữ liệu thất bại")
             }
         }
     }
@@ -231,6 +231,18 @@ extension TardisActivitiesViewController:TardisAddNewActivityPopupDelegate {
                 self.weekdayCollectionView.reloadData()
             } else {
                 CommonFunction.annoucement(title: "", message: "Thêm mới thất bại")
+            }
+        }
+    }
+}
+extension TardisActivitiesViewController: TardisWeekdayCollectionViewCellDelegate {
+    func editActivity(activity: TardisActivityObject) {
+        dataModel.addActivity(activity: activity) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Cập nhật thành công")
+                self.weekdayCollectionView.reloadData()
+            } else {
+                CommonFunction.annoucement(title: "", message: "Cập nhật thất bại")
             }
         }
     }

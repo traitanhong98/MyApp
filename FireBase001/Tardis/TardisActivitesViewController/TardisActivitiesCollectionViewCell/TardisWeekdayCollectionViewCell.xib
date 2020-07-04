@@ -20,13 +20,13 @@
                         <rect key="frame" x="0.0" y="44" width="642" height="1192"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mHZ-W8-nRs">
-                                <rect key="frame" x="0.0" y="0.0" width="642" height="40"/>
+                                <rect key="frame" x="0.0" y="0.0" width="642" height="44"/>
                                 <subviews>
-                                    <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-uu-mt8" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                                        <rect key="frame" x="8" y="3" width="120" height="29"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEQ-uu-mt8" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="3" width="120" height="33"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xmd-pw-38j">
-                                                <rect key="frame" x="42" y="4.5" width="36" height="20"/>
+                                                <rect key="frame" x="42" y="6.5" width="36" height="20"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -44,17 +44,42 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQL-Ok-oEX" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                                        <rect key="frame" x="502" y="12" width="100" height="20"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAi-as-zeh">
+                                                <rect key="frame" x="32" y="0.0" width="36" height="20"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="2OB-0h-N0E"/>
+                                            <constraint firstItem="NAi-as-zeh" firstAttribute="centerX" secondItem="hQL-Ok-oEX" secondAttribute="centerX" id="9eZ-Ba-L6H"/>
+                                            <constraint firstItem="NAi-as-zeh" firstAttribute="centerY" secondItem="hQL-Ok-oEX" secondAttribute="centerY" id="BUp-18-fBH"/>
+                                            <constraint firstAttribute="height" constant="20" id="Ru4-HZ-4td"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="10"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hQL-Ok-oEX" secondAttribute="trailing" constant="40" id="7J7-gm-4K8"/>
                                     <constraint firstItem="NEQ-uu-mt8" firstAttribute="top" secondItem="mHZ-W8-nRs" secondAttribute="top" constant="3" id="Rf4-ih-2xt"/>
-                                    <constraint firstAttribute="height" constant="40" id="Yfb-kB-xeA"/>
+                                    <constraint firstItem="hQL-Ok-oEX" firstAttribute="centerY" secondItem="mHZ-W8-nRs" secondAttribute="centerY" id="XIy-EI-5gk"/>
+                                    <constraint firstAttribute="height" constant="44" id="Yfb-kB-xeA"/>
                                     <constraint firstItem="NEQ-uu-mt8" firstAttribute="leading" secondItem="mHZ-W8-nRs" secondAttribute="leading" constant="8" id="itY-pZ-QhK"/>
                                     <constraint firstAttribute="bottom" secondItem="NEQ-uu-mt8" secondAttribute="bottom" constant="8" id="riI-Pq-seV"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Es-c9-KCF" customClass="TardisCollectionView" customModule="FireBase001" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="40" width="642" height="1152"/>
+                                <rect key="frame" x="0.0" y="44" width="642" height="1148"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pka-sM-hsM">
                                     <size key="itemSize" width="50" height="50"/>
@@ -69,7 +94,7 @@
                                 </userDefinedRuntimeAttributes>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Uyh-yC-Idh">
-                                <rect key="frame" x="100" y="40" width="542" height="1152"/>
+                                <rect key="frame" x="0.0" y="44" width="642" height="1148"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="vXj-Hn-YiI">
                                     <size key="itemSize" width="50" height="50"/>
@@ -84,7 +109,7 @@
                             <constraint firstItem="Uyh-yC-Idh" firstAttribute="bottom" secondItem="3Es-c9-KCF" secondAttribute="bottom" id="KPH-OU-dF9"/>
                             <constraint firstItem="3Es-c9-KCF" firstAttribute="leading" secondItem="jFg-Qk-rqd" secondAttribute="leading" id="L6f-6J-aUX"/>
                             <constraint firstAttribute="bottom" secondItem="3Es-c9-KCF" secondAttribute="bottom" id="XRT-Cu-zZO"/>
-                            <constraint firstItem="Uyh-yC-Idh" firstAttribute="leading" secondItem="3Es-c9-KCF" secondAttribute="leading" constant="100" id="YsF-aj-MuH"/>
+                            <constraint firstItem="Uyh-yC-Idh" firstAttribute="leading" secondItem="3Es-c9-KCF" secondAttribute="leading" id="YsF-aj-MuH"/>
                             <constraint firstItem="mHZ-W8-nRs" firstAttribute="top" secondItem="jFg-Qk-rqd" secondAttribute="top" id="aIw-tw-dkj"/>
                             <constraint firstAttribute="trailing" secondItem="mHZ-W8-nRs" secondAttribute="trailing" id="cMS-KZ-HlL"/>
                             <constraint firstItem="Uyh-yC-Idh" firstAttribute="trailing" secondItem="3Es-c9-KCF" secondAttribute="trailing" id="ec8-SF-0A4"/>
@@ -117,6 +142,8 @@
             <size key="customSize" width="642" height="1270"/>
             <connections>
                 <outlet property="activityCollectionView" destination="3Es-c9-KCF" id="ksH-TL-U3B"/>
+                <outlet property="calLabel" destination="NAi-as-zeh" id="niM-O1-N6v"/>
+                <outlet property="calView" destination="hQL-Ok-oEX" id="rxW-PP-BNd"/>
                 <outlet property="heightOfHeaderView" destination="Yfb-kB-xeA" id="CtQ-6e-vGv"/>
                 <outlet property="mainCellView" destination="jFg-Qk-rqd" id="7Jv-Is-Ti9"/>
                 <outlet property="timeCollectionView" destination="Uyh-yC-Idh" id="eeB-jb-mct"/>

@@ -15,25 +15,22 @@ class UserInfoObject: Mappable {
     var imageUrl = ""
     var birthDay = ""
     var phoneNumber = ""
+    var gender = "Male"
+    var channels = [String]()
+    var chats = [String]()
+    var hobbies = [String]()
     
     init() {}
     required init?(map: Map) {
     }
-    
     func mapping(map: Map) {
         displayName <- map["display_name"]
         email       <- map["email"]
         imageUrl    <- map["image_url"]
         birthDay    <- map["birthday"]
         phoneNumber <- map["phonenumber"]
+        channels    <- map["channels"]
+        chats       <- map["chats"]
+        hobbies     <- map["hobbies"]
     }
-    
-    init(displayName: String,email: String, imageUrl: String, birthday: String, phonenumber:String) {
-        self.displayName = displayName
-        self.email = email
-        self.imageUrl = imageUrl
-        self.birthDay = birthday
-        self.phoneNumber = phonenumber
-    }
-    
 }

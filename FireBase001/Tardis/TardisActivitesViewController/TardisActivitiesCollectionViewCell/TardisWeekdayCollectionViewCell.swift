@@ -8,14 +8,27 @@
 
 import UIKit
 
+enum UsedTimeLevel {
+    case low
+    case normal
+    case high
+    case critical
+}
+protocol TardisWeekdayCollectionViewCellDelegate: class {
+    func editActivity(activity: TardisActivityObject)
+}
+
 class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     //MARK:- Outlet
+    @IBOutlet weak var calView: TardisView!
+    @IBOutlet weak var calLabel: UILabel!
     @IBOutlet weak var mainCellView: UIView!
     @IBOutlet weak var weekdayLabel: UILabel!
     @IBOutlet weak var activityCollectionView: UICollectionView!
     @IBOutlet weak var timeCollectionView: UICollectionView!
     @IBOutlet weak var heightOfHeaderView: NSLayoutConstraint!
     //MARK:- Propeties
+    weak var delegate: TardisWeekdayCollectionViewCellDelegate?
     var dataModel = TardisWeekDayCollectionViewCellDataModel()
     var weekDay: Weekday?
     var sizeRatio: Float = 1 {
@@ -25,8 +38,30 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
             dataModel.sizeRatio = sizeRatio
         }
     }
+    var usedTime:Float = 0 {
+        didSet {
+            let percent = usedTime * 100 / (24 * 60)
+            calLabel.text = String(format: "%2.2f %%", percent )
+            if percent < 100 {
+                calView.backgroundColor = .red
+            }
+            if percent < 80 {
+                calView.backgroundColor = .orange
+            }
+            if percent < 60 {
+                calView.backgroundColor = .yellow
+            }
+            if percent < 40 {
+                calView.backgroundColor = .green
+            }
+            if percent < 20 {
+                calView.backgroundColor = .gray
+            }
+        }
+    }
     @IBOutlet weak var weekDayImageView: UIImageView!
     var viewMode = ViewMode.dayHour
+    var requireScroll = true
     //MARK:- Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,10 +75,11 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         self.scrollToFirst()
     }
-    //MARK: - IBAction
-    
-    @IBAction func addAction(_ sender: Any) {
+    override func prepareForReuse() {
+        usedTime = 0
+        requireScroll = true
     }
+    //MARK: - IBAction
     //MARK:- Func
     func initView(){
         mainCellView.createShadow()
@@ -62,6 +98,10 @@ class TardisWeekdayCollectionViewCell: UICollectionViewCell {
     }
     
     func scrollToFirst() {
+        guard requireScroll else {
+            return
+        }
+        requireScroll = false
         if dataModel.activities.count == 0 {
             return
         }
@@ -150,7 +190,7 @@ extension TardisWeekdayCollectionViewCell: UICollectionViewDelegate,UICollection
         switch collectionView {
         case activityCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisActivityCollectionViewCell", for: indexPath) as? TardisActivityCollectionViewCell {
-                cell.bindData(data: dataModel.activities[indexPath.section - 1],sizeRatio: sizeRatio)
+                cell.bindData(data: dataModel.activities[indexPath.section - 1],sizeRatio: sizeRatio, indexPath: indexPath, viewMode: viewMode)
                 return cell
             } else {
                 return UICollectionViewCell()
@@ -189,10 +229,12 @@ extension TardisWeekdayCollectionViewCell:UICollectionViewDelegateFlowLayout {
                 return CGSize(width: CGFloat(width), height: 0)
             }
             var height:Float = 0
-            if viewMode == .dayHour {
-                height = calculatingHeightOfItem(startTime: dataModel.activities[indexPath.section - 1].startTime, endTime: dataModel.activities[indexPath.section - 1].endTime)
+            let activityTime = calculatingHeightOfItem(startTime: dataModel.activities[indexPath.section - 1].startTime, endTime: dataModel.activities[indexPath.section - 1].endTime)
+            usedTime = usedTime + activityTime
+            if viewMode == .normal {
+                height = 40
             } else {
-                height = 100
+                height = activityTime
             }
             return CommonFunction.getSizeWithRatio(width: width,
                                                    height: height,
@@ -217,6 +259,12 @@ extension TardisWeekdayCollectionViewCell:UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let tardisInfoPopup = TardisAddNewActivityPopup()
+        tardisInfoPopup.activity = dataModel.activities[indexPath.section - 1]
+        tardisInfoPopup.delegate = self
+        tardisInfoPopup.show()
+    }
 }
 //MARK:- UIScrollView
 extension TardisWeekdayCollectionViewCell {
@@ -229,5 +277,11 @@ extension TardisWeekdayCollectionViewCell {
         default:
             print("Err")
         }
+    }
+}
+extension TardisWeekdayCollectionViewCell: TardisAddNewActivityPopupDelegate{
+    func addActivity(activity: TardisActivityObject) {
+        guard let delegate = delegate else { return }
+        delegate.editActivity(activity: activity)
     }
 }

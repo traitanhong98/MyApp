@@ -20,10 +20,19 @@
                         <rect key="frame" x="0.0" y="44" width="254" height="136"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z3d-gq-RWE" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                                <rect key="frame" x="30" y="134" width="224" height="2"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="frame" x="0.0" y="69" width="254" height="67"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex7-DK-v1k">
+                                        <rect key="frame" x="200" y="46" width="44" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="kDv-94-Ng9"/>
+                                    <constraint firstAttribute="bottom" secondItem="ex7-DK-v1k" secondAttribute="bottom" id="DM7-GK-fdR"/>
+                                    <constraint firstAttribute="trailing" secondItem="ex7-DK-v1k" secondAttribute="trailing" constant="10" id="rFV-lN-2PA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -34,15 +43,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex7-DK-v1k">
-                                <rect key="frame" x="200" y="113" width="44" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCa-Ae-6e2" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
                                 <rect key="frame" x="130" y="67" width="124" height="2"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="NLg-Hz-cUm"/>
                                 </constraints>
@@ -55,8 +58,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG2-R1-quV">
-                                <rect key="frame" x="202" y="45" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tG2-R1-quV">
+                                <rect key="frame" x="198" y="48" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -64,15 +67,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Z3d-gq-RWE" firstAttribute="top" secondItem="ex7-DK-v1k" secondAttribute="bottom" id="3eq-Qg-0cs"/>
-                            <constraint firstAttribute="trailing" secondItem="tG2-R1-quV" secondAttribute="trailing" constant="10" id="AYo-N6-qHN"/>
-                            <constraint firstItem="Z3d-gq-RWE" firstAttribute="leading" secondItem="c6s-gv-4RE" secondAttribute="leading" constant="30" id="Cgl-j9-jcR"/>
-                            <constraint firstItem="eCa-Ae-6e2" firstAttribute="top" secondItem="tG2-R1-quV" secondAttribute="bottom" constant="1" id="Dzv-NM-40z"/>
+                            <constraint firstItem="eCa-Ae-6e2" firstAttribute="leading" secondItem="c6s-gv-4RE" secondAttribute="leading" constant="130" id="0ox-B3-jAh"/>
+                            <constraint firstItem="Z3d-gq-RWE" firstAttribute="leading" secondItem="c6s-gv-4RE" secondAttribute="leading" id="Cgl-j9-jcR"/>
+                            <constraint firstAttribute="trailing" secondItem="tG2-R1-quV" secondAttribute="trailing" constant="10" id="DJv-8u-cRV"/>
+                            <constraint firstItem="Z3d-gq-RWE" firstAttribute="top" secondItem="eCa-Ae-6e2" secondAttribute="bottom" id="DTG-kd-rU4"/>
+                            <constraint firstItem="tG2-R1-quV" firstAttribute="bottom" secondItem="eCa-Ae-6e2" secondAttribute="bottom" id="I7a-Tx-W7a"/>
                             <constraint firstAttribute="bottom" secondItem="Z3d-gq-RWE" secondAttribute="bottom" id="IL9-Ns-4ne"/>
                             <constraint firstAttribute="trailing" secondItem="eCa-Ae-6e2" secondAttribute="trailing" id="RFg-1P-BBW"/>
                             <constraint firstAttribute="trailing" secondItem="Z3d-gq-RWE" secondAttribute="trailing" id="i4u-GW-kvv"/>
-                            <constraint firstItem="eCa-Ae-6e2" firstAttribute="leading" secondItem="Z3d-gq-RWE" secondAttribute="leading" constant="100" id="oQn-4j-ke8"/>
-                            <constraint firstItem="ex7-DK-v1k" firstAttribute="trailing" secondItem="Z3d-gq-RWE" secondAttribute="trailing" constant="-10" id="pa2-XG-AMb"/>
                             <constraint firstItem="eCa-Ae-6e2" firstAttribute="centerY" secondItem="c6s-gv-4RE" secondAttribute="centerY" id="shp-EK-kLb"/>
                         </constraints>
                     </view>
