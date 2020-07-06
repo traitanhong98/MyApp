@@ -16,7 +16,6 @@ class TardisLaunchingViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         setupUI()
-        animate()
         Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { (timer) in
             self.setupRootVC()
         }
@@ -37,8 +36,6 @@ class TardisLaunchingViewController: UIViewController {
         view.addSubview(animationView)
         
         animationView.play()
-    }
-    func animate() {
     }
     @objc func setupRootVC() {
         let rootVC = TardisMainTabbarViewController()

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import ObjectMapper
 
 class TardisBaseRequestModel: NSObject {
     let baseUrl = "https://fir-001app.firebaseio.com/"
@@ -28,6 +29,8 @@ class TardisBaseRequestModel: NSObject {
     }
     
     func doLogOut() {
+        updateLoginTime()
+        updateUserLoginStatus(false)
         let firebaseAuth = Auth.auth()
         do {
           try firebaseAuth.signOut()
@@ -36,6 +39,83 @@ class TardisBaseRequestModel: NSObject {
             return
         }
         UserInfo.currentUser = UserInfoObject()
+        CommonFunction.rootVC.initTabbar()
         CommonFunction.annoucement(title: "", message: "Đăng xuất thành công")
     }
+    func removeAllObserver() {
+        firRef.removeAllObservers()
+    }
+    
+    func getStringFromPath(_ path: String, completionBlock: @escaping (String) -> Void) {
+        firRef.child(path).observeSingleEvent(of: .value) { (snapShot) in
+            guard let value = snapShot.value as? String else {
+                completionBlock("")
+                return
+            }
+            completionBlock(value)
+        }
+    }
+    func observeAllOtherUsers(completionBlock: @escaping (Bool,[UserInfoObject]) -> Void) {
+        firRef.child("Users").observe(.value) { (snapShot) in
+            var arrayActivities = [UserInfoObject]()
+            CommonFunction.hideLoadingView()
+            for child in snapShot.children {
+                guard let snap = child as? DataSnapshot else {
+                    completionBlock(false,[])
+                    return
+                }
+                let key = snap.key
+                if key == UserInfo.getUID() {
+                    continue
+                }
+                guard let value = snap.value as? [String:Any] else {
+                    completionBlock(false,[])
+                    return
+                }
+                guard let activity = UserInfoObject.init(JSON: value) else {
+                    completionBlock(false,[])
+                    return
+                }
+                activity.UID = key
+                arrayActivities.append(activity)
+            }
+            completionBlock(true,arrayActivities)
+        }
+    }
+    func updateUserLocation(_ location: Location) {
+        firRef.child("Users").child(UserInfo.getUID()).child("location").setValue(location.toJSON())
+    }
+    func updateUserLoginStatus(_ status: Bool) {
+        firRef.child("Users").child(UserInfo.getUID()).child("is_login").setValue(status)
+    }
+    func updateLoginTime() {
+        firRef.child("Users").child(UserInfo.getUID()).child("last_online").setValue(Date().timeIntervalSince1970)
+        
+    }
+    func getAllData<T:TardisBaseMapObject>(fromPath path: String, completionBlock: @escaping (Bool,[T]) -> Void) {
+        firRef.child(path).observe(.value) { (snapShot) in
+            var listResult = [T]()
+            CommonFunction.hideLoadingView()
+            for child in snapShot.children {
+                guard let snap = child as? DataSnapshot else {
+                    completionBlock(false,[])
+                    return
+                }
+                let key = snap.key
+                guard let value = snap.value as? [String:Any] else {
+                    completionBlock(false,[])
+                    return
+                }
+                guard let object = T.init(JSON: value) else {
+                    completionBlock(false,[])
+                    return
+                }
+                
+                object.id = key
+                listResult.append(object)
+            }
+            completionBlock(true,listResult)
+        }
+    }
+    
 }

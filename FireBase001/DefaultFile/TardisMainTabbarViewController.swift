@@ -8,9 +8,11 @@
 
 import UIKit
 import Firebase
+import MapKit
 class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDelegate {
     // MARK: - Propeties
     static var viewOfMainTabbar: UIView?
+    var naviNotLogin = UINavigationController()
     var naviWeakly = UINavigationController()
     var naviSchedule = UINavigationController()
     var naviThread = UINavigationController()
@@ -21,28 +23,30 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     var mainTabBarController: UITabBarController?
     var naviMain = UINavigationController()
     var firstOpenApp = true
+    let locationManager = CLLocationManager()
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         initTabbar()
         TardisMainTabbarViewController.viewOfMainTabbar = self.view
-        
+        configLocation()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     //Mark: -Function
     func initTabbar() {
-        setupNaviWeakly()
-        setupNaviSchedule()
-        setupNaviThread()
-        setupNaviMessage()
-        setupNaviAddon()
         setupLeftView()
         if !CommonFunction.isLogin() {
-            arrayVC = [naviWeakly, naviSchedule,naviAddon]
+            setupNaviNotLogin()
+            arrayVC = [naviNotLogin]
         } else {
+            setupNaviWeakly()
+            setupNaviSchedule()
+            setupNaviThread()
+            setupNaviMessage()
+            setupNaviAddon()
             arrayVC = [naviWeakly, naviSchedule, naviThread, naviMessage,naviAddon]
         }
         if mainTabBarController == nil {
@@ -67,6 +71,15 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     }
     
     // MARK: - CreateNavigationController
+    func setupNaviNotLogin() {
+           let notLoginIcon = CommonFunction.resizeImage(image: UIImage(named: "070-stopwatch")!, targetSize: CGSize(width: 30, height: 30))
+           //Activities
+           let notLoginVC = initVCForTabbar(type: TardisNotLoginViewController.self, vcStr: "TardisNotLoginViewController", title: "Require Login", icon: notLoginIcon)
+           //Navigation
+           naviNotLogin = UINavigationController(rootViewController: notLoginVC!)
+           naviNotLogin.interactivePopGestureRecognizer?.delegate = self
+           naviNotLogin.isNavigationBarHidden = true
+       }
     func setupNaviWeakly() {
         let activitiesIcon = CommonFunction.resizeImage(image: UIImage(named: "070-stopwatch")!, targetSize: CGSize(width: 30, height: 30))
         //Activities
@@ -91,8 +104,8 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     func setupNaviThread() {
         let threadIcon = CommonFunction.resizeImage(image: UIImage(named: "013-team")!, targetSize: CGSize(width: 30, height: 30))
         //Thread
-//        let threadVC = initVCForTabbar(type: TardisThreadViewController.self, vcStr: "TardisThreadViewController", title: "Thread", icon: threadIcon)
-        let threadVC = initVCForTabbar(type: TardisWorkingViewController.self, vcStr: "TardisWorkingViewController", title: "Thread", icon: threadIcon)
+        let threadVC = initVCForTabbar(type: TardisChannelViewController.self, vcStr: "TardisChannelViewController", title: "Channels", icon: threadIcon)
+ 
         //Navigation
         naviThread = UINavigationController(rootViewController: threadVC!)
         naviThread.interactivePopGestureRecognizer?.delegate = self
@@ -102,8 +115,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     func setupNaviMessage() {
         let messageIcon = CommonFunction.resizeImage(image: UIImage(named: "speech-bubbles-and-pointer")!, targetSize: CGSize(width: 30, height: 30))
         //Chat
-//        let messageVC = initVCForTabbar(type: TardisChatViewController.self, vcStr: "TardisChatViewController", title: "Mesage", icon: messageIcon)
-        let messageVC = initVCForTabbar(type: TardisWorkingViewController.self, vcStr: "TardisWorkingViewController", title: "Message", icon: messageIcon)
+        let messageVC = initVCForTabbar(type: TardisChatViewController.self, vcStr: "TardisChatViewController", title: "Mesage", icon: messageIcon)
         //Navigation
         naviMessage = UINavigationController(rootViewController: messageVC!)
         naviMessage.interactivePopGestureRecognizer?.delegate = self
@@ -143,7 +155,18 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         let userInfoBlock = TardisUserInfoViewController()
         naviMain.pushViewController(userInfoBlock, animated: true)
     }
-    
+    func configLocation() {
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
 }
 
 extension TardisMainTabbarViewController {
@@ -183,5 +206,14 @@ extension TardisMainTabbarViewController: TardisPopupDelegate {
     }
     
     func backAction() {
+    }
+}
+extension TardisMainTabbarViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        let location = Location()
+        location.latitude = locValue.latitude
+        location.longtitude = locValue.longitude
+        TardisBaseRequestModel.shared.updateUserLocation(location)
     }
 }

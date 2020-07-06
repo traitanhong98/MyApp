@@ -9,6 +9,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisChatViewController" customModule="FireBase001" customModuleProvider="target">
             <connections>
+                <outlet property="findFriendButton" destination="ufk-WY-H1i" id="Hve-6s-aPa"/>
+                <outlet property="friendTableView" destination="u3I-eF-hLZ" id="su4-m3-gpz"/>
+                <outlet property="invitedButton" destination="ZKt-nb-IBh" id="P2U-Px-iX1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,20 +20,148 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="33M-Dj-4VV">
-                    <rect key="frame" x="188.5" y="442.5" width="37" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u3I-eF-hLZ">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y7S-jf-zzM">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="39O-Xv-S1C" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="-22" y="0.0" width="80" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKO-mp-8i9" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="38" y="2" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="7gK-7P-R8l"/>
+                                        <constraint firstAttribute="height" constant="40" id="k3X-LW-cIm"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="line.horizontal.3.decrease.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="leftMenuAction:" destination="-1" eventType="touchUpInside" id="WDm-BR-lwU"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.50460188360000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="5ck-ym-vF1"/>
+                                <constraint firstAttribute="width" constant="80" id="bre-Qx-wb7"/>
+                                <constraint firstItem="bKO-mp-8i9" firstAttribute="centerY" secondItem="39O-Xv-S1C" secondAttribute="centerY" id="cEV-2b-skl"/>
+                                <constraint firstAttribute="trailing" secondItem="bKO-mp-8i9" secondAttribute="trailing" constant="2" id="pMN-uu-WcL"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsl-Uh-GA5" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="87" y="0.0" width="240" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Liên hệ" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2b-RM-MuS">
+                                    <rect key="frame" x="87.5" y="10" width="65.5" height="24.5"/>
+                                    <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="20"/>
+                                    <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="q2b-RM-MuS" firstAttribute="centerX" secondItem="rsl-Uh-GA5" secondAttribute="centerX" id="3QS-qY-LIM"/>
+                                <constraint firstAttribute="height" constant="44" id="Ddp-uI-CGC"/>
+                                <constraint firstItem="q2b-RM-MuS" firstAttribute="centerY" secondItem="rsl-Uh-GA5" secondAttribute="centerY" id="RNi-rU-TOv"/>
+                                <constraint firstAttribute="width" constant="240" id="jIa-BY-l7Q"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="39O-Xv-S1C" firstAttribute="centerY" secondItem="Y7S-jf-zzM" secondAttribute="centerY" id="CEa-fX-Qh7"/>
+                        <constraint firstItem="39O-Xv-S1C" firstAttribute="leading" secondItem="Y7S-jf-zzM" secondAttribute="leading" constant="-22" id="MMC-cL-4zv"/>
+                        <constraint firstItem="rsl-Uh-GA5" firstAttribute="centerY" secondItem="Y7S-jf-zzM" secondAttribute="centerY" id="cC9-RU-CbX"/>
+                        <constraint firstAttribute="height" constant="44" id="tIE-Fw-sxU"/>
+                        <constraint firstItem="rsl-Uh-GA5" firstAttribute="centerX" secondItem="Y7S-jf-zzM" secondAttribute="centerX" id="vOL-0x-r6v"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZKt-nb-IBh" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="10" y="812" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="GtH-Qh-4yS"/>
+                        <constraint firstAttribute="width" constant="40" id="dXp-Jy-ilg"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="person.3.fill" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="invitedAction:" destination="-1" eventType="touchUpInside" id="tpy-Ga-JqH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-WY-H1i">
+                    <rect key="frame" x="364" y="812" width="40" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="nKw-bq-JKH"/>
+                        <constraint firstAttribute="width" constant="40" id="oYm-wD-9Jd"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" image="plus.circle" catalog="system">
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="45"/>
+                    </state>
+                    <connections>
+                        <action selector="findFriendButton:" destination="-1" eventType="touchUpInside" id="IxJ-4u-d0R"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="33M-Dj-4VV" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="PlI-Gw-2yN"/>
-                <constraint firstItem="33M-Dj-4VV" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="XXx-Cl-Y0D"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ZKt-nb-IBh" secondAttribute="bottom" constant="10" id="3Az-Ro-ksF"/>
+                <constraint firstItem="u3I-eF-hLZ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="3oO-9G-9Cr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ufk-WY-H1i" secondAttribute="bottom" constant="10" id="6QX-lM-eN0"/>
+                <constraint firstItem="u3I-eF-hLZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AWs-NG-7w0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="u3I-eF-hLZ" secondAttribute="trailing" id="PJc-Bo-tNY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="u3I-eF-hLZ" secondAttribute="bottom" id="WWI-IC-nQJ"/>
+                <constraint firstItem="Y7S-jf-zzM" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="XuM-xR-43o"/>
+                <constraint firstItem="Y7S-jf-zzM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="enr-fz-0te"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ufk-WY-H1i" secondAttribute="trailing" constant="10" id="h8E-dD-RAQ"/>
+                <constraint firstItem="Y7S-jf-zzM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="q1E-w9-Y2f"/>
+                <constraint firstItem="ZKt-nb-IBh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="sPz-Xg-IIq"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="139" y="88"/>
         </view>
     </objects>
+    <resources>
+        <image name="line.horizontal.3.decrease.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="plus.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>

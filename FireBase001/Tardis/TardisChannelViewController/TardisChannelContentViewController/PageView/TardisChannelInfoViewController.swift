@@ -1,15 +1,17 @@
 //
-//  TardisThreadViewController.swift
+//  TardisChannelInfoViewController.swift
 //  FireBase001
 //
-//  Created by Hoang on 5/15/20.
+//  Created by Hoang on 7/5/20.
 //  Copyright © 2020 Hoang. All rights reserved.
 //
 
 import UIKit
 
-class TardisThreadViewController: BaseTabViewController {
-
+class TardisChannelInfoViewController: UIViewController {
+    
+    var currentChannel: TardisChannelObject!
+    var page: TardisChannelPage!
     override func viewDidLoad() {
         super.viewDidLoad()
 

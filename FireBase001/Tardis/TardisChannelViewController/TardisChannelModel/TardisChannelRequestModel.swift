@@ -10,19 +10,81 @@ import UIKit
 import Firebase
 
 class TardisChannelRequestModel: NSObject {
+    static let shared = TardisChannelRequestModel()
     var channelRef = TardisBaseRequestModel.shared.firRef.child("Channels")
     var messageRef = TardisBaseRequestModel.shared.firRef.child("Channels_Message")
     var checkListRef = TardisBaseRequestModel.shared.firRef.child("Channel_CheckList")
     var activityRef = TardisBaseRequestModel.shared.firRef.child("Channel_Activity")
-    func addNewChannel(completionBlock: @escaping (Bool,TardisChannelObject)->Void) {
+    
+    // MARK: - SingleEvent
+    func loadChannels(completionBlock: @escaping (Bool,[TardisChannelObject])->Void) {
+        var listChannels = [TardisChannelObject]()
+        CommonFunction.showLoadingView()
+        let dispatchGroup = DispatchGroup()
+        for channel in UserInfo.currentUser.channels {
+            dispatchGroup.enter()
+            self.channelRef.child(channel).observeSingleEvent(of: .value) { (snapShot) in
+                guard let value = snapShot.value as? [String:Any] else {
+                    dispatchGroup.leave()
+                    return
+                }
+                let key = snapShot.key
+                guard let channel = TardisChannelObject.init(JSON: value) else {
+                    dispatchGroup.leave()
+                    return
+                }
+                channel.id = key
+                listChannels.append(channel)
+                dispatchGroup.leave()
+            }
+        }
+        dispatchGroup.notify(queue: .main) {
+            CommonFunction.hideLoadingView()
+            completionBlock(true,listChannels)
+        }
+    }
+    // MARK: - Observe
+    func observeChannel(_ channel: TardisChannelObject, completionBlock: @escaping (Bool) -> Void) {
+        let currentChannel = channelRef.child(channel.id)
+        currentChannel.observe(.childChanged) { (snapShot) in
+            
+        }
+    }
+    func observeChat(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, [TardisMessageObject]) -> Void) {
+        let currentChat = messageRef.child(channel.chatID)
+        currentChat.observe(.value) { (snapShot) in
+            var chatList = [TardisMessageObject]()
+            for child in snapShot.children {
+                guard let snap = child as? DataSnapshot else {
+                    completionBlock(false,[])
+                    return
+                }
+                let key = snap.key
+                guard let value = snap.value as? [String:Any] else {
+                    completionBlock(false,[])
+                    return
+                }
+                guard let message = TardisMessageObject.init(JSON: value) else {
+                    completionBlock(false,[])
+                    return
+                }
+                message.id = key
+                chatList.append(message)
+            }
+            completionBlock(true,chatList)
+        }
+    }
+    func removeChatObserver(onChannel channel: TardisChannelObject) {
+        messageRef.child(channel.chatID).removeAllObservers()
+    }
+    // MARK: - ADD
+    func addNewChannel(name: String,completionBlock: @escaping (Bool,TardisChannelObject)->Void) {
         CommonFunction.showLoadingView()
         let newChannel = channelRef.childByAutoId()
         let newChannelObject = TardisChannelObject()
         let key = newChannel.key ?? ""
         newChannelObject.id = key
-        
-        let newMessage = messageRef.childByAutoId()
-        newChannelObject.messageID = newMessage.key ?? ""
+        newChannelObject.channelName = name
         
         let newCheckList = checkListRef.childByAutoId()
         newChannelObject.checkListID = newCheckList.key ?? ""
@@ -30,20 +92,26 @@ class TardisChannelRequestModel: NSObject {
         let newActivity = activityRef.childByAutoId()
         newChannelObject.activityID = newActivity.key ?? ""
         
+        let newChat = messageRef.childByAutoId()
+        newChannelObject.chatID = newChat.key ?? ""
+        
         newChannelObject.ownerID = UserInfo.getUID()
         newChannelObject.usersID = [UserInfo.getUID()]
+        UserInfo.currentUser.channels.append(newChannelObject.id)
         channelRef.child(newChannelObject.id).setValue(newChannelObject.toJSON()) { (err, ref) in
             if err != nil {
                 completionBlock(false,TardisChannelObject())
                 return
             }
+            TardisBaseRequestModel.shared.firRef.child("Users").child(UserInfo.getUID()).child("channels").setValue(UserInfo.currentUser.channels)
+            CommonFunction.hideLoadingView()
             completionBlock(true,newChannelObject)
         }
     }
     func addNewMessage(_ message: TardisMessageObject,
                        toChannel channel: TardisChannelObject,
                        completionBlock: @escaping (Bool) -> Void ) {
-        let currentMessageRef = messageRef.child(channel.messageID)
+        let currentMessageRef = messageRef.child(channel.chatID)
         let newMessage = currentMessageRef.childByAutoId()
         newMessage.setValue(message.toJSON()) { (err, ref) in
             if err != nil {
@@ -96,5 +164,11 @@ class TardisChannelRequestModel: NSObject {
         currentMessageRef.observe(.childAdded) { (snapShot) in
             
         }
+    }
+    func removeAllObserver() {
+        channelRef.removeAllObservers()
+        messageRef.removeAllObservers()
+        checkListRef.removeAllObservers()
+        activityRef.removeAllObservers()
     }
 }

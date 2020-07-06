@@ -32,7 +32,18 @@ class TardisActivitiesRequestModel: NSObject {
             completionBlock(true)
         }
     }
-    
+    func observeAcvitityChange() {
+        firRef.child(UserInfo.getUID()).observe(.childChanged) { (snapShot) in
+            print(snapShot.description)
+        }
+        
+    }
+    func observeAcvitityAdded() {
+        firRef.child(UserInfo.getUID()).observe(.childAdded) { (snapShot) in
+            print(snapShot.description)
+        }
+        
+    }
     func observeActivities(completionBlock: @escaping (Bool,[TardisActivityObject])->Void) {
         firRef.child(UserInfo.getUID()).observe(.value) { (snapShot) in
             var arrayActivities = [TardisActivityObject]()

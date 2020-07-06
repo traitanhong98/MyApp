@@ -10,6 +10,9 @@ import UIKit
 
 class TardisChatViewController: BaseTabViewController {
 
+    @IBOutlet weak var friendTableView: UITableView!
+    @IBOutlet weak var findFriendButton: UIButton!
+    @IBOutlet weak var invitedButton: TardisButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,14 +20,14 @@ class TardisChatViewController: BaseTabViewController {
     }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func leftMenuAction(_ sender: Any) {
+        CommonFunction.rootVC.showLeftViewAnimated()
     }
-    */
-
+    @IBAction func invitedAction(_ sender: Any) {
+    }
+    @IBAction func findFriendButton(_ sender: Any) {
+        let userList = TardisUserListViewController()
+        self.navigationController?.pushViewController(userList, animated: true)
+    }
+    
 }

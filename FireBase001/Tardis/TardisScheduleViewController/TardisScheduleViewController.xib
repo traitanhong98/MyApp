@@ -74,9 +74,12 @@
                                         <constraint firstAttribute="height" constant="40" id="rje-Mv-uuQ"/>
                                     </constraints>
                                     <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" image="pencil.circle.fill" catalog="system">
+                                    <state key="normal" image="calendar" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                     </state>
+                                    <connections>
+                                        <action selector="calendarAction:" destination="-1" eventType="touchUpInside" id="t3a-oW-xpP"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,8 +100,8 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="T0S-gi-4my" secondAttribute="bottom" constant="-6" id="9ds-mN-0uc"/>
                         <constraint firstAttribute="trailing" secondItem="zxB-O4-2g1" secondAttribute="trailing" id="DXr-vF-vzY"/>
-                        <constraint firstItem="zxB-O4-2g1" firstAttribute="top" secondItem="B5l-MN-Rk2" secondAttribute="top" id="FPL-Lx-ctL"/>
                         <constraint firstItem="zxB-O4-2g1" firstAttribute="leading" secondItem="B5l-MN-Rk2" secondAttribute="leading" id="WE7-w0-eDe"/>
+                        <constraint firstItem="zxB-O4-2g1" firstAttribute="top" secondItem="B5l-MN-Rk2" secondAttribute="top" id="cPl-FD-cok"/>
                         <constraint firstAttribute="bottom" secondItem="zxB-O4-2g1" secondAttribute="bottom" id="dxF-ri-JKd"/>
                         <constraint firstItem="M2N-Lh-FTi" firstAttribute="leading" secondItem="B5l-MN-Rk2" secondAttribute="leading" constant="-6" id="oKi-Id-6M7"/>
                         <constraint firstAttribute="trailing" secondItem="T0S-gi-4my" secondAttribute="trailing" constant="-6" id="qzT-55-6fb"/>
@@ -203,8 +206,8 @@
     </objects>
     <resources>
         <image name="Mini-universe" width="640" height="1136"/>
+        <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="line.horizontal.3.decrease.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
         <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>

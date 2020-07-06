@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisCreateChannelPopup" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptButton" destination="hG4-Hi-IZ0" id="zbC-MC-Mzg"/>
+                <outlet property="channelNameTextField" destination="ODn-sK-odA" id="wCC-q3-7dO"/>
+                <outlet property="contentView" destination="uy8-Z6-PwW" id="Lyz-uM-72Z"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MVd-6d-KAW">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="Lns-tT-ugx"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M8u-fr-KgK">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uy8-Z6-PwW" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="16" y="349.5" width="382" height="119.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5r-Mw-h0e">
+                                    <rect key="frame" x="342" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="hoZ-56-ovj"/>
+                                        <constraint firstAttribute="height" constant="40" id="kpQ-S8-zaY"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="xmark.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        </preferredSymbolConfiguration>
+                                    </state>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tên nhóm:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TL4-em-DNt">
+                                    <rect key="frame" x="16" y="10" width="69" height="17.5"/>
+                                    <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="14"/>
+                                    <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nhập tên nhóm mới" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ODn-sK-odA">
+                                    <rect key="frame" x="20" y="37.5" width="342" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG4-Hi-IZ0">
+                                    <rect key="frame" x="312" y="73.5" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="KXd-ft-WUO"/>
+                                        <constraint firstAttribute="height" constant="40" id="RIy-Sc-xH0"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="checkmark.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="acceptButtonAction:" destination="-1" eventType="touchUpInside" id="Zgj-Y3-qE7"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstItem="P5r-Mw-h0e" firstAttribute="top" secondItem="uy8-Z6-PwW" secondAttribute="top" id="CIf-RS-Far"/>
+                                <constraint firstAttribute="trailing" secondItem="P5r-Mw-h0e" secondAttribute="trailing" id="Giz-z0-QeW"/>
+                                <constraint firstAttribute="bottom" secondItem="hG4-Hi-IZ0" secondAttribute="bottom" constant="6" id="Kqw-B5-cm1"/>
+                                <constraint firstItem="TL4-em-DNt" firstAttribute="leading" secondItem="uy8-Z6-PwW" secondAttribute="leading" constant="16" id="OZZ-TN-J7J"/>
+                                <constraint firstAttribute="trailing" secondItem="hG4-Hi-IZ0" secondAttribute="trailing" constant="30" id="QhZ-CW-EqB"/>
+                                <constraint firstItem="ODn-sK-odA" firstAttribute="centerX" secondItem="uy8-Z6-PwW" secondAttribute="centerX" id="TAn-Ra-Mlt"/>
+                                <constraint firstItem="ODn-sK-odA" firstAttribute="leading" secondItem="uy8-Z6-PwW" secondAttribute="leading" constant="20" id="Vqa-ZV-bD5"/>
+                                <constraint firstItem="hG4-Hi-IZ0" firstAttribute="top" secondItem="ODn-sK-odA" secondAttribute="bottom" constant="2" id="geI-m5-dFb"/>
+                                <constraint firstItem="ODn-sK-odA" firstAttribute="top" secondItem="TL4-em-DNt" secondAttribute="bottom" constant="10" id="mXa-Su-9ts"/>
+                                <constraint firstItem="TL4-em-DNt" firstAttribute="top" secondItem="uy8-Z6-PwW" secondAttribute="top" constant="10" id="pL0-lT-01l"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="uy8-Z6-PwW" firstAttribute="centerX" secondItem="M8u-fr-KgK" secondAttribute="centerX" id="1xI-7k-KTb"/>
+                        <constraint firstItem="uy8-Z6-PwW" firstAttribute="leading" secondItem="M8u-fr-KgK" secondAttribute="leading" constant="16" id="DAt-UQ-6ri"/>
+                        <constraint firstItem="uy8-Z6-PwW" firstAttribute="centerY" secondItem="M8u-fr-KgK" secondAttribute="centerY" id="bOA-nV-jp8"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="M8u-fr-KgK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="AaH-RK-Z70"/>
+                <constraint firstItem="M8u-fr-KgK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Cxa-jr-wKx"/>
+                <constraint firstItem="MVd-6d-KAW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="I0C-ta-7Bf"/>
+                <constraint firstItem="MVd-6d-KAW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ax5-NU-zTN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="M8u-fr-KgK" secondAttribute="bottom" id="cF6-LU-Gb1"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="MVd-6d-KAW" secondAttribute="bottom" id="eDX-g3-Ujd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M8u-fr-KgK" secondAttribute="trailing" id="ftp-eu-DsD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MVd-6d-KAW" secondAttribute="trailing" id="q5s-Hq-Nvb"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>

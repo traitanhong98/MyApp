@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TardisCheckListCollectionViewCell" customModule="FireBase001" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="214" height="290"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="214" height="290"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-9b-VGB">
+                        <rect key="frame" x="0.0" y="60" width="211" height="230"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="230" id="bRc-Fo-iHw"/>
+                        </constraints>
+                    </tableView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki5-PN-bKx">
+                        <rect key="frame" x="0.0" y="44" width="214" height="16"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CheckList" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuI-Fo-E2a">
+                                <rect key="frame" x="69" y="-2.5" width="76.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TuI-Fo-E2a" firstAttribute="centerY" secondItem="Ki5-PN-bKx" secondAttribute="centerY" id="Gce-4M-YGv"/>
+                            <constraint firstAttribute="height" constant="16" id="GpH-UR-mLJ"/>
+                            <constraint firstItem="TuI-Fo-E2a" firstAttribute="centerX" secondItem="Ki5-PN-bKx" secondAttribute="centerX" id="e2x-lx-bDq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="Ki5-PN-bKx" secondAttribute="leading" id="7cF-ti-mk4"/>
+                <constraint firstItem="dnu-9b-VGB" firstAttribute="top" secondItem="Ki5-PN-bKx" secondAttribute="bottom" id="I3T-HZ-y2Y"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="dnu-9b-VGB" secondAttribute="trailing" constant="3" id="TJ1-u6-kP9"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Ki5-PN-bKx" secondAttribute="top" id="Uot-ig-bVb"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="dnu-9b-VGB" secondAttribute="bottom" id="YkQ-Iw-tnT"/>
+                <constraint firstItem="Ki5-PN-bKx" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="dfo-Us-ZjU"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="dnu-9b-VGB" secondAttribute="leading" id="ocf-FV-ncU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="214" height="290"/>
+            <connections>
+                <outlet property="assigneeLabel" destination="TuI-Fo-E2a" id="HA5-Hr-aIo"/>
+                <outlet property="checklistTable" destination="dnu-9b-VGB" id="bjq-dg-7pX"/>
+                <outlet property="heightOfTableView" destination="bRc-Fo-iHw" id="jgi-16-tEw"/>
+            </connections>
+            <point key="canvasLocation" x="-21.739130434782609" y="55.580357142857139"/>
+        </collectionViewCell>
+    </objects>
+</document>

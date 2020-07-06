@@ -10,11 +10,15 @@ import UIKit
 import ObjectMapper
 
 class UserInfoObject: Mappable {
+    var UID = ""
     var displayName = ""
     var email = ""
     var imageUrl = ""
     var birthDay = ""
     var phoneNumber = ""
+    var isLogin = true
+    var lastOnline = Date().timeIntervalSince1970
+    var location = Location()
     var gender = "Male"
     var channels = [String]()
     var chats = [String]()
@@ -32,5 +36,21 @@ class UserInfoObject: Mappable {
         channels    <- map["channels"]
         chats       <- map["chats"]
         hobbies     <- map["hobbies"]
+        location    <- map["location"]
+        isLogin     <- map["is_login"]
+        lastOnline   <- map["last_online"]
+        hobbies     <- map["hobbies"]
     }
+}
+class Location: Mappable {
+    required init?(map: Map) {
+    }
+    init() {}
+    func mapping(map: Map) {
+        latitude <- map["latitude"]
+        longtitude <- map["longtitude"]
+    }
+    var latitude: Double = 0
+    var longtitude: Double = 0
+    
 }

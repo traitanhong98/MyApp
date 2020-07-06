@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisUserInfoPopup" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="addFriendButton" destination="rYz-7P-1Bu" id="JfH-sO-V2y"/>
+                <outlet property="avatarImg" destination="pUb-LV-yt3" id="R3E-ni-i0o"/>
+                <outlet property="chatButton" destination="Ynm-xZ-f3Q" id="tHu-PL-4M5"/>
+                <outlet property="mapButton" destination="noj-hM-Cex" id="XZK-5d-EOz"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfx-nE-Mwa">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QoL-Lx-e1h" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="16" y="349.5" width="382" height="207.5"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appLogo" translatesAutoresizingMaskIntoConstraints="NO" id="pUb-LV-yt3" customClass="TardisImageView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="141" y="20" width="100" height="100"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="100" id="eAA-b6-0If"/>
+                                <constraint firstAttribute="width" constant="100" id="zyz-XX-3e3"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Blk-8d-DzA">
+                            <rect key="frame" x="170" y="117" width="42" height="20.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="LaS-rV-L5y">
+                            <rect key="frame" x="101" y="147.5" width="180" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYz-7P-1Bu">
+                                    <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="Ooz-tx-6ws"/>
+                                        <constraint firstAttribute="width" constant="40" id="zSh-vj-1pK"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="person.crop.circle.fill.badge.plus" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noj-hM-Cex">
+                                    <rect key="frame" x="70" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="01N-EG-hZd"/>
+                                        <constraint firstAttribute="width" constant="40" id="rxt-d9-fhB"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="map.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ynm-xZ-f3Q">
+                                    <rect key="frame" x="140" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="hSC-cO-SNi"/>
+                                        <constraint firstAttribute="height" constant="40" id="hmM-i9-QwN"/>
+                                    </constraints>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" image="message.circle.fill" catalog="system">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="LaS-rV-L5y" firstAttribute="centerX" secondItem="pUb-LV-yt3" secondAttribute="centerX" id="GJz-zU-Udh"/>
+                        <constraint firstItem="LaS-rV-L5y" firstAttribute="top" secondItem="Blk-8d-DzA" secondAttribute="bottom" constant="10" id="K2d-IA-2Yb"/>
+                        <constraint firstItem="Blk-8d-DzA" firstAttribute="top" secondItem="pUb-LV-yt3" secondAttribute="bottom" constant="-3" id="PcT-lS-0bB"/>
+                        <constraint firstItem="pUb-LV-yt3" firstAttribute="centerX" secondItem="QoL-Lx-e1h" secondAttribute="centerX" id="XCz-Ex-grk"/>
+                        <constraint firstItem="pUb-LV-yt3" firstAttribute="top" secondItem="QoL-Lx-e1h" secondAttribute="top" constant="20" id="XSo-Xs-HL1"/>
+                        <constraint firstItem="Blk-8d-DzA" firstAttribute="centerX" secondItem="pUb-LV-yt3" secondAttribute="centerX" id="ljY-iE-5M9"/>
+                        <constraint firstAttribute="bottom" secondItem="LaS-rV-L5y" secondAttribute="bottom" constant="20" id="sXv-4a-tOD"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="QoL-Lx-e1h" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="2SB-cB-cGU"/>
+                <constraint firstItem="wfx-nE-Mwa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="PRd-t9-ViZ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wfx-nE-Mwa" secondAttribute="trailing" id="RPY-cw-355"/>
+                <constraint firstItem="wfx-nE-Mwa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="S7w-8b-2T9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wfx-nE-Mwa" secondAttribute="bottom" id="Yhx-iE-Jqa"/>
+                <constraint firstItem="QoL-Lx-e1h" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="q1G-zA-BtM"/>
+                <constraint firstItem="QoL-Lx-e1h" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xcS-Rf-QrY"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="141" y="105"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="appLogo" width="600" height="600"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="message.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="person.crop.circle.fill.badge.plus" catalog="system" width="64" height="50"/>
+    </resources>
+</document>

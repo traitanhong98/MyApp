@@ -63,6 +63,10 @@ class TardisScheduleViewController: BaseTabViewController {
         infoPopup.delegate = self
         infoPopup.show()
     }
+    @IBAction func calendarAction(_ sender: Any) {
+        let calendarPicker = TardisCalendarPickerViewController()
+        calendarPicker.show()
+    }
     
 }
 // MARK: - Extension

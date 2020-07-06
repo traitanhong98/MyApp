@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sleep(3)
         if UserInfo.userDidLogin() {
             TardisBaseRequestModel.shared.getCurrentUserInfo()
+            TardisBaseRequestModel.shared.updateUserLoginStatus(true)
         }
         return true
     }
@@ -36,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 
+    func applicationWillTerminate(_ application: UIApplication) {
+        TardisBaseRequestModel.shared.updateLoginTime()
+        TardisBaseRequestModel.shared.updateUserLoginStatus(false)
+        TardisBaseRequestModel.shared.removeAllObserver()
+    }
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         
     }

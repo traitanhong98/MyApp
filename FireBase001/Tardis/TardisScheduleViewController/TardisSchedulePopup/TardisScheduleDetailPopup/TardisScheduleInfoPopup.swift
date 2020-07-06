@@ -80,7 +80,7 @@ class TardisScheduleInfoPopup: TardisBasePopupViewController {
     @IBAction func closeAction(_ sender: Any) {
         hide()
     }
-    @IBAction func editAction(_ sender: Any) {
+    @IBAction func deleteAction(_ sender: Any) {
         hide()
         guard let delegate = delegate else { return }
         delegate.deleteAction(withObject: schedule)
@@ -93,6 +93,7 @@ class TardisScheduleInfoPopup: TardisBasePopupViewController {
         schedule.endDay = endDayTextField.text ?? ""
         schedule.startTime = startTimeTextField.text ?? ""
         schedule.endTime = endTimeTextField.text ?? ""
+        schedule.des = desTextView.text ?? ""
         delegate.acceptAction(withObject: schedule)
     }
 }

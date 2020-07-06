@@ -27,6 +27,7 @@ class TardisLoginRequestModel:NSObject {
                 return
             }
             TardisBaseRequestModel.shared.getCurrentUserInfo()
+            TardisBaseRequestModel.shared.updateUserLoginStatus(true)
             if let completionBlock = completionBlock {completionBlock(true)}
         }
     }

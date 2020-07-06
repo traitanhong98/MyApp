@@ -15,6 +15,8 @@ target 'FireBase001' do
     pod 'ObjectMapper', '3.3'
     pod 'LGSideMenuController'
     pod 'MBProgressHUD'
+    pod 'MessageKit'
+    pod 'SDWebImage'
   target 'FireBase001UITests' do
     # Pods for testing
   end

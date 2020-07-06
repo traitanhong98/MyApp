@@ -61,8 +61,16 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
     <key>NSCameraUsageDescription</key>
-    <string>This app require access Camera permission</string>
+    <string>Ứng dụng cần cấp quyền truy cập Camera</string>
     <key>NSPhotoLibraryUsageDescription</key>
-    <string>This app require access Library permission.</string>
+    <string>Ứng dụng cần cấp quyền truy cập Thư viện</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Description</string>
+
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Ứng dụng cần cấp quyền truy cập vị trí</string>
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>Ứng dụng cần cấp quyền truy cập vị trí</string>
 </dict>
 </plist>
