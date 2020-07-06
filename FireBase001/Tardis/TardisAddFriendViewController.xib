@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisAddFriendViewController" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="invitationTableView" destination="Mtr-cY-6Ts" id="Qg0-Se-eyX"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmX-Jt-Kgb">
+                    <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fS1-h6-7BR">
+                            <rect key="frame" x="10" y="2" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="DSe-zu-QLk"/>
+                                <constraint firstAttribute="height" constant="40" id="Qv9-2z-GMN"/>
+                            </constraints>
+                            <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="arrowshape.turn.up.left" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                            </state>
+                            <connections>
+                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="vDw-dB-DaD"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lời mời kết bạn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLn-8d-U7W">
+                            <rect key="frame" x="136" y="10" width="142.5" height="24.5"/>
+                            <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="sLn-8d-U7W" firstAttribute="centerX" secondItem="gmX-Jt-Kgb" secondAttribute="centerX" id="SOa-7K-tEa"/>
+                        <constraint firstItem="fS1-h6-7BR" firstAttribute="centerY" secondItem="gmX-Jt-Kgb" secondAttribute="centerY" id="i3U-Sb-wMV"/>
+                        <constraint firstItem="fS1-h6-7BR" firstAttribute="leading" secondItem="gmX-Jt-Kgb" secondAttribute="leading" constant="10" id="sbV-T7-gcN"/>
+                        <constraint firstItem="sLn-8d-U7W" firstAttribute="centerY" secondItem="gmX-Jt-Kgb" secondAttribute="centerY" id="wUJ-d3-oIE"/>
+                        <constraint firstAttribute="height" constant="44" id="zuS-fb-NJC"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mtr-cY-6Ts">
+                    <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="leading" secondItem="gmX-Jt-Kgb" secondAttribute="leading" id="21g-PX-WJv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Mtr-cY-6Ts" secondAttribute="trailing" id="KEx-DE-Jej"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Mtr-cY-6Ts" secondAttribute="bottom" id="ZlQ-4n-Xg8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="gmX-Jt-Kgb" secondAttribute="trailing" id="g1R-h3-ZOy"/>
+                <constraint firstItem="Mtr-cY-6Ts" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hxq-ju-BtF"/>
+                <constraint firstItem="Mtr-cY-6Ts" firstAttribute="top" secondItem="gmX-Jt-Kgb" secondAttribute="bottom" id="iCW-ao-FGP"/>
+                <constraint firstItem="gmX-Jt-Kgb" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="rd0-1m-442"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="141" y="105"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrowshape.turn.up.left" catalog="system" width="64" height="52"/>
+    </resources>
+</document>

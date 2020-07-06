@@ -37,5 +37,22 @@ class TardisUserlistTableViewCell: UITableViewCell {
         userNameLabel.text = user.displayName
         statusView.isHidden = !user.isLogin
     }
-    
+    func bindData(friend: TardisFriendObject) {
+        TardisBaseRequestModel.shared.getUser(UID: friend.friendID) { (status, user) in
+            if status {
+                self.userNameLabel.text = user.displayName
+                if user.imageUrl.count > 0 {
+                    let url = URL(string: user.imageUrl)
+                    CommonFunction.getData(from: url!, completion: { (data, res, err) in
+                        if err != nil {
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            self.avatarImageView.image = UIImage(data: data!)
+                        }
+                    })
+                }
+            }
+        }
+    }
 }

@@ -27,7 +27,18 @@ class TardisBaseRequestModel: NSObject {
             }
         }
     }
-    
+    func getUser(UID: String, completionBlock: @escaping(Bool, UserInfoObject) -> Void) {
+        firRef.child("Users").child(UID).observeSingleEvent(of: .value) { (data) in
+            if let dataValue = data.value as? [String : AnyObject]{
+                if let user = UserInfoObject.init(JSON: dataValue) {
+                    user.UID = UID
+                    completionBlock(true, user)
+                } else {
+                    completionBlock(false, UserInfoObject())
+                }
+            }
+        }
+    }
     func doLogOut() {
         updateLoginTime()
         updateUserLoginStatus(false)

@@ -46,6 +46,10 @@ class TardisUserInfoViewController: UIViewController {
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.masksToBounds = true
         birthdayTextField.delegate = self
+        usernameTextField.delegate = self
+        emailTextField.delegate = self
+        phoneNumberTextField.delegate = self
+        birthdayTextField.delegate = self
     }
     func setupData() {
         dataModel.selfView = self
@@ -156,6 +160,10 @@ extension TardisUserInfoViewController: UITextFieldDelegate {
             datePicker.delegate = self
             datePicker.show()
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
 }
 extension TardisUserInfoViewController:TardisDatePickerViewControllerDelegate{

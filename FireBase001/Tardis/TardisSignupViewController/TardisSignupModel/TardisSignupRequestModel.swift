@@ -27,14 +27,20 @@ class TardisSignupRequestModel: NSObject {
             }
             // Register Success
             if let userData = user {
-                let userInfo = ["userName":userName]
+                let userInfo = ["email":userName,
+                                "image_url":baseImageUrl,
+                                "displayName":userName]
                 let userRef = self.firRef.child(userData.user.uid)
                 userRef.setValue(userInfo) { (err, firRef) in
                     if let error = err {
                         print(error.localizedDescription)
                         completionBlock(false)
                     }
-                    completionBlock(true)
+                    
+                    TardisLoginRequestModel.shared.login(username: userName, password: password) { (status) in
+                        completionBlock(true)
+                    }
+                    
                 }
             }
             

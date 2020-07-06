@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisChatViewController" customModule="FireBase001" customModuleProvider="target">
             <connections>
                 <outlet property="findFriendButton" destination="ufk-WY-H1i" id="Hve-6s-aPa"/>
+                <outlet property="friendTable" destination="u3I-eF-hLZ" id="wX6-3m-wOs"/>
                 <outlet property="friendTableView" destination="u3I-eF-hLZ" id="su4-m3-gpz"/>
                 <outlet property="invitedButton" destination="ZKt-nb-IBh" id="P2U-Px-iX1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -107,8 +108,10 @@
                         <constraint firstAttribute="height" constant="40" id="GtH-Qh-4yS"/>
                         <constraint firstAttribute="width" constant="40" id="dXp-Jy-ilg"/>
                     </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
                     <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="person.3.fill" catalog="system">
+                        <color key="titleColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                     </state>
                     <userDefinedRuntimeAttributes>

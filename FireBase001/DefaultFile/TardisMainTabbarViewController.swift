@@ -47,7 +47,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
             setupNaviThread()
             setupNaviMessage()
             setupNaviAddon()
-            arrayVC = [naviWeakly, naviSchedule, naviThread, naviMessage,naviAddon]
+            arrayVC = [naviWeakly, naviSchedule, naviThread, naviMessage]
         }
         if mainTabBarController == nil {
             mainTabBarController = UITabBarController()
@@ -214,6 +214,8 @@ extension TardisMainTabbarViewController: CLLocationManagerDelegate {
         let location = Location()
         location.latitude = locValue.latitude
         location.longtitude = locValue.longitude
-        TardisBaseRequestModel.shared.updateUserLocation(location)
+        if UserInfo.userDidLogin() {
+            TardisBaseRequestModel.shared.updateUserLocation(location)
+        }
     }
 }

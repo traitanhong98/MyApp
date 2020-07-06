@@ -15,6 +15,7 @@ class TardisUserListViewController: UIViewController {
     var arrayUser = [UserInfoObject]()
     var sortedArray = [UserInfoObject]()
     var sortedName = ""
+    var dataModel = TardisChatDataModel.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         registerTableView()
@@ -43,13 +44,27 @@ extension TardisUserListViewController: UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrayUser.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = usersTableView.dequeueReusableCell(withIdentifier: "TardisUserlistTableViewCell", for: indexPath)
             as? TardisUserlistTableViewCell else { return UITableViewCell() }
         cell.bindData(user: arrayUser[indexPath.row])
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let userPopup = TardisUserInfoPopup()
+        userPopup.currentUser = arrayUser[indexPath.row]
+        userPopup.delegate = self
+        userPopup.show()
+    }
+}
+extension TardisUserListViewController: TardisUserInfoPopupDelegate {
+    func addFriend(user: UserInfoObject) {
+        dataModel.inviteFriend(otherUser: user) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Gửi lời mời thành công")
+            } else {
+                CommonFunction.annoucement(title: "", message: "Gửi lời mời thất bại")
+            }
+        }
+    }
 }
