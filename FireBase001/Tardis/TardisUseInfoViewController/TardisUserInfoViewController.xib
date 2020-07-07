@@ -150,7 +150,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alexander Something Weird" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMj-7i-jiY">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Alexander Something Weird" borderStyle="roundedRect" placeholder="Bạn chưa cập nhật tên" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fMj-7i-jiY">
                                     <rect key="frame" x="97" y="207" width="220" height="34"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="textColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
@@ -292,6 +292,7 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="fMj-7i-jiY" firstAttribute="leading" relation="lessThanOrEqual" secondItem="RfD-HS-eLf" secondAttribute="leading" constant="97" id="46o-OR-NIN"/>
                         <constraint firstItem="Mq8-J4-PgG" firstAttribute="top" secondItem="sfM-jn-zGV" secondAttribute="bottom" constant="8" id="4BK-A7-rOv"/>
                         <constraint firstItem="up8-pT-hbW" firstAttribute="leading" secondItem="RfD-HS-eLf" secondAttribute="leading" constant="30" id="4oi-js-sZd"/>
                         <constraint firstItem="Mq8-J4-PgG" firstAttribute="leading" secondItem="RfD-HS-eLf" secondAttribute="leading" constant="30" id="7cY-m6-SiT"/>

@@ -100,7 +100,7 @@
                         <constraint firstItem="W6c-WZ-Hjk" firstAttribute="centerY" secondItem="aa8-Fr-ba7" secondAttribute="centerY" id="yoL-3V-8zM"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMh-ep-4fz">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMh-ep-4fz" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                     <rect key="frame" x="16" y="806" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="7jE-ZD-0SF"/>
@@ -110,6 +110,20 @@
                     <state key="normal" image="plus.circle.fill" catalog="system">
                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                     </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                            <size key="value" width="0.0" height="3"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="3"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="addChannelAction:" destination="-1" eventType="touchUpInside" id="S5b-L2-FP4"/>
                     </connections>

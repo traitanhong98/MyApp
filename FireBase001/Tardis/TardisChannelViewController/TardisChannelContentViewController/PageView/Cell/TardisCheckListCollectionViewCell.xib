@@ -16,13 +16,22 @@
                 <rect key="frame" x="0.0" y="0.0" width="214" height="290"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-9b-VGB">
-                        <rect key="frame" x="0.0" y="60" width="211" height="230"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eet-CE-9bI">
+                        <rect key="frame" x="0.0" y="44" width="214" height="246"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-9b-VGB">
+                                <rect key="frame" x="0.0" y="0.0" width="214" height="246"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="230" id="bRc-Fo-iHw"/>
+                            <constraint firstItem="dnu-9b-VGB" firstAttribute="top" secondItem="eet-CE-9bI" secondAttribute="top" id="8Xb-aX-14K"/>
+                            <constraint firstItem="dnu-9b-VGB" firstAttribute="leading" secondItem="eet-CE-9bI" secondAttribute="leading" id="age-Uz-xvu"/>
+                            <constraint firstAttribute="trailing" secondItem="dnu-9b-VGB" secondAttribute="trailing" id="nsf-GR-UJr"/>
+                            <constraint firstAttribute="bottom" secondItem="dnu-9b-VGB" secondAttribute="bottom" id="sVJ-Vr-kjr"/>
                         </constraints>
-                    </tableView>
+                    </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ki5-PN-bKx">
                         <rect key="frame" x="0.0" y="44" width="214" height="16"/>
                         <subviews>
@@ -43,20 +52,19 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="eet-CE-9bI" secondAttribute="leading" id="1xJ-qm-IaR"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="Ki5-PN-bKx" secondAttribute="leading" id="7cF-ti-mk4"/>
-                <constraint firstItem="dnu-9b-VGB" firstAttribute="top" secondItem="Ki5-PN-bKx" secondAttribute="bottom" id="I3T-HZ-y2Y"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="dnu-9b-VGB" secondAttribute="trailing" constant="3" id="TJ1-u6-kP9"/>
+                <constraint firstItem="eet-CE-9bI" firstAttribute="top" secondItem="ZTg-uK-7eu" secondAttribute="top" id="R5k-4B-RF3"/>
+                <constraint firstItem="eet-CE-9bI" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="Tca-W5-6dz"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="Ki5-PN-bKx" secondAttribute="top" id="Uot-ig-bVb"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="dnu-9b-VGB" secondAttribute="bottom" id="YkQ-Iw-tnT"/>
                 <constraint firstItem="Ki5-PN-bKx" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="dfo-Us-ZjU"/>
-                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="dnu-9b-VGB" secondAttribute="leading" id="ocf-FV-ncU"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="eet-CE-9bI" secondAttribute="bottom" id="iAL-c6-buo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="214" height="290"/>
             <connections>
                 <outlet property="assigneeLabel" destination="TuI-Fo-E2a" id="HA5-Hr-aIo"/>
                 <outlet property="checklistTable" destination="dnu-9b-VGB" id="bjq-dg-7pX"/>
-                <outlet property="heightOfTableView" destination="bRc-Fo-iHw" id="jgi-16-tEw"/>
             </connections>
             <point key="canvasLocation" x="-21.739130434782609" y="55.580357142857139"/>
         </collectionViewCell>

@@ -69,6 +69,7 @@ class TardisChannelContentViewController: UIViewController {
         // Info
         let infoVC = TardisChannelInfoViewController(nibName: "TardisChannelInfoViewController",
                                                      bundle: nil)
+        infoVC.currentChannel = currentChannel
         infoVC.page = .info
         listVC.append(infoVC)
         

@@ -24,7 +24,7 @@ class TardisInvitationTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    func bindData(friend: TardisFriendObject) {
+    func bindData(uid: String) {
         TardisBaseRequestModel.shared.getUser(UID: friend.friendID) { (status, user) in
             if status {
                 self.user = user

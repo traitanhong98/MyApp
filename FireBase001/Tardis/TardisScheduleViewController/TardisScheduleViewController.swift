@@ -84,16 +84,16 @@ extension TardisScheduleViewController: UITableViewDelegate,UITableViewDataSourc
         cell.bindData(schedule: dataModel.listSchedules[indexPath.row])
         return cell
     }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = TardisScheduleHeaderView()
-        headerView.headerTitle = "Đây là section \(section)"
-        return headerView.view
-    }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
-    }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let headerView = TardisScheduleHeaderView()
+//        headerView.headerTitle = "Đây là section \(section)"
+//        return headerView.view
+//    }
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50
+//    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 110
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let infoPopup = TardisScheduleInfoPopup()

@@ -13,7 +13,7 @@ class TardisChannelViewController: BaseTabViewController {
     
     @IBOutlet weak var addChannelButton: UIButton!
     @IBOutlet weak var channelsTableView: UITableView!
-    let dataModel = TardisChannelDataModel()
+    let dataModel = TardisChannelDataModel.shared
     var firstLoad = true
     override func viewDidLoad() {
         super.viewDidLoad()

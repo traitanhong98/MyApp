@@ -23,6 +23,7 @@ class TardisCheckListCollectionViewCell: UICollectionViewCell {
         checklistTable.register(UINib(nibName: "TardisChannelCheckListTableViewCell", bundle: nil), forCellReuseIdentifier: "TardisChannelCheckListTableViewCell")
         checklistTable.delegate = self
         checklistTable.dataSource = self
+        checklistTable.contentInset = .init(top: 16, left: 0, bottom: 0, right: 0)
     }
     func bindData(checkList: [TardisChannelChecklistObject], isAssined: Bool) {
         if isAssined {
@@ -47,7 +48,7 @@ extension TardisCheckListCollectionViewCell: UITableViewDelegate, UITableViewDat
         guard let cell = checklistTable.dequeueReusableCell(withIdentifier: "TardisChannelCheckListTableViewCell", for: indexPath) as? TardisChannelCheckListTableViewCell else {
             return UITableViewCell()
         }
-        cell.bindData(checkListObject: checkList[indexPath.row])
+//        cell.bindData(checkListObject: checkList[indexPath.row])
         return cell
     }
 }

@@ -37,7 +37,7 @@ extension TardisAddFriendViewController: UITableViewDataSource,UITableViewDelega
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = invitationTableView.dequeueReusableCell(withIdentifier: "TardisInvitationTableViewCell", for: indexPath)
             as? TardisInvitationTableViewCell else { return UITableViewCell() }
-        cell.bindData(friend: listInvitation[indexPath.row])
+        cell.bindData(uid: listInvitation[indexPath.row].friendID)
         cell.delegate = self
         return cell
     }
@@ -49,6 +49,12 @@ extension TardisAddFriendViewController: TardisInvitationTableViewCellDelegate {
     func didAcceptInvitation(of user: UserInfoObject) {
         dataModel.acceptInvitation(ofUser: user) { (status) in
             if status {
+                for invitation in self.listInvitation
+                    where invitation.friendID == user.UID {
+                        self.listInvitation.remove(at: self.listInvitation.firstIndex(of: invitation)!)
+                        self.invitationTableView.reloadData()
+                        break
+                }
                 CommonFunction.annoucement(title: "", message: "Đã chấp nhận lời mời kết bạn")
             } else {
                 CommonFunction.annoucement(title: "", message: "Có lỗi xảy ra")
@@ -59,6 +65,12 @@ extension TardisAddFriendViewController: TardisInvitationTableViewCellDelegate {
     func didRejectInvitation(of user: UserInfoObject) {
         dataModel.rejectInvitation(ofUser: user) { (status) in
             if status {
+                for invitation in self.listInvitation
+                    where invitation.friendID == user.UID {
+                        self.listInvitation.remove(at: self.listInvitation.firstIndex(of: invitation)!)
+                        self.invitationTableView.reloadData()
+                        break
+                }
                 CommonFunction.annoucement(title: "", message: "Đã xoá lời mời kết bạn")
             } else {
                 CommonFunction.annoucement(title: "", message: "Có lỗi xảy ra")

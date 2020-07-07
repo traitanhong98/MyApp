@@ -32,32 +32,32 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzO-jl-L9a" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                            <rect key="frame" x="16" y="315.5" width="382" height="187"/>
+                            <rect key="frame" x="16" y="303.5" width="382" height="211"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nội dung:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5Q-zK-NbF">
-                                    <rect key="frame" x="8" y="8" width="74" height="21"/>
+                                    <rect key="frame" x="8" y="20" width="74" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nội dung công việc" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-1v-9Vf">
-                                    <rect key="frame" x="20" y="32" width="342" height="34"/>
+                                    <rect key="frame" x="20" y="44" width="342" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Người thực hiện:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SqV-KO-uJQ">
-                                    <rect key="frame" x="8" y="120" width="127" height="21"/>
+                                    <rect key="frame" x="8" y="132" width="127" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Người thực hiện" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPW-cm-Mid">
-                                    <rect key="frame" x="60" y="145" width="242" height="34"/>
+                                    <rect key="frame" x="60" y="157" width="242" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vwq-IQ-OD8" customClass="TardisImageView" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="15" y="142" width="40" height="40"/>
+                                    <rect key="frame" x="15" y="154" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="4UK-mk-EId"/>
                                         <constraint firstAttribute="width" constant="40" id="mkt-aW-5xY"/>
@@ -69,7 +69,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuZ-qI-4sm">
-                                    <rect key="frame" x="316" y="142" width="40" height="40"/>
+                                    <rect key="frame" x="316" y="154" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="tiH-XW-CSc"/>
                                         <constraint firstAttribute="height" constant="40" id="yXR-uV-OKm"/>
@@ -83,13 +83,13 @@
                                     </connections>
                                 </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trạng thái" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4oP-Qh-iOu">
-                                    <rect key="frame" x="8" y="82.5" width="77" height="21"/>
+                                    <rect key="frame" x="8" y="94.5" width="77" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trạng thái" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KIQ-ug-fHP">
-                                    <rect key="frame" x="101" y="76" width="261" height="34"/>
+                                    <rect key="frame" x="101" y="88" width="261" height="34"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
@@ -104,10 +104,10 @@
                                 <constraint firstItem="SqV-KO-uJQ" firstAttribute="top" secondItem="KIQ-ug-fHP" secondAttribute="bottom" constant="10" id="PTI-jS-Chn"/>
                                 <constraint firstItem="fgM-1v-9Vf" firstAttribute="leading" secondItem="KzO-jl-L9a" secondAttribute="leading" constant="20" id="REa-uV-Vxn"/>
                                 <constraint firstItem="S5Q-zK-NbF" firstAttribute="leading" secondItem="KzO-jl-L9a" secondAttribute="leading" constant="8" id="Tk4-0I-3h9"/>
-                                <constraint firstItem="S5Q-zK-NbF" firstAttribute="top" secondItem="KzO-jl-L9a" secondAttribute="top" constant="8" id="Ud5-bP-u8o"/>
+                                <constraint firstItem="S5Q-zK-NbF" firstAttribute="top" secondItem="KzO-jl-L9a" secondAttribute="top" constant="20" id="Ud5-bP-u8o"/>
                                 <constraint firstItem="GPW-cm-Mid" firstAttribute="top" secondItem="SqV-KO-uJQ" secondAttribute="bottom" constant="4" id="VTW-98-xuK"/>
                                 <constraint firstItem="fgM-1v-9Vf" firstAttribute="top" secondItem="S5Q-zK-NbF" secondAttribute="bottom" constant="3" id="YKw-2w-K5h"/>
-                                <constraint firstAttribute="bottom" secondItem="GPW-cm-Mid" secondAttribute="bottom" constant="8" id="b5D-tu-pXc"/>
+                                <constraint firstAttribute="bottom" secondItem="GPW-cm-Mid" secondAttribute="bottom" constant="20" id="b5D-tu-pXc"/>
                                 <constraint firstItem="GPW-cm-Mid" firstAttribute="leading" secondItem="vwq-IQ-OD8" secondAttribute="trailing" constant="5" id="bCr-AK-zZL"/>
                                 <constraint firstItem="NuZ-qI-4sm" firstAttribute="leading" secondItem="GPW-cm-Mid" secondAttribute="trailing" constant="14" id="bMq-MA-YIK"/>
                                 <constraint firstAttribute="trailing" secondItem="KIQ-ug-fHP" secondAttribute="trailing" constant="20" id="byd-9J-ukU"/>

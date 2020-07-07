@@ -22,7 +22,9 @@ class TardisChatViewController: BaseTabViewController {
         registerTable()
         observeFriend()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     func observeFriend() {
         dataModel.observeFriend(status: FriendStatus.connected) { (status, listFriend) in
             if status {
@@ -77,6 +79,10 @@ extension TardisChatViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chatView = TardisChatingViewController()
         chatView.path = listFriend[indexPath.row].messageID
+        navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.pushViewController(chatView, animated: true)
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }

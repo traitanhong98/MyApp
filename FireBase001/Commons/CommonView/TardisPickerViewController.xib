@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisPickerViewController" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="acceptButton" destination="TrS-Mk-hB4" id="jR6-7T-YgM"/>
+                <outlet property="backButton" destination="Oj2-eV-9Aa" id="fc3-ir-kuJ"/>
+                <outlet property="titleLabel" destination="q2N-iP-JUo" id="Hbk-pC-EHt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xjj-MV-X9T">
+                    <rect key="frame" x="0.0" y="662" width="414" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xx-We-Cg0" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="356" y="3" width="80" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrS-Mk-hB4" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="2" y="2" width="40" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="2zK-JB-vLt"/>
+                                        <constraint firstAttribute="width" constant="40" id="rd8-Yq-hKT"/>
+                                    </constraints>
+                                    <state key="normal" image="Edit"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.0" green="0.75294117650000003" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="acceptAction:" destination="-1" eventType="touchUpInside" id="1B2-XN-fTk"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="TrS-Mk-hB4" firstAttribute="centerY" secondItem="2Xx-We-Cg0" secondAttribute="centerY" id="A5o-TB-leG"/>
+                                <constraint firstAttribute="width" constant="80" id="cSX-kA-DVK"/>
+                                <constraint firstItem="TrS-Mk-hB4" firstAttribute="leading" secondItem="2Xx-We-Cg0" secondAttribute="leading" constant="2" id="hCz-Ij-I8p"/>
+                                <constraint firstAttribute="height" constant="44" id="xB7-oc-L6I"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmv-ym-B8L" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="-22" y="3" width="80" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oj2-eV-9Aa" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                    <rect key="frame" x="38" y="2" width="40" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="5fd-jn-Bj0"/>
+                                        <constraint firstAttribute="height" constant="40" id="qbS-aC-HP2"/>
+                                    </constraints>
+                                    <state key="normal" image="leftArrow">
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="19"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                            <color key="value" red="0.0" green="0.75294117650000003" blue="0.82352941180000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="ZOs-pe-Ena"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="ZkL-HJ-ykJ"/>
+                                <constraint firstItem="Oj2-eV-9Aa" firstAttribute="centerY" secondItem="bmv-ym-B8L" secondAttribute="centerY" id="nsI-Qr-cMp"/>
+                                <constraint firstAttribute="height" constant="44" id="scl-En-Ndy"/>
+                                <constraint firstAttribute="trailing" secondItem="Oj2-eV-9Aa" secondAttribute="trailing" constant="2" id="y9g-jU-uTi"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="22"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="17S-3k-YEk" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="87" y="5" width="240" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chọn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2N-iP-JUo">
+                                    <rect key="frame" x="102" y="11.5" width="36" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                    <color key="textColor" red="0.0" green="0.14516586449999999" blue="0.3009597081" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="Be3-0j-eZD"/>
+                                <constraint firstItem="q2N-iP-JUo" firstAttribute="centerY" secondItem="17S-3k-YEk" secondAttribute="centerY" id="MaC-U6-wUm"/>
+                                <constraint firstItem="q2N-iP-JUo" firstAttribute="centerX" secondItem="17S-3k-YEk" secondAttribute="centerX" id="Uot-Pc-Fta"/>
+                                <constraint firstAttribute="height" constant="40" id="YY2-gb-XTx"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="2uB-mu-zim"/>
+                        <constraint firstItem="17S-3k-YEk" firstAttribute="centerY" secondItem="xjj-MV-X9T" secondAttribute="centerY" id="340-MX-eGi"/>
+                        <constraint firstItem="17S-3k-YEk" firstAttribute="centerX" secondItem="xjj-MV-X9T" secondAttribute="centerX" id="34d-mi-VCt"/>
+                        <constraint firstAttribute="trailing" secondItem="2Xx-We-Cg0" secondAttribute="trailing" constant="-22" id="Th6-ds-Dpe"/>
+                        <constraint firstItem="bmv-ym-B8L" firstAttribute="leading" secondItem="xjj-MV-X9T" secondAttribute="leading" constant="-22" id="Ycj-g2-kzu"/>
+                        <constraint firstItem="2Xx-We-Cg0" firstAttribute="centerY" secondItem="xjj-MV-X9T" secondAttribute="centerY" id="fbb-Lf-KHN"/>
+                        <constraint firstItem="bmv-ym-B8L" firstAttribute="centerY" secondItem="xjj-MV-X9T" secondAttribute="centerY" id="n1j-Cy-l05"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="xjj-MV-X9T" secondAttribute="bottom" constant="150" id="Vz4-f5-zAM"/>
+                <constraint firstItem="xjj-MV-X9T" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lyX-P3-4Cg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xjj-MV-X9T" secondAttribute="trailing" id="xEb-Gf-EN1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="88"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Edit" width="512" height="512"/>
+        <image name="leftArrow" width="512" height="512"/>
+    </resources>
+</document>

@@ -50,6 +50,20 @@ class TardisChannelRequestModel: NSObject {
             
         }
     }
+    func observeActivity(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, TardisChannelActivityObject) -> Void) {
+        let currentChat = activityRef.child(channel.activityID)
+        currentChat.observe(.value) { (snapShot) in
+            guard let value = snapShot.value as? [String:Any] else {
+                completionBlock(false,TardisChannelActivityObject())
+                return
+            }
+            guard let activity = TardisChannelActivityObject.init(JSON: value) else {
+                completionBlock(false,TardisChannelActivityObject())
+                return
+            }
+            completionBlock(true,activity)
+        }
+    }
     func observeChat(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, [TardisMessageObject]) -> Void) {
         let currentChat = messageRef.child(channel.chatID)
         currentChat.observe(.value) { (snapShot) in
@@ -134,7 +148,7 @@ class TardisChannelRequestModel: NSObject {
             completionBlock(true)
         }
     }
-    func addNewActivity(_ activity: TardisActivityObject,
+    func addNewActivity(_ activity: TardisChannelActivityObject,
                         toChannel channel: TardisChannelObject,
                         completionBlock: @escaping (Bool) -> Void) {
         let currentActivityRef = checkListRef.child(channel.activityID)
@@ -146,6 +160,7 @@ class TardisChannelRequestModel: NSObject {
             completionBlock(true)
         }
     }
+    
     func addNewMember(_ memberID: String,
                       toChannel channel: TardisChannelObject,
                       completionBlock: @escaping (Bool) -> Void){

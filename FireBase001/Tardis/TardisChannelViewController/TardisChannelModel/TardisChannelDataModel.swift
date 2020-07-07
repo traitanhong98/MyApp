@@ -9,6 +9,7 @@
 import UIKit
 
 class TardisChannelDataModel: NSObject {
+    static let shared = TardisChannelDataModel()
     let requestModel = TardisChannelRequestModel.shared
     var listChannel = [TardisChannelObject]()
     var selfView: TardisChannelViewController?
@@ -53,6 +54,12 @@ class TardisChannelDataModel: NSObject {
                                     } else {
                                         completionBlock(false)
                                     }
+        }
+    }
+    
+    func observeActivity(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, TardisChannelActivityObject) -> Void) {
+        requestModel.observeActivity(onChannel: channel) { (status, object) in
+            completionBlock(status, object)
         }
     }
     func reset() {

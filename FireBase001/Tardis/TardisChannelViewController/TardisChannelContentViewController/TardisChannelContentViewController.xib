@@ -63,10 +63,10 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPV-2f-aEr" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                    <rect key="frame" x="6" y="680" width="42" height="122"/>
+                    <rect key="frame" x="6" y="682" width="40" height="120"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vq6-Au-oFj">
-                            <rect key="frame" x="6" y="6" width="30" height="110"/>
+                            <rect key="frame" x="5" y="5" width="30" height="110"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-Fi-TZM" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -75,7 +75,7 @@
                                         <constraint firstAttribute="height" constant="30" id="4NJ-kB-sCx"/>
                                         <constraint firstAttribute="width" constant="30" id="KAl-kg-71w"/>
                                     </constraints>
-                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" image="message.fill" catalog="system"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -86,6 +86,15 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                             <real key="value" value="15"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -99,7 +108,7 @@
                                         <constraint firstAttribute="width" constant="30" id="WEi-W0-kCI"/>
                                         <constraint firstAttribute="height" constant="30" id="WPG-F3-LUW"/>
                                     </constraints>
-                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" image="list.dash" catalog="system"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -110,6 +119,15 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                             <color key="value" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -123,7 +141,7 @@
                                         <constraint firstAttribute="width" constant="30" id="SkS-OD-RRg"/>
                                         <constraint firstAttribute="height" constant="30" id="fAe-GC-FeN"/>
                                     </constraints>
-                                    <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <state key="normal" image="info" catalog="system"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -134,6 +152,15 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                             <color key="value" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="3"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
@@ -146,14 +173,14 @@
                     <color key="backgroundColor" white="1" alpha="0.2031517551369863" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="vq6-Au-oFj" secondAttribute="trailing" constant="6" id="UT5-Qv-mQN"/>
-                        <constraint firstItem="vq6-Au-oFj" firstAttribute="top" secondItem="cPV-2f-aEr" secondAttribute="top" constant="6" id="nzZ-Fq-W7y"/>
-                        <constraint firstAttribute="bottom" secondItem="vq6-Au-oFj" secondAttribute="bottom" constant="6" id="r17-gG-QBH"/>
-                        <constraint firstItem="vq6-Au-oFj" firstAttribute="leading" secondItem="cPV-2f-aEr" secondAttribute="leading" constant="6" id="vH2-j6-4sv"/>
+                        <constraint firstAttribute="trailing" secondItem="vq6-Au-oFj" secondAttribute="trailing" constant="5" id="UT5-Qv-mQN"/>
+                        <constraint firstItem="vq6-Au-oFj" firstAttribute="top" secondItem="cPV-2f-aEr" secondAttribute="top" constant="5" id="nzZ-Fq-W7y"/>
+                        <constraint firstAttribute="bottom" secondItem="vq6-Au-oFj" secondAttribute="bottom" constant="5" id="r17-gG-QBH"/>
+                        <constraint firstItem="vq6-Au-oFj" firstAttribute="leading" secondItem="cPV-2f-aEr" secondAttribute="leading" constant="5" id="vH2-j6-4sv"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                            <real key="value" value="6"/>
+                            <real key="value" value="20"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                             <real key="value" value="2"/>

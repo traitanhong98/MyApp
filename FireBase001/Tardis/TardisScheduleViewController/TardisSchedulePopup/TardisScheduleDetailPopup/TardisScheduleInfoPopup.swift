@@ -76,6 +76,26 @@ class TardisScheduleInfoPopup: TardisBasePopupViewController {
         desTextView.delegate = self
         desTextView.accessibilityScroll(.down)
     }
+    func showCalendarPicker(onTextField textField: UITextField) {
+        let calendarPicker = TardisCalendarPickerViewController()
+        if textField == startDayTextField {
+            calendarPicker.recognizeID = "startDay"
+        } else {
+            calendarPicker.recognizeID = "endDay"
+        }
+        calendarPicker.delegate = self
+        calendarPicker.show()
+    }
+    func showTimePicker(onTextField textField: UITextField) {
+        let timePicker = TardisTimePickerViewController()
+        if textField == startTimeTextField {
+            timePicker.recognizeID = "startTime"
+        } else  {
+            timePicker.recognizeID = "endTime"
+        }
+        timePicker.delegate = self
+        timePicker.show()
+    }
     // MARK: - IBAction
     @IBAction func closeAction(_ sender: Any) {
         hide()
@@ -140,14 +160,13 @@ extension TardisScheduleInfoPopup: UITextFieldDelegate {
         return true
     }
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        
-        if checkListTableView.subviews.contains(textField) {
-            self.view.frame = .init(x: 0,
-            y: -110,
-            width: self.view.frame.width,
-            height: self.view.frame.height)
+        if textField == startDayTextField || textField == endDayTextField {
+            showCalendarPicker(onTextField: textField)
+            return false
+        } else if textField == startTimeTextField || textField == endTimeTextField {
+            showTimePicker(onTextField: textField)
+            return false
         }
-        
         return true
     }
 }
@@ -172,5 +191,34 @@ extension TardisScheduleInfoPopup: UITextViewDelegate {
             return false
         }
         return true
+    }
+}
+extension TardisScheduleInfoPopup: TardisTimePickerViewControllerDelegate {
+    func selectedTime(time: String, recognizeID: String) {
+        switch recognizeID {
+        case "startTime":
+            startTimeTextField.text = time
+        case "endTime":
+            endTimeTextField.text = time
+        default:
+            break
+        }
+    }
+}
+extension TardisScheduleInfoPopup: TardisCalendarPickerViewControllerDelegate {
+    func didSelectPickDate(dates: [String], recognizeID: String) {
+        if dates.count >= 2 {
+            startDayTextField.text = dates[0]
+            endDayTextField.text = dates.last ?? ""
+        } else {
+            switch recognizeID {
+            case "startDay":
+                startDayTextField.text = dates[0]
+            case "endDay":
+                endDayTextField.text = dates[0]
+            default:
+                break
+            }
+        }
     }
 }

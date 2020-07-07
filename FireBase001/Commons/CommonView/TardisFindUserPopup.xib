@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisFindUserPopup" customModule="FireBase001" customModuleProvider="target">
+            <connections>
+                <outlet property="containerView" destination="9W1-EC-Ese" id="NXv-Td-15C"/>
+                <outlet property="usersTableView" destination="Jue-z3-lKb" id="3JA-Tq-wwD"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9W1-EC-Ese" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                    <rect key="frame" x="16" y="253" width="382" height="400"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jue-z3-lKb">
+                            <rect key="frame" x="16" y="52" width="350" height="308"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </tableView>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tìm kiếm" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xP5-mZ-xZC">
+                            <rect key="frame" x="16" y="8" width="350" height="34"/>
+                            <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a36-l0-IXe" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="326" y="344" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="9SG-Ax-jgg"/>
+                                <constraint firstAttribute="height" constant="40" id="XBT-9A-iAC"/>
+                            </constraints>
+                            <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="checkmark.circle.fill" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="acceptAction:" destination="-1" eventType="touchUpInside" id="5U2-Hi-hlz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tNA-Uh-qGZ" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="16" y="344" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="a0e-b4-H0r"/>
+                                <constraint firstAttribute="height" constant="40" id="rVK-ai-NgW"/>
+                            </constraints>
+                            <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="xmark.circle.fill" catalog="system">
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                    <size key="value" width="0.0" height="3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                    <real key="value" value="3"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="backAction:" destination="-1" eventType="touchUpInside" id="554-vl-cFi"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="tNA-Uh-qGZ" firstAttribute="leading" secondItem="9W1-EC-Ese" secondAttribute="leading" constant="16" id="8VZ-Cq-fgg"/>
+                        <constraint firstAttribute="bottom" secondItem="tNA-Uh-qGZ" secondAttribute="bottom" constant="16" id="9ss-rX-CG5"/>
+                        <constraint firstItem="Jue-z3-lKb" firstAttribute="leading" secondItem="9W1-EC-Ese" secondAttribute="leading" constant="16" id="Ckc-pR-rYf"/>
+                        <constraint firstItem="xP5-mZ-xZC" firstAttribute="leading" secondItem="9W1-EC-Ese" secondAttribute="leading" constant="16" id="GTu-eK-3CB"/>
+                        <constraint firstAttribute="bottom" secondItem="a36-l0-IXe" secondAttribute="bottom" constant="16" id="NdT-QY-qFZ"/>
+                        <constraint firstItem="xP5-mZ-xZC" firstAttribute="top" secondItem="9W1-EC-Ese" secondAttribute="top" constant="8" id="NgK-DN-cYb"/>
+                        <constraint firstAttribute="bottom" secondItem="Jue-z3-lKb" secondAttribute="bottom" constant="40" id="UQl-F1-waU"/>
+                        <constraint firstAttribute="height" constant="400" id="XyD-d6-P1F"/>
+                        <constraint firstItem="Jue-z3-lKb" firstAttribute="top" secondItem="xP5-mZ-xZC" secondAttribute="bottom" constant="10" id="aTV-r9-z1K"/>
+                        <constraint firstItem="xP5-mZ-xZC" firstAttribute="centerX" secondItem="9W1-EC-Ese" secondAttribute="centerX" id="fn9-n0-bro"/>
+                        <constraint firstItem="Jue-z3-lKb" firstAttribute="centerX" secondItem="9W1-EC-Ese" secondAttribute="centerX" id="sw3-vK-oDz"/>
+                        <constraint firstAttribute="trailing" secondItem="a36-l0-IXe" secondAttribute="trailing" constant="16" id="u8Y-R7-8lk"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="9W1-EC-Ese" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="Rsm-vw-FDc"/>
+                <constraint firstItem="9W1-EC-Ese" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="a7j-OQ-hKx"/>
+                <constraint firstItem="9W1-EC-Ese" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="tSx-9X-6bw"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="110"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
+</document>

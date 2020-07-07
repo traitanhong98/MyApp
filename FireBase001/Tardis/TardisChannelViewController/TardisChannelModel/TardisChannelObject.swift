@@ -71,9 +71,11 @@ extension TardisMessageObject: MessageType {
     
     
 }
-class TardisChannelChecklistObject: Mappable {
+class TardisChannelChecklistObject: NSObject, Mappable {
     required init?(map: Map) {}
-    
+    override init() {
+        
+    }
     func mapping(map: Map) {
         status <- map["status"]
         note <- map["note"]
@@ -85,4 +87,22 @@ class TardisChannelChecklistObject: Mappable {
     var note = ""
     var assignee = ""
     var tag = ""
+}
+class TardisChannelActivityObject: NSObject, Mappable {
+    required init?(map: Map) {
+    }
+    override init() {
+    }
+    func mapping(map: Map) {
+        name <- map["name"]
+        startDay <- map["start_day"]
+        endDay <- map["end_day"]
+        note <- map["note"]
+    }
+    
+    var name = ""
+    var startDay = ""
+    var endDay = ""
+    var note = ""
+    
 }

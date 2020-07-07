@@ -15,6 +15,7 @@ import Photos
 
 class TardisChatingViewController: MessagesViewController {
     
+    @IBOutlet weak var backButton: UIButton!
     var currentChannel = TardisChannelObject()
     let dataModel = TardisChatDataModel()
     var messages: [TardisChatObject] = []
@@ -23,6 +24,7 @@ class TardisChatingViewController: MessagesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMessage()
+        self.view.bringSubviewToFront(backButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,6 +40,8 @@ class TardisChatingViewController: MessagesViewController {
             }
             firstLoad = false
         }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
     }
     func setupMessage() {
         maintainPositionOnKeyboardFrameChanged = true

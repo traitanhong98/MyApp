@@ -15,6 +15,8 @@ class AddCheckListPopup: TardisBasePopupViewController {
     @IBOutlet weak var usersTableView: UITableView!
     @IBOutlet weak var tagTextField: UITextField!
     @IBOutlet weak var contentView: TardisView!
+    
+    // MARK: - ListUser
     override func viewDidLoad() {
         super.viewDidLoad()
         checkListConentTextField.delegate = self

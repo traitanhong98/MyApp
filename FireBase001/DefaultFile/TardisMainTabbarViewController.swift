@@ -12,12 +12,12 @@ import MapKit
 class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDelegate {
     // MARK: - Propeties
     static var viewOfMainTabbar: UIView?
-    var naviNotLogin = UINavigationController()
-    var naviWeakly = UINavigationController()
-    var naviSchedule = UINavigationController()
-    var naviThread = UINavigationController()
-    var naviMessage = UINavigationController()
-    var naviAddon = UINavigationController()
+    var naviNotLogin: TardisNavigationController!
+    var naviWeakly: TardisNavigationController!
+    var naviSchedule: TardisNavigationController!
+    var naviThread: TardisNavigationController!
+    var naviMessage: TardisNavigationController!
+    var naviAddon: TardisNavigationController!
     var currentVC = 0
     var arrayVC = [UINavigationController]()
     var mainTabBarController: UITabBarController?
@@ -52,7 +52,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         if mainTabBarController == nil {
             mainTabBarController = UITabBarController()
             
-            naviMain = UINavigationController.init(rootViewController: mainTabBarController!)
+            naviMain = TardisNavigationController.init(rootViewController: mainTabBarController!)
             naviMain.isNavigationBarHidden = true
         }
         if ((mainTabBarController?.presentedViewController) != nil) {
@@ -76,7 +76,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
            //Activities
            let notLoginVC = initVCForTabbar(type: TardisNotLoginViewController.self, vcStr: "TardisNotLoginViewController", title: "Require Login", icon: notLoginIcon)
            //Navigation
-           naviNotLogin = UINavigationController(rootViewController: notLoginVC!)
+           naviNotLogin = TardisNavigationController(rootViewController: notLoginVC!)
            naviNotLogin.interactivePopGestureRecognizer?.delegate = self
            naviNotLogin.isNavigationBarHidden = true
        }
@@ -85,7 +85,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         //Activities
         let weaklyVC = initVCForTabbar(type: TardisActivitiesViewController.self, vcStr: "TardisActivitiesViewController", title: "Weakly", icon: activitiesIcon)
         //Navigation
-        naviWeakly = UINavigationController(rootViewController: weaklyVC!)
+        naviWeakly = TardisNavigationController(rootViewController: weaklyVC!)
         naviWeakly.interactivePopGestureRecognizer?.delegate = self
         naviWeakly.isNavigationBarHidden = true
     }
@@ -96,7 +96,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         let scheduleVC = initVCForTabbar(type: TardisScheduleViewController.self, vcStr: "TardisScheduleViewController", title: "Schedule", icon: scheduleIcon)
         
         //Navigation
-        naviSchedule = UINavigationController(rootViewController: scheduleVC!)
+        naviSchedule = TardisNavigationController(rootViewController: scheduleVC!)
         naviSchedule.interactivePopGestureRecognizer?.delegate = self
         naviSchedule.isNavigationBarHidden = true
     }
@@ -107,7 +107,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         let threadVC = initVCForTabbar(type: TardisChannelViewController.self, vcStr: "TardisChannelViewController", title: "Channels", icon: threadIcon)
  
         //Navigation
-        naviThread = UINavigationController(rootViewController: threadVC!)
+        naviThread = TardisNavigationController(rootViewController: threadVC!)
         naviThread.interactivePopGestureRecognizer?.delegate = self
         naviThread.isNavigationBarHidden = true
     }
@@ -117,7 +117,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         //Chat
         let messageVC = initVCForTabbar(type: TardisChatViewController.self, vcStr: "TardisChatViewController", title: "Mesage", icon: messageIcon)
         //Navigation
-        naviMessage = UINavigationController(rootViewController: messageVC!)
+        naviMessage = TardisNavigationController(rootViewController: messageVC!)
         naviMessage.interactivePopGestureRecognizer?.delegate = self
         naviMessage.isNavigationBarHidden = true
     }
@@ -127,7 +127,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
         //Addon
         let addonVC = initVCForTabbar(type: TardisAddonViewController.self, vcStr: "TardisAddonViewController", title: "Addon", icon: addonIcon)
         //Navigation
-        naviAddon = UINavigationController(rootViewController: addonVC!)
+        naviAddon = TardisNavigationController(rootViewController: addonVC!)
         naviAddon.interactivePopGestureRecognizer?.delegate = self
         naviAddon.isNavigationBarHidden = true
     }

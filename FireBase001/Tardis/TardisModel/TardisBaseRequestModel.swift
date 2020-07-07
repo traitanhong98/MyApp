@@ -93,6 +93,33 @@ class TardisBaseRequestModel: NSObject {
             completionBlock(true,arrayActivities)
         }
     }
+    func getListALLOtherUser(completionBlock: @escaping (Bool,[UserInfoObject]) -> Void) {
+        firRef.child("Users").observeSingleEvent(of: .value) { (snapShot) in
+            var arrayActivities = [UserInfoObject]()
+            CommonFunction.hideLoadingView()
+            for child in snapShot.children {
+                guard let snap = child as? DataSnapshot else {
+                    completionBlock(false,[])
+                    return
+                }
+                let key = snap.key
+                if key == UserInfo.getUID() {
+                    continue
+                }
+                guard let value = snap.value as? [String:Any] else {
+                    completionBlock(false,[])
+                    return
+                }
+                guard let activity = UserInfoObject.init(JSON: value) else {
+                    completionBlock(false,[])
+                    return
+                }
+                activity.UID = key
+                arrayActivities.append(activity)
+            }
+            completionBlock(true,arrayActivities)
+        }
+    }
     func updateUserLocation(_ location: Location) {
         firRef.child("Users").child(UserInfo.getUID()).child("location").setValue(location.toJSON())
     }

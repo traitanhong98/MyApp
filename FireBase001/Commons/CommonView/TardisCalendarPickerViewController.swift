@@ -8,7 +8,7 @@
 
 import UIKit
 protocol TardisCalendarPickerViewControllerDelegate: class {
-    func didSelectPickDate(dates: [String])
+    func didSelectPickDate(dates: [String], recognizeID: String)
 }
 
 class TardisCalendarPickerViewController: TardisBasePopupViewController {
@@ -34,6 +34,7 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
     var selectedIndex = [Int]()
     var selectedDate = [String]()
     weak var delegate: TardisCalendarPickerViewControllerDelegate?
+    var recognizeID = ""
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +92,7 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
     @IBAction func acceptAction(_ sender: Any) {
         hide()
         guard let delegate = delegate else { return }
-        delegate.didSelectPickDate(dates: selectedDate)
+        delegate.didSelectPickDate(dates: selectedDate, recognizeID: recognizeID)
     }
     @IBAction func lastMonthAction(_ sender: Any) {
         if month == 1 {
