@@ -15,7 +15,9 @@ class TardisChannelCheckListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var tagLabel: UILabel!
     @IBOutlet weak var checkListTextField: UITextField!
+    @IBOutlet weak var nameLabel: UILabel!
     weak var delegate: TardisChannelCheckListTableViewCellDelegate?
     var checkList = TardisChannelChecklistObject()
     var indexPath: IndexPath?
@@ -32,6 +34,14 @@ class TardisChannelCheckListTableViewCell: UITableViewCell {
     }
     func bindData(checkListObject: TardisChannelChecklistObject, indexPath: IndexPath) {
         checkListTextField.text = checkListObject.note
+        tagLabel.text = checkListObject.tag
+        if checkListObject.assignee.count > 0  {
+            TardisBaseRequestModel.shared.getUser(UID: checkListObject.assignee) { (status, user) in
+                self.nameLabel.text = user.displayName
+            }
+        }
+        checkButton.isSelected = checkListObject.status
+        nameLabel.text = checkListObject.assignee
         checkList = checkListObject
         self.indexPath = indexPath
     }

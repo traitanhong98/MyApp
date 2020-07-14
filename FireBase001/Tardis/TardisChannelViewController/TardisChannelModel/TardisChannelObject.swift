@@ -82,10 +82,10 @@ class TardisChannelChecklistObject: NSObject, Mappable {
         assignee <- map["assignee"]
         tag <- map["Tag"]
     }
-    
+    var id = ""
     var status = false
     var note = ""
-    var assignee = ""
+    var assignee = "noBody"
     var tag = ""
 }
 class TardisChannelActivityObject: NSObject, Mappable {

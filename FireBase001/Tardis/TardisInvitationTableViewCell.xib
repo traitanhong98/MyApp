@@ -95,7 +95,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="acceptButton" destination="Ss4-aY-Eda" id="YFk-lP-rox"/>
                 <outlet property="avatarImgView" destination="f8Q-D1-J2G" id="EoT-Bi-aoH"/>
+                <outlet property="rejectButton" destination="M1q-bZ-XTH" id="eXi-De-KbH"/>
                 <outlet property="userNameLabel" destination="FfG-EV-aAP" id="SAl-Jm-5IJ"/>
             </connections>
             <point key="canvasLocation" x="121.0144927536232" y="78.348214285714278"/>

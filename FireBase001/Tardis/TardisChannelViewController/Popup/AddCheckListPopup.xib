@@ -11,9 +11,11 @@
             <connections>
                 <outlet property="assigneeTextField" destination="GPW-cm-Mid" id="jOh-Ik-sgm"/>
                 <outlet property="checkListConentTextField" destination="fgM-1v-9Vf" id="L8n-4l-awN"/>
+                <outlet property="containerView" destination="mgg-rS-BYg" id="PHf-X6-Ehq"/>
                 <outlet property="contentView" destination="KzO-jl-L9a" id="Hp9-Uf-3bv"/>
                 <outlet property="tagTextField" destination="KIQ-ug-fHP" id="UVl-Kr-bjm"/>
                 <outlet property="usersTableView" destination="jHx-uM-bh9" id="ax5-6I-wds"/>
+                <outlet property="usersView" destination="rKu-q2-c63" id="4hc-BM-4WC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,15 +24,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTt-CD-NnV">
+                    <rect key="frame" x="0.0" y="39" width="414" height="818"/>
+                    <connections>
+                        <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="Uqc-hY-v0R"/>
+                    </connections>
+                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mgg-rS-BYg">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTt-CD-NnV">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
-                            <connections>
-                                <action selector="closeAction:" destination="-1" eventType="touchUpInside" id="Uqc-hY-v0R"/>
-                            </connections>
-                        </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KzO-jl-L9a" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
                             <rect key="frame" x="16" y="303.5" width="382" height="211"/>
                             <subviews>
@@ -68,7 +70,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuZ-qI-4sm">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NuZ-qI-4sm" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
                                     <rect key="frame" x="316" y="154" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="tiH-XW-CSc"/>
@@ -78,6 +80,17 @@
                                     <state key="normal" image="checkmark.circle.fill" catalog="system">
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
                                     </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                            <size key="value" width="0.0" height="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                            <real key="value" value="3"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="addAction:" destination="-1" eventType="touchUpInside" id="AFc-0Z-a3g"/>
                                     </connections>
@@ -133,35 +146,52 @@
                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
                             </userDefinedRuntimeAttributes>
                         </view>
-                        <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jHx-uM-bh9">
-                            <rect key="frame" x="76" y="494.5" width="242" height="128"/>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rKu-q2-c63" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
+                            <rect key="frame" x="81" y="524.5" width="252" height="138"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jHx-uM-bh9">
+                                    <rect key="frame" x="5" y="5" width="242" height="128"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="242" id="6q8-7q-jph"/>
+                                        <constraint firstAttribute="height" constant="128" id="7rT-Wr-ysr"/>
+                                    </constraints>
+                                </tableView>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="128" id="HcF-Xh-QV7"/>
+                                <constraint firstItem="jHx-uM-bh9" firstAttribute="top" secondItem="rKu-q2-c63" secondAttribute="top" constant="5" id="OHe-ST-Kkt"/>
+                                <constraint firstItem="jHx-uM-bh9" firstAttribute="centerY" secondItem="rKu-q2-c63" secondAttribute="centerY" id="fNC-y8-15Q"/>
+                                <constraint firstItem="jHx-uM-bh9" firstAttribute="leading" secondItem="rKu-q2-c63" secondAttribute="leading" constant="5" id="gcY-JB-lky"/>
+                                <constraint firstItem="jHx-uM-bh9" firstAttribute="centerX" secondItem="rKu-q2-c63" secondAttribute="centerX" id="hzh-xt-bRp"/>
                             </constraints>
-                        </tableView>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
                     </subviews>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="KzO-jl-L9a" firstAttribute="centerY" secondItem="mgg-rS-BYg" secondAttribute="centerY" id="53s-bx-Gvg"/>
-                        <constraint firstItem="YTt-CD-NnV" firstAttribute="leading" secondItem="mgg-rS-BYg" secondAttribute="leading" id="En3-zw-Hcf"/>
-                        <constraint firstItem="jHx-uM-bh9" firstAttribute="top" secondItem="GPW-cm-Mid" secondAttribute="bottom" id="JyK-6q-OWl"/>
-                        <constraint firstAttribute="bottom" secondItem="YTt-CD-NnV" secondAttribute="bottom" id="L0t-r3-I5P"/>
+                        <constraint firstItem="rKu-q2-c63" firstAttribute="top" secondItem="KzO-jl-L9a" secondAttribute="bottom" constant="10" id="PRb-Hu-LJp"/>
                         <constraint firstItem="KzO-jl-L9a" firstAttribute="centerX" secondItem="mgg-rS-BYg" secondAttribute="centerX" id="cyB-Ej-PDr"/>
                         <constraint firstItem="KzO-jl-L9a" firstAttribute="leading" secondItem="mgg-rS-BYg" secondAttribute="leading" constant="16" id="i2H-Ic-4HJ"/>
-                        <constraint firstAttribute="trailing" secondItem="YTt-CD-NnV" secondAttribute="trailing" id="kLI-0g-qgY"/>
-                        <constraint firstItem="YTt-CD-NnV" firstAttribute="top" secondItem="mgg-rS-BYg" secondAttribute="top" id="nry-c0-v2b"/>
-                        <constraint firstItem="jHx-uM-bh9" firstAttribute="leading" secondItem="GPW-cm-Mid" secondAttribute="leading" id="rTb-VX-N6J"/>
-                        <constraint firstItem="jHx-uM-bh9" firstAttribute="trailing" secondItem="GPW-cm-Mid" secondAttribute="trailing" id="zdH-O8-pWd"/>
+                        <constraint firstItem="rKu-q2-c63" firstAttribute="centerX" secondItem="mgg-rS-BYg" secondAttribute="centerX" id="s0h-bM-KFH"/>
                     </constraints>
                 </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.33333333333333331" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mgg-rS-BYg" secondAttribute="trailing" id="3MF-jb-tWf"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mgg-rS-BYg" secondAttribute="bottom" id="CyK-Pe-L40"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YTt-CD-NnV" secondAttribute="bottom" constant="5" id="ITn-Ml-9hS"/>
                 <constraint firstItem="mgg-rS-BYg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="WUm-OT-z8F"/>
+                <constraint firstItem="YTt-CD-NnV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Z0D-9U-f0d"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YTt-CD-NnV" secondAttribute="trailing" id="bS5-tt-MO0"/>
                 <constraint firstItem="mgg-rS-BYg" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="qXK-tU-ymY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="top" secondItem="YTt-CD-NnV" secondAttribute="top" constant="5" id="zmt-OF-BPg"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="113" y="105"/>

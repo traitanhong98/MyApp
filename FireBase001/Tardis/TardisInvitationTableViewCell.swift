@@ -16,6 +16,8 @@ protocol TardisInvitationTableViewCellDelegate: class  {
 class TardisInvitationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImgView: TardisImageView!
+    @IBOutlet weak var acceptButton: UIButton!
+    @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var userNameLabel: UILabel!
     var user = UserInfoObject()
     var friend = TardisFriendObject()
@@ -25,7 +27,10 @@ class TardisInvitationTableViewCell: UITableViewCell {
         // Initialization code
     }
     func bindData(uid: String) {
-        TardisBaseRequestModel.shared.getUser(UID: friend.friendID) { (status, user) in
+        if uid.count == 0 {
+            return
+        }
+        TardisBaseRequestModel.shared.getUser(UID: uid) { (status, user) in
             if status {
                 self.user = user
                 self.userNameLabel.text = user.displayName

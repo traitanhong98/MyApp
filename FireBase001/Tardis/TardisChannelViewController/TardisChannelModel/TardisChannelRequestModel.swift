@@ -51,8 +51,8 @@ class TardisChannelRequestModel: NSObject {
         }
     }
     func observeActivity(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, TardisChannelActivityObject) -> Void) {
-        let currentChat = activityRef.child(channel.activityID)
-        currentChat.observe(.value) { (snapShot) in
+        let currentActivity = activityRef.child(channel.activityID)
+        currentActivity.observe(.value) { (snapShot) in
             guard let value = snapShot.value as? [String:Any] else {
                 completionBlock(false,TardisChannelActivityObject())
                 return
@@ -86,6 +86,30 @@ class TardisChannelRequestModel: NSObject {
                 chatList.append(message)
             }
             completionBlock(true,chatList)
+        }
+    }
+    func observeCheckList(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, [TardisChannelChecklistObject]) -> Void) {
+        let currentChecklistRef = checkListRef.child(channel.checkListID)
+        currentChecklistRef.observe(.value) { (snapShot) in
+            var checklist = [TardisChannelChecklistObject]()
+            for child in snapShot.children {
+                guard let snap = child as? DataSnapshot else {
+                    completionBlock(false,[])
+                    return
+                }
+                let key = snap.key
+                guard let value = snap.value as? [String:Any] else {
+                    completionBlock(false,[])
+                    return
+                }
+                guard let object = TardisChannelChecklistObject.init(JSON: value) else {
+                    completionBlock(false,[])
+                    return
+                }
+                object.id = key
+                checklist.append(object)
+            }
+            completionBlock(true,checklist)
         }
     }
     func removeChatObserver(onChannel channel: TardisChannelObject) {
@@ -135,7 +159,7 @@ class TardisChannelRequestModel: NSObject {
             completionBlock(true)
         }
     }
-    func addNewCheckList(_ checkList: TardisCheckListObject,
+    func addNewCheckList(_ checkList: TardisChannelChecklistObject,
                          toChannel channel: TardisChannelObject,
                          completionBlock: @escaping (Bool) -> Void) {
         let currentCheckListRef = checkListRef.child(channel.checkListID)
@@ -151,7 +175,7 @@ class TardisChannelRequestModel: NSObject {
     func addNewActivity(_ activity: TardisChannelActivityObject,
                         toChannel channel: TardisChannelObject,
                         completionBlock: @escaping (Bool) -> Void) {
-        let currentActivityRef = checkListRef.child(channel.activityID)
+        let currentActivityRef = activityRef.child(channel.activityID)
         currentActivityRef.setValue(activity.toJSON()) { (err, ref) in
             if err != nil {
                 completionBlock(false)

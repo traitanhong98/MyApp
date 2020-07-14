@@ -62,6 +62,28 @@ class TardisChannelDataModel: NSObject {
             completionBlock(status, object)
         }
     }
+    func addNewActivity(_ activity: TardisChannelActivityObject,
+                        toChannel channel: TardisChannelObject,
+                        completionBlock: @escaping (Bool) -> Void) {
+        requestModel.addNewActivity(activity,
+                                    toChannel: channel) { (status) in
+                                        completionBlock(status)
+        }
+    }
+    
+    func addNewCheckList(_ checkList: TardisChannelChecklistObject,
+                         toChannel channel: TardisChannelObject,
+                         completionBlock: @escaping (Bool) -> Void) {
+        requestModel.addNewCheckList(checkList,
+                                     toChannel: channel) { (status) in
+                                        completionBlock(status)
+        }
+    }
+    func observeCheckList(onChannel channel: TardisChannelObject, completionBlock: @escaping (Bool, [TardisChannelChecklistObject]) -> Void) {
+        requestModel.observeCheckList(onChannel: channel) { (status, listObject) in
+            completionBlock(status, listObject)
+        }
+    }
     func reset() {
         listChannel.removeAll()
         requestModel.removeAllObserver()

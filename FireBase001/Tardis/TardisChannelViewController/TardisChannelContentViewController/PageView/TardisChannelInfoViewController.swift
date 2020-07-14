@@ -10,6 +10,7 @@ import UIKit
 
 class TardisChannelInfoViewController: UIViewController {
     
+    @IBOutlet weak var heightOfTableView: NSLayoutConstraint!
     @IBOutlet weak var changeInfoButton: TardisButton!
     @IBOutlet weak var activityNameLabel: UITextField!
     @IBOutlet weak var startDateTextField: UITextField!
@@ -28,7 +29,7 @@ class TardisChannelInfoViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         observeActivity()
-//        registerTableView()
+        registerTableView()
     }
     func observeActivity() {
         dataModel.observeActivity(onChannel: currentChannel) { (status, object) in
@@ -51,34 +52,85 @@ class TardisChannelInfoViewController: UIViewController {
             quitButton.isHidden = false
         }
     }
-//    func registerTableView() {
-//        memberTableView.register(<#T##cellClass: AnyClass?##AnyClass?#>, forCellReuseIdentifier: <#T##String#>)
-//    }
+    func registerTableView() {
+        memberTableView.register(UINib(nibName: "TardisInvitationTableViewCell", bundle: nil), forCellReuseIdentifier: "TardisInvitationTableViewCell")
+        memberTableView.delegate = self
+        memberTableView.dataSource = self
+        memberTableView.contentInset = .init(top: 20, left: 0, bottom: 0, right: 0)
+    }
     @IBAction func addMemberAction(_ sender: Any) {
         let popup = TardisFindUserPopup()
+        popup.delegate = self
         popup.show()
+    }
+    @IBAction func changeInfoAction(_ sender: Any) {
+        currentActivity.endDay = endDateTextField.text ?? ""
+        currentActivity.startDay = startDateTextField.text ?? ""
+        currentActivity.name = activityNameLabel.text ?? ""
+        currentActivity.note = noteTextView.text ?? ""
+        TardisChannelRequestModel.shared.addNewActivity(currentActivity,
+                                                        toChannel: currentChannel) { (status) in
+                                                            CommonFunction.annoucement(title: "", message: "Cập nhật thành công")
+        }
     }
     
 }
-//extension TardisChannelInfoViewController: UITableViewDelegate,UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return currentChannel.usersID.count
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = memberTableView.dequeueReusableCell(withIdentifier: "TardisUserlistTableViewCell", for: indexPath)
-//            as? TardisUserlistTableViewCell else { return UITableViewCell() }
-//        cell.bindData(
-//        return cell
-//    }
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let userPopup = TardisUserInfoPopup()
-//        userPopup.currentUser = arrayUser[indexPath.row]
-//        userPopup.delegate = self
-//        userPopup.show()
-//    }
-//}
+extension TardisChannelInfoViewController: UITableViewDelegate,UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentChannel.usersID.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = memberTableView.dequeueReusableCell(withIdentifier: "TardisInvitationTableViewCell", for: indexPath)
+            as? TardisInvitationTableViewCell else { return UITableViewCell() }
+        cell.bindData(uid: currentChannel.usersID[indexPath.row])
+        cell.acceptButton.isHidden = true
+        cell.rejectButton.isHidden = currentChannel.ownerID != UserInfo.getUID()
+        cell.delegate = self
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        TardisBaseRequestModel.shared.getUser(UID: currentChannel.usersID[indexPath.row]) { (status, user) in
+            if status {
+                let userPopup = TardisUserInfoPopup()
+                userPopup.currentUser = user
+                userPopup.delegate = self
+                userPopup.show()
+            }
+        }
+    }
+}
 extension TardisChannelInfoViewController: TardisUserInfoPopupDelegate {
     func addFriend(user: UserInfoObject) {
-        
+    }
+}
+extension TardisChannelInfoViewController: TardisFindUserPopupDelegate {
+    func didSelectUser(user: UserInfoObject) {
+        if !currentChannel.usersID.contains(user.UID) {
+            currentChannel.usersID.append(user.UID)
+            user.channels.append(currentChannel.id)
+            TardisChannelRequestModel.shared.channelRef.child(currentChannel.id).child("users_ID").setValue(currentChannel.usersID)
+            TardisBaseRequestModel.shared.firRef.child("Users").child(user.UID).child("channels").setValue(user.channels)
+            memberTableView.reloadData()
+        }
+    }
+    
+    
+}
+
+extension TardisChannelInfoViewController: TardisInvitationTableViewCellDelegate {
+    func didAcceptInvitation(of user: UserInfoObject) {
+    }
+    func didRejectInvitation(of user: UserInfoObject) {
+        if let indexUser = currentChannel.usersID.firstIndex(of: user.UID),
+            let indexChannel = user.channels.firstIndex(of: currentChannel.id){
+            currentChannel.usersID.remove(at: indexUser)
+            user.channels.remove(at: indexChannel)
+            TardisChannelRequestModel.shared.channelRef.child(currentChannel.id).child("users_ID").setValue(currentChannel.usersID)
+            TardisBaseRequestModel.shared.firRef.child("Users").child(user.UID).child("channels").setValue(user.channels)
+            memberTableView.reloadData()
+        }
     }
 }

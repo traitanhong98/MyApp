@@ -101,14 +101,14 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMh-ep-4fz" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
-                    <rect key="frame" x="16" y="806" width="40" height="40"/>
+                    <rect key="frame" x="16" y="796" width="50" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="7jE-ZD-0SF"/>
-                        <constraint firstAttribute="width" constant="40" id="sdf-hb-1Ej"/>
+                        <constraint firstAttribute="height" constant="50" id="7jE-ZD-0SF"/>
+                        <constraint firstAttribute="width" constant="50" id="sdf-hb-1Ej"/>
                     </constraints>
                     <color key="tintColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="plus.circle.fill" catalog="system">
-                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="60"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">

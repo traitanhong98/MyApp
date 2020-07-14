@@ -28,6 +28,11 @@ class TardisBaseRequestModel: NSObject {
         }
     }
     func getUser(UID: String, completionBlock: @escaping(Bool, UserInfoObject) -> Void) {
+        if UID.count == 0 {
+            print("Fail Herre")
+            completionBlock(false, UserInfoObject())
+            return
+        }
         firRef.child("Users").child(UID).observeSingleEvent(of: .value) { (data) in
             if let dataValue = data.value as? [String : AnyObject]{
                 if let user = UserInfoObject.init(JSON: dataValue) {

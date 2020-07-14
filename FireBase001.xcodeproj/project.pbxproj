@@ -129,6 +129,7 @@
 		209A95B824B062FA0087C026 /* TardisChannelDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A95B724B062FA0087C026 /* TardisChannelDataModel.swift */; };
 		209A95BA24B063080087C026 /* TardisChannelRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A95B924B063080087C026 /* TardisChannelRequestModel.swift */; };
 		209A95BC24B063170087C026 /* TardisChannelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209A95BB24B063170087C026 /* TardisChannelObject.swift */; };
+		20AA701124B606AE00AF1ACB /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AA701024B606AE00AF1ACB /* Constant.swift */; };
 		20AD1BD0248AB34400E42AF4 /* TardisLoginViewController.swift in Resources */ = {isa = PBXBuildFile; fileRef = 2012520D24699E0D00706C9D /* TardisLoginViewController.swift */; };
 		20AD1BD5248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD1BD4248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift */; };
 		20AF8C2A2496527200B75F35 /* UserInfoObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AF8C292496527200B75F35 /* UserInfoObject.swift */; };
@@ -319,6 +320,7 @@
 		209A95B724B062FA0087C026 /* TardisChannelDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisChannelDataModel.swift; sourceTree = "<group>"; };
 		209A95B924B063080087C026 /* TardisChannelRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisChannelRequestModel.swift; sourceTree = "<group>"; };
 		209A95BB24B063170087C026 /* TardisChannelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisChannelObject.swift; sourceTree = "<group>"; };
+		20AA701024B606AE00AF1ACB /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		20AD1BD4248AC59200E42AF4 /* TardisWeekDayCollectionViewCellDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisWeekDayCollectionViewCellDataModel.swift; sourceTree = "<group>"; };
 		20AF8C292496527200B75F35 /* UserInfoObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoObject.swift; sourceTree = "<group>"; };
 		20AF8C2F24965C0500B75F35 /* TardisUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisUserInfoViewController.swift; sourceTree = "<group>"; };
@@ -609,6 +611,7 @@
 			children = (
 				201252342469A14600706C9D /* BaseTabViewController.swift */,
 				201252332469A14600706C9D /* BaseViewController.swift */,
+				20AA701024B606AE00AF1ACB /* Constant.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1337,6 +1340,7 @@
 				2093A6C224B1FD24007E905C /* AddCheckListPopup.swift in Sources */,
 				208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */,
 				20672A0C24A4F93600D07808 /* TardisScheduleTableViewCell.swift in Sources */,
+				20AA701124B606AE00AF1ACB /* Constant.swift in Sources */,
 				20B04FF7246EE0CF00A7BFBA /* TardisAddonViewController.swift in Sources */,
 				206E69F224B376CA000ED1A6 /* TardisUserlistTableViewCell.swift in Sources */,
 				2093A69F24B1AF4B007E905C /* TardisChannelInfoViewController.swift in Sources */,

@@ -60,11 +60,10 @@ class TardisChannelContentViewController: UIViewController {
         chatVC.view.frame = pageView.bounds
         listVC.append(chatVC)
         // CheckList
-        let checkListVC = TardisChannelCheckListViewController(nibName: "TardisChannelCheckListViewController",
-                                                               bundle: nil)
+        let checkListVC = TardisChannelCheckListViewController()
+        checkListVC.currentChannel = currentChannel
         checkListVC.page = .checkList
         checkListVC.view.frame = pageView.bounds
-        checkListVC.currentChannel = currentChannel
         listVC.append(checkListVC)
         // Info
         let infoVC = TardisChannelInfoViewController(nibName: "TardisChannelInfoViewController",

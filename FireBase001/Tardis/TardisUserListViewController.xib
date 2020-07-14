@@ -36,12 +36,20 @@
                                 <action selector="backButtonAction:" destination="-1" eventType="touchUpInside" id="4fj-OI-T9F"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mọi người" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sed-Hq-1gx">
+                            <rect key="frame" x="160.5" y="10" width="93" height="24.5"/>
+                            <fontDescription key="fontDescription" name="Charter-BoldItalic" family="Charter" pointSize="20"/>
+                            <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstItem="GWV-DM-jCv" firstAttribute="leading" secondItem="FV6-8p-wdu" secondAttribute="leading" constant="10" id="DRq-b6-xJk"/>
+                        <constraint firstItem="Sed-Hq-1gx" firstAttribute="centerY" secondItem="FV6-8p-wdu" secondAttribute="centerY" id="aft-rb-vOF"/>
                         <constraint firstAttribute="height" constant="44" id="b45-Av-40B"/>
                         <constraint firstItem="GWV-DM-jCv" firstAttribute="centerY" secondItem="FV6-8p-wdu" secondAttribute="centerY" id="iSI-Sn-jAV"/>
+                        <constraint firstItem="Sed-Hq-1gx" firstAttribute="centerX" secondItem="FV6-8p-wdu" secondAttribute="centerX" id="rrI-ba-4TB"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VoQ-6N-iaP">
