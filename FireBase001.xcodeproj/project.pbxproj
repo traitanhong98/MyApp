@@ -178,6 +178,8 @@
 		20E35E482493EFC100B2EB3C /* TardisCommonMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20E35E462493EFC100B2EB3C /* TardisCommonMenuCollectionViewCell.xib */; };
 		20F4555C2482918500B9B989 /* TardisHourCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F4555A2482918500B9B989 /* TardisHourCollectionViewCell.swift */; };
 		20F4555D2482918500B9B989 /* TardisHourCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F4555B2482918500B9B989 /* TardisHourCollectionViewCell.xib */; };
+		20F8EE2E24C0BE5500079014 /* TardisActivityAddCheckListPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F8EE2C24C0BE5500079014 /* TardisActivityAddCheckListPopup.swift */; };
+		20F8EE2F24C0BE5500079014 /* TardisActivityAddCheckListPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20F8EE2D24C0BE5500079014 /* TardisActivityAddCheckListPopup.xib */; };
 		2639D3390EFBE74815ACF4F2 /* Pods_FireBase001.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 459BCA57F61586F03A291228 /* Pods_FireBase001.framework */; };
 		7E9DE09F5AFE1A5C4FACCDE8 /* Pods_FireBase001_FireBase001UITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02A455F613E5667FFEC978B /* Pods_FireBase001_FireBase001UITests.framework */; };
 /* End PBXBuildFile section */
@@ -368,6 +370,8 @@
 		20E35E462493EFC100B2EB3C /* TardisCommonMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisCommonMenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		20F4555A2482918500B9B989 /* TardisHourCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisHourCollectionViewCell.swift; sourceTree = "<group>"; };
 		20F4555B2482918500B9B989 /* TardisHourCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisHourCollectionViewCell.xib; sourceTree = "<group>"; };
+		20F8EE2C24C0BE5500079014 /* TardisActivityAddCheckListPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TardisActivityAddCheckListPopup.swift; sourceTree = "<group>"; };
+		20F8EE2D24C0BE5500079014 /* TardisActivityAddCheckListPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TardisActivityAddCheckListPopup.xib; sourceTree = "<group>"; };
 		459BCA57F61586F03A291228 /* Pods_FireBase001.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireBase001.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF97F7ADB2E9D0AA770BBB8 /* Pods-FireBase001-FireBase001UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBase001-FireBase001UITests.release.xcconfig"; path = "Target Support Files/Pods-FireBase001-FireBase001UITests/Pods-FireBase001-FireBase001UITests.release.xcconfig"; sourceTree = "<group>"; };
 		8E987AFC059FEF60EDA1DB7F /* Pods-FireBase001.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireBase001.debug.xcconfig"; path = "Target Support Files/Pods-FireBase001/Pods-FireBase001.debug.xcconfig"; sourceTree = "<group>"; };
@@ -935,6 +939,8 @@
 			isa = PBXGroup;
 			children = (
 				20C4AD6624A6640D00DC938C /* TardisScheduleDetailPopup */,
+				20F8EE2C24C0BE5500079014 /* TardisActivityAddCheckListPopup.swift */,
+				20F8EE2D24C0BE5500079014 /* TardisActivityAddCheckListPopup.xib */,
 			);
 			path = TardisSchedulePopup;
 			sourceTree = "<group>";
@@ -1192,6 +1198,7 @@
 				2093A6BF24B1EC4E007E905C /* TardisNotLoginViewController.xib in Resources */,
 				208402CB24AA438600356F1B /* TardisScheduleInfoPopupTableViewCell.xib in Resources */,
 				2070A10A24A897E1004A4963 /* TardisCalendarPickerDayCollectionViewCell.xib in Resources */,
+				20F8EE2F24C0BE5500079014 /* TardisActivityAddCheckListPopup.xib in Resources */,
 				20E35E402493EF8C00B2EB3C /* TardisNotLoginMenuCollectionViewCell.xib in Resources */,
 				2093A69324B1A512007E905C /* TardisChannelContentViewController.xib in Resources */,
 				20635B13249E493B00E4BC18 /* TardisDatePickerViewController.xib in Resources */,
@@ -1336,6 +1343,7 @@
 				2083CE8E2487DF6200F5BB23 /* TardisSignupViewController.swift in Sources */,
 				2093A69224B1A512007E905C /* TardisChannelContentViewController.swift in Sources */,
 				201252352469A14600706C9D /* BaseViewController.swift in Sources */,
+				20F8EE2E24C0BE5500079014 /* TardisActivityAddCheckListPopup.swift in Sources */,
 				2093A6CB24B2038F007E905C /* TardisChannelCheckListTableViewCell.swift in Sources */,
 				2093A6C224B1FD24007E905C /* AddCheckListPopup.swift in Sources */,
 				208AFF8A247D5D5400363260 /* TardisSettingTableViewCell.swift in Sources */,

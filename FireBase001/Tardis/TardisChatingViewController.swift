@@ -160,7 +160,23 @@ extension TardisChatingViewController: MessagesDataSource {
     func cellTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
         return 16
     }
-    
+    func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
+        TardisBaseRequestModel.shared.getUser(UID: message.sender.senderId) { (status, user) in
+            if status {
+                if user.imageUrl.count > 0 {
+                    let url = URL(string: user.imageUrl)
+                    CommonFunction.getData(from: url!, completion: { (data, res, err) in
+                        if err != nil {
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            avatarView.image = UIImage(data: data!)
+                        }
+                    })
+                }
+            }
+        }
+    }
 }
 
 // MARK: - MessageInputBarDelegate

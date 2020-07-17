@@ -26,34 +26,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Làm việc hăng say, hái ngay kết quả ......" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyg-pK-iER">
-                                <rect key="frame" x="16" y="42" width="475" height="36.5"/>
+                                <rect key="frame" x="16" y="42" width="475" height="18.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.1450980392" blue="0.30196078430000001" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGa-rt-H3M">
-                                <rect key="frame" x="16" y="84.5" width="475" height="1"/>
+                                <rect key="frame" x="16" y="66.5" width="475" height="1"/>
                                 <color key="backgroundColor" red="0.0" green="0.1450980392" blue="0.30196078430000001" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="g4p-bD-Fdn"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="05/02/1998" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1v-Hd-ytZ">
-                                <rect key="frame" x="390.5" y="91.5" width="100.5" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="05/02/1998" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1v-Hd-ytZ">
+                                <rect key="frame" x="408.5" y="73.5" width="82.5" height="18.5"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:20 - 12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qn-Ph-pYh">
-                                <rect key="frame" x="283" y="92.5" width="99.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="316.5" y="74.5" width="84" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="x1v-Hd-ytZ" secondAttribute="bottom" constant="6" id="Evl-HM-A50"/>
                             <constraint firstAttribute="trailing" secondItem="NGa-rt-H3M" secondAttribute="trailing" constant="16" id="Ixa-jV-ans"/>
                             <constraint firstItem="NGa-rt-H3M" firstAttribute="top" secondItem="Zyg-pK-iER" secondAttribute="bottom" constant="6" id="Lum-2i-C0Z"/>
                             <constraint firstItem="x1v-Hd-ytZ" firstAttribute="leading" secondItem="7qn-Ph-pYh" secondAttribute="trailing" constant="8" id="MYC-Mk-1W0"/>
@@ -65,6 +64,7 @@
                             <constraint firstItem="x1v-Hd-ytZ" firstAttribute="top" secondItem="NGa-rt-H3M" secondAttribute="bottom" constant="6" id="efn-W3-n8j"/>
                             <constraint firstItem="x1v-Hd-ytZ" firstAttribute="trailing" secondItem="NGa-rt-H3M" secondAttribute="trailing" id="jEP-ds-UQa"/>
                             <constraint firstItem="7qn-Ph-pYh" firstAttribute="centerY" secondItem="x1v-Hd-ytZ" secondAttribute="centerY" id="mGi-KZ-0gn"/>
+                            <constraint firstItem="7qn-Ph-pYh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vS0-Ls-6Ny" secondAttribute="leading" constant="16" id="xfO-6D-WCl"/>
                             <constraint firstItem="gyC-yo-m91" firstAttribute="leading" secondItem="vS0-Ls-6Ny" secondAttribute="leading" constant="16" id="y9d-Hq-bEk"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>

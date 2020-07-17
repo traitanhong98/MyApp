@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisScheduleInfoPopup" customModule="FireBase001" customModuleProvider="target">
             <connections>
                 <outlet property="addButton" destination="P9K-Hj-FmW" id="2Q4-9W-Nfs"/>
+                <outlet property="addCheckListButton" destination="zHi-He-0qU" id="juH-Vs-YSA"/>
                 <outlet property="checkListBlock" destination="Wqt-Yc-3ge" id="ScH-GM-58X"/>
                 <outlet property="checkListTableView" destination="Lvr-Wn-kzy" id="NBG-2h-NmT"/>
                 <outlet property="closeButton" destination="EgG-Mv-NfC" id="wW7-vb-9HY"/>
@@ -264,6 +265,9 @@
                                                     <state key="normal" image="plus.circle.fill" catalog="system">
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="addCheckListAction:" destination="-1" eventType="touchUpInside" id="RnM-hG-xx8"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>

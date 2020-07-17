@@ -16,6 +16,7 @@ protocol TardisScheduleInfoPopupDelegate: class {
 class TardisScheduleInfoPopup: TardisBasePopupViewController {
 
     // MARK: - IBOutlet
+    @IBOutlet weak var addCheckListButton: UIButton!
     @IBOutlet weak var containerView: TardisView!
     @IBOutlet weak var nameBlock: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -104,6 +105,11 @@ class TardisScheduleInfoPopup: TardisBasePopupViewController {
         hide()
         guard let delegate = delegate else { return }
         delegate.deleteAction(withObject: schedule)
+    }
+    @IBAction func addCheckListAction(_ sender: Any) {
+        let addPopup = TardisActivityAddCheckListPopup()
+        addPopup.delegate = self
+        addPopup.show()
     }
     @IBAction func acceptAction(_ sender: Any) {
         hide()
@@ -220,5 +226,11 @@ extension TardisScheduleInfoPopup: TardisCalendarPickerViewControllerDelegate {
                 break
             }
         }
+    }
+}
+extension TardisScheduleInfoPopup: TardisActivityAddCheckListPopupDelegate {
+    func acceptAction(checkList: [TardisCheckListObject]) {
+        schedule.checkList += checkList
+        checkListTableView.reloadData()
     }
 }

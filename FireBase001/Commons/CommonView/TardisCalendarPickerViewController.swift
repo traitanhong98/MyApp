@@ -32,7 +32,7 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
     var year = 1
     var weekDay: Weekday = Weekday.Mon
     var selectedIndex = [Int]()
-    var selectedDate = [String]()
+    var selectedDate = Set<String>()
     weak var delegate: TardisCalendarPickerViewControllerDelegate?
     var recognizeID = ""
     // MARK: - LifeCycle
@@ -92,7 +92,14 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
     @IBAction func acceptAction(_ sender: Any) {
         hide()
         guard let delegate = delegate else { return }
-        delegate.didSelectPickDate(dates: selectedDate, recognizeID: recognizeID)
+        var arrayDate = Array(selectedDate)
+        arrayDate.sort { (a, b) -> Bool in
+            let dayA = CommonFunction.changeDateFormat(dateString: a, fromFormat: "dd/MM/yyyy", toFormat: "yyyy/MM/dd")
+            let dayB = CommonFunction.changeDateFormat(dateString: b, fromFormat: "dd/MM/yyyy", toFormat: "yyyy/MM/dd")
+            print("\(dayA) and \(dayB) and \(dayA < dayB) ")
+            return dayA < dayB
+        }
+        delegate.didSelectPickDate(dates: arrayDate, recognizeID: recognizeID)
     }
     @IBAction func lastMonthAction(_ sender: Any) {
         if month == 1 {
@@ -128,7 +135,7 @@ class TardisCalendarPickerViewController: TardisBasePopupViewController {
         collum.round(.down)
         row.round(.down)
         let selected = dateWithIndex(index: Int(collum + row * 7))
-        selectedDate.append(CommonFunction.getDateString(fromDate: selected, andFormat: "dd/MM/yyyy"))
+        selectedDate.insert(CommonFunction.getDateString(fromDate: selected, andFormat: "dd/MM/yyyy"))
         monthDaysCollectionView.reloadData()
     }
 }
@@ -205,7 +212,7 @@ extension TardisCalendarPickerViewController:UICollectionViewDataSource,UICollec
             if selectedDate.contains(dateString) {
                 selectedDate.remove(at: selectedDate.firstIndex(of: dateString)!)
             } else {
-                selectedDate.append(dateString)
+                selectedDate.insert(dateString)
             }
             monthDaysCollectionView.reloadData()
         }

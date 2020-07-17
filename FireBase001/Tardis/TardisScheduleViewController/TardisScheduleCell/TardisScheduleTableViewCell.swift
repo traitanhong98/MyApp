@@ -18,7 +18,7 @@ class TardisScheduleTableViewCell: UITableViewCell {
         didSet{
             self.nameLabel.text = schedule?.name
             self.descriptionLabel.text = schedule?.des
-            self.dateLabel.text = schedule?.date
+            self.dateLabel.text = schedule!.startDay + " - " + schedule!.endDay
             self.timeLabel.text = schedule!.startTime + " - " + schedule!.endTime
         }
     }
