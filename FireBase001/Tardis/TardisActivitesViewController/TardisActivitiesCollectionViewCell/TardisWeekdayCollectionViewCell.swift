@@ -16,6 +16,7 @@ enum UsedTimeLevel {
 }
 protocol TardisWeekdayCollectionViewCellDelegate: class {
     func editActivity(activity: TardisActivityObject)
+    func deleteActivity(activity: TardisActivityObject)
 }
 
 class TardisWeekdayCollectionViewCell: UICollectionViewCell {
@@ -280,6 +281,10 @@ extension TardisWeekdayCollectionViewCell {
     }
 }
 extension TardisWeekdayCollectionViewCell: TardisAddNewActivityPopupDelegate{
+    func deleteAcvitity(activity: TardisActivityObject) {
+        guard let delegate = delegate else { return }
+        delegate.deleteActivity(activity: activity)
+    }
     func addActivity(activity: TardisActivityObject) {
         guard let delegate = delegate else { return }
         delegate.editActivity(activity: activity)

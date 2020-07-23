@@ -32,6 +32,17 @@ class TardisActivitiesRequestModel: NSObject {
             completionBlock(true)
         }
     }
+    func deleteAcvitity(activity: TardisActivityObject, completionBlock: @escaping (Bool)->Void) {
+        CommonFunction.showLoadingView()
+        firRef.child(UserInfo.getUID()).child(activity.id).removeValue { (err, ref) in
+            CommonFunction.hideLoadingView()
+            if err != nil {
+                completionBlock(false)
+                return
+            }
+            completionBlock(true)
+        }
+    }
     func observeAcvitityChange() {
         firRef.child(UserInfo.getUID()).observe(.childChanged) { (snapShot) in
             print(snapShot.description)

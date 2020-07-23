@@ -32,10 +32,10 @@ class TardisScheduleRequestModel: NSObject {
         }
     }
     func loadSchedule(completionBlock: @escaping (Bool,[TardisScheduleObject])->Void) {
-        var arraySchedules = [TardisScheduleObject]()
         CommonFunction.showLoadingView()
-        firRef.child(UserInfo.getUID()).observeSingleEvent(of: .value) { (snapShot) in
+        firRef.child(UserInfo.getUID()).observe(.value ,with: { (snapShot) in
             CommonFunction.hideLoadingView()
+            var arraySchedules = [TardisScheduleObject]()
             for child in snapShot.children {
                 guard let snap = child as? DataSnapshot else {
                     completionBlock(false,[])
@@ -54,7 +54,7 @@ class TardisScheduleRequestModel: NSObject {
                 arraySchedules.append(schedule)
             }
             completionBlock(true,arraySchedules)
-        }
+        })
     }
     func firObserveValue(completionBlock: @escaping (Bool,[TardisScheduleObject])->Void) {
         CommonFunction.showLoadingView()

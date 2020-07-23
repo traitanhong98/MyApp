@@ -26,12 +26,17 @@ class TardisActivitiesDataModel: NSObject {
         }
     }
     func separateActivity () {
+        CommonFunction.removeAllNoti()
         for activity in activitiesArray {
             if activity.loopDay.count > 0 {
                 let days = activity.loopDay.split(" ")
                 for day in days {
                     guard let index = Int(day) else {break}
                     dailyActivityArray[index].append(activity)
+                    if activity.isNotificaion {
+                        let systemWeekday = index + 2 > 7 ? index + 2 - 7 : index + 2
+                        CommonFunction.addNotification(activity: activity, weekDay: systemWeekday)
+                    }
                 }
             }
         }
@@ -46,6 +51,11 @@ class TardisActivitiesDataModel: NSObject {
             } else {
                 completionBlock(false)
             }
+        }
+    }
+    func deleteAcvitity(activity: TardisActivityObject, completionBlock: @escaping (Bool)->Void) {
+        requestModel.deleteAcvitity(activity: activity) { (status) in
+            completionBlock(status)
         }
     }
 

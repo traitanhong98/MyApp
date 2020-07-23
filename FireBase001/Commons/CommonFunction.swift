@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import Lottie
+import UserNotifications
 class CommonFunction {
     // MARK: - Image
     static func resizeImage (image: UIImage,targetSize: CGSize) -> UIImage {
@@ -179,6 +180,18 @@ class CommonFunction {
         return calendar.date(from: components) ?? Date()
         
     }
+    static func getMinute(fromTime time:String) -> Int {
+        let timeArr = time.split(":")
+        guard timeArr.count == 2 else { return 0 }
+        return (Int(timeArr[0]) ?? 0) * 60 + (Int(timeArr[1]) ?? 0)
+    }
+    static func getTime(fromMinute minute: Int) -> String{
+        var floatHour = Float(minute) / 60
+        floatHour.round(.down)
+        let hour = Int(floatHour)
+        let minute = minute - hour * 60
+        return "\(hour):\(minute)"
+    }
     // Đổi định dạng ngày tháng của một chuỗi date
     static func changeDateFormat(dateString:String, fromFormat rawFormat: String, toFormat resultFormat: String) -> String {
         let rawFormater = DateFormatter()
@@ -269,5 +282,68 @@ class CommonFunction {
     // MARK: - DownloadImage
     static func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
         URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    // MARK: - UserNotification
+    static func addNotification(activity: TardisActivityObject, weekDay: Int) {
+        
+        let center = UNUserNotificationCenter.current()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Việc cần làm bạn ơi"
+        content.body = "Sắp đến giờ \"\(activity.activityName)\""
+        content.sound = UNNotificationSound.default
+        var currentDate = ""
+        if activity.startDate.count == 0 {
+            currentDate = CommonFunction.getDateString(fromDate: Date(), andFormat: "dd/MM/yyyy")
+        } else {
+            currentDate = activity.startDate
+        }
+        let dateString = currentDate + " " + activity.startTime
+        let dateTime = CommonFunction.getDate(fromDateString: dateString, withFormat: "dd/MM/yyyy hh:mm")
+        
+        let minutes = CommonFunction.getMinute(fromTime: activity.startTime) - 5
+        var floatHour = Float(minutes) / 60
+        floatHour.round(.down)
+        let hour = Int(floatHour)
+        let minute = minutes - hour * 60
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "UTC")!
+        var dateComponent = DateComponents()
+        dateComponent.calendar = calendar
+        dateComponent.timeZone = TimeZone.current
+        dateComponent.year = 2020
+        dateComponent.month = 07
+        dateComponent.hour = hour
+        dateComponent.minute = minute
+        dateComponent.weekday = weekDay
+        let myAlarmTrigger = UNCalendarNotificationTrigger(dateMatching: dateComponent, repeats: true)
+        
+        let identifier = activity.id
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: myAlarmTrigger)
+        center.add(request, withCompletionHandler: { (error) in
+            if error != nil {
+                //TODO: Handle the error
+                print("Noti eff")
+                return
+            }
+            print("Noti Success")
+        })
+    }
+    static func removeAllNoti() {
+        let center = UNUserNotificationCenter.current()
+        center.removeAllPendingNotificationRequests()
+    }
+    static func addNotiAtDate() {
+        
+    }
+    static func addNoti() {
+        let content = UNMutableNotificationContent()
+        content.title = "Title"
+        content.body = "Body"
+        content.sound = UNNotificationSound.default
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let request = UNNotificationRequest(identifier: "TestIdentifier", content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
 }

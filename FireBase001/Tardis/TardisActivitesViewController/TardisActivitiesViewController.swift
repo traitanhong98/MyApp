@@ -110,6 +110,7 @@ class TardisActivitiesViewController: BaseTabViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         let popup = TardisAddNewActivityPopup()
         popup.delegate = self
+        
         popup.show()
     }
     @IBAction func leftMenuButton(_ sender: Any) {
@@ -156,6 +157,7 @@ extension TardisActivitiesViewController: UICollectionViewDelegate,UICollectionV
         switch collectionView {
         case weekdayCollectionView:
             if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TardisWeekdayCollectionViewCell", for: indexPath) as? TardisWeekdayCollectionViewCell {
+                cell.delegate = self
                 cell.bindData(weekDay: Weekday.getWeekday(index: indexPath.row), sizeRatio: sizeRatio, activities: dataModel.dailyActivityArray[indexPath.row],viewMode: viewMode)
                 return cell
             } else {
@@ -224,6 +226,10 @@ extension TardisActivitiesViewController {
     }
 }
 extension TardisActivitiesViewController:TardisAddNewActivityPopupDelegate {
+    func deleteAcvitity(activity: TardisActivityObject) {
+        print("hello")
+    }
+    
     func addActivity(activity: TardisActivityObject) {
         dataModel.addActivity(activity: activity) { (status) in
             if status {
@@ -236,6 +242,17 @@ extension TardisActivitiesViewController:TardisAddNewActivityPopupDelegate {
     }
 }
 extension TardisActivitiesViewController: TardisWeekdayCollectionViewCellDelegate {
+    func deleteActivity(activity: TardisActivityObject) {
+        dataModel.deleteAcvitity(activity: activity) { (status) in
+            if status {
+                CommonFunction.annoucement(title: "", message: "Xoá thành công")
+                self.weekdayCollectionView.reloadData()
+            } else {
+                CommonFunction.annoucement(title: "", message: "Xoá thất bại")
+            }
+        }
+    }
+    
     func editActivity(activity: TardisActivityObject) {
         dataModel.addActivity(activity: activity) { (status) in
             if status {

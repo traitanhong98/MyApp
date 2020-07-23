@@ -18,6 +18,9 @@ class TardisActivityObject: Mappable {
     var note:String             = ""
     var location:String         = ""
     var loopDay:String          = ""
+    var isNotificaion:Bool      = false
+    var startDate:String        = ""
+    var endDate:String          = ""
     init() {}
 
     required init?(map: Map) {}
@@ -29,6 +32,9 @@ class TardisActivityObject: Mappable {
         note            <- map["note"]
         location        <- map["location"]
         loopDay         <- map["loop_day"]
+        isNotificaion   <- map["isNotification"]
+        startDate       <- map["start_date"]
+        endDate         <- map["end_date"]
     }
     
     convenience init(activityName: String,startTime:String,endTime:String,note:String,location:String) {

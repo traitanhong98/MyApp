@@ -10,10 +10,13 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TardisAddNewActivityPopup" customModule="FireBase001" customModuleProvider="target">
             <connections>
                 <outlet property="addButton" destination="eX9-tg-Pgd" id="XiM-LA-2W6"/>
+                <outlet property="adviceBlock" destination="N1B-z4-bFc" id="2ub-nc-VMj"/>
+                <outlet property="adviceLabel" destination="Frb-2N-JUY" id="0oz-ff-bnY"/>
                 <outlet property="backButton" destination="DLB-5N-gae" id="H8B-3S-dgn"/>
                 <outlet property="closeButton" destination="139-9H-zn2" id="UmF-eA-Mnf"/>
                 <outlet property="containerView" destination="mpy-DY-qCm" id="ASd-Mu-tWS"/>
                 <outlet property="contentView" destination="RKu-WP-goD" id="Du3-Ax-uZb"/>
+                <outlet property="deleteActivityButton" destination="r1g-wF-YXA" id="8rD-Lj-5ds"/>
                 <outlet property="enableNotificationButton" destination="KBN-n6-LLW" id="UlX-bn-Aeh"/>
                 <outlet property="endTimeTextField" destination="Wkl-tA-JuO" id="KFW-Dn-tqU"/>
                 <outlet property="nameTextField" destination="GRS-qa-2O2" id="G74-we-mMc"/>
@@ -146,6 +149,65 @@
                                                 <constraint firstItem="Wkl-tA-JuO" firstAttribute="width" secondItem="FjG-5e-tyf" secondAttribute="width" id="w5x-0e-hnj"/>
                                             </constraints>
                                         </view>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KrP-E8-VcU">
+                                            <rect key="frame" x="0.0" y="156" width="334" height="100"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày bắt đầu:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KrI-98-wMX">
+                                                    <rect key="frame" x="16" y="16" width="107" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ddk-PX-4Dr">
+                                                    <rect key="frame" x="134" y="6" width="150" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="djt-Ej-3ws"/>
+                                                        <constraint firstAttribute="width" constant="150" id="i5y-IE-67H"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ngày kết thúc:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xxj-9P-zAs">
+                                                    <rect key="frame" x="16" y="64" width="111" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bXl-Ve-Epy">
+                                                    <rect key="frame" x="134" y="54" width="150" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="QDN-on-8NK"/>
+                                                        <constraint firstAttribute="width" constant="150" id="tqE-6A-3iB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tO3-nk-2Wa">
+                                                    <rect key="frame" x="284" y="30" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="DCe-lF-cNo"/>
+                                                        <constraint firstAttribute="height" constant="40" id="Wbi-UY-1A7"/>
+                                                    </constraints>
+                                                    <state key="normal" image="calendar" catalog="system">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstItem="tO3-nk-2Wa" firstAttribute="centerY" secondItem="KrP-E8-VcU" secondAttribute="centerY" id="36L-hH-i69"/>
+                                                <constraint firstItem="Xxj-9P-zAs" firstAttribute="centerY" secondItem="bXl-Ve-Epy" secondAttribute="centerY" id="9gj-fR-toD"/>
+                                                <constraint firstItem="ddk-PX-4Dr" firstAttribute="top" secondItem="KrP-E8-VcU" secondAttribute="top" constant="6" id="Nm2-4c-xPN"/>
+                                                <constraint firstItem="KrI-98-wMX" firstAttribute="leading" secondItem="KrP-E8-VcU" secondAttribute="leading" constant="16" id="PFe-X8-oio"/>
+                                                <constraint firstAttribute="trailing" secondItem="bXl-Ve-Epy" secondAttribute="trailing" constant="50" id="cFt-0R-uUw"/>
+                                                <constraint firstItem="Xxj-9P-zAs" firstAttribute="leading" secondItem="KrP-E8-VcU" secondAttribute="leading" constant="16" id="e1r-WA-QDr"/>
+                                                <constraint firstAttribute="trailing" secondItem="tO3-nk-2Wa" secondAttribute="trailing" constant="10" id="hib-V8-W6Y"/>
+                                                <constraint firstItem="bXl-Ve-Epy" firstAttribute="top" secondItem="ddk-PX-4Dr" secondAttribute="bottom" constant="8" id="rQm-wg-5fG"/>
+                                                <constraint firstItem="ddk-PX-4Dr" firstAttribute="centerY" secondItem="KrI-98-wMX" secondAttribute="centerY" id="tGr-GW-nU0"/>
+                                                <constraint firstAttribute="trailing" secondItem="ddk-PX-4Dr" secondAttribute="trailing" constant="50" id="uMb-CA-I7g"/>
+                                                <constraint firstAttribute="bottom" secondItem="bXl-Ve-Epy" secondAttribute="bottom" constant="6" id="zAE-vV-7OY"/>
+                                            </constraints>
+                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qOR-hH-Eos" userLabel="NoteBlock">
                                             <rect key="frame" x="0.0" y="156" width="334" height="146"/>
                                             <subviews>
@@ -185,6 +247,25 @@
                                                 <constraint firstItem="BdV-Qi-syL" firstAttribute="leading" secondItem="qOR-hH-Eos" secondAttribute="leading" constant="20" id="UTB-eW-pKF"/>
                                                 <constraint firstItem="BdV-Qi-syL" firstAttribute="top" secondItem="vyQ-55-9Lq" secondAttribute="bottom" constant="1" id="ebm-MN-aCf"/>
                                                 <constraint firstItem="vyQ-55-9Lq" firstAttribute="top" secondItem="qOR-hH-Eos" secondAttribute="top" constant="8" id="iXE-fJ-SdT"/>
+                                            </constraints>
+                                        </view>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1B-z4-bFc">
+                                            <rect key="frame" x="0.0" y="302" width="334" height="20"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bạn không nên đi ngủ quá muộn" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Frb-2N-JUY">
+                                                    <rect key="frame" x="16" y="4" width="302" height="12"/>
+                                                    <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="14"/>
+                                                    <color key="textColor" red="0.0" green="0.1333333333" blue="0.27450980390000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <constraints>
+                                                <constraint firstItem="Frb-2N-JUY" firstAttribute="centerY" secondItem="N1B-z4-bFc" secondAttribute="centerY" id="Fpv-Vc-vfK"/>
+                                                <constraint firstAttribute="height" constant="20" id="MSz-jV-SIv"/>
+                                                <constraint firstItem="Frb-2N-JUY" firstAttribute="top" secondItem="N1B-z4-bFc" secondAttribute="top" constant="4" id="WNa-BM-BSk"/>
+                                                <constraint firstAttribute="trailing" secondItem="Frb-2N-JUY" secondAttribute="trailing" constant="16" id="XEM-q8-OdP"/>
+                                                <constraint firstItem="Frb-2N-JUY" firstAttribute="leading" secondItem="N1B-z4-bFc" secondAttribute="leading" constant="16" id="v0m-W1-OM4"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDO-YU-Wet">
@@ -245,78 +326,103 @@
                             </userDefinedRuntimeAttributes>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SL-2B-UZ7" userLabel="Buttons" customClass="TardisView" customModule="FireBase001" customModuleProvider="target">
-                            <rect key="frame" x="105" y="600" width="204" height="44"/>
+                            <rect key="frame" x="65" y="600" width="284" height="44"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-n6-LLW" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="82" y="2" width="40" height="40"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="3jb-VJ-SRQ"/>
-                                        <constraint firstAttribute="width" constant="40" id="94D-Mo-cti"/>
-                                    </constraints>
-                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" image="bell.circle.fill" catalog="system">
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="20"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX9-tg-Pgd" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="162" y="2" width="40" height="40"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="bRe-gk-NCG"/>
-                                        <constraint firstAttribute="width" constant="40" id="qgH-ZV-oSr"/>
-                                    </constraints>
-                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" image="pencil.circle.fill" catalog="system">
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="20"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="1uj-oq-IKH"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-5N-gae" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
-                                    <rect key="frame" x="2" y="2" width="40" height="40"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="40" id="5Kp-Dq-w1z"/>
-                                        <constraint firstAttribute="width" constant="40" id="g1b-f7-GzB"/>
-                                    </constraints>
-                                    <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <state key="normal" image="xmark.circle.fill" catalog="system">
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="20"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="i6n-Qe-gkH"/>
-                                    </connections>
-                                </button>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="s6A-yf-Itk">
+                                    <rect key="frame" x="2" y="2" width="280" height="40"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-5N-gae" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="5Kp-Dq-w1z"/>
+                                                <constraint firstAttribute="width" constant="40" id="g1b-f7-GzB"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="xmark.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="backAction:" destination="-1" eventType="touchUpInside" id="i6n-Qe-gkH"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBN-n6-LLW" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                            <rect key="frame" x="80" y="0.0" width="40" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="3jb-VJ-SRQ"/>
+                                                <constraint firstAttribute="width" constant="40" id="94D-Mo-cti"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="bell.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="notificationAction:" destination="-1" eventType="touchUpInside" id="Lmr-PO-sej"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1g-wF-YXA" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                            <rect key="frame" x="160" y="0.0" width="40" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="flo-HL-d2k"/>
+                                                <constraint firstAttribute="height" constant="40" id="r5s-cj-KzL"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="trash.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="deleteAction:" destination="-1" eventType="touchUpInside" id="IGp-Th-ndH"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eX9-tg-Pgd" customClass="TardisButton" customModule="FireBase001" customModuleProvider="target">
+                                            <rect key="frame" x="240" y="0.0" width="40" height="40"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="bRe-gk-NCG"/>
+                                                <constraint firstAttribute="width" constant="40" id="qgH-ZV-oSr"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.0" green="0.14499999999999999" blue="0.30199999999999999" alpha="0.94772046229999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" image="pencil.circle.fill" catalog="system">
+                                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="40"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="20"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="1uj-oq-IKH"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstItem="KBN-n6-LLW" firstAttribute="leading" secondItem="DLB-5N-gae" secondAttribute="trailing" constant="40" id="Am4-bU-5Xd"/>
-                                <constraint firstItem="KBN-n6-LLW" firstAttribute="centerY" secondItem="6SL-2B-UZ7" secondAttribute="centerY" id="KZ6-fR-gv0"/>
-                                <constraint firstItem="DLB-5N-gae" firstAttribute="centerY" secondItem="6SL-2B-UZ7" secondAttribute="centerY" id="LPN-mJ-88V"/>
-                                <constraint firstItem="KBN-n6-LLW" firstAttribute="centerX" secondItem="6SL-2B-UZ7" secondAttribute="centerX" id="Lw4-Nl-xSn"/>
-                                <constraint firstItem="DLB-5N-gae" firstAttribute="leading" secondItem="6SL-2B-UZ7" secondAttribute="leading" constant="2" id="Rdv-8E-OMK"/>
-                                <constraint firstItem="eX9-tg-Pgd" firstAttribute="leading" secondItem="KBN-n6-LLW" secondAttribute="trailing" constant="40" id="fEC-nw-NaG"/>
-                                <constraint firstItem="eX9-tg-Pgd" firstAttribute="centerY" secondItem="6SL-2B-UZ7" secondAttribute="centerY" id="pjj-Er-T2j"/>
+                                <constraint firstItem="s6A-yf-Itk" firstAttribute="top" secondItem="6SL-2B-UZ7" secondAttribute="top" constant="2" id="3ih-x8-huB"/>
+                                <constraint firstItem="s6A-yf-Itk" firstAttribute="leading" secondItem="6SL-2B-UZ7" secondAttribute="leading" constant="2" id="G7c-Cp-IkU"/>
+                                <constraint firstAttribute="trailing" secondItem="s6A-yf-Itk" secondAttribute="trailing" constant="2" id="Lx5-Fg-2pg"/>
+                                <constraint firstAttribute="bottom" secondItem="s6A-yf-Itk" secondAttribute="bottom" constant="2" id="did-Yd-zxs"/>
                                 <constraint firstAttribute="height" constant="44" id="qPX-Ha-mh7"/>
-                                <constraint firstAttribute="trailing" secondItem="eX9-tg-Pgd" secondAttribute="trailing" constant="2" id="sfi-c1-sm9"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -354,7 +460,9 @@
     </objects>
     <resources>
         <image name="bell.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="calendar" catalog="system" width="64" height="52"/>
         <image name="pencil.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="trash.circle.fill" catalog="system" width="64" height="60"/>
         <image name="xmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
 </document>

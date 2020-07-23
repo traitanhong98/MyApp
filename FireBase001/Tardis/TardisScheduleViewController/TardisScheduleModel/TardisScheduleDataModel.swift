@@ -23,7 +23,6 @@ class TardisScheduleDataModel: NSObject {
     func addSchedule(schedule: TardisScheduleObject, completionBlock: @escaping (Bool)->Void) {
         requestModel.addSchedule(schedule: schedule) { (status, schedule) in
             if status {
-                self.listSchedules.append(schedule)
                 completionBlock(true)
             } else {
                 completionBlock(false)
@@ -35,7 +34,13 @@ class TardisScheduleDataModel: NSObject {
         requestModel.loadSchedule { (status, listSchedule) in
             if status {
                 self.listSchedules.removeAll()
-                self.listSchedules = listSchedule
+                self.listSchedules = listSchedule.sorted(by: { (a, b) -> Bool in
+                    let dateA = CommonFunction.getDate(fromDateString: "\(a.startDay)", withFormat: "dd/MM/yyyy")
+                    let dateB = CommonFunction.getDate(fromDateString: "\(b.startDay)", withFormat: "dd/MM/yyyy")
+                    let intervalA = dateA.timeIntervalSince1970
+                    let intervalB = dateB.timeIntervalSince1970
+                    return intervalA < intervalB
+                })
                 completionBlock(true)
             } else {
                 completionBlock(false)

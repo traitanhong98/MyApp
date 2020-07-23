@@ -43,6 +43,7 @@ class TardisSignupViewController: UIViewController {
             if status {
                 CommonFunction.annoucement(title: "", message: "Đăng ký thành công")
                 self.navigationController?.popToRootViewController(animated: true)
+                CommonFunction.rootVC.initTabbar()
             } else {
                 CommonFunction.annoucement(title: "", message: "Đăng ký thất bại")
             }

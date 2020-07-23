@@ -9,6 +9,8 @@
 import UIKit
 import Firebase
 import MapKit
+import UserNotifications
+
 class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDelegate {
     // MARK: - Propeties
     static var viewOfMainTabbar: UIView?
@@ -27,7 +29,7 @@ class TardisMainTabbarViewController: LGSideMenuController,UIGestureRecognizerDe
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         initTabbar()
         TardisMainTabbarViewController.viewOfMainTabbar = self.view
         configLocation()

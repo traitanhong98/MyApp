@@ -217,6 +217,9 @@ extension TardisScheduleInfoPopup: TardisCalendarPickerViewControllerDelegate {
             startDayTextField.text = dates[0]
             endDayTextField.text = dates.last ?? ""
         } else {
+            guard dates.count > 0 else {
+                return
+            }
             switch recognizeID {
             case "startDay":
                 startDayTextField.text = dates[0]

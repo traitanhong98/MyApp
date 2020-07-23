@@ -8,10 +8,11 @@
 
 import UIKit
 import Firebase
+import UserNotifications
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    let center = UNUserNotificationCenter.current()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
@@ -20,6 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TardisBaseRequestModel.shared.getCurrentUserInfo()
             TardisBaseRequestModel.shared.updateUserLoginStatus(true)
         }
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            // Enable or disable features based on authorization.
+            if error != nil {
+                print("Request authorization failed!")
+            } else {
+                print("Request authorization succeeded!")
+            }
+        }
+        UNUserNotificationCenter.current().delegate = self
+//        CommonFunction.addNoti()
         return true
     }
 
@@ -44,6 +56,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
         
+    }
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(UNNotificationPresentationOptions.init(arrayLiteral: [.alert, .sound]))
     }
 }
 
