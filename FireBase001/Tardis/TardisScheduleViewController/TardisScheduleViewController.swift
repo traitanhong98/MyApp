@@ -38,7 +38,7 @@ class TardisScheduleViewController: BaseTabViewController {
     }
     // MARK: - Func
     func observeSchedule() {
-        dataModel.firObserveSchedule { (status) in
+        dataModel.loadSchedule { (status) in
             if status {
                 CommonFunction.annoucement(title: "", message: "Load dữ liệu thành công")
             } else {
@@ -82,6 +82,9 @@ extension TardisScheduleViewController: UITableViewDelegate,UITableViewDataSourc
             return UITableViewCell()
         }
         cell.bindData(schedule: dataModel.listSchedules[indexPath.row])
+        let dateA = CommonFunction.getDate(fromDateString: dataModel.listSchedules[indexPath.row].endDay, withFormat: "dd/MM/yyyy")
+        let intervalA = dateA.timeIntervalSince1970
+        cell.expiredLabel.isHidden = intervalA > Date().timeIntervalSince1970
         return cell
     }
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

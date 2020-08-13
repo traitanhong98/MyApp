@@ -50,6 +50,12 @@
                                 <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Đã hết hạn" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaa-cv-y4s">
+                                <rect key="frame" x="408" y="16" width="83" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -61,11 +67,13 @@
                             <constraint firstItem="NGa-rt-H3M" firstAttribute="leading" secondItem="vS0-Ls-6Ny" secondAttribute="leading" constant="16" id="OhG-D2-25k"/>
                             <constraint firstItem="Zyg-pK-iER" firstAttribute="top" secondItem="gyC-yo-m91" secondAttribute="bottom" constant="6" id="RcL-rY-NiA"/>
                             <constraint firstItem="gyC-yo-m91" firstAttribute="top" secondItem="vS0-Ls-6Ny" secondAttribute="top" constant="10" id="RrA-56-bWY"/>
+                            <constraint firstAttribute="trailing" secondItem="uaa-cv-y4s" secondAttribute="trailing" constant="16" id="Tew-5H-V47"/>
                             <constraint firstItem="x1v-Hd-ytZ" firstAttribute="top" secondItem="NGa-rt-H3M" secondAttribute="bottom" constant="6" id="efn-W3-n8j"/>
                             <constraint firstItem="x1v-Hd-ytZ" firstAttribute="trailing" secondItem="NGa-rt-H3M" secondAttribute="trailing" id="jEP-ds-UQa"/>
                             <constraint firstItem="7qn-Ph-pYh" firstAttribute="centerY" secondItem="x1v-Hd-ytZ" secondAttribute="centerY" id="mGi-KZ-0gn"/>
                             <constraint firstItem="7qn-Ph-pYh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="vS0-Ls-6Ny" secondAttribute="leading" constant="16" id="xfO-6D-WCl"/>
                             <constraint firstItem="gyC-yo-m91" firstAttribute="leading" secondItem="vS0-Ls-6Ny" secondAttribute="leading" constant="16" id="y9d-Hq-bEk"/>
+                            <constraint firstItem="uaa-cv-y4s" firstAttribute="top" secondItem="vS0-Ls-6Ny" secondAttribute="top" constant="16" id="zTP-Y1-JQA"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -96,6 +104,7 @@
             <connections>
                 <outlet property="dateLabel" destination="x1v-Hd-ytZ" id="62s-HZ-OIu"/>
                 <outlet property="descriptionLabel" destination="Zyg-pK-iER" id="mnr-My-ldj"/>
+                <outlet property="expiredLabel" destination="uaa-cv-y4s" id="kZH-ga-JyS"/>
                 <outlet property="nameLabel" destination="gyC-yo-m91" id="fOO-QQ-qVA"/>
                 <outlet property="timeLabel" destination="7qn-Ph-pYh" id="1gV-61-siS"/>
             </connections>

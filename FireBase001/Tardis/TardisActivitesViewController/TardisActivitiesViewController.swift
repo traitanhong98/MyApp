@@ -110,7 +110,7 @@ class TardisActivitiesViewController: BaseTabViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         let popup = TardisAddNewActivityPopup()
         popup.delegate = self
-        
+        popup.isHiddenDeleteButton = true
         popup.show()
     }
     @IBAction func leftMenuButton(_ sender: Any) {
@@ -233,6 +233,7 @@ extension TardisActivitiesViewController:TardisAddNewActivityPopupDelegate {
     func addActivity(activity: TardisActivityObject) {
         dataModel.addActivity(activity: activity) { (status) in
             if status {
+                CommonFunction.addNoti(title: "Việc cần làm bạn ơi", body: "Sắp đến giờ: \(activity.activityName)")
                 CommonFunction.annoucement(title: "", message: "Thêm mới thành công")
                 self.weekdayCollectionView.reloadData()
             } else {

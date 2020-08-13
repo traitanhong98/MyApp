@@ -336,10 +336,10 @@ class CommonFunction {
     static func addNotiAtDate() {
         
     }
-    static func addNoti() {
+    static func addNoti(title: String, body: String) {
         let content = UNMutableNotificationContent()
-        content.title = "Title"
-        content.body = "Body"
+        content.title = title
+        content.body = body
         content.sound = UNNotificationSound.default
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)

@@ -10,6 +10,7 @@ import UIKit
 
 class TardisScheduleTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var expiredLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
